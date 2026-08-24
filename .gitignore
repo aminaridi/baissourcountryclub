@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.DS_Store
+site/assets/t*q*_*.jpg
+site/assets/w[0-9]*_*.jpg
+menu/assets/web_*.jpg

@@ -1,0 +1,654 @@
+{
+ "brand": {
+  "name_en": "Baissour Country Club",
+  "name_ar": "منتجع بيصور السياحي",
+  "abbr": "BCC",
+  "tagline_en": "Restaurant · Chalets · Camp",
+  "tagline_ar": "مطعم · شاليهات · تخييم",
+  "sub_en": "Riverside dining in the heart of Mount Lebanon",
+  "sub_ar": "سفرة ع ضفة النهر بقلب جبل لبنان",
+  "disclaimer_en": "Prices are subject to surcharge due to the financial situation.",
+  "disclaimer_ar": "نظراً للظروف الراهنة، الأسعار قابلة للتغيير."
+ },
+ "sections": [
+  {
+   "id": "breakfast",
+   "en": "Breakfast",
+   "ar": "التروقة",
+   "script": "عالصبحية",
+   "img": "breakfast",
+   "note_en": "Served daily until 12:00 with fresh bread, olives & vegetables.",
+   "note_ar": "تقدم يومياً حتى الظهر مع خبز طازج وزيتون وخضرة.",
+   "items": [
+    {
+     "en": "Labne & Zaatar Plate",
+     "ar": "صحن لبنة وزعتر",
+     "den": "Creamy baladi labne with olive oil, zaatar, olives and fresh vegetables.",
+     "dar": "لبنة بلدية كريمية مع زيت زيتون وزعتر وزيتون وخضرة طازجة.",
+     "price": "4.50"
+    },
+    {
+     "en": "Foul Mdammas",
+     "ar": "فول مدمس",
+     "den": "Slow-simmered fava beans with lemon, garlic and olive oil.",
+     "dar": "فول مطبوخ على مهل مع حامض وثوم وزيت زيتون.",
+     "price": "4.50"
+    },
+    {
+     "en": "Balila",
+     "ar": "بليلة",
+     "den": "Warm chickpeas with cumin, lemon and a generous pour of olive oil.",
+     "dar": "حمص حب دافئ مع كمون وحامض وزيت زيتون عالآخر.",
+     "price": "4.50"
+    },
+    {
+     "en": "Eggs w Awarma",
+     "ar": "بيض بقاورما",
+     "den": "Village eggs fried in baladi awarma. Mountain fuel.",
+     "dar": "بيض بلدي مقلي بالقاورما البلدية. وقود الجبل.",
+     "price": "4.50"
+    },
+    {
+     "en": "Ejjeh Baladiye",
+     "ar": "عجة بلدية",
+     "den": "Herb and onion omelette the way the villages make it.",
+     "dar": "عجة بالبقدونس والنعناع والبصل على طريقة الضيعة.",
+     "price": "4.50"
+    },
+    {
+     "en": "Kishik w Awarma",
+     "ar": "كشك وقاورما",
+     "den": "Creamy village kishik cooked with awarma and garlic.",
+     "dar": "كشك بلدي كريمي مطبوخ مع القاورما والثوم.",
+     "price": "4.50"
+    }
+   ]
+  },
+  {
+   "id": "saj",
+   "en": "From the Saj",
+   "ar": "من الصاج",
+   "script": "عالماشي",
+   "img": "saj",
+   "items": [
+    {
+     "en": "Manousheh Zaatar",
+     "ar": "منقوشة زعتر",
+     "den": "Zaatar and olive oil on fresh saj dough, straight off the fire.",
+     "dar": "زعتر وزيت زيتون على عجينة صاج طازجة، لسا عالنار.",
+     "price": "2.75"
+    },
+    {
+     "en": "Manousheh Jibne",
+     "ar": "منقوشة جبنة",
+     "den": "Melting Akkawi cheese folded in hot saj bread.",
+     "dar": "جبنة عكاوي ذايبة بخبز الصاج السخن.",
+     "price": "3.50"
+    },
+    {
+     "en": "Manousheh Kishik",
+     "ar": "منقوشة كشك",
+     "den": "Kishik, tomato, onion and sesame on the saj.",
+     "dar": "كشك مع بندورة وبصل وسمسم على الصاج.",
+     "price": "3.25"
+    },
+    {
+     "en": "Lahm b'Ajin",
+     "ar": "لحم بعجين",
+     "den": "Thin dough topped with spiced minced meat and a touch of dibs rimman.",
+     "dar": "عجينة رقيقة مع لحمة مفرومة متبلة ولمسة دبس رمان.",
+     "price": "3.50"
+    },
+    {
+     "en": "Halloumi & Veggies Saj",
+     "ar": "صاج حلوم وخضرة",
+     "den": "Grilled halloumi with tomato, cucumber and fresh mint.",
+     "dar": "حلوم مشوي مع بندورة وخيار ونعناع طازج.",
+     "price": "3.50"
+    },
+    {
+     "en": "Labne Saj Wrap",
+     "ar": "عربة لبنة",
+     "den": "Labne, olives, mint and vegetables rolled in saj bread.",
+     "dar": "لبنة مع زيتون ونعناع وخضرة ملفوفة بخبز الصاج.",
+     "price": "3"
+    }
+   ]
+  },
+  {
+   "id": "appetizers",
+   "en": "Appetizers",
+   "ar": "مقبلات",
+   "script": "عالخفيف",
+   "img": "appetizers",
+   "items": [
+    {
+     "en": "Sliders (Mini Burgers)",
+     "ar": "سلايدرز (برغر صغير)",
+     "den": "3 juicy, delicious American style sliders grilled to perfection. Add cheese to all 3 +$1",
+     "dar": "ثلاث قطع برغر أميركية طرية مشوية عالأصول. إضافة جبنة عالثلاثة +$1",
+     "price": "7.50"
+    },
+    {
+     "en": "Mozzarella Sticks",
+     "ar": "أصابع موزاريلا",
+     "den": "Breaded cheese sticks fried to perfection, served with dipping sauce.",
+     "dar": "أصابع جبنة مقرمشة مقلية عالأصول، تقدم مع صلصة.",
+     "price": "4.50"
+    },
+    {
+     "en": "Chicken Wings",
+     "ar": "جوانح دجاج",
+     "den": "Bone-in wings fried and tossed in your choice of BBQ or Buffalo sauce.",
+     "dar": "جوانح مقلية ومغطسة على ذوقك: باربكيو أو بافلو.",
+     "price": "4.75"
+    },
+    {
+     "en": "French Fries",
+     "ar": "بطاطا مقلية",
+     "den": "A hearty portion of crisp, seasoned fries. Can't go wrong with this.",
+     "dar": "صحن بطاطا مقرمشة متبلة. ما فيك تغلط فيها.",
+     "price": "3.75"
+    },
+    {
+     "en": "Onion Rings",
+     "ar": "حلقات بصل",
+     "den": "Sweet onions hand cut and battered, served with dipping sauce.",
+     "dar": "حلقات بصل مقطعة عاليد ومقلية، تقدم مع صلصة.",
+     "price": "4"
+    },
+    {
+     "en": "Nachos!",
+     "ar": "ناتشوز!",
+     "den": "Tortilla chips loaded with toppings and nacho cheddar cheese sauce. Add chopped crispy or grilled chicken +$2",
+     "dar": "رقائق تورتيا محملة بالإضافات وصلصة جبنة الشيدر. إضافة دجاج مقرمش أو مشوي +$2",
+     "price": "6.50"
+    },
+    {
+     "en": "Cheesy Nacho Fries",
+     "ar": "بطاطا ناتشو بالجبنة",
+     "den": "Crisp, seasoned fries loaded with toppings and nacho cheese sauce. Add chopped crispy or grilled chicken +$2",
+     "dar": "بطاطا مقرمشة متبلة مع الإضافات وصلصة جبنة الناتشو. إضافة دجاج مقرمش أو مشوي +$2",
+     "price": "6.50"
+    }
+   ]
+  },
+  {
+   "id": "coldmezza",
+   "en": "Cold Meza",
+   "ar": "مازة باردة",
+   "script": "وهيك",
+   "img": "coldmezza",
+   "items": [
+    {
+     "en": "Hummus",
+     "ar": "حمص",
+     "den": "The King of Lebanese meza. Add pine nuts with minced meat or sujuk +$2",
+     "dar": "ملك المازة اللبنانية. إضافة صنوبر مع لحمة مفرومة أو سجق +$2",
+     "price": "4"
+    },
+    {
+     "en": "Mtabbal",
+     "ar": "متبل",
+     "den": "Classic Lebanese eggplant dip with tahini and lemon. Add pine nuts with minced meat or sujuk +$2",
+     "dar": "متبل باذنجان لبناني كلاسيكي مع طحينة وحامض. إضافة صنوبر مع لحمة أو سجق +$2",
+     "price": "4"
+    },
+    {
+     "en": "Wara2 3inab (Stuffed Grape Leaves)",
+     "ar": "ورق عنب",
+     "den": "Stuffed grape leaves following the traditional Lebanese recipe.",
+     "dar": "ورق عنب ملفوف على الوصفة اللبنانية التقليدية.",
+     "price": "4.25"
+    },
+    {
+     "en": "Shanklish",
+     "ar": "شنكليش",
+     "den": "Shanklish with tomatoes, onions and bell peppers, sprinkled with 7abbet el barakeh. Add pine nuts with minced meat or sujuk +$2",
+     "dar": "شنكليش مع بندورة وبصل وفليفلة ورشة حبة البركة. إضافة صنوبر مع لحمة أو سجق +$2",
+     "price": "4.50"
+    },
+    {
+     "en": "Labne Baladi",
+     "ar": "لبنة بلدية",
+     "den": "Creamy labne decorated with mint and drizzled with olive oil. Add pine nuts with minced meat or sujuk +$2",
+     "dar": "لبنة كريمية مزينة بالنعناع ومروية بزيت الزيتون. إضافة صنوبر مع لحمة أو سجق +$2",
+     "price": "3.50"
+    },
+    {
+     "en": "Labne Mtawwami",
+     "ar": "لبنة متومة",
+     "den": "Creamy labne with fresh garlic and dried mint, drizzled with olive oil. Add pine nuts with minced meat or sujuk +$2",
+     "dar": "لبنة مع ثوم طازج ونعناع يابس وزيت زيتون. إضافة صنوبر مع لحمة أو سجق +$2",
+     "price": "3.50"
+    }
+   ]
+  },
+  {
+   "id": "hotmezza",
+   "en": "Hot Meza",
+   "ar": "مازة ساخنة",
+   "script": "كمان",
+   "img": "hotmezza",
+   "items": [
+    {
+     "en": "3asafeer (Birds)",
+     "ar": "عصافير",
+     "den": "Delicious local birds cooked with dibs rimman and served hot.",
+     "dar": "عصافير بلدية مطبوخة بدبس الرمان وتقدم ساخنة.",
+     "price": "12"
+    },
+    {
+     "en": "Batata Harra",
+     "ar": "بطاطا حرة",
+     "den": "Fresh cut potatoes cubed, fried and seasoned with a hint of heat.",
+     "dar": "مكعبات بطاطا طازجة مقلية ومتبلة بلمسة حرّة.",
+     "price": "4"
+    },
+    {
+     "en": "Rakayek Jibne (Cheese Rolls)",
+     "ar": "رقائق جبنة",
+     "den": "Our blend of cheese and herbs rolled into thin dough, cooked for a delicious crunch and rich flavor.",
+     "dar": "خلطتنا من الجبنة والأعشاب ملفوفة بعجينة رقيقة، مقرمشة وغنية بالطعم.",
+     "price": "4.50"
+    },
+    {
+     "en": "Kibbe",
+     "ar": "كبة",
+     "den": "Fresh ground beef, pine nuts and spices rolled in kibbe dough.",
+     "dar": "لحمة طازجة مفرومة مع صنوبر وبهارات بعجينة الكبة.",
+     "price": "4.50"
+    },
+    {
+     "en": "Makanek",
+     "ar": "مقانق",
+     "den": "Makanek sausages cooked with lemon and dibs rimman.",
+     "dar": "مقانق مطبوخة بالحامض ودبس الرمان.",
+     "price": "4.50"
+    },
+    {
+     "en": "Sujuk",
+     "ar": "سجق",
+     "den": "Sujuk sausages cooked with bell peppers, tomatoes, onions and a touch of dibs rimman.",
+     "dar": "سجق مطبوخ مع فليفلة وبندورة وبصل ولمسة دبس رمان.",
+     "price": "4.50"
+    },
+    {
+     "en": "Sawda Djej",
+     "ar": "سودة دجاج",
+     "den": "Chicken liver flash fried and cooked with dibs rimman.",
+     "dar": "سودة دجاج مقلية سريعاً ومطبوخة بدبس الرمان.",
+     "price": "4.50"
+    }
+   ]
+  },
+  {
+   "id": "salads",
+   "en": "Salads",
+   "ar": "سلطات",
+   "script": "نبش",
+   "img": "salads",
+   "note_en": "Add grilled chicken, taouk, kafta or lahm meshwi to any salad +$4",
+   "note_ar": "إضافة دجاج مشوي أو طاووق أو كفتة أو لحم مشوي على أي سلطة +$4",
+   "items": [
+    {
+     "en": "Tabbouleh",
+     "ar": "تبولة",
+     "den": "The Queen of Lebanese cuisine. Enough said.",
+     "dar": "ملكة المطبخ اللبناني. وما في داعي نحكي أكتر.",
+     "price": "4.50"
+    },
+    {
+     "en": "Fattoush",
+     "ar": "فتوش",
+     "den": "A classic with lemon sumac dressing, topped with crunchy pita bread.",
+     "dar": "كلاسيكية بصلصة الحامض والسماق مع خبز مقرمش.",
+     "price": "4.50"
+    },
+    {
+     "en": "Lebanese Salad",
+     "ar": "سلطة لبنانية",
+     "den": "Fresh lettuce, tomatoes, cucumbers, mint and onions with lemon olive oil dressing.",
+     "dar": "خس وبندورة وخيار ونعناع وبصل بصلصة الحامض وزيت الزيتون.",
+     "price": "4.50"
+    },
+    {
+     "en": "Rocca Salad",
+     "ar": "سلطة جرجير",
+     "den": "Rocca, zaatar, ba2le and onions with sumac and fresh lemon olive oil.",
+     "dar": "جرجير وزعتر وبقلة وبصل مع سماق وحامض وزيت زيتون.",
+     "price": "4.50"
+    },
+    {
+     "en": "Greek Salad",
+     "ar": "سلطة يونانية",
+     "den": "Rocca, lettuce, cherry tomatoes, cucumbers and bell peppers with homemade Greek dressing and feta cheese.",
+     "dar": "جرجير وخس وبندورة كرزية وخيار وفليفلة بصلصة يونانية بيتية وجبنة فيتا.",
+     "price": "4.75"
+    },
+    {
+     "en": "Classic Caesar Salad",
+     "ar": "سلطة سيزر",
+     "den": "Iceberg lettuce lightly tossed in our homemade caesar dressing, topped with crunchy croutons.",
+     "dar": "خس آيسبرغ بصلصة السيزر البيتية مع خبز محمص مقرمش.",
+     "price": "4.75"
+    }
+   ]
+  },
+  {
+   "id": "platters",
+   "en": "Platters",
+   "ar": "صحون",
+   "script": "ع برود",
+   "img": "platter",
+   "note_en": "All of our platters are served with a side of fries and coleslaw. Substitute fries with wedges or onion rings +$0.50 · Add cheese, BBQ or Buffalo to any burger or sandwich +$1 · Add jalapeños +$0.50",
+   "note_ar": "كل الصحون تقدم مع بطاطا مقلية وكول سلو. بدّل البطاطا بودجز أو حلقات بصل +$0.50 · إضافة جبنة أو باربكيو أو بافلو على أي برغر أو سندويش +$1 · إضافة هالبينو +$0.50",
+   "items": [
+    {
+     "en": "Classic American Burger Platter",
+     "ar": "صحن برغر أميركي كلاسيك",
+     "den": "Our signature 100% fresh beef patty on a toasted brioche bun with fresh tomatoes, lettuce, onions and our special house sauce. A true classic.",
+     "dar": "برغر لحم بقري طازج 100% على خبز بريوش محمص مع بندورة وخس وبصل وصلصة البيت الخاصة. كلاسيك حقيقي.",
+     "price": "7.50"
+    },
+    {
+     "en": "Lebanese Burger Platter",
+     "ar": "صحن برغر لبناني",
+     "den": "Traditional Lebanese style burger with 100% fresh beef patty, coleslaw, fries and our special house sauce on a brioche bun.",
+     "dar": "برغر على الطريقة اللبنانية مع لحم طازج 100% وكول سلو وبطاطا وصلصة البيت بخبز بريوش.",
+     "price": "7.50"
+    },
+    {
+     "en": "BBQ Onion Burger Platter",
+     "ar": "صحن برغر باربكيو بالبصل",
+     "den": "100% fresh beef patty, onion rings, BBQ and house sauce on a brioche bun.",
+     "dar": "لحم بقري طازج 100% مع حلقات بصل وباربكيو وصلصة البيت بخبز بريوش.",
+     "price": "7.50"
+    },
+    {
+     "en": "Mushroom Cheese Burger Platter",
+     "ar": "صحن برغر فطر وجبنة",
+     "den": "Cheesy mushroom sauce on a 100% fresh beef patty topped with fresh rocca greens on a brioche bun.",
+     "dar": "صلصة فطر بالجبنة على لحم طازج 100% مع جرجير طازج بخبز بريوش.",
+     "price": "8"
+    },
+    {
+     "en": "Crispy Chicken Strips Platter",
+     "ar": "صحن كريسبي دجاج",
+     "den": "4 strips marinated, hand breaded and fried to perfection. Ask for them tossed in BBQ or Buffalo sauce +$1",
+     "dar": "أربع قطع دجاج متبلة ومغلفة عاليد ومقلية عالأصول. اطلبها مغطسة بالباربكيو أو البافلو +$1",
+     "price": "4.50"
+    },
+    {
+     "en": "Zinger Platter (Fried Chicken Sandwich)",
+     "ar": "صحن زنجر",
+     "den": "Tender chicken breast marinated in buttermilk and hand breaded, on a brioche bun with lettuce, tomatoes and house sauce. Get it tossed in BBQ or Buffalo sauce +$1",
+     "dar": "صدر دجاج طري منقوع باللبن ومغلف عاليد، بخبز بريوش مع خس وبندورة وصلصة البيت. اطلبه بالباربكيو أو البافلو +$1",
+     "price": "4.50"
+    },
+    {
+     "en": "Grilled Chicken Platter",
+     "ar": "صحن دجاج مشوي",
+     "den": "Grilled chicken with your choice of creamy mushroom sauce and fries, or with sautéed vegetables.",
+     "dar": "دجاج مشوي مع صلصة الفطر الكريمية والبطاطا، أو مع خضار سوتيه.",
+     "price": "4.50"
+    }
+   ]
+  },
+  {
+   "id": "mashawi",
+   "en": "Mashawi",
+   "ar": "مشاوي",
+   "script": "عالفحم",
+   "img": "grills",
+   "note_en": "All grills are charcoal-made and served with grilled vegetables, bread and hummus.",
+   "note_ar": "كل المشاوي على الفحم وتقدم مع خضار مشوية وخبز وحمص.",
+   "items": [
+    {
+     "en": "Mixed Grill Platter",
+     "ar": "مشاوي مشكل",
+     "den": "Taouk, kafta and lahm meshwi laid over markouk bread. For the table.",
+     "dar": "طاووق وكفتة ولحم مشوي على خبز مرقوق. للسفرة كلها.",
+     "price": ""
+    },
+    {
+     "en": "Shish Taouk",
+     "ar": "شيش طاووق",
+     "den": "Marinated chicken skewers grilled over charcoal, served with toum.",
+     "dar": "أسياخ دجاج متبلة مشوية على الفحم، تقدم مع الثوم.",
+     "price": ""
+    },
+    {
+     "en": "Lahm Meshwi",
+     "ar": "لحم مشوي",
+     "den": "Tender cubes of meat grilled over charcoal.",
+     "dar": "مكعبات لحمة طرية مشوية على الفحم.",
+     "price": ""
+    },
+    {
+     "en": "Kafta Meshwiye",
+     "ar": "كفتة مشوية",
+     "den": "Minced meat with parsley and onions, grilled on skewers.",
+     "dar": "لحمة مفرومة مع بقدونس وبصل، مشوية على الأسياخ.",
+     "price": ""
+    },
+    {
+     "en": "Riyash (Lamb Chops)",
+     "ar": "ريش غنم",
+     "den": "Lamb chops seasoned and grilled mountain style.",
+     "dar": "ريش غنم متبلة ومشوية على الطريقة الجبلية.",
+     "price": ""
+    },
+    {
+     "en": "Farrouj Meshwi",
+     "ar": "فروج مشوي",
+     "den": "Whole grilled chicken served with toum.",
+     "dar": "فروج كامل مشوي يقدم مع الثوم.",
+     "price": ""
+    },
+    {
+     "en": "Arayes Kafta",
+     "ar": "عرايس كفتة",
+     "den": "Bread stuffed with spiced kafta and grilled over charcoal.",
+     "dar": "خبز محشي كفتة متبلة ومشوي على الفحم.",
+     "price": ""
+    }
+   ]
+  },
+  {
+   "id": "desserts",
+   "en": "Desserts",
+   "ar": "حلويات",
+   "script": "شي حلو",
+   "img": "desserts",
+   "items": [
+    {
+     "en": "Knefeh bi Jibn",
+     "ar": "كنافة بجبن",
+     "den": "Golden knefeh with kaak and orange blossom syrup.",
+     "dar": "كنافة ذهبية بالكعكة وقطر الزهر.",
+     "price": ""
+    },
+    {
+     "en": "Halawet el Jibn",
+     "ar": "حلاوة الجبن",
+     "den": "Sweet cheese rolls with ashta and pistachio.",
+     "dar": "لفائف حلاوة الجبن مع قشطة وفستق حلبي.",
+     "price": ""
+    },
+    {
+     "en": "Aish el Saraya",
+     "ar": "عيش السرايا",
+     "den": "Bread pudding layered with ashta and syrup.",
+     "dar": "عيش السرايا بالقشطة والقطر.",
+     "price": ""
+    },
+    {
+     "en": "Baklawa Mshakkale",
+     "ar": "بقلاوة مشكلة",
+     "den": "Assorted baklava, crisp and honeyed.",
+     "dar": "تشكيلة بقلاوة مقرمشة ومعسلة.",
+     "price": ""
+    },
+    {
+     "en": "Seasonal Fruit Platter",
+     "ar": "صحن فواكه موسمية",
+     "den": "The mountain's fruit, whatever the season brings.",
+     "dar": "فواكه الجبل على حسب الموسم.",
+     "price": ""
+    },
+    {
+     "en": "Booza Arabiye",
+     "ar": "بوظة عربية",
+     "den": "Chewy Arabic ice cream rolled in pistachio.",
+     "dar": "بوظة عربية مغلفة بالفستق الحلبي.",
+     "price": ""
+    }
+   ]
+  },
+  {
+   "id": "drinks",
+   "en": "Drinks",
+   "ar": "مشروبات",
+   "script": "منعش",
+   "img": "drinks",
+   "items": [
+    {
+     "en": "Mint Lemonade",
+     "ar": "ليموناضة بالنعناع",
+     "den": "Fresh lemon crushed with mint over ice.",
+     "dar": "حامض طازج مدقوق مع نعناع على تلج.",
+     "price": ""
+    },
+    {
+     "en": "Jellab",
+     "ar": "جلاب",
+     "den": "With pine nuts and raisins, the summer classic.",
+     "dar": "مع صنوبر وزبيب، كلاسيك الصيف.",
+     "price": ""
+    },
+    {
+     "en": "Fresh Orange Juice",
+     "ar": "عصير برتقال طبيعي",
+     "den": "Squeezed to order.",
+     "dar": "معصور عالطلب.",
+     "price": ""
+    },
+    {
+     "en": "Ayran",
+     "ar": "عيران",
+     "den": "Cold salted yogurt drink.",
+     "dar": "لبن عيران بارد.",
+     "price": ""
+    },
+    {
+     "en": "Seasonal Fruit Cocktail",
+     "ar": "كوكتيل فواكه موسمية",
+     "den": "Blended fresh fruit of the season.",
+     "dar": "خلطة فواكه الموسم الطازجة.",
+     "price": ""
+    },
+    {
+     "en": "Yerba Mate Set",
+     "ar": "طقم يربا متة",
+     "den": "The full ritual: bree2 of hot water, qar3a, bombilla, yerba mate and sugar. Hot water refilled once on the house. Additional qar3a +$1.50.",
+     "dar": "الطقم الكامل: إبريق مي سخنة، قرعة، بمبيا، عشبة متة وسكر. تعبيلة مي سخنة مرة واحدة ببلاش. قرعة إضافية +$1.50.",
+     "price": "6"
+    },
+    {
+     "en": "Lebanese Coffee (Rakweh)",
+     "ar": "قهوة لبنانية (ركوة)",
+     "den": "Brewed in the rakweh, served the proper way.",
+     "dar": "مغلية بالركوة ومقدمة عالأصول.",
+     "price": ""
+    },
+    {
+     "en": "Tea w Naana",
+     "ar": "شاي بالنعناع",
+     "den": "Black tea with fresh mountain mint.",
+     "dar": "شاي مع نعناع الجبل الطازج.",
+     "price": ""
+    },
+    {
+     "en": "White Coffee",
+     "ar": "قهوة بيضاء",
+     "den": "Orange blossom water, to end the night gently.",
+     "dar": "ماء زهر، لختام هادئ.",
+     "price": ""
+    },
+    {
+     "en": "Zhourat",
+     "ar": "زهورات",
+     "den": "Mountain herbal infusion.",
+     "dar": "زهورات جبلية منقوعة.",
+     "price": ""
+    },
+    {
+     "en": "Soft Drinks",
+     "ar": "مشروبات غازية",
+     "den": "Assorted.",
+     "dar": "متنوعة.",
+     "price": ""
+    },
+    {
+     "en": "Mineral Water",
+     "ar": "مياه معدنية",
+     "den": "Small or large.",
+     "dar": "صغيرة أو كبيرة.",
+     "price": ""
+    }
+   ]
+  },
+  {
+   "id": "arguileh",
+   "en": "Argileh / Shisha",
+   "ar": "أراكيل",
+   "script": "عالرواق",
+   "img": null,
+   "items": [
+    {
+     "en": "Ajami",
+     "ar": "أجمي",
+     "den": "Classic strong-cut tobacco.",
+     "dar": "معسل عجمي كلاسيكي.",
+     "price": "9"
+    },
+    {
+     "en": "Toufahtein",
+     "ar": "تفاحتين",
+     "den": "Double apple, the crowd favorite.",
+     "dar": "تفاحتين، المفضل عند الكل.",
+     "price": "7"
+    },
+    {
+     "en": "Grape & Mint",
+     "ar": "عنب ونعناع",
+     "den": "Cool and fresh by the river.",
+     "dar": "منعش ع ضفة النهر.",
+     "price": "7"
+    },
+    {
+     "en": "Lemon & Mint",
+     "ar": "حامض ونعناع",
+     "den": "Sharp, fresh and cooling — summer by the river in a flavor.",
+     "dar": "منعش وحامض ع الآخر — صيفية ع النهر بنكهة.",
+     "price": "7"
+    },
+    {
+     "en": "Mazaj el Yom (Ask the Argileh Man)",
+     "ar": "مزاج اليوم (اسأل المعلّم)",
+     "den": "Mix your own head or pick from the flavors we have on hand today — the argileh man will tell you what's fresh.",
+     "dar": "ركّب راسك ع ذوقك أو نقّي من النكهات الموجودة اليوم — المعلّم بيخبرك شو في طازة.",
+     "price": "7"
+    },
+    {
+     "en": "Extra Ras",
+     "ar": "راس إضافي",
+     "den": "A fresh head when you're staying a while.",
+     "dar": "راس معسل جديد إذا القعدة طولت.",
+     "price": "5"
+    }
+   ]
+  }
+ ]
+}

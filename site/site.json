@@ -1,0 +1,1001 @@
+{
+ "brand": {
+  "abbr": "BCC",
+  "name_en": "Baissour Country Club",
+  "name_ar": "منتجع بيصور السياحي",
+  "tagline_en": "Restaurant · Chalets · Camp",
+  "tagline_ar": "مطعم · شاليهات · تخييم",
+  "whatsapp_display": "81 130 345",
+  "whatsapp_number": "96181130345",
+  "whatsapp_link": "https://wa.me/96181130345",
+  "menu_link": "https://claude.ai/code/artifact/26056b95-1d0c-4f5d-9cff-7dae42ad91c2",
+  "instagram": "https://www.instagram.com/baissourcountryclub/",
+  "facebook": "https://www.facebook.com/baissourcountryclub/",
+  "email": "baissourcountryclub@gmail.com"
+ },
+ "nav": [
+  {
+   "id": "weddings",
+   "page": "home",
+   "en": "Weddings & Events",
+   "ar": "الأعراس والمناسبات"
+  },
+  {
+   "id": "chalets",
+   "page": "home",
+   "en": "Chalets",
+   "ar": "الشاليهات"
+  },
+  {
+   "id": "pool",
+   "page": "home",
+   "en": "Pool",
+   "ar": "المسبح"
+  },
+  {
+   "id": "restaurant",
+   "page": "home",
+   "en": "Restaurant",
+   "ar": "المطعم"
+  },
+  {
+   "id": "families",
+   "page": "home",
+   "en": "Families",
+   "ar": "العائلات"
+  },
+  {
+   "id": "gallery",
+   "page": "gallery",
+   "en": "Gallery",
+   "ar": "الصور"
+  },
+  {
+   "id": "booking",
+   "page": "booking",
+   "en": "Book a Chalet",
+   "ar": "احجز شاليه"
+  },
+  {
+   "id": "directions",
+   "page": "directions",
+   "en": "Getting Here",
+   "ar": "كيف توصل"
+  }
+ ],
+ "directions": {
+  "script": "عالطريق",
+  "title_en": "Maps & Directions",
+  "title_ar": "الخريطة والطريق",
+  "lead_en": "Wherever you're starting in Lebanon, Baissour is an easy drive — smooth highway to Aley, then a scenic mountain road, and the best part is the last stretch: the drop into the green river valley.",
+  "lead_ar": "من وين ما كنت بلبنان، بيصور مشوار سهل — أوتوستراد لعاليه، وبعدها طريق جبلية حلوة، وأحلى شي آخر جزء: النزلة عوادي النهر الأخضر.",
+  "route_en": "Beirut–Damascus highway → Aley exit → follow the signs to Baissour → down into the valley to the club gate.",
+  "route_ar": "أوتوستراد بيروت–دمشق ← مخرج عاليه ← اتبع إشارات بيصور ← انزل عالوادي لبوابة المنتجع.",
+  "times": [
+   {
+    "from_en": "Beirut",
+    "from_ar": "بيروت",
+    "time": "~45 min"
+   },
+   {
+    "from_en": "Aley",
+    "from_ar": "عاليه",
+    "time": "~15 min"
+   },
+   {
+    "from_en": "Bhamdoun",
+    "from_ar": "بحمدون",
+    "time": "~25 min"
+   },
+   {
+    "from_en": "The Chouf",
+    "from_ar": "الشوف",
+    "time": "~45 min"
+   },
+   {
+    "from_en": "Saida",
+    "from_ar": "صيدا",
+    "time": "~55 min"
+   },
+   {
+    "from_en": "Zahle",
+    "from_ar": "زحلة",
+    "time": "~1 h 15"
+   }
+  ],
+  "times_note_en": "Approximate, outside rush hour. The road is paved the whole way, and every minute of it earns the view at the end.",
+  "times_note_ar": "تقريبي، خارج ساعات الزحمة. الطريق معبّدة عالآخر، وكل دقيقة فيها بتستاهل الإطلالة بالنهاية.",
+  "maps_en": "Open in Google Maps",
+  "maps_ar": "افتح بخرائط غوغل",
+  "waze_en": "Open in Waze",
+  "waze_ar": "افتح بويز",
+  "maps_url": "https://www.google.com/maps/search/?api=1&query=Baissour+Country+Club",
+  "waze_url": "https://waze.com/ul?q=Baissour%20Country%20Club&navigate=yes"
+ },
+ "hero": {
+  "kicker_en": "Baissour · Aley · Mount Lebanon",
+  "kicker_ar": "بيصور · عاليه · جبل لبنان",
+  "h1_en": "A Place to Breathe",
+  "h1_ar": "مكان لتتنفّس",
+  "sub_en": "Chalets, a mountain pool, riverside dining, and two of Mount Lebanon's most beautiful wedding venues — 45 minutes from Beirut.",
+  "sub_ar": "شاليهات، مسبح جبلي، مطعم ع ضفة النهر، ومكانان من أجمل أماكن الأعراس بجبل لبنان — على بُعد ٤٥ دقيقة من بيروت.",
+  "cta1_en": "Plan your wedding",
+  "cta1_ar": "نظّم عرسك",
+  "cta2_en": "Book a chalet",
+  "cta2_ar": "احجز شاليه"
+ },
+ "stats": [
+  {
+   "num": "2",
+   "en": "signature venues",
+   "ar": "مكانان للمناسبات"
+  },
+  {
+   "num": "5",
+   "en": "chalet types",
+   "ar": "أنواع شاليهات"
+  },
+  {
+   "num": "45",
+   "en": "minutes from Beirut",
+   "ar": "دقيقة من بيروت"
+  },
+  {
+   "num": "365",
+   "en": "days a year — chalets open",
+   "ar": "يوم بالسنة — الشاليهات مفتوحة"
+  }
+ ],
+ "weddings": {
+  "script": "أحلى ليلة",
+  "title_en": "Weddings & Events",
+  "title_ar": "الأعراس والمناسبات",
+  "lead_en": "Baissour Country Club has hosted some of the most beautiful weddings in Mount Lebanon, across two signature venues — one wrapped around the pool, one stretched along the river. The setting does most of the work; all you need to bring is the people you love.",
+  "lead_ar": "استضاف منتجع بيصور بعضاً من أجمل الأعراس في جبل لبنان، في مكانين مميزين — واحد حول المسبح وواحد ممدود ع ضفة النهر. المكان بيقوم بمعظم الشغل؛ كل يلي عليك تجيبه هنّ الناس يلي بتحبّهن.",
+  "venues": [
+   {
+    "name": "Draj el Ward",
+    "name_ar": "دراج الورد",
+    "tag_en": "Poolside Venue",
+    "tag_ar": "ع المسبح",
+    "video": null,
+    "hero": "events_weddings_gallery-2",
+    "photos": [
+     "soc_ig_16",
+     "events_weddings_gallery-5"
+    ],
+    "facts_en": "Open-air · wrapped around the pool · magical after sunset",
+    "facts_ar": "هواء طلق · حول المسبح · سحري بعد الغروب",
+    "desc_en": "Ceremonies and receptions wrapped around the pool — candles on the water, chandeliers in the trees, and the mountains going gold behind you.",
+    "desc_ar": "احتفالات واستقبالات حول المسبح — شموع ع وجه المي، ثريات بين الشجر، والجبال عم تصير دهب وراك."
+   },
+   {
+    "name": "Ta'Hani",
+    "name_ar": "تهاني",
+    "tag_en": "Riverside Venue",
+    "tag_ar": "ع النهر",
+    "video": "tahani",
+    "hero": "events_weddings_gallery-10",
+    "photos": [
+     "soc_fb_14",
+     "soc_fb_16",
+     "soc_fb_17",
+     "events_weddings_gallery-9",
+     "soc_fb_08",
+     "soc_fb_11",
+     "soc_fb_15",
+     "events_weddings_gallery-12"
+    ],
+    "facts_en": "Under the trees · long tables by the river · day & night setups",
+    "facts_ar": "تحت الشجر · طاولات طويلة ع النهر · نهاري وليلي",
+    "desc_en": "Long tables under the trees, lights strung over the water, and the sound of the river running through dinner.",
+    "desc_ar": "طاولات طويلة تحت الشجر، إضاءة معلّقة فوق المي، وصوت النهر رافقك طول السهرة."
+   }
+  ],
+  "features": [
+   {
+    "en": "Two signature venues — poolside & riverside",
+    "ar": "مكانان مميزان — ع المسبح وع النهر"
+   },
+   {
+    "en": "Full catering from our own kitchen",
+    "ar": "كاترينغ كامل من مطبخنا"
+   },
+   {
+    "en": "On-site chalets for your guests",
+    "ar": "شاليهات بالموقع لضيوفك"
+   },
+   {
+    "en": "A golden-hour mountain backdrop",
+    "ar": "خلفية جبلية ساحرة وقت الغروب"
+   },
+   {
+    "en": "Event coordination from start to finish",
+    "ar": "تنسيق كامل من البداية للنهاية"
+   },
+   {
+    "en": "Engagements, birthdays & corporate events too",
+    "ar": "خطوبات وأعياد ميلاد ومناسبات شركات كمان"
+   }
+  ],
+  "quotes": [
+   {
+    "en": "The mountains made every photo feel effortless.",
+    "ar": "الجبال خلّت كل صورة تطلع حلوة بلا مجهود."
+   },
+   {
+    "en": "We wanted something different from a hotel ballroom — this was exactly that.",
+    "ar": "كنا بدنا شي غير صالة الأوتيل — وهيدا كان بالضبط."
+   },
+   {
+    "en": "Our guests still talk about it.",
+    "ar": "ضيوفنا لليوم عم يحكوا عنها."
+   }
+  ],
+  "cta_en": "Tell us about your day",
+  "cta_ar": "خبّرنا عن يومك",
+  "venue_opts_title_en": "Both venues can host",
+  "venue_opts_title_ar": "المكانان بيستضيفوا",
+  "venue_opts": [
+   {
+    "en": "Seated dinners & banquet layouts",
+    "ar": "عشاء جلوس وتوزيعات بانكيه"
+   },
+   {
+    "en": "Cocktail-style receptions",
+    "ar": "استقبالات كوكتيل"
+   },
+   {
+    "en": "Ceremonies, zaffe entrances & first dances",
+    "ar": "مراسم وزفات ورقصة أولى"
+   },
+   {
+    "en": "Day events & golden-hour timings",
+    "ar": "مناسبات نهارية وتوقيت الغروب"
+   },
+   {
+    "en": "Custom decor, floral & lighting setups",
+    "ar": "ديكور وورد وإضاءة عالطلب"
+   },
+   {
+    "en": "Your vendors, or ours — your call",
+    "ar": "متعهدينك أو متعهدينا — القرار إلك"
+   }
+  ],
+  "moments_title_en": "Real nights, real moments",
+  "moments_title_ar": "لحظات حقيقية من سهرات حقيقية",
+  "moments": [
+   "soc_fb_06",
+   "soc_fb_04",
+   "soc_fb_05",
+   "soc_fb_03"
+  ]
+ },
+ "inquiry": {
+  "script": "خبّرنا",
+  "title_en": "Inquire About an Event",
+  "title_ar": "استفسر عن مناسبة",
+  "lead_en": "Fill this in and it opens a ready WhatsApp message to us — we usually reply within a few hours.",
+  "lead_ar": "عبّي هالخانات وبتنفتح رسالة واتساب جاهزة إلنا — منردّ عادةً خلال ساعات.",
+  "fields": {
+   "name_en": "Your name",
+   "name_ar": "اسمك",
+   "type_en": "Event type",
+   "type_ar": "نوع المناسبة",
+   "types": [
+    {
+     "en": "Wedding",
+     "ar": "عرس"
+    },
+    {
+     "en": "Engagement",
+     "ar": "خطوبة"
+    },
+    {
+     "en": "Birthday",
+     "ar": "عيد ميلاد"
+    },
+    {
+     "en": "Corporate / Private event",
+     "ar": "مناسبة شركة / خاصة"
+    }
+   ],
+   "venue_en": "Preferred venue",
+   "venue_ar": "المكان المفضل",
+   "venues": [
+    {
+     "en": "Draj el Ward (Poolside)",
+     "ar": "دراج الورد (ع المسبح)"
+    },
+    {
+     "en": "Ta'Hani (Riverside)",
+     "ar": "تهاني (ع النهر)"
+    },
+    {
+     "en": "Not sure yet",
+     "ar": "لسا ما قررنا"
+    }
+   ],
+   "date_en": "Preferred date",
+   "date_ar": "التاريخ المفضل",
+   "guests_en": "Number of guests",
+   "guests_ar": "عدد المدعوين",
+   "notes_en": "Anything else we should know?",
+   "notes_ar": "شي تاني بدك تخبرنا ياه؟",
+   "submit_en": "Send via WhatsApp",
+   "submit_ar": "ابعت عبر واتساب",
+   "email_en": "Send via Email",
+   "email_ar": "ابعت عالإيميل",
+   "phone_en": "Phone number",
+   "phone_ar": "رقم التلفون",
+   "emailaddr_en": "Email address",
+   "emailaddr_ar": "البريد الإلكتروني"
+  }
+ },
+ "chalets": {
+  "script": "نامة عالهدا",
+  "title_en": "The Chalets",
+  "title_ar": "الشاليهات",
+  "lead_en": "Five ways to stay in the valley — from a cozy couple's retreat to a full riverside duplex for the whole family. The chalets are open all year round; every one is private, well-kept, and comes with fresh linens, parking, and seasonal pool access.",
+  "lead_ar": "خمس طرق تقعد فيها بالوادي — من شاليه مريح للثنائي لدوبلكس كامل ع النهر للعيلة كلها. الشاليهات مفتوحة طول السنة؛ وكل شاليه خاص ومرتّب، مع شراشف نظيفة وموقف سيارة ودخول موسمي للمسبح.",
+  "list": [
+   {
+    "img": "chalets_chalet-small_gallery-3",
+    "tag_en": "Cozy",
+    "tag_ar": "مريح",
+    "name_en": "Al Yasmine",
+    "name_ar": "الياسمين",
+    "desc_en": "A cozy, private retreat for couples or solo travelers.",
+    "desc_ar": "ملاذ خاص ومريح للثنائي أو لشخص واحد.",
+    "facts_en": "2 guests · 1 bedroom · terrace · mountain view",
+    "facts_ar": "شخصان · غرفة نوم · تراس · إطلالة جبلية",
+    "sub_en": "Small Chalet",
+    "sub_ar": "الشاليه الصغير",
+    "price": 80
+   },
+   {
+    "img": "chalets_chalet-medium_hero",
+    "tag_en": "Comfortable",
+    "tag_ar": "عملي",
+    "name_en": "Al Snobar",
+    "name_ar": "الصنوبر",
+    "desc_en": "Extra space for couples or small families.",
+    "desc_ar": "مساحة إضافية للثنائي أو للعيلة الصغيرة.",
+    "facts_en": "4 guests · 2 bedrooms · terrace · BBQ area",
+    "facts_ar": "٤ أشخاص · غرفتا نوم · تراس · منقل",
+    "sub_en": "Medium Chalet",
+    "sub_ar": "الشاليه الوسط",
+    "price": 120
+   },
+   {
+    "img": "chalets_chalet-large_hero",
+    "tag_en": "Spacious",
+    "tag_ar": "واسع",
+    "name_en": "Al Wadi",
+    "name_ar": "الوادي",
+    "desc_en": "Perfect for a full family or a group of friends.",
+    "desc_ar": "مثالي لعيلة كاملة أو شلّة أصحاب.",
+    "facts_en": "6 guests · 3 bedrooms · garden · generous living area",
+    "facts_ar": "٦ أشخاص · ٣ غرف نوم · حديقة · صالون واسع",
+    "sub_en": "Large Chalet",
+    "sub_ar": "الشاليه الكبير",
+    "price": 160
+   },
+   {
+    "img": "chalets_chalet-large_gallery-2",
+    "tag_en": "Family",
+    "tag_ar": "عائلي",
+    "name_en": "Beit el Nahr",
+    "name_ar": "بيت النهر",
+    "desc_en": "The largest chalet on the property — multiple rooms, a full kitchen, and room to spread out.",
+    "desc_ar": "أكبر شاليه بالمنتجع — غرف متعددة ومطبخ كامل ومساحة تتوزع فيها العيلة.",
+    "facts_en": "8+ guests · 4 bedrooms · full kitchen · outdoor space",
+    "facts_ar": "٨+ أشخاص · ٤ غرف نوم · مطبخ كامل · مساحة خارجية",
+    "sub_en": "Large Riverside Duplex Suite",
+    "sub_ar": "جناح الدوبلكس الكبير ع النهر",
+    "price": 200
+   },
+   {
+    "img": "chalets_chalet-small_gallery-4",
+    "tag_en": "Premium",
+    "tag_ar": "مميّز",
+    "name_en": "Al Shallal",
+    "name_ar": "الشلال",
+    "desc_en": "The most refined stay on the property — ideal for a honeymoon or anniversary. Panoramic private terrace, premium finishes.",
+    "desc_ar": "أرقى إقامة بالمنتجع — مثالي لشهر العسل أو الذكرى السنوية. تراس خاص بانورامي وتشطيبات فخمة.",
+    "facts_en": "Couples · panoramic terrace · premium finishes",
+    "facts_ar": "للثنائي · تراس بانورامي · تشطيبات فخمة",
+    "sub_en": "Small Riverside Duplex Suite",
+    "sub_ar": "جناح الدوبلكس الصغير ع النهر",
+    "price": 245
+   }
+  ],
+  "notes": [
+   {
+    "en": "Check-in 2:00 PM · check-out 12:00 PM",
+    "ar": "تسجيل الدخول ٢:٠٠ بعد الضهر · المغادرة ١٢:٠٠ الضهر"
+   },
+   {
+    "en": "Two-night minimum on weekends",
+    "ar": "ليلتان كحد أدنى بنهاية الأسبوع"
+   },
+   {
+    "en": "Nightly rates shown are starting prices — weekend & holiday rates may differ; confirm your dates on WhatsApp",
+    "ar": "الأسعار المعروضة أسعار بداية — أسعار الويكاند والأعياد ممكن تختلف؛ أكّد تواريخك عالواتساب"
+   },
+   {
+    "en": "Pets are not permitted in chalets",
+    "ar": "الحيوانات الأليفة غير مسموحة بالشاليهات"
+   },
+   {
+    "en": "Chalets open all year — cozy in winter too",
+    "ar": "الشاليهات مفتوحة طول السنة — ودافية بالشتي كمان"
+   }
+  ],
+  "cta_en": "Book a chalet",
+  "cta_ar": "احجز شاليه"
+ },
+ "booking": {
+  "script": "عالسريع",
+  "title_en": "Book a Chalet",
+  "title_ar": "احجز شاليه",
+  "lead_en": "Pick your chalet and dates below — it opens a ready WhatsApp message with your request, and we'll confirm availability and rates right there.",
+  "lead_ar": "نقّي الشاليه والتواريخ تحت — بتنفتح رسالة واتساب جاهزة بطلبك، ومنأكدلك التوفر والأسعار مباشرة.",
+  "fields": {
+   "name_en": "Your name",
+   "name_ar": "اسمك",
+   "chalet_en": "Chalet",
+   "chalet_ar": "الشاليه",
+   "checkin_en": "Check-in",
+   "checkin_ar": "تاريخ الوصول",
+   "checkout_en": "Check-out",
+   "checkout_ar": "تاريخ المغادرة",
+   "guests_en": "Guests",
+   "guests_ar": "عدد الأشخاص",
+   "notes_en": "Notes (optional)",
+   "notes_ar": "ملاحظات (اختياري)",
+   "submit_en": "Request via WhatsApp",
+   "submit_ar": "اطلب عبر واتساب",
+   "email_en": "Send via Email",
+   "email_ar": "ابعت عالإيميل",
+   "phone_en": "Phone number",
+   "phone_ar": "رقم التلفون",
+   "emailaddr_en": "Email address",
+   "emailaddr_ar": "البريد الإلكتروني"
+  }
+ },
+ "gallery": {
+  "script": "شوف بعينك",
+  "title_en": "The Gallery",
+  "title_ar": "الصور",
+  "lead_en": "The club as it actually is — weddings on the water, chalets in the trees, the pool, the river, and the table.",
+  "lead_ar": "المنتجع متل ما هو فعلاً — أعراس ع المي، شاليهات بين الشجر، المسبح، النهر، والسفرة.",
+  "cats": [
+   {
+    "id": "weddings",
+    "en": "Weddings & Events",
+    "ar": "أعراس ومناسبات"
+   },
+   {
+    "id": "draj",
+    "en": "Draj el Ward",
+    "ar": "دراج الورد"
+   },
+   {
+    "id": "tahani",
+    "en": "Ta'Hani",
+    "ar": "تهاني"
+   },
+   {
+    "id": "family",
+    "en": "Families & Kids",
+    "ar": "عائلات وأطفال"
+   },
+   {
+    "id": "chalets",
+    "en": "Chalets",
+    "ar": "شاليهات"
+   },
+   {
+    "id": "pool",
+    "en": "Pool",
+    "ar": "المسبح"
+   },
+   {
+    "id": "nature",
+    "en": "River & Nature",
+    "ar": "النهر والطبيعة"
+   },
+   {
+    "id": "restaurant",
+    "en": "Restaurant",
+    "ar": "المطعم"
+   },
+   {
+    "id": "food",
+    "en": "Food",
+    "ar": "الأكل"
+   }
+  ],
+  "all_en": "All",
+  "all_ar": "الكل"
+ },
+ "pool": {
+  "script": "غطسة عالبارد",
+  "title_en": "The Pool",
+  "title_ar": "المسبح",
+  "lead_en": "Cool mountain water, open sky, and a deck made for long afternoons — down in the river valley, the air stays fresher than the city all summer. Day visitors are welcome; you don't need to be a chalet guest.",
+  "lead_ar": "مي جبلية باردة وسما مفتوحة و«دِك» معمول لبعد الضهر الطويل — بوادي النهر، الهوا بيضل أنعش من المدينة طول الصيف. الزوار اليوميون أهلاً وسهلاً؛ مش لازم تكون نازل بشاليه.",
+  "points": [
+   {
+    "en": "Open late spring through early autumn",
+    "ar": "مفتوح من آخر الربيع لأول الخريف"
+   },
+   {
+    "en": "Sunbeds, shaded seating & deck space",
+    "ar": "كراسي تشميس وقعدات مظللة"
+   },
+   {
+    "en": "Mezze, grills & cold drinks served poolside",
+    "ar": "مازة ومشاوي ومشروبات باردة ع المسبح"
+   },
+   {
+    "en": "Families welcome — kids supervised by parents",
+    "ar": "العائلات أهلاً وسهلاً — الأطفال بمراقبة الأهل"
+   }
+  ],
+  "rates_title_en": "Pool Entrance",
+  "rates_title_ar": "رسم دخول المسبح",
+  "rates_note_en": "Day passes — no chalet booking needed.",
+  "rates_note_ar": "دخول يومي — بلا ما يكون معك حجز شاليه.",
+  "rates": [
+   {
+    "en": "Weekdays — $7 per person, adults & kids",
+    "ar": "أيام الأسبوع — ٧$ للشخص، كبار وصغار"
+   },
+   {
+    "en": "Weekends — $10 per person, adults & kids",
+    "ar": "نهاية الأسبوع — ١٠$ للشخص، كبار وصغار"
+   },
+   {
+    "en": "Mothers swim FREE every Monday & Tuesday",
+    "ar": "الأمهات ببلاش كل تنين وتلاتا"
+   },
+   {
+    "en": "No outside food or beverages",
+    "ar": "ممنوع إدخال المأكولات والمشروبات"
+   }
+  ]
+ },
+ "restaurant": {
+  "script": "صحتين",
+  "title_en": "The Restaurant",
+  "title_ar": "المطعم",
+  "lead_en": "Good food in a setting worth lingering over — Lebanese and regional dishes with fresh mountain ingredients, served fully in the open air. The restaurant runs through the warm season (summer is our main season); message us for current opening before you drive up.",
+  "lead_ar": "أكل طيب بمكان بيستاهل تطوّل فيه — أطباق لبنانية بمكوّنات جبلية طازجة، وكل شي بالهوا الطلق. المطعم شغال بموسم الدفا (الصيف موسمنا الأساسي)؛ راسلنا لتتأكد من الأوقات قبل ما تطلع.",
+  "cta_en": "View the full menu",
+  "cta_ar": "شوف المنيو الكامل"
+ },
+ "area": {
+  "script": "ع البال",
+  "title_en": "Baissour & the Area",
+  "title_ar": "بيصور والمنطقة",
+  "lead_en": "Baissour village sits high in Mount Lebanon — an hour from Beirut, and a world away from it. The club is tucked below the village, down in the river valley where the water runs and the pines keep the air cool.",
+  "lead_ar": "ضيعة بيصور عالية بجبل لبنان — ساعة عن بيروت، وعالم تاني بالكامل. والمنتجع مخبّى تحت الضيعة، بوادي النهر يلي بتركض فيه المي والصنوبر مبقّي الهوا بارد.",
+  "quote_en": "People come here to breathe.",
+  "quote_ar": "الناس بتجي لهون لتتنفّس."
+ },
+ "contact": {
+  "script": "احكينا",
+  "title_en": "Contact & Directions",
+  "title_ar": "التواصل والوصول",
+  "lead_en": "The fastest way to reach us is WhatsApp — we typically reply within a few hours. You can also message us on Instagram or Facebook, or send an email. Chalets are open all year; the outdoor restaurant and pool run through the warm season — ask us for current hours.",
+  "lead_ar": "أسرع طريقة للتواصل هي واتساب — منردّ عادةً خلال ساعات. فيك كمان تراسلنا عبر إنستغرام أو فيسبوك أو بالإيميل. الشاليهات مفتوحة طول السنة؛ والمطعم المكشوف والمسبح شغالين بموسم الدفا — اسألنا عن الأوقات الحالية.",
+  "directions_en": "Take the Beirut–Damascus highway toward Aley, then follow the signs to Baissour. About 45 minutes from central Beirut.",
+  "directions_ar": "خود أوتوستراد بيروت–دمشق باتجاه عاليه، وبعدين اتبع إشارات بيصور. حوالي ٤٥ دقيقة من وسط بيروت.",
+  "address_en": "Baissour, Aley District, Mount Lebanon, Lebanon",
+  "address_ar": "بيصور، قضاء عاليه، جبل لبنان"
+ },
+ "packages": {
+  "script": "ع كيفك",
+  "title_en": "Plan It Your Way",
+  "title_ar": "خطّطها ع ذوقك",
+  "lead_en": "Plan your event with us from A to Z, or take the space and build your own night. Use our kitchen or pick from our list of approved catering vendors, upgrade the bar, and shape the venue around your idea — if you can picture it, we can host it. Starting prices below; every event gets a tailored quote on WhatsApp.",
+  "lead_ar": "خطّط مناسبتك معنا من الألف للياء، أو خود المكان وابنِ سهرتك ع طريقتك. اطبخ من مطبخنا أو نقّي من لائحة متعهدي الطعام المعتمدين، طوّر البار، وفصّل المكان ع فكرتك — إذا فيك تتخيلها، فينا نستضيفها. الأسعار تحت هي أسعار بداية؛ وكل مناسبة بتاخد عرض خاص عالواتساب.",
+  "tiers": [
+   {
+    "name_en": "The Space",
+    "name_ar": "المكان",
+    "tag_en": "Venue only",
+    "tag_ar": "المكان فقط",
+    "price": "$4,500",
+    "unit_en": "starting · per event",
+    "unit_ar": "سعر بداية · للمناسبة",
+    "items": [
+     {
+      "en": "Exclusive private use of Draj el Ward or Ta'Hani — your event only, no sharing",
+      "ar": "حجز حصري لدراج الورد أو تهاني — مناسبتك وبس، ما في مشاركة"
+     },
+     {
+      "en": "Up to 8 hours on site; music until 3:00 AM at the latest",
+      "ar": "لغاية ٨ ساعات بالموقع؛ والموسيقى لغاية ٣:٠٠ الصبح كحد أقصى"
+     },
+     {
+      "en": "Tables, chairs, linens & basic layout set up before you arrive",
+      "ar": "طاولات وكراسي ومفارش وتجهيز أساسي قبل ما توصل"
+     },
+     {
+      "en": "Power, lighting rig & sound hookups ready for your vendors",
+      "ar": "كهرباء وإضاءة ووصلات صوت جاهزين لمتعهدينك"
+     },
+     {
+      "en": "Outside catering & decor welcome — from our approved vendor list",
+      "ar": "كاترينغ وديكور من برا أهلا وسهلا — من لائحة المتعهدين المعتمدين"
+     },
+     {
+      "en": "Bridal prep room + on-site parking with attendant",
+      "ar": "غرفة تجهيز للعروس + موقف سيارات مع منظّم"
+     },
+     {
+      "en": "Venue staff, security & cleaning before, during and after",
+      "ar": "طاقم للمكان وأمن وتنظيف قبل وخلال وبعد المناسبة"
+     }
+    ]
+   },
+   {
+    "name_en": "The Table",
+    "name_ar": "السفرة",
+    "tag_en": "Venue + buffet from our kitchen",
+    "tag_ar": "المكان + بوفيه من مطبخنا",
+    "price": "$40",
+    "unit_en": "starting · per guest (min. 100)",
+    "unit_ar": "سعر بداية · للشخص (١٠٠ ضيف حد أدنى)",
+    "featured": true,
+    "items": [
+     {
+      "en": "Everything in The Space — venue fee included in the per-guest rate",
+      "ar": "كل شي بباقة «المكان» — بدل المكان محسوب ضمن سعر الشخص"
+     },
+     {
+      "en": "Full Lebanese buffet from our kitchen: cold & hot mezze, salads, saj and mixed-grill mashawi",
+      "ar": "بوفيه لبناني كامل من مطبخنا: مازة باردة وساخنة وسلطات وصاج ومشاوي مشكّلة"
+     },
+     {
+      "en": "Live mezze & grill stations with our chefs on site",
+      "ar": "محطات مازة ومشاوي حية مع طهاتنا بالموقع"
+     },
+     {
+      "en": "Dessert table, seasonal fruit & Lebanese coffee service",
+      "ar": "طاولة حلويات وفواكه موسمية وقهوة لبنانية"
+     },
+     {
+      "en": "Soft drinks, juices & water all night — open bar upgradable from $15/guest",
+      "ar": "مشروبات باردة وعصائر ومي طول السهرة — بار مفتوح متوفر من ١٥$ للشخص"
+     },
+     {
+      "en": "Professional service staff, tableware & glassware included",
+      "ar": "طاقم خدمة محترف مع كل أدوات السفرة والكاسات"
+     },
+     {
+      "en": "Menu tasting for the couple before the big day",
+      "ar": "جلسة تذوق للمنيو للعروسين قبل المناسبة"
+     }
+    ]
+   },
+   {
+    "name_en": "A to Z",
+    "name_ar": "من الألف للياء",
+    "tag_en": "Fully planned",
+    "tag_ar": "تخطيط كامل",
+    "price": "$60",
+    "unit_en": "starting · per guest (min. 100)",
+    "unit_ar": "سعر بداية · للشخص (١٠٠ ضيف حد أدنى)",
+    "items": [
+     {
+      "en": "Everything in The Table — food, service and venue, all in",
+      "ar": "كل شي بباقة «السفرة» — أكل وخدمة ومكان، كله محسوب"
+     },
+     {
+      "en": "Dedicated event coordinator from first visit to last dance",
+      "ar": "منسّق مناسبات خاص من أول زيارة لآخر رقصة"
+     },
+     {
+      "en": "Full decor & floral design built around your theme",
+      "ar": "ديكور كامل وتنسيق ورد ع ذوقك وثيمتك"
+     },
+     {
+      "en": "DJ, zaffe, fireworks & photographers booked and managed for you at partner rates",
+      "ar": "دي جي وزفة وألعاب نارية ومصورين — منحجزهن ومنديرهن عنك بأسعار شركائنا"
+     },
+     {
+      "en": "Seating chart, timeline & guest-flow planning with you",
+      "ar": "ترتيب الطاولات وجدول السهرة وتنظيم حركة الضيوف معك"
+     },
+     {
+      "en": "Couple's chalet night + next-morning breakfast included",
+      "ar": "ليلة شاليه للعروسين مع فطور تاني يوم مجاناً"
+     },
+     {
+      "en": "Discounted chalet block for your out-of-town guests",
+      "ar": "خصومات شاليهات لضيوفك الجايين من برا"
+     }
+    ]
+   }
+  ],
+  "addons_title_en": "Popular add-ons",
+  "addons_title_ar": "إضافات مطلوبة",
+  "addons": [
+   {
+    "en": "Open bar packages from $15/guest",
+    "ar": "باقات بار مفتوح من ١٥$ للشخص"
+   },
+   {
+    "en": "Approved catering vendors list",
+    "ar": "لائحة متعهدي طعام معتمدين"
+   },
+   {
+    "en": "Guest chalet block discounts",
+    "ar": "خصومات شاليهات لضيوفك"
+   },
+   {
+    "en": "Photography & videography partners",
+    "ar": "شركاء تصوير فوتو وفيديو"
+   },
+   {
+    "en": "Party until 3:00 AM at the latest",
+    "ar": "السهرة لغاية ٣:٠٠ الصبح كحد أقصى"
+   },
+   {
+    "en": "Anything else? Just ask",
+    "ar": "شي تاني؟ بس اطلب"
+   }
+  ],
+  "deals_title_en": "Deals & booking terms",
+  "deals_title_ar": "العروض وشروط الحجز",
+  "deals": [
+   {
+    "big": "-10%",
+    "en": "on the venue fee when you book 6+ months ahead — plus a free bridal chalet night",
+    "ar": "على بدل المكان إذا حجزت قبل ٦ أشهر أو أكتر — مع ليلة شاليه مجانية للعروسين"
+   },
+   {
+    "big": "-15%",
+    "en": "on the venue fee for weekday events (Mon–Thu)",
+    "ar": "على بدل المكان للمناسبات أيام الأسبوع (الاثنين–الخميس)"
+   },
+   {
+    "big": "60",
+    "en": "days' notice — event bookings open up to your date minus 60 days; shorter notice is less likely, but message us and we may be able to accommodate it. A deposit locks your date.",
+    "ar": "يوم مهلة — احجز مناسبتك قبل ٦٠ يوم عالأقل من التاريخ؛ أقل من هيك بيصير أصعب، بس راسلنا وممكن نقدر ندبّرها. والعربون بيثبّت التاريخ."
+   }
+  ],
+  "note_en": "All prices are starting rates — every event gets a tailored written quote on WhatsApp. A deposit locks your date; the balance is due before the event. Per-guest packages start at 100 guests (smaller gatherings get a custom quote). Outside catering is welcome in The Space from our approved vendor list. Events run until 3:00 AM at the latest. Both venues are open-air — for spring and autumn dates we'll talk through the weather plan together.",
+  "note_ar": "كل الأسعار أسعار بداية — وكل مناسبة بتاخد عرض سعر مكتوب ومفصّل عالواتساب. العربون بيثبّت التاريخ، والباقي قبل المناسبة. باقات سعر الشخص بتبلش من ١٠٠ ضيف (والجمعات الأصغر بتاخد عرض خاص). الكاترينغ من برا مسموح بباقة «المكان» من لائحة المتعهدين المعتمدين. المناسبات لغاية ٣:٠٠ الصبح كحد أقصى. والمكانان عالهوا الطلق — لمواعيد الربيع والخريف منحكي سوا بخطة الطقس."
+ },
+ "families": {
+  "script": "للعيلة كلها",
+  "title_en": "Families & Little Ones",
+  "title_ar": "العائلات والصغار",
+  "lead_en": "The club was made for family days out. A kids-friendly side of the pool, open lawns to run on, riverside walks, and the club's famous ducks and geese waiting by the water — bring bread, make friends. Parents get the sunbeds; kids get everything else.",
+  "lead_ar": "المنتجع معمول لطلعات العيلة. جهة مسبح مناسبة للصغار، وساحات خضرا يركضوا فيها، ومشاوير ع ضفة النهر، وبط ووز المنتجع المشهورين ناطرين عالمي — جيب خبز واعمل صحاب. الأهل إلن كراسي التشميس؛ والولاد إلن كل شي تاني.",
+  "points": [
+   {
+    "en": "Riverside picnics & shaded walks",
+    "ar": "بيك نيك ع النهر ومشاوير مظللة"
+   },
+   {
+    "en": "Kids' playground in the park",
+    "ar": "ملعب أطفال بالحديقة"
+   },
+   {
+    "en": "Ducks & geese along the river",
+    "ar": "بط ووز ع طول النهر"
+   },
+   {
+    "en": "Open lawns & space to play",
+    "ar": "ساحات خضرا ومساحة للعب"
+   },
+   {
+    "en": "Kids' plates at the restaurant",
+    "ar": "أطباق أطفال بالمطعم"
+   },
+   {
+    "en": "Family chalets that sleep everyone",
+    "ar": "شاليهات عائلية بتوسع الكل"
+   },
+   {
+    "en": "Shallow, supervised-friendly pool side",
+    "ar": "جهة مسبح ضحلة ومناسبة لمراقبة الأهل"
+   },
+   {
+    "en": "Bonfire nights under the stars",
+    "ar": "سهرات نار تحت النجوم"
+   }
+  ],
+  "ad": {
+   "kicker_en": "Got a date to celebrate?",
+   "kicker_ar": "عندك مناسبة عالطريق؟",
+   "title_en": "Birthdays & graduation parties — hosted here",
+   "title_ar": "أعياد ميلاد وحفلات تخرّج — عنّا",
+   "text_en": "Cake by the river, a playground to wear the kids out, and zero cleanup for you. Tell us the date — we'll do the rest.",
+   "text_ar": "قالب الحلو ع النهر، ملعب يلهّي الولاد، وولا غسّيلة صحن عليك. خبّرنا التاريخ — والباقي علينا.",
+   "cta_en": "See party options",
+   "cta_ar": "شوف خيارات الحفلات"
+  }
+ },
+ "giftshop": {
+  "script": "تذكار حلو",
+  "title_en": "The Gift Shop",
+  "title_ar": "محل الهدايا",
+  "lead_en": "Before you head back down the mountain, pass by our gift shop — local and handmade pieces, BCC keepsakes, and unique finds you won't see in the city. A little bit of Baissour to take home.",
+  "lead_ar": "قبل ما تنزل عالمدينة، مرّ ع محل الهدايا — قطع محلية وشغل يدوي، تذكارات المنتجع، وأغراض مميزة ما بتلاقيها بالمدينة. شقفة من بيصور تاخدها معك عالبيت."
+ },
+ "socials": {
+  "script": "شوف الفيديوهات",
+  "title_en": "From Our Socials",
+  "title_ar": "من صفحاتنا",
+  "lead_en": "Our most-loved videos — each passed 250 likes and counting. Tap to watch on Instagram, or come make the next one.",
+  "lead_ar": "أكتر فيديوهاتنا محبة — كل واحد تخطى ٢٥٠ لايك وبعدو عم يعد. كبس لتشوف ع إنستغرام، أو تعا خلينا نصوّر التالي سوا.",
+  "cards": [
+   {
+    "img": "vid_1",
+    "likes": "1.6K",
+    "cap_en": "The treehouse chalets & private pool",
+    "cap_ar": "شاليهات الأكواخ والمسبح الخاص",
+    "url": "https://www.instagram.com/p/Da8cu7wKijO/"
+   },
+   {
+    "img": "vid_2",
+    "likes": "1.4K",
+    "cap_en": "Yes — all this at Baissour Country Club",
+    "cap_ar": "إي — كل هيدا بمنتجع بيصور",
+    "url": "https://www.instagram.com/p/DaZvfUaIP-g/"
+   },
+   {
+    "img": "vid_3",
+    "likes": "658",
+    "cap_en": "The walkway through the trees",
+    "cap_ar": "الممر بين الشجر",
+    "url": "https://www.instagram.com/p/DOdkbSriCGs/"
+   },
+   {
+    "img": "vid_4",
+    "likes": "420",
+    "cap_en": "Evenings at the pool",
+    "cap_ar": "المسا ع المسبح",
+    "url": "https://www.instagram.com/p/DNFuIQHopLG/"
+   },
+   {
+    "img": "vid_5",
+    "likes": "389",
+    "cap_en": "Cocktails by the water",
+    "cap_ar": "كوكتيلات ع المي",
+    "url": "https://www.instagram.com/p/DMCyonysOhq/"
+   }
+  ]
+ },
+ "calculator": {
+  "script": "قدّيش رح تكلف؟",
+  "title_en": "Event Calculator",
+  "title_ar": "حاسبة المناسبة",
+  "lead_en": "Tick what you're imagining and get a rough starting estimate on the spot — then send us the whole plan in one tap for a real quote.",
+  "lead_ar": "علّم عيلي عم تتخيله وخود تقدير مبدئي عالسريع — وبعدين ابعتلنا الخطة كلها بكبسة لعرض سعر فعلي.",
+  "labels": {
+   "package_en": "Package",
+   "package_ar": "الباقة",
+   "guests_en": "Number of guests",
+   "guests_ar": "عدد الضيوف",
+   "bar_en": "Bar",
+   "bar_ar": "البار",
+   "bar_none_en": "Soft drinks only (included)",
+   "bar_none_ar": "مشروبات باردة فقط (ضمن السعر)",
+   "bar_open_en": "Open bar (+$15/guest)",
+   "bar_open_ar": "بار مفتوح (+١٥$ للشخص)",
+   "bar_prem_en": "Premium bar (+$25/guest)",
+   "bar_prem_ar": "بار بريميوم (+٢٥$ للشخص)",
+   "extras_en": "Extras",
+   "extras_ar": "الإضافات",
+   "deals_en": "Discounts",
+   "deals_ar": "الحسومات",
+   "weekday_en": "Weekday event (Mon–Thu) — −15% venue",
+   "weekday_ar": "مناسبة يوم أسبوع (اثنين–خميس) — ١٥٪ حسم عالمكان",
+   "early_en": "Booking 6+ months ahead — −10% venue",
+   "early_ar": "حجز قبل ٦ أشهر أو أكتر — ١٠٪ حسم عالمكان",
+   "total_en": "Rough estimate",
+   "total_ar": "التقدير المبدئي",
+   "note_en": "A starting-point estimate, not a quote — season, menu and details change the number. Discounts shown apply to the venue portion.",
+   "note_ar": "تقدير مبدئي مش عرض سعر — الموسم والمنيو والتفاصيل بتغيّر الرقم. الحسومات المذكورة عالمكان.",
+   "send_en": "Send this plan on WhatsApp",
+   "send_ar": "ابعت هالخطة عالواتساب",
+   "email_en": "Send via Email",
+   "email_ar": "ابعت عالإيميل"
+  },
+  "extras": [
+   {
+    "id": "photo",
+    "price": 800,
+    "en": "Photography & video (+$800)",
+    "ar": "تصوير فوتو وفيديو (+٨٠٠$)"
+   },
+   {
+    "id": "dj",
+    "price": 500,
+    "en": "DJ & sound (+$500)",
+    "ar": "دي جي وصوتيات (+٥٠٠$)"
+   },
+   {
+    "id": "zaffe",
+    "price": 400,
+    "en": "Zaffe entrance (+$400)",
+    "ar": "زفة (+٤٠٠$)"
+   },
+   {
+    "id": "fireworks",
+    "price": 300,
+    "en": "Fireworks (+$300)",
+    "ar": "ألعاب نارية (+٣٠٠$)"
+   },
+   {
+    "id": "kids",
+    "price": 200,
+    "en": "Kids corner & sitters (+$200)",
+    "ar": "ركن أطفال ومرافقات (+٢٠٠$)"
+   }
+  ]
+ },
+ "naturals": {
+  "script": "عالطبيعي",
+  "title_en": "The Natural Pools",
+  "title_ar": "البرك الطبيعية",
+  "lead_en": "Beyond the main pool, the river gives you two natural swimming holes — clear, icy mountain water that stays cold through the hottest days of summer.",
+  "lead_ar": "غير المسبح الرئيسي، النهر بيعطيك بركتين طبيعيتين — مي جبلية صافية وباردة بتضل تلج حتى بأشوب أيام الصيف.",
+  "cards": [
+   {
+    "name": "Al Snoun",
+    "name_ar": "السنون",
+    "img": "home_gallery-5",
+    "img2": "home_gallery-4",
+    "desc_en": "A deep, clear basin carved into the rock — the cold plunge everyone talks about after.",
+    "desc_ar": "حوض عميق وصافي محفور بالصخر — الغطسة الباردة يلي الكل بيحكي عنها بعدين."
+   },
+   {
+    "name": "Al Tannour",
+    "name_ar": "التنور",
+    "img": "tannour_1",
+    "desc_en": "A little waterfall spilling into a turquoise basin under the trees — where the river slows down and the water stays fresh all year. Quieter than Al Snoun; the locals' favorite.",
+    "desc_ar": "شلال صغير عم يصبّ ببركة فيروزية تحت الشجر — وين النهر بيهدى والمي بتضل منعشة طول السنة. أهدى من السنون — والمفضل عند أهل الضيعة."
+   }
+  ]
+ },
+ "celebrations": {
+  "script": "عيّدها صح",
+  "title_en": "Birthdays & Graduations",
+  "title_ar": "أعياد الميلاد وحفلات التخرّج",
+  "lead_en": "Not every celebration needs a wedding dress. Turn a birthday into a riverside feast, or give your graduate a night nobody's forgetting — cake under the string lights, mashawi straight off the fire, music till late, and the river singing backup. From a long table for ten to the whole venue with a DJ, we set the stage; you blow out the candles.",
+  "lead_ar": "مش كل احتفال بدو فستان عرس. خلّي عيد الميلاد عزيمة ع ضفة النهر، وقدّم للخرّيج سهرة ما حدا رح ينساها — قالب الحلو تحت الإضاءة، مشاوي ع النار، وموسيقى لآخر الليل، والنهر عم يغنّي معكن. من طاولة طويلة لعشرة لحدّ المكان كلّو مع دي جي — نحنا منجهّز المسرح، وانتو طفّو الشمع.",
+  "chips": [
+   {
+    "en": "Intimate tables to full-venue parties",
+    "ar": "من قعدة صغيرة لحفلة عالمكان كلّو"
+   },
+   {
+    "en": "Cake, decor & themes arranged",
+    "ar": "قالب وديكور وثيمات منجهّزن"
+   },
+   {
+    "en": "DJ, live music & karaoke nights",
+    "ar": "دي جي وموسيقى حية وكاراوكي"
+   },
+   {
+    "en": "Kids' corner by the playground",
+    "ar": "زاوية أطفال حد الملعب"
+   },
+   {
+    "en": "Poolside by day, riverside by night",
+    "ar": "عالمسبح نهاراً وع النهر ليلاً"
+   }
+  ],
+  "cta_en": "Plan the party",
+  "cta_ar": "نظّم الحفلة"
+ }
+}

@@ -1,0 +1,738 @@
+<meta charset="utf-8">
+<title>Baissour Country Club</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Baissour Country Club — chalets, mountain pool, riverside restaurant and two signature wedding venues in Mount Lebanon, 45 minutes from Beirut.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Archivo:wght@400;600;700;900&family=Aref+Ruqaa:wght@400;700&display=swap">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+img{max-width:100%;display:block}
+:root{
+  --paper:#FBF8F1; --ink:#1B1712; --muted:#6F6858; --accent:#E08A12; --accent-ink:#9C5F07;
+  --line:#E8E1CF; --card:#FFFFFF; --tint:rgba(224,138,18,.08); --scrim:rgba(16,11,4,.45);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#161210; --ink:#EDE5D6; --muted:#A79C88; --accent:#F0A63C; --accent-ink:#F0A63C;
+    --line:#2E2720; --card:#1F1A14; --tint:rgba(240,166,60,.10); --scrim:rgba(8,5,2,.55);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#161210; --ink:#EDE5D6; --muted:#A79C88; --accent:#F0A63C; --accent-ink:#F0A63C;
+  --line:#2E2720; --card:#1F1A14; --tint:rgba(240,166,60,.10); --scrim:rgba(8,5,2,.55);
+}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--paper);color:var(--ink);font-family:'Archivo',system-ui,sans-serif;line-height:1.55}
+[data-lang="en"] .L.ar{display:none}
+[data-lang="ar"] .L.en{display:none}
+[data-lang="ar"] body{font-family:'Almarai','Archivo',sans-serif}
+.L.ar{font-family:'Almarai',sans-serif}
+.t-script{font-family:'Aref Ruqaa',serif;color:var(--accent)}
+.page{display:none}.page.on{display:block}
+/* top bar */
+.bar{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:14px;
+  padding:10px 18px;background:color-mix(in srgb,var(--paper) 90%,transparent);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar .logo{height:40px;width:auto;cursor:pointer}
+.bar nav{display:flex;gap:2px;overflow-x:auto;flex:1;scrollbar-width:none}
+.bar nav::-webkit-scrollbar{display:none}
+.bar nav a{white-space:nowrap;text-decoration:none;color:var(--ink);font-size:13px;font-weight:600;
+  padding:7px 11px;border-radius:999px;letter-spacing:.03em;cursor:pointer}
+.bar nav a:hover,.bar nav a:focus-visible{background:var(--tint);outline:none}
+.lang-btn{flex:0 0 auto;border:1.5px solid var(--accent);background:none;color:var(--accent-ink);
+  font-weight:700;font-size:13px;padding:6px 14px;border-radius:999px;cursor:pointer;font-family:inherit}
+.lang-btn:hover{background:var(--tint)}
+/* hero */
+.hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;overflow:hidden}
+.hero>img,.hero>video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero>img{animation:kenburns 9s ease-out forwards}
+@keyframes kenburns{from{transform:scale(1.09)}to{transform:scale(1)}}
+.hero-inner>*{animation:riseup .8s ease-out backwards}
+.hero-inner>*:nth-child(1){animation-delay:.15s}
+.hero-inner>*:nth-child(2){animation-delay:.3s}
+.hero-inner>*:nth-child(3){animation-delay:.5s}
+.hero-inner>*:nth-child(4){animation-delay:.7s}
+@keyframes riseup{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.t-script{transition:transform .3s ease}
+.sec-head:hover .t-script{transform:rotate(-7deg) scale(1.06)}
+.wa-float{animation:floatpulse 3.2s ease-in-out infinite}
+@keyframes floatpulse{0%,100%{box-shadow:0 8px 22px rgba(0,0,0,.25)}50%{box-shadow:0 8px 30px rgba(37,211,102,.45)}}
+.gitem{transition:opacity .35s ease}
+@media (prefers-reduced-motion:reduce){
+  .hero>img,.hero-inner>*,.wa-float{animation:none}
+}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(185deg,rgba(0,0,0,.08) 30%,var(--scrim) 82%)}
+.hero-inner{position:relative;z-index:2;color:#FDF9F0;padding:0 6vw 9vh;max-width:900px}
+.kicker{font-size:13px;letter-spacing:.22em;text-transform:uppercase;opacity:.9;margin-bottom:14px}
+[dir=rtl] .kicker{letter-spacing:.06em}
+.hero h1 .t-h1{display:block;font-size:clamp(44px,7.5vw,92px);font-weight:900;line-height:1.02;letter-spacing:-.015em;text-wrap:balance}
+[data-lang="ar"] .hero h1 .t-h1{letter-spacing:0;line-height:1.15}
+.hero .sub{margin-top:18px;font-size:clamp(16px,1.9vw,20px);max-width:58ch;opacity:.95}
+.cta-row{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;font-weight:700;font-size:15px;padding:13px 26px;
+  border-radius:999px;transition:transform .15s ease;cursor:pointer;border:none;font-family:inherit}
+.btn:hover{transform:translateY(-2px)}
+.btn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.btn-solid{background:var(--accent);color:#1D1405}
+.btn-ghost{border:1.5px solid rgba(255,255,255,.85);color:#FDF9F0;background:none}
+.btn-line{border:1.5px solid var(--accent);color:var(--accent-ink);background:none}
+.btn-wa{background:#25D366;color:#062B12}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
+.stats>div{padding:26px 10px;text-align:center;border-inline-start:1px solid var(--line)}
+.stats>div:first-child{border-inline-start:none}
+.stats .num{font-weight:900;font-size:clamp(26px,4vw,40px);color:var(--accent-ink)}
+.stats .lab{font-size:13px;color:var(--muted);margin-top:2px}
+@media (max-width:700px){.stats{grid-template-columns:1fr 1fr}.stats>div:nth-child(3){border-inline-start:none}}
+/* sections */
+main{max-width:1120px;margin:0 auto;padding:0 22px}
+section.block{padding:64px 0 30px}
+.sec-head h2,.sec-head h1,.sec-head h3{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+.t-big{font-size:clamp(30px,4.4vw,44px);font-weight:900;letter-spacing:.01em;text-transform:uppercase}
+.L.ar.t-big{text-transform:none;letter-spacing:0}
+.t-script{font-size:clamp(22px,3vw,30px);transform:rotate(-4deg);display:inline-block;translate:0 -2px}
+.lead{font-size:clamp(16px,1.9vw,19px);max-width:72ch;margin-top:16px}
+.lead.L.ar{line-height:1.9}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+/* venues */
+.venues{display:flex;flex-direction:column;gap:34px;margin-top:30px}
+.venueblock{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.vb-hero{position:relative;aspect-ratio:16/8;overflow:hidden}
+.vb-hero img,.vb-hero video{width:100%;height:100%;object-fit:cover}
+.vb-hero .vtag{position:absolute;top:16px;inset-inline-start:16px;background:rgba(20,14,5,.62);color:#FFD79A;
+  font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 13px;border-radius:999px;backdrop-filter:blur(4px)}
+[data-lang="ar"] .vb-hero .vtag{letter-spacing:0}
+.vb-body{padding:24px 26px 26px}
+.vfacts{color:var(--accent-ink);font-size:13.5px;font-weight:700;margin-top:6px}
+.vthumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}
+@media (max-width:760px){.vthumbs{grid-template-columns:repeat(2,1fr)}}
+.vth{aspect-ratio:4/3;cursor:zoom-in;margin:0;background:var(--paper);border:1px solid var(--line);
+  border-radius:11px;padding:6px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.vth img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;border-radius:6px}
+.vth:hover img{transform:scale(1.05)}
+.vopts{margin-top:4px}
+@media (max-width:800px){.venues{gap:26px}}
+.venue{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.venue .ph{aspect-ratio:4/3;overflow:hidden;position:relative}
+.venue .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.venue:hover .ph img{transform:scale(1.03)}
+.venue .vtag{position:absolute;top:14px;inset-inline-start:14px;background:rgba(20,14,5,.62);color:#FFD79A;
+  font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 13px;border-radius:999px;backdrop-filter:blur(4px)}
+[data-lang="ar"] .venue .vtag{letter-spacing:0}
+.venue .pad{padding:20px 22px 24px}
+.vname{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.vname .nm{font-size:24px;font-weight:900}
+.vname .nm-ar{font-family:'Aref Ruqaa',serif;font-size:24px;color:var(--accent);transform:rotate(-3deg);display:inline-block}
+.venue .desc,.vb-body .desc{color:var(--muted);font-size:15px;margin-top:10px}
+.venue .duo{display:block;margin-top:0;aspect-ratio:16/9}
+.venue .duo img{width:100%;height:100%;object-fit:cover}
+/* features/quotes */
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:10px 34px;margin-top:30px}
+@media (max-width:700px){.feat{grid-template-columns:1fr}}
+.feat>div{display:flex;gap:10px;align-items:baseline;font-size:15.5px}
+.feat .tick{color:var(--accent);font-weight:900}
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}
+@media (max-width:700px){.quotes{grid-template-columns:1fr}}
+.quote{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;font-size:15px}
+.quote::before{content:"\201C";display:block;font-size:34px;line-height:.6;color:var(--accent);font-weight:900;margin-bottom:10px}
+[data-lang="ar"] .quote::before{content:"\201D"}
+/* packages */
+.t-mid{font-size:clamp(24px,3.2vw,32px);font-weight:900;text-transform:uppercase}
+.L.ar.t-mid{text-transform:none}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px;align-items:stretch}
+@media (max-width:860px){.tiers{grid-template-columns:1fr}}
+.tier{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 24px;display:flex;flex-direction:column;transition:transform .2s ease,box-shadow .2s ease}
+.tier:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,.10)}
+.tier.featured{border:2px solid var(--accent);position:relative}
+.tier.featured::before{content:"★";position:absolute;top:-13px;inset-inline-start:24px;background:var(--accent);color:#1D1405;
+  font-size:13px;font-weight:900;padding:2px 12px;border-radius:999px}
+.ttag{font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+[data-lang="ar"] .ttag{letter-spacing:0}
+.tname{display:flex;align-items:baseline;gap:10px;margin-top:8px;flex-wrap:wrap}
+.tname .tn{font-size:23px;font-weight:900}
+.tname .tn-ar{font-family:'Aref Ruqaa',serif;font-size:20px;color:var(--accent);transform:rotate(-3deg);display:inline-block}
+.tprice{font-size:38px;font-weight:900;color:var(--accent-ink);margin-top:12px;font-variant-numeric:tabular-nums}
+.tunit{font-size:12.5px;color:var(--muted);margin-top:2px}
+.tlist{list-style:none;margin:18px 0 22px;display:flex;flex-direction:column;gap:9px;flex:1}
+.tlist li{display:flex;gap:9px;align-items:baseline;font-size:14.5px}
+.tlist .tick{color:var(--accent);font-weight:900}
+.tier .btn{align-self:flex-start}
+.subhead{font-size:15px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);margin-top:36px}
+[data-lang="ar"] .subhead{letter-spacing:0}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.chip{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:9px 17px;font-size:14px}
+.deals{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+@media (max-width:800px){.deals{grid-template-columns:1fr}}
+.deal{background:var(--tint);border-radius:16px;padding:20px 22px;display:flex;gap:16px;align-items:center}
+.deal .dbig{font-size:30px;font-weight:900;color:var(--accent-ink);white-space:nowrap;font-variant-numeric:tabular-nums}
+.deal .dtxt{font-size:13.5px}
+/* calculator */
+.radios{display:flex;flex-direction:column;gap:8px}
+.cbx{display:flex;gap:10px;align-items:baseline;font-size:14.5px;cursor:pointer;
+  border:1.5px solid var(--line);border-radius:10px;padding:10px 13px;background:var(--paper)}
+.cbx:has(input:checked){border-color:var(--accent);background:var(--tint)}
+.cbx input{accent-color:var(--accent);flex:0 0 auto;translate:0 1px;width:auto;border:none;background:none;padding:0}
+.cal-total{display:flex;align-items:baseline;gap:16px;margin-top:24px;padding:18px 22px;
+  background:var(--tint);border-radius:14px;flex-wrap:wrap}
+.ct-lab{font-weight:700;font-size:14px;color:var(--accent-ink);text-transform:uppercase;letter-spacing:.07em}
+[data-lang="ar"] .ct-lab{letter-spacing:0}
+.ct-num{font-size:clamp(30px,4vw,42px);font-weight:900;color:var(--accent-ink);font-variant-numeric:tabular-nums;
+  transition:transform .15s ease;display:inline-block}
+.ct-num.bump{transform:scale(1.08)}
+/* families / socials / gift */
+.socgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:26px}
+@media (max-width:1000px){.socgrid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:640px){.socgrid{grid-template-columns:repeat(2,1fr)}}
+.soc{position:relative;display:block;border-radius:16px;overflow:hidden;aspect-ratio:9/14;text-decoration:none}
+.soc-likes{position:absolute;top:12px;inset-inline-start:12px;z-index:2;background:rgba(20,14,5,.65);color:#FFD79A;
+  font-weight:900;font-size:13px;padding:5px 12px;border-radius:999px;backdrop-filter:blur(4px)}
+.soc-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;color:#fff;
+  font-size:26px;background:rgba(20,14,5,.45);width:58px;height:58px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;backdrop-filter:blur(3px);transition:transform .2s ease}
+.soc:hover .soc-play{transform:translate(-50%,-50%) scale(1.12)}
+.soc img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.soc:hover img{transform:scale(1.04)}
+.soc::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(10,7,3,.65))}
+.soc-lab{position:absolute;bottom:16px;inset-inline-start:20px;z-index:2;color:#FDF9F0;font-weight:900;font-size:19px}
+.venue.nat-text{background:var(--tint);display:flex;align-items:center}
+.venue.nat-text .desc{font-size:16px}
+.gift{background:var(--tint);border-radius:18px;padding:34px 32px;border:1.5px dashed var(--accent)}
+.gift-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.gift .gt{font-size:clamp(24px,3.2vw,32px);font-weight:900;text-transform:uppercase}
+.gift .L.ar.gt{text-transform:none}
+.gift .lead{margin-top:10px}
+/* forms */
+.formcard{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px;margin-top:34px}
+.formcard h3{font-size:20px;font-weight:900;margin-bottom:6px}
+.formcard .fl{font-size:13px;font-weight:700;color:var(--accent-ink);letter-spacing:.05em;display:block;margin:16px 0 6px}
+[data-lang="ar"] .formcard .fl{letter-spacing:0}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 22px}
+@media (max-width:700px){.fgrid{grid-template-columns:1fr}}
+input,select,textarea{width:100%;background:var(--paper);border:1.5px solid var(--line);border-radius:10px;
+  padding:11px 13px;font-size:15px;color:var(--ink);font-family:inherit}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent)}
+textarea{min-height:84px;resize:vertical}
+.form-note{font-size:13px;color:var(--muted);margin-top:14px}
+/* chalets */
+.chgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+@media (max-width:900px){.chgrid{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.chgrid{grid-template-columns:1fr}}
+.chalet{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;
+  transition:transform .2s ease,box-shadow .2s ease;display:flex;flex-direction:column}
+.chalet:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,.10)}
+.chalet .ph{aspect-ratio:4/3;overflow:hidden}
+.chalet img{width:100%;height:100%;object-fit:cover}
+.chalet .pad{padding:16px 18px 20px;flex:1;display:flex;flex-direction:column}
+.tagpill{display:inline-block;background:var(--tint);color:var(--accent-ink);font-size:11.5px;
+  font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:4px 11px;margin-bottom:10px;align-self:flex-start}
+[data-lang="ar"] .tagpill{letter-spacing:0}
+.chalet h3.chname{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.chalet .cn{font-size:19px;font-weight:900}
+.chalet .cn-ar{font-family:'Aref Ruqaa',serif;font-size:18px;color:var(--accent);transform:rotate(-3deg);display:inline-block}
+.chalet .chsub{font-size:12.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-top:3px}
+[data-lang="ar"] .chalet .chsub{letter-spacing:0}
+.chalet .facts{color:var(--accent-ink);font-size:12.5px;font-weight:600;margin-top:6px}
+.chalet .desc{color:var(--muted);font-size:14px;margin-top:8px;flex:1}
+.chalet .bk{margin-top:14px;align-self:flex-start;font-size:13.5px;padding:9px 18px}
+.chnotes{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:24px}
+@media (max-width:800px){.chnotes{grid-template-columns:1fr 1fr}}
+.chnotes>div{border:1px dashed var(--line);border-radius:12px;padding:12px 14px;font-size:13px;color:var(--muted)}
+/* splits & strips */
+.split{display:grid;grid-template-columns:1.1fr 1fr;gap:34px;align-items:center;margin-top:26px}
+@media (max-width:800px){.split{grid-template-columns:1fr}}
+.split .ph{border-radius:16px;overflow:hidden}
+.points{margin-top:20px;display:flex;flex-direction:column;gap:10px}
+.points>div{display:flex;gap:10px;align-items:baseline;font-size:15px}
+.points .tick{color:var(--accent);font-weight:900}
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.strip.strip4{grid-template-columns:repeat(4,1fr)}
+@media (max-width:700px){.strip.strip4{grid-template-columns:1fr 1fr}}
+.strip .ph{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:7px;
+  box-shadow:0 3px 12px rgba(0,0,0,.07);overflow:hidden}
+.strip .ph img{border-radius:6px}
+.split .ph{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:9px;
+  box-shadow:0 4px 18px rgba(0,0,0,.08)}
+.split .ph img,.split .ph video{border-radius:9px;width:100%;display:block}
+.vmedia{width:100%;height:100%;object-fit:cover;display:block}
+.strip .ph{border-radius:12px;overflow:hidden;aspect-ratio:4/3}
+.strip img{width:100%;height:100%;object-fit:cover}
+.band{position:relative;border-radius:18px;overflow:hidden;margin-top:26px;min-height:340px;display:flex;align-items:flex-end}
+.band>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(10,7,3,.62))}
+.band .cap{position:relative;z-index:2;color:#FDF9F0;padding:26px 30px}
+.band .cap .q{font-family:'Aref Ruqaa',serif;font-size:clamp(22px,3vw,30px);color:#FFC46A}
+/* gallery */
+.gcats{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
+.gcats button{border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;
+  padding:8px 16px;font-size:13.5px;font-weight:700;cursor:pointer;font-family:inherit}
+.gcats button.on{border-color:var(--accent);background:var(--tint);color:var(--accent-ink)}
+.gwrap{columns:3;column-gap:14px;margin-top:24px}
+@media (max-width:900px){.gwrap{columns:2}}
+@media (max-width:560px){.gwrap{columns:1}}
+.gitem{break-inside:avoid;margin-bottom:14px;cursor:zoom-in;position:relative;
+  background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px;
+  box-shadow:0 3px 14px rgba(0,0,0,.07)}
+.gitem img{width:100%;transition:transform .4s ease;border-radius:6px;display:block}
+.gitem:hover img{transform:scale(1.03)}
+.gitem.hid{display:none}
+.lightbox{position:fixed;inset:0;z-index:80;background:rgba(10,7,3,.92);display:none;align-items:center;justify-content:center;padding:4vmin;cursor:zoom-out}
+.lightbox.on{display:flex}
+.lightbox img{max-width:100%;max-height:100%;border-radius:8px}
+/* directions */
+.dgrid{display:grid;grid-template-columns:1.05fr 1fr;gap:34px;margin-top:30px;align-items:start}
+@media (max-width:850px){.dgrid{grid-template-columns:1fr}}
+.timegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:8px}
+@media (max-width:600px){.timegrid{grid-template-columns:1fr 1fr}}
+.timegrid>div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 14px;text-align:center}
+.timegrid .t{font-weight:900;font-size:20px;color:var(--accent-ink);font-variant-numeric:tabular-nums}
+.timegrid .f{font-size:13.5px;color:var(--muted);margin-top:3px}
+.routecard{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px}
+.routecard svg{width:100%;height:auto;display:block}
+.route-line{font-size:15px;margin-top:18px;padding:14px 16px;background:var(--tint);border-radius:12px}
+/* contact + footer */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:26px}
+@media (max-width:800px){.contact-grid{grid-template-columns:1fr}}
+.ccard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px}
+.ccard h3{font-size:16px;font-weight:800;margin-bottom:10px;color:var(--accent-ink);text-transform:uppercase;letter-spacing:.08em}
+[data-lang="ar"] .ccard h3{letter-spacing:0}
+.ccard p{font-size:15px;color:var(--muted)}
+.wa-big{display:flex;align-items:center;gap:12px;margin-top:16px;font-weight:900;font-size:22px;color:var(--accent-ink);text-decoration:none}
+.socials{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
+.socials a{color:var(--accent-ink);font-weight:700;font-size:14px;text-decoration:none;border:1.5px solid var(--line);padding:8px 16px;border-radius:999px}
+.socials a:hover{border-color:var(--accent)}
+footer{border-top:1px solid var(--line);margin-top:60px;padding:34px 22px 46px;text-align:center;color:var(--muted);font-size:13px}
+footer .logo{height:54px;margin:0 auto 12px;width:auto}
+.wa-float{position:fixed;inset-inline-end:20px;bottom:20px;z-index:50;background:#25D366;color:#062B12;
+  width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 22px rgba(0,0,0,.25);text-decoration:none}
+.wa-float svg{width:30px;height:30px}
+.wa-float:hover{transform:scale(1.06)}
+.pagehead{padding-top:52px}
+</style>
+
+<div class="bar">
+  <a href="#home"><img class="logo" src="assets/i/shared_logo-color.png" alt="Baissour Country Club logo"></a>
+  <nav aria-label="Sections"><a href="#weddings"><span class="L en ">Weddings &amp; Events</span><span class="L ar " dir="rtl" lang="ar">الأعراس والمناسبات</span></a><a href="#chalets"><span class="L en ">Chalets</span><span class="L ar " dir="rtl" lang="ar">الشاليهات</span></a><a href="#pool"><span class="L en ">Pool</span><span class="L ar " dir="rtl" lang="ar">المسبح</span></a><a href="#restaurant"><span class="L en ">Restaurant</span><span class="L ar " dir="rtl" lang="ar">المطعم</span></a><a href="#families"><span class="L en ">Families</span><span class="L ar " dir="rtl" lang="ar">العائلات</span></a><a href="#gallery"><span class="L en ">Gallery</span><span class="L ar " dir="rtl" lang="ar">الصور</span></a><a href="#booking"><span class="L en ">Book a Chalet</span><span class="L ar " dir="rtl" lang="ar">احجز شاليه</span></a><a href="#directions"><span class="L en ">Getting Here</span><span class="L ar " dir="rtl" lang="ar">كيف توصل</span></a></nav>
+  <button id="langbtn" class="lang-btn" type="button">عربي</button>
+</div>
+
+<div class="page on" id="pg-home">
+<div class="hero">
+  <video class="vmedia" autoplay muted loop playsinline poster="assets/i/events_weddings_gallery-2_w2000.jpg" src="assets/v/hero.mp4" aria-label="Wedding at Baissour Country Club"></video>
+  <div class="hero-inner">
+    <div class="kicker"><span class="L en ">Baissour · Aley · Mount Lebanon</span><span class="L ar " dir="rtl" lang="ar">بيصور · عاليه · جبل لبنان</span></div>
+    <h1><span class="L en t-h1">A Place to Breathe</span><span class="L ar t-h1" dir="rtl" lang="ar">مكان لتتنفّس</span></h1>
+    <p class="sub"><span class="L en ">Chalets, a mountain pool, riverside dining, and two of Mount Lebanon's most beautiful wedding venues — 45 minutes from Beirut.</span><span class="L ar " dir="rtl" lang="ar">شاليهات، مسبح جبلي، مطعم ع ضفة النهر، ومكانان من أجمل أماكن الأعراس بجبل لبنان — على بُعد ٤٥ دقيقة من بيروت.</span></p>
+    <div class="cta-row">
+      <a class="btn btn-solid" href="#weddings"><span class="L en ">Plan your wedding</span><span class="L ar " dir="rtl" lang="ar">نظّم عرسك</span></a>
+      <a class="btn btn-ghost" href="#booking"><span class="L en ">Book a chalet</span><span class="L ar " dir="rtl" lang="ar">احجز شاليه</span></a>
+    </div>
+  </div>
+</div>
+<div class="stats"><div class="rv"><div class="num">2</div><div class="lab"><span class="L en ">signature venues</span><span class="L ar " dir="rtl" lang="ar">مكانان للمناسبات</span></div></div><div class="rv"><div class="num">5</div><div class="lab"><span class="L en ">chalet types</span><span class="L ar " dir="rtl" lang="ar">أنواع شاليهات</span></div></div><div class="rv"><div class="num">45</div><div class="lab"><span class="L en ">minutes from Beirut</span><span class="L ar " dir="rtl" lang="ar">دقيقة من بيروت</span></div></div><div class="rv"><div class="num">365</div><div class="lab"><span class="L en ">days a year — chalets open</span><span class="L ar " dir="rtl" lang="ar">يوم بالسنة — الشاليهات مفتوحة</span></div></div></div>
+<main>
+<section class="block" id="weddings">
+  <header class="sec-head"><h2><span class="L en t-big">Weddings &amp; Events</span><span class="L ar t-big" dir="rtl" lang="ar">الأعراس والمناسبات</span><span class="t-script" dir="rtl" lang="ar" aria-hidden="true">أحلى ليلة</span></h2></header>
+  <p class="lead L en">Baissour Country Club has hosted some of the most beautiful weddings in Mount Lebanon, across two signature venues — one wrapped around the pool, one stretched along the river. The setting does most of the work; all you need to bring is the people you love.</p><p class="lead L ar" dir="rtl" lang="ar">استضاف منتجع بيصور بعضاً من أجمل الأعراس في جبل لبنان، في مكانين مميزين — واحد حول المسبح وواحد ممدود ع ضفة النهر. المكان بيقوم بمعظم الشغل؛ كل يلي عليك تجيبه هنّ الناس يلي بتحبّهن.</p>
+  <div class="venues"><article class="venueblock rv"><div class="vb-hero"><img src="assets/i/events_weddings_gallery-2_w2000.jpg" alt="Draj el Ward venue" loading="lazy"><span class="vtag"><span class="L en ">Poolside Venue</span><span class="L ar " dir="rtl" lang="ar">ع المسبح</span></span></div><div class="vb-body"><div class="vname"><span class="nm">Draj el Ward</span><span class="nm-ar" dir="rtl" lang="ar">دراج الورد</span></div><div class="vfacts"><span class="L en ">Open-air · wrapped around the pool · magical after sunset</span><span class="L ar " dir="rtl" lang="ar">هواء طلق · حول المسبح · سحري بعد الغروب</span></div><p class="desc"><span class="L en ">Ceremonies and receptions wrapped around the pool — candles on the water, chandeliers in the trees, and the mountains going gold behind you.</span><span class="L ar " dir="rtl" lang="ar">احتفالات واستقبالات حول المسبح — شموع ع وجه المي، ثريات بين الشجر، والجبال عم تصير دهب وراك.</span></p><div class="vthumbs"><figure class="vth"><img src="assets/i/events_weddings_gallery-1_w1240.jpg" alt="Draj el Ward venue" loading="lazy"></figure><figure class="vth"><img src="assets/i/soc_fb_00_w1240.jpg" alt="Draj el Ward venue" loading="lazy"></figure><figure class="vth"><img src="assets/i/soc_ig_16_w1240.jpg" alt="Draj el Ward venue" loading="lazy"></figure><figure class="vth"><img src="assets/i/events_weddings_gallery-5_w1240.jpg" alt="Draj el Ward venue" loading="lazy"></figure></div></div></article><article class="venueblock rv"><div class="vb-hero"><video class="vmedia" autoplay muted loop playsinline poster="assets/i/events_weddings_gallery-10_w2000.jpg" src="assets/v/tahani.mp4" aria-label="Ta'Hani venue"></video><span class="vtag"><span class="L en ">Riverside Venue</span><span class="L ar " dir="rtl" lang="ar">ع النهر</span></span></div><div class="vb-body"><div class="vname"><span class="nm">Ta'Hani</span><span class="nm-ar" dir="rtl" lang="ar">تهاني</span></div><div class="vfacts"><span class="L en ">Under the trees · long tables by the river · day &amp; night setups</span><span class="L ar " dir="rtl" lang="ar">تحت الشجر · طاولات طويلة ع النهر · نهاري وليلي</span></div><p class="desc"><span class="L en ">Long tables under the trees, lights strung over the water, and the sound of the river running through dinner.</span><span class="L ar " dir="rtl" lang="ar">طاولات طويلة تحت الشجر، إضاءة معلّقة فوق المي، وصوت النهر رافقك طول السهرة.</span></p><div class="vthumbs"><figure class="vth"><img src="assets/i/soc_fb_14_w1240.jpg" alt="Ta'Hani venue" loading="lazy"></figure><figure class="vth"><img src="assets/i/soc_fb_16_w1240.jpg" alt="Ta'Hani venue" loading="lazy"></figure><figure class="vth"><img src="assets/i/soc_fb_17_w1240.jpg" alt="Ta'Hani venue" loading="lazy"></figure><figure class="vth"><img src="assets/i/events_weddings_gallery-9_w1240.jpg" alt="Ta'Hani venue" loading="lazy"></figure><figure class="vth"><img src="assets/i/soc_fb_08_w1240.jpg" alt="Ta'Hani venue" loading="lazy"></figure><figure class="vth"><img src="assets/i/soc_fb_11_w1240.jpg" alt="Ta'Hani venue" loading="lazy"></figure><figure class="vth"><img src="assets/i/soc_fb_15_w1240.jpg" alt="Ta'Hani venue" loading="lazy"></figure><figure class="vth"><img src="assets/i/events_weddings_gallery-12_w1240.jpg" alt="Ta'Hani venue" loading="lazy"></figure></div></div></article><div class="vopts"><h4 class="subhead"><span class="L en ">Both venues can host</span><span class="L ar " dir="rtl" lang="ar">المكانان بيستضيفوا</span></h4><div class="chips"><span class="chip rv"><span class="L en ">Seated dinners &amp; banquet layouts</span><span class="L ar " dir="rtl" lang="ar">عشاء جلوس وتوزيعات بانكيه</span></span><span class="chip rv"><span class="L en ">Cocktail-style receptions</span><span class="L ar " dir="rtl" lang="ar">استقبالات كوكتيل</span></span><span class="chip rv"><span class="L en ">Ceremonies, zaffe entrances &amp; first dances</span><span class="L ar " dir="rtl" lang="ar">مراسم وزفات ورقصة أولى</span></span><span class="chip rv"><span class="L en ">Day events &amp; golden-hour timings</span><span class="L ar " dir="rtl" lang="ar">مناسبات نهارية وتوقيت الغروب</span></span><span class="chip rv"><span class="L en ">Custom decor, floral &amp; lighting setups</span><span class="L ar " dir="rtl" lang="ar">ديكور وورد وإضاءة عالطلب</span></span><span class="chip rv"><span class="L en ">Your vendors, or ours — your call</span><span class="L ar " dir="rtl" lang="ar">متعهدينك أو متعهدينا — القرار إلك</span></span></div></div><div class="vopts"><h4 class="subhead"><span class="L en ">Real nights, real moments</span><span class="L ar " dir="rtl" lang="ar">لحظات حقيقية من سهرات حقيقية</span></h4><div class="vthumbs" style="margin-top:14px"><figure class="vth"><img src="assets/i/soc_fb_06_w1240.jpg" alt="Wedding moment at Baissour Country Club" loading="lazy"></figure><figure class="vth"><img src="assets/i/soc_fb_04_w1240.jpg" alt="Wedding moment at Baissour Country Club" loading="lazy"></figure><figure class="vth"><img src="assets/i/soc_fb_05_w1240.jpg" alt="Wedding moment at Baissour Country Club" loading="lazy"></figure><figure class="vth"><img src="assets/i/soc_fb_03_w1240.jpg" alt="Wedding moment at Baissour Country Club" loading="lazy"></figure></div></div></div>
+  <div class="feat"><div class="rv"><span class="tick">✓</span><span class="L en ">Two signature venues — poolside &amp; riverside</span><span class="L ar " dir="rtl" lang="ar">مكانان مميزان — ع المسبح وع النهر</span></div><div class="rv"><span class="tick">✓</span><span class="L en ">Full catering from our own kitchen</span><span class="L ar " dir="rtl" lang="ar">كاترينغ كامل من مطبخنا</span></div><div class="rv"><span class="tick">✓</span><span class="L en ">On-site chalets for your guests</span><span class="L ar " dir="rtl" lang="ar">شاليهات بالموقع لضيوفك</span></div><div class="rv"><span class="tick">✓</span><span class="L en ">A golden-hour mountain backdrop</span><span class="L ar " dir="rtl" lang="ar">خلفية جبلية ساحرة وقت الغروب</span></div><div class="rv"><span class="tick">✓</span><span class="L en ">Event coordination from start to finish</span><span class="L ar " dir="rtl" lang="ar">تنسيق كامل من البداية للنهاية</span></div><div class="rv"><span class="tick">✓</span><span class="L en ">Engagements, birthdays &amp; corporate events too</span><span class="L ar " dir="rtl" lang="ar">خطوبات وأعياد ميلاد ومناسبات شركات كمان</span></div></div>
+  <div class="gift rv" style="margin-top:44px" id="celebrations"><div class="gift-head"><span class="L en gt">Birthdays &amp; Graduations</span><span class="L ar gt" dir="rtl" lang="ar">أعياد الميلاد وحفلات التخرّج</span><span class="t-script" dir="rtl" lang="ar" aria-hidden="true">عيّدها صح</span></div><p class="lead L en">Not every celebration needs a wedding dress. Turn a birthday into a riverside feast, or give your graduate a night nobody's forgetting — cake under the string lights, mashawi straight off the fire, music till late, and the river singing backup. From a long table for ten to the whole venue with a DJ, we set the stage; you blow out the candles.</p><p class="lead L ar" dir="rtl" lang="ar">مش كل احتفال بدو فستان عرس. خلّي عيد الميلاد عزيمة ع ضفة النهر، وقدّم للخرّيج سهرة ما حدا رح ينساها — قالب الحلو تحت الإضاءة، مشاوي ع النار، وموسيقى لآخر الليل، والنهر عم يغنّي معكن. من طاولة طويلة لعشرة لحدّ المكان كلّو مع دي جي — نحنا منجهّز المسرح، وانتو طفّو الشمع.</p><div class="chips" style="margin-top:16px"><span class="chip rv"><span class="L en ">Intimate tables to full-venue parties</span><span class="L ar " dir="rtl" lang="ar">من قعدة صغيرة لحفلة عالمكان كلّو</span></span><span class="chip rv"><span class="L en ">Cake, decor &amp; themes arranged</span><span class="L ar " dir="rtl" lang="ar">قالب وديكور وثيمات منجهّزن</span></span><span class="chip rv"><span class="L en ">DJ, live music &amp; karaoke nights</span><span class="L ar " dir="rtl" lang="ar">دي جي وموسيقى حية وكاراوكي</span></span><span class="chip rv"><span class="L en ">Kids' corner by the playground</span><span class="L ar " dir="rtl" lang="ar">زاوية أطفال حد الملعب</span></span><span class="chip rv"><span class="L en ">Poolside by day, riverside by night</span><span class="L ar " dir="rtl" lang="ar">عالمسبح نهاراً وع النهر ليلاً</span></span></div><div class="cta-row" style="margin-top:20px"><a class="btn btn-solid" href="#inquiry"><span class="L en ">Plan the party</span><span class="L ar " dir="rtl" lang="ar">نظّم الحفلة</span></a></div></div>
+  <div class="pk" id="packages"><header class="sec-head" style="margin-top:52px"><h3><span class="L en t-mid">Plan It Your Way</span><span class="L ar t-mid" dir="rtl" lang="ar">خطّطها ع ذوقك</span><span class="t-script" dir="rtl" lang="ar" aria-hidden="true">ع كيفك</span></h3></header><p class="lead L en">Plan your event with us from A to Z, or take the space and build your own night. Use our kitchen or pick from our list of approved catering vendors, upgrade the bar, and shape the venue around your idea — if you can picture it, we can host it. Starting prices below; every event gets a tailored quote on WhatsApp.</p><p class="lead L ar" dir="rtl" lang="ar">خطّط مناسبتك معنا من الألف للياء، أو خود المكان وابنِ سهرتك ع طريقتك. اطبخ من مطبخنا أو نقّي من لائحة متعهدي الطعام المعتمدين، طوّر البار، وفصّل المكان ع فكرتك — إذا فيك تتخيلها، فينا نستضيفها. الأسعار تحت هي أسعار بداية؛ وكل مناسبة بتاخد عرض خاص عالواتساب.</p><div class="tiers"><article class="tier rv"><div class="ttag"><span class="L en ">Venue only</span><span class="L ar " dir="rtl" lang="ar">المكان فقط</span></div><div class="tname"><span class="tn">The Space</span><span class="tn-ar" dir="rtl" lang="ar">المكان</span></div><div class="tprice">$2,500</div><div class="tunit"><span class="L en ">starting · per event</span><span class="L ar " dir="rtl" lang="ar">سعر بداية · للمناسبة</span></div><ul class="tlist"><li><span class="tick">✓</span><span class="L en ">Exclusive use of Draj el Ward or Ta'Hani</span><span class="L ar " dir="rtl" lang="ar">حجز حصري لدراج الورد أو تهاني</span></li><li><span class="tick">✓</span><span class="L en ">Tables, chairs &amp; basic setup</span><span class="L ar " dir="rtl" lang="ar">طاولات وكراسي وتجهيز أساسي</span></li><li><span class="tick">✓</span><span class="L en ">Lighting &amp; sound hookup</span><span class="L ar " dir="rtl" lang="ar">تجهيزات إضاءة وصوت</span></li><li><span class="tick">✓</span><span class="L en ">Bring your own approved vendors</span><span class="L ar " dir="rtl" lang="ar">جيب متعهدينك المعتمدين</span></li><li><span class="tick">✓</span><span class="L en ">Parking &amp; cleaning included</span><span class="L ar " dir="rtl" lang="ar">موقف سيارات وتنظيف</span></li></ul><a class="btn btn-line" href="#inquiry"><span class="L en ">Get a quote</span><span class="L ar " dir="rtl" lang="ar">خود عرض سعر</span></a></article><article class="tier featured rv"><div class="ttag"><span class="L en ">Venue + our kitchen</span><span class="L ar " dir="rtl" lang="ar">المكان + مطبخنا</span></div><div class="tname"><span class="tn">The Table</span><span class="tn-ar" dir="rtl" lang="ar">السفرة</span></div><div class="tprice">$35</div><div class="tunit"><span class="L en ">starting · per guest (min. 100)</span><span class="L ar " dir="rtl" lang="ar">سعر بداية · للشخص (١٠٠ ضيف حد أدنى)</span></div><ul class="tlist"><li><span class="tick">✓</span><span class="L en ">Everything in The Space</span><span class="L ar " dir="rtl" lang="ar">كل شي بباقة «المكان»</span></li><li><span class="tick">✓</span><span class="L en ">Full Lebanese menu from our kitchen</span><span class="L ar " dir="rtl" lang="ar">منيو لبناني كامل من مطبخنا</span></li><li><span class="tick">✓</span><span class="L en ">Live mezze &amp; grill stations</span><span class="L ar " dir="rtl" lang="ar">محطات مازة ومشاوي</span></li><li><span class="tick">✓</span><span class="L en ">Service staff &amp; soft drinks</span><span class="L ar " dir="rtl" lang="ar">طاقم خدمة ومشروبات باردة</span></li><li><span class="tick">✓</span><span class="L en ">Dessert &amp; coffee service</span><span class="L ar " dir="rtl" lang="ar">حلويات وقهوة</span></li></ul><a class="btn btn-line" href="#inquiry"><span class="L en ">Get a quote</span><span class="L ar " dir="rtl" lang="ar">خود عرض سعر</span></a></article><article class="tier rv"><div class="ttag"><span class="L en ">Fully planned</span><span class="L ar " dir="rtl" lang="ar">تخطيط كامل</span></div><div class="tname"><span class="tn">A to Z</span><span class="tn-ar" dir="rtl" lang="ar">من الألف للياء</span></div><div class="tprice">$55</div><div class="tunit"><span class="L en ">starting · per guest (min. 100)</span><span class="L ar " dir="rtl" lang="ar">سعر بداية · للشخص (١٠٠ ضيف حد أدنى)</span></div><ul class="tlist"><li><span class="tick">✓</span><span class="L en ">Everything in The Table</span><span class="L ar " dir="rtl" lang="ar">كل شي بباقة «السفرة»</span></li><li><span class="tick">✓</span><span class="L en ">Dedicated event coordinator</span><span class="L ar " dir="rtl" lang="ar">منسّق مناسبات خاص</span></li><li><span class="tick">✓</span><span class="L en ">Decor &amp; floral coordination</span><span class="L ar " dir="rtl" lang="ar">تنسيق ديكور وورد</span></li><li><span class="tick">✓</span><span class="L en ">DJ, zaffe &amp; entertainment booking</span><span class="L ar " dir="rtl" lang="ar">حجز دي جي وزفة وبرنامج فني</span></li><li><span class="tick">✓</span><span class="L en ">Couple's chalet night included</span><span class="L ar " dir="rtl" lang="ar">ليلة شاليه للعروسين مجاناً</span></li></ul><a class="btn btn-line" href="#inquiry"><span class="L en ">Get a quote</span><span class="L ar " dir="rtl" lang="ar">خود عرض سعر</span></a></article></div><h4 class="subhead"><span class="L en ">Popular add-ons</span><span class="L ar " dir="rtl" lang="ar">إضافات مطلوبة</span></h4><div class="chips"><span class="chip rv"><span class="L en ">Open bar packages from $15/guest</span><span class="L ar " dir="rtl" lang="ar">باقات بار مفتوح من ١٥$ للشخص</span></span><span class="chip rv"><span class="L en ">Approved catering vendors list</span><span class="L ar " dir="rtl" lang="ar">لائحة متعهدي طعام معتمدين</span></span><span class="chip rv"><span class="L en ">Guest chalet block discounts</span><span class="L ar " dir="rtl" lang="ar">خصومات شاليهات لضيوفك</span></span><span class="chip rv"><span class="L en ">Photography &amp; videography partners</span><span class="L ar " dir="rtl" lang="ar">شركاء تصوير فوتو وفيديو</span></span><span class="chip rv"><span class="L en ">Extra hours &amp; after-party</span><span class="L ar " dir="rtl" lang="ar">ساعات إضافية وسهرة بعد الحفل</span></span><span class="chip rv"><span class="L en ">Anything else? Just ask</span><span class="L ar " dir="rtl" lang="ar">شي تاني؟ بس اطلب</span></span></div><h4 class="subhead"><span class="L en ">Deals &amp; booking terms</span><span class="L ar " dir="rtl" lang="ar">العروض وشروط الحجز</span></h4><div class="deals"><div class="deal rv"><div class="dbig">-10%</div><div class="dtxt"><span class="L en ">on the venue fee when you book 6+ months ahead — plus a free bridal chalet night</span><span class="L ar " dir="rtl" lang="ar">على بدل المكان إذا حجزت قبل ٦ أشهر أو أكتر — مع ليلة شاليه مجانية للعروسين</span></div></div><div class="deal rv"><div class="dbig">-15%</div><div class="dtxt"><span class="L en ">on the venue fee for weekday events (Mon–Thu)</span><span class="L ar " dir="rtl" lang="ar">على بدل المكان للمناسبات أيام الأسبوع (الاثنين–الخميس)</span></div></div><div class="deal rv"><div class="dbig">60</div><div class="dtxt"><span class="L en ">days' notice — event bookings open up to your date minus 60 days; shorter notice is less likely, but message us and we may be able to accommodate it. A deposit locks your date.</span><span class="L ar " dir="rtl" lang="ar">يوم مهلة — احجز مناسبتك قبل ٦٠ يوم عالأقل من التاريخ؛ أقل من هيك بيصير أصعب، بس راسلنا وممكن نقدر ندبّرها. والعربون بيثبّت التاريخ.</span></div></div></div><p class="form-note"><span class="L en ">Prices are starting points in USD and vary by season, day and guest count — message us for a tailored quote.</span><span class="L ar " dir="rtl" lang="ar">الأسعار نقطة بداية بالدولار وبتتغير حسب الموسم واليوم وعدد الضيوف — راسلنا لعرض مفصّل.</span></p></div>
+  
+<div class="formcard calc rv" id="calculator">
+  <h3><span class="L en">Event Calculator</span><span class="L ar" dir="rtl" lang="ar">حاسبة المناسبة</span>
+  <span class="t-script" dir="rtl" lang="ar">قدّيش رح تكلف؟</span></h3>
+  <p class="form-note"><span class="L en ">Tick what you're imagining and get a rough starting estimate on the spot — then send us the whole plan in one tap for a real quote.</span><span class="L ar " dir="rtl" lang="ar">علّم عيلي عم تتخيله وخود تقدير مبدئي عالسريع — وبعدين ابعتلنا الخطة كلها بكبسة لعرض سعر فعلي.</span></p>
+  <div class="fgrid">
+    <div>
+      <label class="fl"><span class="L en ">Package</span><span class="L ar " dir="rtl" lang="ar">الباقة</span></label>
+      <div class="radios">
+        <label class="cbx"><input type="radio" name="cal-pkg" value="space" data-base="2500" data-pp="0"><span>The Space — $2,500</span></label>
+        <label class="cbx"><input type="radio" name="cal-pkg" value="table" data-base="0" data-pp="35" checked><span>The Table — $35/guest</span></label>
+        <label class="cbx"><input type="radio" name="cal-pkg" value="atoz" data-base="0" data-pp="55"><span>A to Z — $55/guest</span></label>
+      </div>
+      <label class="fl"><span class="L en ">Number of guests</span><span class="L ar " dir="rtl" lang="ar">عدد الضيوف</span></label>
+      <input id="cal-guests" type="number" min="30" max="600" value="150">
+      <label class="fl"><span class="L en ">Bar</span><span class="L ar " dir="rtl" lang="ar">البار</span></label>
+      <select id="cal-bar">
+        <option value="0">Soft drinks only (included) · مشروبات باردة فقط (ضمن السعر)</option>
+        <option value="15">Open bar (+$15/guest) · بار مفتوح (+١٥$ للشخص)</option>
+        <option value="25">Premium bar (+$25/guest) · بار بريميوم (+٢٥$ للشخص)</option>
+      </select>
+    </div>
+    <div>
+      <label class="fl"><span class="L en ">Extras</span><span class="L ar " dir="rtl" lang="ar">الإضافات</span></label>
+      <div class="radios"><label class="cbx"><input type="checkbox" class="cal-extra" data-price="800" id="cal-photo"><span><span class="L en ">Photography &amp; video (+$800)</span><span class="L ar " dir="rtl" lang="ar">تصوير فوتو وفيديو (+٨٠٠$)</span></span></label><label class="cbx"><input type="checkbox" class="cal-extra" data-price="500" id="cal-dj"><span><span class="L en ">DJ &amp; sound (+$500)</span><span class="L ar " dir="rtl" lang="ar">دي جي وصوتيات (+٥٠٠$)</span></span></label><label class="cbx"><input type="checkbox" class="cal-extra" data-price="400" id="cal-zaffe"><span><span class="L en ">Zaffe entrance (+$400)</span><span class="L ar " dir="rtl" lang="ar">زفة (+٤٠٠$)</span></span></label><label class="cbx"><input type="checkbox" class="cal-extra" data-price="300" id="cal-fireworks"><span><span class="L en ">Fireworks (+$300)</span><span class="L ar " dir="rtl" lang="ar">ألعاب نارية (+٣٠٠$)</span></span></label><label class="cbx"><input type="checkbox" class="cal-extra" data-price="250" id="cal-hour"><span><span class="L en ">Extra hour (+$250)</span><span class="L ar " dir="rtl" lang="ar">ساعة إضافية (+٢٥٠$)</span></span></label><label class="cbx"><input type="checkbox" class="cal-extra" data-price="200" id="cal-kids"><span><span class="L en ">Kids corner &amp; sitters (+$200)</span><span class="L ar " dir="rtl" lang="ar">ركن أطفال ومرافقات (+٢٠٠$)</span></span></label></div>
+      <label class="fl"><span class="L en ">Discounts</span><span class="L ar " dir="rtl" lang="ar">الحسومات</span></label>
+      <div class="radios">
+        <label class="cbx"><input type="checkbox" id="cal-weekday"><span><span class="L en ">Weekday event (Mon–Thu) — −15% venue</span><span class="L ar " dir="rtl" lang="ar">مناسبة يوم أسبوع (اثنين–خميس) — ١٥٪ حسم عالمكان</span></span></label>
+        <label class="cbx"><input type="checkbox" id="cal-early"><span><span class="L en ">Booking 6+ months ahead — −10% venue</span><span class="L ar " dir="rtl" lang="ar">حجز قبل ٦ أشهر أو أكتر — ١٠٪ حسم عالمكان</span></span></label>
+      </div>
+    </div>
+  </div>
+  <div class="cal-total"><span class="ct-lab"><span class="L en ">Rough estimate</span><span class="L ar " dir="rtl" lang="ar">التقدير المبدئي</span></span>
+    <span class="ct-num" id="cal-total">$0</span></div>
+  <p class="form-note"><span class="L en ">A starting-point estimate, not a quote — season, menu and details change the number. Discounts shown apply to the venue portion.</span><span class="L ar " dir="rtl" lang="ar">تقدير مبدئي مش عرض سعر — الموسم والمنيو والتفاصيل بتغيّر الرقم. الحسومات المذكورة عالمكان.</span></p>
+  <div class="cta-row"><button class="btn btn-wa" id="cal-send" type="button"><span class="L en ">Send this plan on WhatsApp</span><span class="L ar " dir="rtl" lang="ar">ابعت هالخطة عالواتساب</span></button>
+  <button class="btn btn-line" id="cal-email" type="button"><span class="L en ">Send via Email</span><span class="L ar " dir="rtl" lang="ar">ابعت عالإيميل</span></button></div>
+</div>
+  <div class="quotes"><div class="quote rv"><span class="L en ">The mountains made every photo feel effortless.</span><span class="L ar " dir="rtl" lang="ar">الجبال خلّت كل صورة تطلع حلوة بلا مجهود.</span></div><div class="quote rv"><span class="L en ">We wanted something different from a hotel ballroom — this was exactly that.</span><span class="L ar " dir="rtl" lang="ar">كنا بدنا شي غير صالة الأوتيل — وهيدا كان بالضبط.</span></div><div class="quote rv"><span class="L en ">Our guests still talk about it.</span><span class="L ar " dir="rtl" lang="ar">ضيوفنا لليوم عم يحكوا عنها.</span></div></div>
+  
+<div class="formcard rv" id="inquiry">
+  <h3><span class="L en ">Inquire About an Event</span><span class="L ar " dir="rtl" lang="ar">استفسر عن مناسبة</span> <span class="t-script" dir="rtl" lang="ar">خبّرنا</span></h3>
+  <p class="form-note"><span class="L en ">Fill this in and it opens a ready WhatsApp message to us — we usually reply within a few hours.</span><span class="L ar " dir="rtl" lang="ar">عبّي هالخانات وبتنفتح رسالة واتساب جاهزة إلنا — منردّ عادةً خلال ساعات.</span></p>
+  <div class="fgrid">
+    <div><label class="fl"><span class="L en ">Your name</span><span class="L ar " dir="rtl" lang="ar">اسمك</span></label><input id="iq-name" autocomplete="name"></div>
+    <div><label class="fl"><span class="L en ">Phone number</span><span class="L ar " dir="rtl" lang="ar">رقم التلفون</span></label><input id="iq-phone" type="tel" autocomplete="tel"></div>
+    <div><label class="fl"><span class="L en ">Email address</span><span class="L ar " dir="rtl" lang="ar">البريد الإلكتروني</span></label><input id="iq-mail" type="email" autocomplete="email"></div>
+    <div><label class="fl"><span class="L en ">Event type</span><span class="L ar " dir="rtl" lang="ar">نوع المناسبة</span></label><select id="iq-type" class="L en"><option>Wedding</option><option>Engagement</option><option>Birthday</option><option>Corporate / Private event</option></select><select id="iq-type-ar-mirror" class="L ar" dir="rtl" onchange="document.getElementById('iq-type').selectedIndex=this.selectedIndex"><option>عرس</option><option>خطوبة</option><option>عيد ميلاد</option><option>مناسبة شركة / خاصة</option></select></div>
+    <div><label class="fl"><span class="L en ">Preferred venue</span><span class="L ar " dir="rtl" lang="ar">المكان المفضل</span></label><select id="iq-venue" class="L en"><option>Draj el Ward (Poolside)</option><option>Ta'Hani (Riverside)</option><option>Not sure yet</option></select><select id="iq-venue-ar-mirror" class="L ar" dir="rtl" onchange="document.getElementById('iq-venue').selectedIndex=this.selectedIndex"><option>دراج الورد (ع المسبح)</option><option>تهاني (ع النهر)</option><option>لسا ما قررنا</option></select></div>
+    <div><label class="fl"><span class="L en ">Preferred date</span><span class="L ar " dir="rtl" lang="ar">التاريخ المفضل</span></label><input id="iq-date" type="date"></div>
+    <div><label class="fl"><span class="L en ">Number of guests</span><span class="L ar " dir="rtl" lang="ar">عدد المدعوين</span></label><input id="iq-guests" type="number" min="10"></div>
+  </div>
+  <label class="fl"><span class="L en ">Anything else we should know?</span><span class="L ar " dir="rtl" lang="ar">شي تاني بدك تخبرنا ياه؟</span></label><textarea id="iq-notes"></textarea>
+  <div class="cta-row"><button class="btn btn-wa" id="iq-send" type="button"><span class="L en ">Send via WhatsApp</span><span class="L ar " dir="rtl" lang="ar">ابعت عبر واتساب</span></button>
+  <button class="btn btn-line" id="iq-email" type="button"><span class="L en ">Send via Email</span><span class="L ar " dir="rtl" lang="ar">ابعت عالإيميل</span></button></div>
+</div>
+</section>
+<section class="block" id="chalets">
+  <header class="sec-head"><h2><span class="L en t-big">The Chalets</span><span class="L ar t-big" dir="rtl" lang="ar">الشاليهات</span><span class="t-script" dir="rtl" lang="ar" aria-hidden="true">نامة عالهدا</span></h2></header>
+  <p class="lead L en">Five ways to stay in the valley — from a cozy couple's retreat to a full riverside duplex for the whole family. The chalets are open all year round; every one is private, well-kept, and comes with fresh linens, parking, and seasonal pool access.</p><p class="lead L ar" dir="rtl" lang="ar">خمس طرق تقعد فيها بالوادي — من شاليه مريح للثنائي لدوبلكس كامل ع النهر للعيلة كلها. الشاليهات مفتوحة طول السنة؛ وكل شاليه خاص ومرتّب، مع شراشف نظيفة وموقف سيارة ودخول موسمي للمسبح.</p>
+  <div class="chgrid"><article class="chalet rv"><div class="ph"><img src="assets/i/chalets_chalet-small_gallery-3_w1280.jpg" alt="Al Yasmine" loading="lazy"></div><div class="pad"><span class="tagpill"><span class="L en ">Cozy</span><span class="L ar " dir="rtl" lang="ar">مريح</span></span><h3 class="chname"><span class="cn">Al Yasmine</span><span class="cn-ar" dir="rtl" lang="ar">الياسمين</span></h3><div class="chsub"><span class="L en ">Small Chalet</span><span class="L ar " dir="rtl" lang="ar">الشاليه الصغير</span></div><div class="facts"><span class="L en ">2 guests · 1 bedroom · terrace · mountain view</span><span class="L ar " dir="rtl" lang="ar">شخصان · غرفة نوم · تراس · إطلالة جبلية</span></div><p class="desc"><span class="L en ">A cozy, private retreat for couples or solo travelers.</span><span class="L ar " dir="rtl" lang="ar">ملاذ خاص ومريح للثنائي أو لشخص واحد.</span></p><button class="btn btn-line bk" type="button" data-book="Al Yasmine (Small Chalet)"><span class="L en ">Book a chalet</span><span class="L ar " dir="rtl" lang="ar">احجز شاليه</span></button></div></article><article class="chalet rv"><div class="ph"><img src="assets/i/chalets_chalet-medium_hero_w1280.jpg" alt="Al Snobar" loading="lazy"></div><div class="pad"><span class="tagpill"><span class="L en ">Comfortable</span><span class="L ar " dir="rtl" lang="ar">عملي</span></span><h3 class="chname"><span class="cn">Al Snobar</span><span class="cn-ar" dir="rtl" lang="ar">الصنوبر</span></h3><div class="chsub"><span class="L en ">Medium Chalet</span><span class="L ar " dir="rtl" lang="ar">الشاليه الوسط</span></div><div class="facts"><span class="L en ">4 guests · 2 bedrooms · terrace · BBQ area</span><span class="L ar " dir="rtl" lang="ar">٤ أشخاص · غرفتا نوم · تراس · منقل</span></div><p class="desc"><span class="L en ">Extra space for couples or small families.</span><span class="L ar " dir="rtl" lang="ar">مساحة إضافية للثنائي أو للعيلة الصغيرة.</span></p><button class="btn btn-line bk" type="button" data-book="Al Snobar (Medium Chalet)"><span class="L en ">Book a chalet</span><span class="L ar " dir="rtl" lang="ar">احجز شاليه</span></button></div></article><article class="chalet rv"><div class="ph"><img src="assets/i/chalets_chalet-large_hero_w1280.jpg" alt="Al Wadi" loading="lazy"></div><div class="pad"><span class="tagpill"><span class="L en ">Spacious</span><span class="L ar " dir="rtl" lang="ar">واسع</span></span><h3 class="chname"><span class="cn">Al Wadi</span><span class="cn-ar" dir="rtl" lang="ar">الوادي</span></h3><div class="chsub"><span class="L en ">Large Chalet</span><span class="L ar " dir="rtl" lang="ar">الشاليه الكبير</span></div><div class="facts"><span class="L en ">6 guests · 3 bedrooms · garden · generous living area</span><span class="L ar " dir="rtl" lang="ar">٦ أشخاص · ٣ غرف نوم · حديقة · صالون واسع</span></div><p class="desc"><span class="L en ">Perfect for a full family or a group of friends.</span><span class="L ar " dir="rtl" lang="ar">مثالي لعيلة كاملة أو شلّة أصحاب.</span></p><button class="btn btn-line bk" type="button" data-book="Al Wadi (Large Chalet)"><span class="L en ">Book a chalet</span><span class="L ar " dir="rtl" lang="ar">احجز شاليه</span></button></div></article><article class="chalet rv"><div class="ph"><img src="assets/i/chalets_chalet-large_gallery-2_w1280.jpg" alt="Beit el Nahr" loading="lazy"></div><div class="pad"><span class="tagpill"><span class="L en ">Family</span><span class="L ar " dir="rtl" lang="ar">عائلي</span></span><h3 class="chname"><span class="cn">Beit el Nahr</span><span class="cn-ar" dir="rtl" lang="ar">بيت النهر</span></h3><div class="chsub"><span class="L en ">Large Riverside Duplex Suite</span><span class="L ar " dir="rtl" lang="ar">جناح الدوبلكس الكبير ع النهر</span></div><div class="facts"><span class="L en ">8+ guests · 4 bedrooms · full kitchen · outdoor space</span><span class="L ar " dir="rtl" lang="ar">٨+ أشخاص · ٤ غرف نوم · مطبخ كامل · مساحة خارجية</span></div><p class="desc"><span class="L en ">The largest chalet on the property — multiple rooms, a full kitchen, and room to spread out.</span><span class="L ar " dir="rtl" lang="ar">أكبر شاليه بالمنتجع — غرف متعددة ومطبخ كامل ومساحة تتوزع فيها العيلة.</span></p><button class="btn btn-line bk" type="button" data-book="Beit el Nahr (Large Riverside Duplex Suite)"><span class="L en ">Book a chalet</span><span class="L ar " dir="rtl" lang="ar">احجز شاليه</span></button></div></article><article class="chalet rv"><div class="ph"><img src="assets/i/chalets_chalet-small_gallery-4_w1280.jpg" alt="Al Shallal" loading="lazy"></div><div class="pad"><span class="tagpill"><span class="L en ">Premium</span><span class="L ar " dir="rtl" lang="ar">مميّز</span></span><h3 class="chname"><span class="cn">Al Shallal</span><span class="cn-ar" dir="rtl" lang="ar">الشلال</span></h3><div class="chsub"><span class="L en ">Small Riverside Duplex Suite</span><span class="L ar " dir="rtl" lang="ar">جناح الدوبلكس الصغير ع النهر</span></div><div class="facts"><span class="L en ">Couples · panoramic terrace · premium finishes</span><span class="L ar " dir="rtl" lang="ar">للثنائي · تراس بانورامي · تشطيبات فخمة</span></div><p class="desc"><span class="L en ">The most refined stay on the property — ideal for a honeymoon or anniversary. Panoramic private terrace, premium finishes.</span><span class="L ar " dir="rtl" lang="ar">أرقى إقامة بالمنتجع — مثالي لشهر العسل أو الذكرى السنوية. تراس خاص بانورامي وتشطيبات فخمة.</span></p><button class="btn btn-line bk" type="button" data-book="Al Shallal (Small Riverside Duplex Suite)"><span class="L en ">Book a chalet</span><span class="L ar " dir="rtl" lang="ar">احجز شاليه</span></button></div></article></div>
+  <div class="chnotes"><div class="rv"><span class="L en ">Check-in 3:00 PM · check-out 12:00 PM</span><span class="L ar " dir="rtl" lang="ar">الوصول ٣:٠٠ م · المغادرة ١٢:٠٠ ظ</span></div><div class="rv"><span class="L en ">Two-night minimum on weekends</span><span class="L ar " dir="rtl" lang="ar">ليلتان كحد أدنى بنهاية الأسبوع</span></div><div class="rv"><span class="L en ">Rates by WhatsApp — send your dates &amp; group size</span><span class="L ar " dir="rtl" lang="ar">الأسعار عبر واتساب — ابعت التاريخ وعدد الأشخاص</span></div><div class="rv"><span class="L en ">Pets are not permitted in chalets</span><span class="L ar " dir="rtl" lang="ar">الحيوانات الأليفة غير مسموحة بالشاليهات</span></div><div class="rv"><span class="L en ">Chalets open all year — cozy in winter too</span><span class="L ar " dir="rtl" lang="ar">الشاليهات مفتوحة طول السنة — ودافية بالشتي كمان</span></div></div>
+</section>
+<section class="block" id="pool">
+  <header class="sec-head"><h2><span class="L en t-big">The Pool</span><span class="L ar t-big" dir="rtl" lang="ar">المسبح</span><span class="t-script" dir="rtl" lang="ar" aria-hidden="true">غطسة عالبارد</span></h2></header>
+  <div class="split">
+    <div class="ph rv"><video class="vmedia" autoplay muted loop playsinline poster="assets/i/events_weddings_gallery-5_w2000.jpg" src="assets/v/pool.mp4" aria-label="The pool at Baissour Country Club"></video></div>
+    <div><p class="lead L en">Cool mountain water, open sky, and a deck made for long afternoons — down in the river valley, the air stays fresher than the city all summer. Day visitors are welcome; you don't need to be a chalet guest.</p><p class="lead L ar" dir="rtl" lang="ar">مي جبلية باردة وسما مفتوحة و«دِك» معمول لبعد الضهر الطويل — بوادي النهر، الهوا بيضل أنعش من المدينة طول الصيف. الزوار اليوميون أهلاً وسهلاً؛ مش لازم تكون نازل بشاليه.</p><div class="points"><div class="rv"><span class="tick">✓</span><span class="L en ">Open late spring through early autumn</span><span class="L ar " dir="rtl" lang="ar">مفتوح من آخر الربيع لأول الخريف</span></div><div class="rv"><span class="tick">✓</span><span class="L en ">Sunbeds, shaded seating &amp; deck space</span><span class="L ar " dir="rtl" lang="ar">كراسي تشميس وقعدات مظللة</span></div><div class="rv"><span class="tick">✓</span><span class="L en ">Mezze, grills &amp; cold drinks served poolside</span><span class="L ar " dir="rtl" lang="ar">مازة ومشاوي ومشروبات باردة ع المسبح</span></div><div class="rv"><span class="tick">✓</span><span class="L en ">Families welcome — kids supervised by parents</span><span class="L ar " dir="rtl" lang="ar">العائلات أهلاً وسهلاً — الأطفال بمراقبة الأهل</span></div></div></div>
+  </div>
+  <div class="strip">
+    <div class="ph rv"><img src="assets/i/pool_gallery-2_w1240.jpg" alt="Pool deck" loading="lazy"></div>
+    <div class="ph rv"><img src="assets/i/pool_gallery-5_w1240.jpg" alt="Pool at night" loading="lazy"></div>
+    <div class="ph rv"><img src="assets/i/restaurant_gallery-6_w1240.jpg" alt="The river through the forest" loading="lazy"></div>
+  </div>
+  <div class="split" style="margin-top:34px"><div><h3 class="vname rv"><span class="L en t-mid">Pool Entrance</span><span class="L ar t-mid" dir="rtl" lang="ar">رسم دخول المسبح</span></h3><p class="lead" style="margin-top:10px"><span class="L en ">Day passes — no chalet booking needed.</span><span class="L ar " dir="rtl" lang="ar">دخول يومي — بلا ما يكون معك حجز شاليه.</span></p><div class="points"><div class="rv"><span class="tick">✓</span><span class="L en ">Weekdays — $7 per person, adults &amp; kids</span><span class="L ar " dir="rtl" lang="ar">أيام الأسبوع — ٧$ للشخص، كبار وصغار</span></div><div class="rv"><span class="tick">✓</span><span class="L en ">Weekends — $10 per person, adults &amp; kids</span><span class="L ar " dir="rtl" lang="ar">نهاية الأسبوع — ١٠$ للشخص، كبار وصغار</span></div><div class="rv"><span class="tick">✓</span><span class="L en ">Mothers swim FREE every Monday &amp; Tuesday</span><span class="L ar " dir="rtl" lang="ar">الأمهات ببلاش كل تنين وتلاتا</span></div><div class="rv"><span class="tick">✓</span><span class="L en ">No outside food or beverages</span><span class="L ar " dir="rtl" lang="ar">ممنوع إدخال المأكولات والمشروبات</span></div></div></div><div class="ph rv"><img src="assets/i/pool_rates_w1520.jpg" alt="Baissour Country Club pool entrance rates" loading="lazy"></div></div>
+  <div class="pk" style="margin-top:46px"><header class="sec-head"><h3><span class="L en t-mid">The Natural Pools</span><span class="L ar t-mid" dir="rtl" lang="ar">البرك الطبيعية</span><span class="t-script" dir="rtl" lang="ar" aria-hidden="true">عالطبيعي</span></h3></header><p class="lead L en">Beyond the main pool, the river gives you two natural swimming holes — clear, icy mountain water that stays cold through the hottest days of summer.</p><p class="lead L ar" dir="rtl" lang="ar">غير المسبح الرئيسي، النهر بيعطيك بركتين طبيعيتين — مي جبلية صافية وباردة بتضل تلج حتى بأشوب أيام الصيف.</p><div class="venues"><article class="venue rv"><div class="ph"><img src="assets/i/home_gallery-5_w1600.jpg" alt="Al Snoun natural pool" loading="lazy"><span class="vtag"><span class="L en ">Natural pool</span><span class="L ar " dir="rtl" lang="ar">بركة طبيعية</span></span></div><div class="pad"><div class="vname"><span class="nm">Al Snoun</span><span class="nm-ar" dir="rtl" lang="ar">السنون</span></div><p class="desc"><span class="L en ">A deep, clear basin carved into the rock — the cold plunge everyone talks about after.</span><span class="L ar " dir="rtl" lang="ar">حوض عميق وصافي محفور بالصخر — الغطسة الباردة يلي الكل بيحكي عنها بعدين.</span></p></div><div class="ph duo"><img src="assets/i/home_gallery-4_w1600.jpg" alt="" loading="lazy"></div></article><article class="venue rv"><div class="ph"><img src="assets/i/tannour_1_w1600.jpg" alt="Al Tannour natural pool" loading="lazy"><span class="vtag"><span class="L en ">Natural pool</span><span class="L ar " dir="rtl" lang="ar">بركة طبيعية</span></span></div><div class="pad"><div class="vname"><span class="nm">Al Tannour</span><span class="nm-ar" dir="rtl" lang="ar">التنور</span></div><p class="desc"><span class="L en ">A little waterfall spilling into a turquoise basin under the trees — where the river slows down and the water stays fresh all year. Quieter than Al Snoun; the locals' favorite.</span><span class="L ar " dir="rtl" lang="ar">شلال صغير عم يصبّ ببركة فيروزية تحت الشجر — وين النهر بيهدى والمي بتضل منعشة طول السنة. أهدى من السنون — والمفضل عند أهل الضيعة.</span></p></div></article></div></div>
+</section>
+<section class="block" id="families"><header class="sec-head"><h2><span class="L en t-big">Families &amp; Little Ones</span><span class="L ar t-big" dir="rtl" lang="ar">العائلات والصغار</span><span class="t-script" dir="rtl" lang="ar" aria-hidden="true">للعيلة كلها</span></h2></header><p class="lead L en">The club was made for family days out. A kids-friendly side of the pool, open lawns to run on, riverside walks, and the club's famous ducks and geese waiting by the water — bring bread, make friends. Parents get the sunbeds; kids get everything else.</p><p class="lead L ar" dir="rtl" lang="ar">المنتجع معمول لطلعات العيلة. جهة مسبح مناسبة للصغار، وساحات خضرا يركضوا فيها، ومشاوير ع ضفة النهر، وبط ووز المنتجع المشهورين ناطرين عالمي — جيب خبز واعمل صحاب. الأهل إلن كراسي التشميس؛ والولاد إلن كل شي تاني.</p><div class="strip strip4" style="margin-top:26px"><div class="ph rv"><video class="vmedia" autoplay muted loop playsinline poster="assets/i/kidspark_1_w1240.jpg" src="assets/v/kidspark.mp4" aria-label="Kids playground in the park — slide, swings and little tables on the lawn"></video></div><div class="ph rv"><img src="assets/i/soc_fb_24_w1240.jpg" alt="Ducks by the river at Baissour Country Club" loading="lazy"></div><div class="ph rv"><img src="assets/i/ducks_2_w1240.jpg" alt="The club geese" loading="lazy"></div><div class="ph rv"><img src="assets/i/soc_fb_21_w1240.jpg" alt="Bonfire nights" loading="lazy"></div></div><div class="feat" style="margin-top:26px"><div class="rv"><span class="tick">✓</span><span class="L en ">Riverside picnics &amp; shaded walks</span><span class="L ar " dir="rtl" lang="ar">بيك نيك ع النهر ومشاوير مظللة</span></div><div class="rv"><span class="tick">✓</span><span class="L en ">Kids' playground in the park</span><span class="L ar " dir="rtl" lang="ar">ملعب أطفال بالحديقة</span></div><div class="rv"><span class="tick">✓</span><span class="L en ">Ducks &amp; geese along the river</span><span class="L ar " dir="rtl" lang="ar">بط ووز ع طول النهر</span></div><div class="rv"><span class="tick">✓</span><span class="L en ">Open lawns &amp; space to play</span><span class="L ar " dir="rtl" lang="ar">ساحات خضرا ومساحة للعب</span></div><div class="rv"><span class="tick">✓</span><span class="L en ">Kids' plates at the restaurant</span><span class="L ar " dir="rtl" lang="ar">أطباق أطفال بالمطعم</span></div><div class="rv"><span class="tick">✓</span><span class="L en ">Family chalets that sleep everyone</span><span class="L ar " dir="rtl" lang="ar">شاليهات عائلية بتوسع الكل</span></div><div class="rv"><span class="tick">✓</span><span class="L en ">Shallow, supervised-friendly pool side</span><span class="L ar " dir="rtl" lang="ar">جهة مسبح ضحلة ومناسبة لمراقبة الأهل</span></div><div class="rv"><span class="tick">✓</span><span class="L en ">Bonfire nights under the stars</span><span class="L ar " dir="rtl" lang="ar">سهرات نار تحت النجوم</span></div></div><div class="gift rv" style="margin-top:34px;display:flex;flex-wrap:wrap;align-items:center;gap:18px;justify-content:space-between"><div style="flex:1 1 420px"><div class="kicker" style="margin-bottom:6px"><span class="L en ">Got a date to celebrate?</span><span class="L ar " dir="rtl" lang="ar">عندك مناسبة عالطريق؟</span></div><div class="gift-head"><span class="L en gt" style="font-size:clamp(20px,2.6vw,27px)">Birthdays &amp; graduation parties — hosted here</span><span class="L ar gt" dir="rtl" lang="ar" style="font-size:clamp(20px,2.6vw,27px)">أعياد ميلاد وحفلات تخرّج — عنّا</span></div><p class="lead" style="margin-top:8px"><span class="L en ">Cake by the river, a playground to wear the kids out, and zero cleanup for you. Tell us the date — we'll do the rest.</span><span class="L ar " dir="rtl" lang="ar">قالب الحلو ع النهر، ملعب يلهّي الولاد، وولا غسّيلة صحن عليك. خبّرنا التاريخ — والباقي علينا.</span></p></div><a class="btn btn-solid" href="#celebrations" style="flex:0 0 auto"><span class="L en ">See party options</span><span class="L ar " dir="rtl" lang="ar">شوف خيارات الحفلات</span></a></div></section>
+<section class="block" id="restaurant">
+  <header class="sec-head"><h2><span class="L en t-big">The Restaurant</span><span class="L ar t-big" dir="rtl" lang="ar">المطعم</span><span class="t-script" dir="rtl" lang="ar" aria-hidden="true">صحتين</span></h2></header>
+  <div class="split">
+    <div><p class="lead L en">Good food in a setting worth lingering over — Lebanese and regional dishes with fresh mountain ingredients, served fully in the open air. The restaurant runs through the warm season (summer is our main season); message us for current opening before you drive up.</p><p class="lead L ar" dir="rtl" lang="ar">أكل طيب بمكان بيستاهل تطوّل فيه — أطباق لبنانية بمكوّنات جبلية طازجة، وكل شي بالهوا الطلق. المطعم شغال بموسم الدفا (الصيف موسمنا الأساسي)؛ راسلنا لتتأكد من الأوقات قبل ما تطلع.</p>
+      <div class="cta-row" style="margin-top:24px">
+        <a class="btn btn-solid" href="https://claude.ai/code/artifact/26056b95-1d0c-4f5d-9cff-7dae42ad91c2" target="_blank" rel="noopener"><span class="L en ">View the full menu</span><span class="L ar " dir="rtl" lang="ar">شوف المنيو الكامل</span></a>
+      </div>
+    </div>
+    <div class="ph rv"><img src="assets/i/restaurant_hero_w1880.jpg" alt="The restaurant at Baissour Country Club" loading="lazy"></div>
+  </div>
+  <div class="strip strip4">
+    <div class="ph rv"><img src="assets/i/soc_fb_26_w1240.jpg" alt="Fresh tabbouleh and mezze" loading="lazy"></div>
+    <div class="ph rv"><img src="assets/i/soc_fb_25_w1240.jpg" alt="Lebanese spread" loading="lazy"></div>
+    <div class="ph rv"><img src="assets/i/soc_fb_18_w1240.jpg" alt="Flambé at the kitchen" loading="lazy"></div>
+    <div class="ph rv"><img src="assets/i/soc_fb_28_w1240.jpg" alt="Lunch by the river" loading="lazy"></div>
+  </div>
+</section>
+<section class="block" id="socials"><header class="sec-head"><h2><span class="L en t-big">From Our Socials</span><span class="L ar t-big" dir="rtl" lang="ar">من صفحاتنا</span><span class="t-script" dir="rtl" lang="ar" aria-hidden="true">شوف الفيديوهات</span></h2></header><p class="lead L en">Our most-loved videos — each passed 250 likes and counting. Tap to watch on Instagram, or come make the next one.</p><p class="lead L ar" dir="rtl" lang="ar">أكتر فيديوهاتنا محبة — كل واحد تخطى ٢٥٠ لايك وبعدو عم يعد. كبس لتشوف ع إنستغرام، أو تعا خلينا نصوّر التالي سوا.</p><div class="socgrid"><a class="soc rv" href="https://www.instagram.com/p/Da8cu7wKijO/" target="_blank" rel="noopener"><img src="assets/i/vid_1_w960.jpg" alt="The treehouse chalets &amp; private pool"><span class="soc-likes">♥ 1.6K</span><span class="soc-lab"><span class="L en ">The treehouse chalets &amp; private pool</span><span class="L ar " dir="rtl" lang="ar">شاليهات الأكواخ والمسبح الخاص</span></span><span class="soc-play">▶</span></a><a class="soc rv" href="https://www.instagram.com/p/DaZvfUaIP-g/" target="_blank" rel="noopener"><img src="assets/i/vid_2_w960.jpg" alt="Yes — all this at Baissour Country Club"><span class="soc-likes">♥ 1.4K</span><span class="soc-lab"><span class="L en ">Yes — all this at Baissour Country Club</span><span class="L ar " dir="rtl" lang="ar">إي — كل هيدا بمنتجع بيصور</span></span><span class="soc-play">▶</span></a><a class="soc rv" href="https://www.instagram.com/p/DOdkbSriCGs/" target="_blank" rel="noopener"><img src="assets/i/vid_3_w960.jpg" alt="The walkway through the trees"><span class="soc-likes">♥ 658</span><span class="soc-lab"><span class="L en ">The walkway through the trees</span><span class="L ar " dir="rtl" lang="ar">الممر بين الشجر</span></span><span class="soc-play">▶</span></a><a class="soc rv" href="https://www.instagram.com/p/DNFuIQHopLG/" target="_blank" rel="noopener"><img src="assets/i/vid_4_w960.jpg" alt="Evenings at the pool"><span class="soc-likes">♥ 420</span><span class="soc-lab"><span class="L en ">Evenings at the pool</span><span class="L ar " dir="rtl" lang="ar">المسا ع المسبح</span></span><span class="soc-play">▶</span></a><a class="soc rv" href="https://www.instagram.com/p/DMCyonysOhq/" target="_blank" rel="noopener"><img src="assets/i/vid_5_w960.jpg" alt="Cocktails by the water"><span class="soc-likes">♥ 389</span><span class="soc-lab"><span class="L en ">Cocktails by the water</span><span class="L ar " dir="rtl" lang="ar">كوكتيلات ع المي</span></span><span class="soc-play">▶</span></a></div></section>
+<section class="block" id="area">
+  <header class="sec-head"><h2><span class="L en t-big">Baissour &amp; the Area</span><span class="L ar t-big" dir="rtl" lang="ar">بيصور والمنطقة</span><span class="t-script" dir="rtl" lang="ar" aria-hidden="true">ع البال</span></h2></header>
+  <p class="lead L en">Baissour village sits high in Mount Lebanon — an hour from Beirut, and a world away from it. The club is tucked below the village, down in the river valley where the water runs and the pines keep the air cool.</p><p class="lead L ar" dir="rtl" lang="ar">ضيعة بيصور عالية بجبل لبنان — ساعة عن بيروت، وعالم تاني بالكامل. والمنتجع مخبّى تحت الضيعة، بوادي النهر يلي بتركض فيه المي والصنوبر مبقّي الهوا بارد.</p>
+  <div class="band rv"><img src="assets/i/about_family_w2000.jpg" alt="The river at Baissour" loading="lazy">
+    <div class="cap"><div class="q" dir="rtl" lang="ar">الناس بتجي لهون لتتنفّس.</div>
+    <div class="L en">People come here to breathe.</div><div class="L ar" dir="rtl" lang="ar">&nbsp;</div></div></div>
+</section>
+<section class="block" id="giftshop"><div class="gift rv"><div class="gift-head"><span class="L en gt">The Gift Shop</span><span class="L ar gt" dir="rtl" lang="ar">محل الهدايا</span><span class="t-script" dir="rtl" lang="ar" aria-hidden="true">تذكار حلو</span></div><p class="lead L en">Before you head back down the mountain, pass by our gift shop — local and handmade pieces, BCC keepsakes, and unique finds you won't see in the city. A little bit of Baissour to take home.</p><p class="lead L ar" dir="rtl" lang="ar">قبل ما تنزل عالمدينة، مرّ ع محل الهدايا — قطع محلية وشغل يدوي، تذكارات المنتجع، وأغراض مميزة ما بتلاقيها بالمدينة. شقفة من بيصور تاخدها معك عالبيت.</p></div></section>
+<section class="block" id="contact">
+  <header class="sec-head"><h2><span class="L en t-big">Contact &amp; Directions</span><span class="L ar t-big" dir="rtl" lang="ar">التواصل والوصول</span><span class="t-script" dir="rtl" lang="ar" aria-hidden="true">احكينا</span></h2></header>
+  <div class="contact-grid">
+    <div class="ccard rv">
+      <h3><span class="L en ">Talk to us</span><span class="L ar " dir="rtl" lang="ar">احكينا</span></h3>
+      <p><span class="L en ">The fastest way to reach us is WhatsApp — we typically reply within a few hours. You can also message us on Instagram or Facebook, or send an email. Chalets are open all year; the outdoor restaurant and pool run through the warm season — ask us for current hours.</span><span class="L ar " dir="rtl" lang="ar">أسرع طريقة للتواصل هي واتساب — منردّ عادةً خلال ساعات. فيك كمان تراسلنا عبر إنستغرام أو فيسبوك أو بالإيميل. الشاليهات مفتوحة طول السنة؛ والمطعم المكشوف والمسبح شغالين بموسم الدفا — اسألنا عن الأوقات الحالية.</span></p>
+      <a class="wa-big" href="https://wa.me/96181130345" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.8 1.4 1.8 2.2 1.3 1.1 2.3 1.5 2.6 1.6.3.2.5.1.7-.1l1-1.2c.2-.3.5-.2.8-.1l2 1c.3.1.5.2.6.4 0 .1 0 .7-.3 1.4Z"/></svg> 81 130 345</a>
+      <div class="socials">
+        <a href="https://www.instagram.com/baissourcountryclub/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/baissourcountryclub/" target="_blank" rel="noopener">Facebook</a>
+        <a href="mailto:baissourcountryclub@gmail.com"><span class="L en ">Email</span><span class="L ar " dir="rtl" lang="ar">إيميل</span></a>
+        <a href="https://claude.ai/code/artifact/26056b95-1d0c-4f5d-9cff-7dae42ad91c2" target="_blank" rel="noopener"><span class="L en ">Menu</span><span class="L ar " dir="rtl" lang="ar">المنيو</span></a>
+      </div>
+    </div>
+    <div class="ccard rv">
+      <h3><span class="L en ">Getting here</span><span class="L ar " dir="rtl" lang="ar">كيف توصل</span></h3>
+      <p><span class="L en ">Take the Beirut–Damascus highway toward Aley, then follow the signs to Baissour. About 45 minutes from central Beirut.</span><span class="L ar " dir="rtl" lang="ar">خود أوتوستراد بيروت–دمشق باتجاه عاليه، وبعدين اتبع إشارات بيصور. حوالي ٤٥ دقيقة من وسط بيروت.</span></p>
+      <p style="margin-top:12px;font-weight:700"><span class="L en ">Baissour, Aley District, Mount Lebanon, Lebanon</span><span class="L ar " dir="rtl" lang="ar">بيصور، قضاء عاليه، جبل لبنان</span></p>
+      <div class="cta-row" style="margin-top:16px"><a class="btn btn-line" href="#directions"><span class="L en ">Maps &amp; directions</span><span class="L ar " dir="rtl" lang="ar">الخريطة والطريق</span></a></div>
+    </div>
+  </div>
+</section>
+</main>
+</div>
+
+<div class="page" id="pg-gallery">
+<main class="pagehead">
+  <section class="block">
+    <header class="sec-head"><h1><span class="L en t-big">The Gallery</span><span class="L ar t-big" dir="rtl" lang="ar">الصور</span><span class="t-script" dir="rtl" lang="ar" aria-hidden="true">شوف بعينك</span></h1></header>
+    <p class="lead L en">The club as it actually is — weddings on the water, chalets in the trees, the pool, the river, and the table.</p><p class="lead L ar" dir="rtl" lang="ar">المنتجع متل ما هو فعلاً — أعراس ع المي، شاليهات بين الشجر، المسبح، النهر، والسفرة.</p>
+    <div class="gcats"><button class="on" data-cat="all"><span class="L en ">All</span><span class="L ar " dir="rtl" lang="ar">الكل</span></button><button data-cat="weddings"><span class="L en ">Weddings &amp; Events</span><span class="L ar " dir="rtl" lang="ar">أعراس ومناسبات</span></button><button data-cat="draj"><span class="L en ">Draj el Ward</span><span class="L ar " dir="rtl" lang="ar">دراج الورد</span></button><button data-cat="tahani"><span class="L en ">Ta'Hani</span><span class="L ar " dir="rtl" lang="ar">تهاني</span></button><button data-cat="family"><span class="L en ">Families &amp; Kids</span><span class="L ar " dir="rtl" lang="ar">عائلات وأطفال</span></button><button data-cat="chalets"><span class="L en ">Chalets</span><span class="L ar " dir="rtl" lang="ar">شاليهات</span></button><button data-cat="pool"><span class="L en ">Pool</span><span class="L ar " dir="rtl" lang="ar">المسبح</span></button><button data-cat="nature"><span class="L en ">River &amp; Nature</span><span class="L ar " dir="rtl" lang="ar">النهر والطبيعة</span></button><button data-cat="restaurant"><span class="L en ">Restaurant</span><span class="L ar " dir="rtl" lang="ar">المطعم</span></button><button data-cat="food"><span class="L en ">Food</span><span class="L ar " dir="rtl" lang="ar">الأكل</span></button></div>
+    <div class="gwrap"><figure class="gitem" data-cat="nature"><img src="assets/i/about_family_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="chalets"><img src="assets/i/chalets_chalet-large_gallery-2_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="chalets"><img src="assets/i/chalets_chalet-large_gallery-3_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="chalets"><img src="assets/i/chalets_chalet-large_gallery-4_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="chalets"><img src="assets/i/chalets_chalet-large_hero_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="chalets"><img src="assets/i/chalets_chalet-medium_gallery-1_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="chalets"><img src="assets/i/chalets_chalet-medium_gallery-2_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="chalets"><img src="assets/i/chalets_chalet-medium_gallery-3_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="chalets"><img src="assets/i/chalets_chalet-medium_gallery-4_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="chalets"><img src="assets/i/chalets_chalet-medium_hero_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="chalets"><img src="assets/i/chalets_chalet-small_gallery-1_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="chalets"><img src="assets/i/chalets_chalet-small_gallery-3_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="chalets"><img src="assets/i/chalets_chalet-small_gallery-4_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="nature family"><img src="assets/i/ducks_1_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="nature family"><img src="assets/i/ducks_2_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="weddings draj"><img src="assets/i/events_weddings_gallery-1_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="weddings tahani"><img src="assets/i/events_weddings_gallery-10_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="weddings tahani"><img src="assets/i/events_weddings_gallery-11_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="weddings tahani"><img src="assets/i/events_weddings_gallery-12_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="weddings draj"><img src="assets/i/events_weddings_gallery-2_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="weddings tahani"><img src="assets/i/events_weddings_gallery-3_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="weddings tahani"><img src="assets/i/events_weddings_gallery-4_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="pool draj"><img src="assets/i/events_weddings_gallery-5_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="weddings tahani"><img src="assets/i/events_weddings_gallery-6_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="weddings tahani"><img src="assets/i/events_weddings_gallery-7_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="weddings tahani"><img src="assets/i/events_weddings_gallery-8_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="weddings tahani"><img src="assets/i/events_weddings_gallery-9_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="nature"><img src="assets/i/home_gallery-4_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="nature"><img src="assets/i/home_gallery-5_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="family"><img src="assets/i/kidspark_1_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="pool"><img src="assets/i/pool_gallery-2_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="pool"><img src="assets/i/pool_gallery-5_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="pool"><img src="assets/i/pool_rates_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="restaurant"><img src="assets/i/restaurant_gallery-1_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="restaurant"><img src="assets/i/restaurant_gallery-2_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="food"><img src="assets/i/restaurant_gallery-4_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="nature"><img src="assets/i/restaurant_gallery-5_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="nature"><img src="assets/i/restaurant_gallery-6_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="restaurant"><img src="assets/i/restaurant_hero_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="weddings draj"><img src="assets/i/soc_fb_00_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="weddings tahani"><img src="assets/i/soc_fb_02_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="weddings"><img src="assets/i/soc_fb_03_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="weddings"><img src="assets/i/soc_fb_04_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="weddings"><img src="assets/i/soc_fb_05_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="weddings"><img src="assets/i/soc_fb_06_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="weddings"><img src="assets/i/soc_fb_07_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="weddings tahani"><img src="assets/i/soc_fb_08_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="weddings tahani"><img src="assets/i/soc_fb_09_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="weddings tahani"><img src="assets/i/soc_fb_11_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="weddings tahani"><img src="assets/i/soc_fb_13_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="weddings tahani"><img src="assets/i/soc_fb_14_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="weddings tahani"><img src="assets/i/soc_fb_15_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="weddings tahani"><img src="assets/i/soc_fb_16_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="weddings tahani"><img src="assets/i/soc_fb_17_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="food"><img src="assets/i/soc_fb_18_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="nature"><img src="assets/i/soc_fb_19_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="pool"><img src="assets/i/soc_fb_20_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="nature"><img src="assets/i/soc_fb_21_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="weddings tahani"><img src="assets/i/soc_fb_22_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="nature"><img src="assets/i/soc_fb_23_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="nature family"><img src="assets/i/soc_fb_24_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="food"><img src="assets/i/soc_fb_25_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="food"><img src="assets/i/soc_fb_26_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="food"><img src="assets/i/soc_fb_27_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="food"><img src="assets/i/soc_fb_28_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="chalets"><img src="assets/i/soc_ig_01_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="chalets"><img src="assets/i/soc_ig_02_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="nature"><img src="assets/i/soc_ig_03_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="chalets"><img src="assets/i/soc_ig_07_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="weddings tahani"><img src="assets/i/soc_ig_15_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="weddings draj"><img src="assets/i/soc_ig_16_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="weddings"><img src="assets/i/soc_ig_17_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="nature"><img src="assets/i/tannour_1_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="nature"><img src="assets/i/w1100_events_weddings_gallery-1_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="nature"><img src="assets/i/w1100_events_weddings_gallery-10_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="nature"><img src="assets/i/w1100_events_weddings_gallery-11_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="nature"><img src="assets/i/w1100_events_weddings_gallery-12_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="nature"><img src="assets/i/w1100_events_weddings_gallery-4_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="nature"><img src="assets/i/w1100_events_weddings_gallery-5_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="nature"><img src="assets/i/w1100_events_weddings_gallery-9_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="nature"><img src="assets/i/w1100_restaurant_hero_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="nature"><img src="assets/i/w800_home_gallery-5_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="nature"><img src="assets/i/w800_pool_gallery-2_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="nature"><img src="assets/i/w800_pool_gallery-5_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="nature"><img src="assets/i/w900_chalets_chalet-large_gallery-2_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="nature"><img src="assets/i/w900_chalets_chalet-large_hero_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="nature"><img src="assets/i/w900_chalets_chalet-medium_hero_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="nature"><img src="assets/i/w900_chalets_chalet-small_gallery-3_w1240.jpg" alt="" loading="lazy"></figure><figure class="gitem" data-cat="nature"><img src="assets/i/w900_chalets_chalet-small_gallery-4_w1240.jpg" alt="" loading="lazy"></figure></div>
+  </section>
+</main>
+</div>
+
+<div class="page" id="pg-booking">
+<main class="pagehead">
+  <section class="block">
+    <header class="sec-head"><h1><span class="L en t-big">Book a Chalet</span><span class="L ar t-big" dir="rtl" lang="ar">احجز شاليه</span><span class="t-script" dir="rtl" lang="ar" aria-hidden="true">عالسريع</span></h1></header>
+    <p class="lead L en">Pick your chalet and dates below — it opens a ready WhatsApp message with your request, and we'll confirm availability and rates right there.</p><p class="lead L ar" dir="rtl" lang="ar">نقّي الشاليه والتواريخ تحت — بتنفتح رسالة واتساب جاهزة بطلبك، ومنأكدلك التوفر والأسعار مباشرة.</p>
+    
+<div class="formcard rv">
+  <div class="fgrid">
+    <div><label class="fl"><span class="L en ">Your name</span><span class="L ar " dir="rtl" lang="ar">اسمك</span></label><input id="bk-name" autocomplete="name"></div>
+    <div><label class="fl"><span class="L en ">Phone number</span><span class="L ar " dir="rtl" lang="ar">رقم التلفون</span></label><input id="bk-phone" type="tel" autocomplete="tel"></div>
+    <div><label class="fl"><span class="L en ">Email address</span><span class="L ar " dir="rtl" lang="ar">البريد الإلكتروني</span></label><input id="bk-mail" type="email" autocomplete="email"></div>
+    <div><label class="fl"><span class="L en ">Chalet</span><span class="L ar " dir="rtl" lang="ar">الشاليه</span></label><select id="bk-chalet"><option>Al Yasmine (Small Chalet)</option><option>Al Snobar (Medium Chalet)</option><option>Al Wadi (Large Chalet)</option><option>Beit el Nahr (Large Riverside Duplex Suite)</option><option>Al Shallal (Small Riverside Duplex Suite)</option></select></div>
+    <div><label class="fl"><span class="L en ">Check-in</span><span class="L ar " dir="rtl" lang="ar">تاريخ الوصول</span></label><input id="bk-in" type="date"></div>
+    <div><label class="fl"><span class="L en ">Check-out</span><span class="L ar " dir="rtl" lang="ar">تاريخ المغادرة</span></label><input id="bk-out" type="date"></div>
+    <div><label class="fl"><span class="L en ">Guests</span><span class="L ar " dir="rtl" lang="ar">عدد الأشخاص</span></label><input id="bk-guests" type="number" min="1" max="12"></div>
+  </div>
+  <label class="fl"><span class="L en ">Notes (optional)</span><span class="L ar " dir="rtl" lang="ar">ملاحظات (اختياري)</span></label><textarea id="bk-notes"></textarea>
+  <div class="cta-row"><button class="btn btn-wa" id="bk-send" type="button"><span class="L en ">Request via WhatsApp</span><span class="L ar " dir="rtl" lang="ar">اطلب عبر واتساب</span></button>
+  <button class="btn btn-line" id="bk-email" type="button"><span class="L en ">Send via Email</span><span class="L ar " dir="rtl" lang="ar">ابعت عالإيميل</span></button></div>
+</div>
+    <div class="chnotes"><div class="rv"><span class="L en ">Check-in 3:00 PM · check-out 12:00 PM</span><span class="L ar " dir="rtl" lang="ar">الوصول ٣:٠٠ م · المغادرة ١٢:٠٠ ظ</span></div><div class="rv"><span class="L en ">Two-night minimum on weekends</span><span class="L ar " dir="rtl" lang="ar">ليلتان كحد أدنى بنهاية الأسبوع</span></div><div class="rv"><span class="L en ">Rates by WhatsApp — send your dates &amp; group size</span><span class="L ar " dir="rtl" lang="ar">الأسعار عبر واتساب — ابعت التاريخ وعدد الأشخاص</span></div><div class="rv"><span class="L en ">Pets are not permitted in chalets</span><span class="L ar " dir="rtl" lang="ar">الحيوانات الأليفة غير مسموحة بالشاليهات</span></div><div class="rv"><span class="L en ">Chalets open all year — cozy in winter too</span><span class="L ar " dir="rtl" lang="ar">الشاليهات مفتوحة طول السنة — ودافية بالشتي كمان</span></div></div>
+  </section>
+</main>
+</div>
+
+<div class="page" id="pg-directions">
+<main class="pagehead">
+  <section class="block">
+    <header class="sec-head"><h1><span class="L en t-big">Maps &amp; Directions</span><span class="L ar t-big" dir="rtl" lang="ar">الخريطة والطريق</span><span class="t-script" dir="rtl" lang="ar" aria-hidden="true">عالطريق</span></h1></header>
+    <p class="lead L en">Wherever you're starting in Lebanon, Baissour is an easy drive — smooth highway to Aley, then a scenic mountain road, and the best part is the last stretch: the drop into the green river valley.</p><p class="lead L ar" dir="rtl" lang="ar">من وين ما كنت بلبنان، بيصور مشوار سهل — أوتوستراد لعاليه، وبعدها طريق جبلية حلوة، وأحلى شي آخر جزء: النزلة عوادي النهر الأخضر.</p>
+    <div class="dgrid">
+      <div>
+        <div class="timegrid"><div class="rv"><div class="t">~45 min</div><div class="f"><span class="L en ">Beirut</span><span class="L ar " dir="rtl" lang="ar">بيروت</span></div></div><div class="rv"><div class="t">~15 min</div><div class="f"><span class="L en ">Aley</span><span class="L ar " dir="rtl" lang="ar">عاليه</span></div></div><div class="rv"><div class="t">~25 min</div><div class="f"><span class="L en ">Bhamdoun</span><span class="L ar " dir="rtl" lang="ar">بحمدون</span></div></div><div class="rv"><div class="t">~45 min</div><div class="f"><span class="L en ">The Chouf</span><span class="L ar " dir="rtl" lang="ar">الشوف</span></div></div><div class="rv"><div class="t">~55 min</div><div class="f"><span class="L en ">Saida</span><span class="L ar " dir="rtl" lang="ar">صيدا</span></div></div><div class="rv"><div class="t">~1 h 15</div><div class="f"><span class="L en ">Zahle</span><span class="L ar " dir="rtl" lang="ar">زحلة</span></div></div></div>
+        <p class="form-note"><span class="L en ">Approximate, outside rush hour. The road is paved the whole way, and every minute of it earns the view at the end.</span><span class="L ar " dir="rtl" lang="ar">تقريبي، خارج ساعات الزحمة. الطريق معبّدة عالآخر، وكل دقيقة فيها بتستاهل الإطلالة بالنهاية.</span></p>
+        <div class="route-line"><span class="L en ">Beirut–Damascus highway → Aley exit → follow the signs to Baissour → down into the valley to the club gate.</span><span class="L ar " dir="rtl" lang="ar">أوتوستراد بيروت–دمشق ← مخرج عاليه ← اتبع إشارات بيصور ← انزل عالوادي لبوابة المنتجع.</span></div>
+        <div class="cta-row" style="margin-top:20px">
+          <a class="btn btn-solid" href="https://www.google.com/maps/search/?api=1&query=Baissour+Country+Club" target="_blank" rel="noopener"><span class="L en ">Open in Google Maps</span><span class="L ar " dir="rtl" lang="ar">افتح بخرائط غوغل</span></a>
+          <a class="btn btn-line" href="https://waze.com/ul?q=Baissour%20Country%20Club&navigate=yes" target="_blank" rel="noopener"><span class="L en ">Open in Waze</span><span class="L ar " dir="rtl" lang="ar">افتح بويز</span></a>
+        </div>
+        <p class="form-note" style="margin-top:16px"><span class="L en ">Baissour, Aley District, Mount Lebanon, Lebanon</span><span class="L ar " dir="rtl" lang="ar">بيصور، قضاء عاليه، جبل لبنان</span></p>
+      </div>
+      <div class="routecard rv">
+<svg viewBox="0 0 460 300" role="img" aria-label="Route sketch from Beirut to Baissour">
+  <path d="M60 20 C40 90 55 190 40 285" fill="none" stroke="var(--line)" stroke-width="3"/>
+  <path d="M105 300 C140 240 150 200 210 170 C280 135 300 150 355 120" fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 9"/>
+  <circle cx="105" cy="295" r="7" fill="var(--ink)"/>
+  <text x="122" y="299" font-size="15" font-weight="700" fill="var(--ink)" font-family="Archivo,sans-serif">Beirut</text>
+  <circle cx="210" cy="170" r="5" fill="var(--muted)"/>
+  <text x="224" y="175" font-size="13" fill="var(--muted)" font-family="Archivo,sans-serif">Aley</text>
+  <path d="M340 132 l15 -24 15 24 z" fill="none" stroke="var(--muted)" stroke-width="2.5"/>
+  <path d="M368 132 l12 -19 12 19 z" fill="none" stroke="var(--muted)" stroke-width="2.5"/>
+  <circle cx="355" cy="120" r="9" fill="var(--accent)"/>
+  <text x="300" y="98" font-size="16" font-weight="900" fill="var(--ink)" font-family="Archivo,sans-serif">Baissour</text>
+  <text x="296" y="160" font-size="12" fill="var(--muted)" font-family="Archivo,sans-serif">river valley · بيصور</text>
+  <text x="30" y="40" font-size="12" fill="var(--muted)" font-family="Archivo,sans-serif" transform="rotate(78 30 40)">Mediterranean</text>
+</svg></div>
+    </div>
+  </section>
+</main>
+</div>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Photo"><img id="lightbox-img" alt=""></div>
+
+<footer>
+  <img class="logo" src="assets/i/shared_logo-color.png" alt="">
+  <div><span class="L en ">Baissour Country Club</span><span class="L ar " dir="rtl" lang="ar">منتجع بيصور السياحي</span> — <span class="L en ">Restaurant · Chalets · Camp</span><span class="L ar " dir="rtl" lang="ar">مطعم · شاليهات · تخييم</span></div>
+  <div style="margin-top:8px">© <span class="L en ">Baissour Country Club. All rights reserved.</span><span class="L ar " dir="rtl" lang="ar">منتجع بيصور السياحي. جميع الحقوق محفوظة.</span></div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/96181130345" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.8 1.4 1.8 2.2 1.3 1.1 2.3 1.5 2.6 1.6.3.2.5.1.7-.1l1-1.2c.2-.3.5-.2.8-.1l2 1c.3.1.5.2.6.4 0 .1 0 .7-.3 1.4Z"/></svg></a>
+<script>
+(function(){
+  var root=document.documentElement;
+  var saved=null; try{saved=localStorage.getItem('bcc-lang')}catch(e){}
+  window.LANG='en';
+  function applyLang(l){
+    window.LANG=l;
+    root.setAttribute('data-lang',l);
+    root.setAttribute('dir', l==='ar'?'rtl':'ltr');
+    root.setAttribute('lang', l==='ar'?'ar':'en');
+    var b=document.getElementById('langbtn'); if(b) b.textContent = l==='ar' ? 'English' : 'عربي';
+    try{localStorage.setItem('bcc-lang',l)}catch(e){}
+  }
+  applyLang(saved==='ar'?'ar':'en');
+  document.getElementById('langbtn').addEventListener('click',function(){
+    applyLang(root.getAttribute('data-lang')==='ar'?'en':'ar');
+  });
+  var PAGES=['home','gallery','booking','directions'];
+  function show(page){
+    PAGES.forEach(function(p){document.getElementById('pg-'+p).classList.toggle('on', p===page)});
+    obs();
+  }
+  function route(){
+    var h=(location.hash||'').replace('#','');
+    if(PAGES.indexOf(h)>-1 && h!=='home'){ show(h); window.scrollTo(0,0); }
+    else if(h && document.getElementById(h)){ show('home');
+      var el=document.getElementById(h); if(el) el.scrollIntoView(); }
+    else { show('home'); if(!h) window.scrollTo(0,0); }
+  }
+  window.addEventListener('hashchange',route);
+  var io=null;
+  function obs(){
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)){
+      document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')}); return;
+    }
+    if(!io){ io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1}); }
+    document.querySelectorAll('.page.on .rv:not(.in)').forEach(function(el){io.observe(el)});
+  }
+  route();
+  /* gallery filter */
+  document.querySelectorAll('.gcats button').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('.gcats button').forEach(function(x){x.classList.remove('on')});
+      b.classList.add('on');
+      var c=b.getAttribute('data-cat');
+      document.querySelectorAll('.gitem').forEach(function(g){
+        var cats=g.getAttribute('data-cat').split(' ');
+        g.classList.toggle('hid', c!=='all' && cats.indexOf(c)===-1);
+      });
+    });
+  });
+  /* lightbox */
+  var lb=document.getElementById('lightbox'), lbi=document.getElementById('lightbox-img');
+  var lbList=[], lbIdx=0;
+  function lbShow(i){
+    if(!lbList.length) return;
+    lbIdx=(i+lbList.length)%lbList.length;
+    lbi.src=lbList[lbIdx];
+  }
+  document.querySelectorAll('.gitem img, .vth img').forEach(function(im){
+    im.parentElement.addEventListener('click',function(){
+      var scope;
+      if(im.closest('.gwrap')){
+        scope=[].slice.call(document.querySelectorAll('.gwrap .gitem:not(.hid) img'));
+      } else {
+        var wrap=im.closest('.vthumbs');
+        scope=wrap?[].slice.call(wrap.querySelectorAll('img')):[im];
+      }
+      lbList=scope.map(function(x){return x.src});
+      lbShow(scope.indexOf(im));
+      lb.classList.add('on');
+    });
+  });
+  lb.addEventListener('click',function(){lb.classList.remove('on'); lbi.src='';});
+  document.addEventListener('keydown',function(e){
+    if(!lb.classList.contains('on')) return;
+    if(e.key==='Escape'){lb.classList.remove('on'); lbi.src='';}
+    else if(e.key==='ArrowRight'){e.preventDefault(); lbShow(lbIdx+1);}
+    else if(e.key==='ArrowLeft'){e.preventDefault(); lbShow(lbIdx-1);}
+  });
+  /* chalet preselect */
+  document.querySelectorAll('[data-book]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var v=b.getAttribute('data-book');
+      var sel=document.getElementById('bk-chalet');
+      if(sel) sel.value=v;
+      location.hash='booking';
+    });
+  });
+  /* whatsapp forms */
+  function val(id){var e=document.getElementById(id);return e?e.value.trim():''}
+  function selTxt(id){var e=document.getElementById(id);return e?e.options[e.selectedIndex].text:''}
+  var BCC_EMAIL='baissourcountryclub@gmail.com';
+  function emailAuto(subject,msg){
+    /* background email copy via FormSubmit relay; silently skipped where network is restricted */
+    try{
+      fetch('https://formsubmit.co/ajax/'+BCC_EMAIL,{method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify({_subject:subject,message:msg})}).catch(function(){});
+    }catch(e){}
+  }
+  function openWA(msg,subject){
+    emailAuto(subject||'Website inquiry',msg);
+    window.open('https://wa.me/96181130345?text='+encodeURIComponent(msg),'_blank');
+  }
+  function sendMail(subject,msg){
+    location.href='mailto:'+BCC_EMAIL+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(msg);
+  }
+  function bkMsg(){
+    var ar = window.LANG==='ar';
+    return ar
+      ? 'مرحبا! بدي احجز شاليه:\n• الاسم: '+val('bk-name')+'\n• التلفون: '+val('bk-phone')+'\n• الإيميل: '+val('bk-mail')+'\n• الشاليه: '+selTxt('bk-chalet')+'\n• الوصول: '+val('bk-in')+'\n• المغادرة: '+val('bk-out')+'\n• عدد الأشخاص: '+val('bk-guests')+(val('bk-notes')?'\n• ملاحظات: '+val('bk-notes'):'')
+      : 'Hello! I would like to book a chalet:\n• Name: '+val('bk-name')+'\n• Phone: '+val('bk-phone')+'\n• Email: '+val('bk-mail')+'\n• Chalet: '+selTxt('bk-chalet')+'\n• Check-in: '+val('bk-in')+'\n• Check-out: '+val('bk-out')+'\n• Guests: '+val('bk-guests')+(val('bk-notes')?'\n• Notes: '+val('bk-notes'):'');
+  }
+  var bkBtn=document.getElementById('bk-send');
+  if(bkBtn) bkBtn.addEventListener('click',function(){ openWA(bkMsg(),'Chalet booking request — '+val('bk-name')); });
+  var bkEm=document.getElementById('bk-email');
+  if(bkEm) bkEm.addEventListener('click',function(){ sendMail('Chalet booking request — '+val('bk-name'), bkMsg()); });
+  /* event calculator */
+  function calCompute(){
+    var pkg=document.querySelector('input[name="cal-pkg"]:checked');
+    if(!pkg) return {total:0};
+    var g=parseInt(val('cal-guests')||'0',10)||0;
+    var base=parseInt(pkg.getAttribute('data-base'),10);
+    var pp=parseInt(pkg.getAttribute('data-pp'),10);
+    var billG=g; if(pp>0) billG=Math.max(g,100);
+    var venue=base + pp*billG;
+    var disc=0;
+    if(document.getElementById('cal-weekday').checked) disc+=0.15;
+    if(document.getElementById('cal-early').checked) disc+=0.10;
+    venue=venue*(1-disc);
+    var bar=parseInt(document.getElementById('cal-bar').value,10)||0;
+    var extras=0;
+    document.querySelectorAll('.cal-extra:checked').forEach(function(c){extras+=parseInt(c.getAttribute('data-price'),10)});
+    var total=Math.round(venue + bar*Math.max(g,1) + extras);
+    return {total:total,g:g,pkg:pkg.value,bar:bar,disc:disc};
+  }
+  function calRender(){
+    var r=calCompute();
+    var el=document.getElementById('cal-total');
+    if(!el) return;
+    el.textContent='≈ $'+r.total.toLocaleString('en-US');
+    el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump');
+  }
+  var calWrap=document.getElementById('calculator');
+  if(calWrap){
+    calWrap.addEventListener('change',calRender);
+    calWrap.addEventListener('input',calRender);
+    calRender();
+    function calMsg(){
+      var r=calCompute();
+      var pkgNames={space:'The Space (venue only)',table:'The Table (venue + catering)',atoz:'A to Z (fully planned)'};
+      var barNames={0:'soft drinks only',15:'open bar',25:'premium bar'};
+      var ex=[];
+      document.querySelectorAll('.cal-extra:checked').forEach(function(c){
+        ex.push(c.parentElement.textContent.trim().split('(')[0].trim());
+      });
+      var ar=window.LANG==='ar';
+      var m=(ar?'مرحبا! جرّبت حاسبة المناسبات، هيدي خطتي:':'Hello! I tried the event calculator, here is my plan:')+'\n'+
+        (ar?'• الباقة: ':'• Package: ')+pkgNames[r.pkg]+'\n'+
+        (ar?'• الضيوف: ':'• Guests: ')+r.g+'\n'+
+        (ar?'• البار: ':'• Bar: ')+barNames[r.bar]+
+        (ex.length?('\n'+(ar?'• إضافات: ':'• Extras: ')+ex.join(', ')):'')+
+        (r.disc?('\n'+(ar?'• حسومات: ':'• Discounts: ')+Math.round(r.disc*100)+'%'):'')+'\n'+
+        (ar?'• التقدير المبدئي: ~$':'• Rough estimate: ~$')+r.total.toLocaleString('en-US')+'\n'+
+        (ar?'بحب ياخد عرض سعر رسمي 🙏':'I would love a proper quote please!');
+      return m;
+    }
+    document.getElementById('cal-send').addEventListener('click',function(){ openWA(calMsg(),'Event plan from the website calculator'); });
+    var calEm=document.getElementById('cal-email');
+    if(calEm) calEm.addEventListener('click',function(){ sendMail('Event plan from the website calculator', calMsg()); });
+  }
+  function iqMsg(){
+    var ar = window.LANG==='ar';
+    return ar
+      ? 'مرحبا! عندي استفسار عن مناسبة:\n• الاسم: '+val('iq-name')+'\n• التلفون: '+val('iq-phone')+'\n• الإيميل: '+val('iq-mail')+'\n• النوع: '+selTxt('iq-type')+'\n• المكان: '+selTxt('iq-venue')+'\n• التاريخ: '+val('iq-date')+'\n• عدد المدعوين: '+val('iq-guests')+(val('iq-notes')?'\n• تفاصيل: '+val('iq-notes'):'')
+      : 'Hello! I would like to inquire about an event:\n• Name: '+val('iq-name')+'\n• Phone: '+val('iq-phone')+'\n• Email: '+val('iq-mail')+'\n• Event type: '+selTxt('iq-type')+'\n• Venue: '+selTxt('iq-venue')+'\n• Date: '+val('iq-date')+'\n• Guests: '+val('iq-guests')+(val('iq-notes')?'\n• Details: '+val('iq-notes'):'');
+  }
+  var iqBtn=document.getElementById('iq-send');
+  if(iqBtn) iqBtn.addEventListener('click',function(){ openWA(iqMsg(),'Event inquiry — '+val('iq-name')); });
+  var iqEm=document.getElementById('iq-email');
+  if(iqEm) iqEm.addEventListener('click',function(){ sendMail('Event inquiry — '+val('iq-name'), iqMsg()); });
+})();
+</script>
