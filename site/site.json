@@ -556,20 +556,16 @@
   "rates_note_ar": "دخول يومي — بلا ما يكون معك حجز شاليه.",
   "rates": [
    {
-    "en": "Weekdays — $7 per person, adults & kids",
-    "ar": "أيام الأسبوع — ٧$ للشخص، كبار وصغار"
+    "en": "Weekdays — $14 per adult · $10 per kid",
+    "ar": "أيام الأسبوع — ١٤$ للكبير · ١٠$ للصغير"
    },
    {
-    "en": "Weekends — $10 per person, adults & kids",
-    "ar": "نهاية الأسبوع — ١٠$ للشخص، كبار وصغار"
+    "en": "Weekends — $18 per adult · $10 per kid",
+    "ar": "نهاية الأسبوع — ١٨$ للكبير · ١٠$ للصغير"
    },
    {
-    "en": "Mothers swim FREE every Monday & Tuesday",
-    "ar": "الأمهات ببلاش كل تنين وتلاتا"
-   },
-   {
-    "en": "No outside food or beverages",
-    "ar": "ممنوع إدخال المأكولات والمشروبات"
+    "en": "No outside food or drinks — except in your chalet",
+    "ar": "ممنوع الأكل والشرب من برا — إلا بالشاليه"
    }
   ],
   "splash": {
@@ -580,12 +576,12 @@
    "lead_ar": "اشتراك واحد، وكل الصيف إلك — اسبح كل يوم سباحة حرة، طول الموسم. أصحاب الاشتراك بياخدوا برنامج المسبح الأسبوعي عالواتساب.",
    "rows": [
     {
-     "en": "Individual — $150 for the season",
-     "ar": "فردي — ١٥٠$ للموسم"
+     "en": "Valid all season, until September 1",
+     "ar": "صالح طول الموسم، لغاية ١ أيلول"
     },
     {
-     "en": "Family of four — $400 for the season",
-     "ar": "عيلة من أربعة — ٤٠٠$ للموسم"
+     "en": "Individual — $149 · Family of four — $399 · each additional member — $99",
+     "ar": "فردي — ١٤٩$ · عيلة من أربعة — ٣٩٩$ · كل شخص إضافي — ٩٩$"
     },
     {
      "en": "Limited passes — when they're gone, they're gone",
@@ -612,8 +608,8 @@
    "open_ar": "سباحة حرة اليوم — تعا نزال",
    "res_en": "POOL RESERVED TODAY — private event",
    "res_ar": "المسبح محجوز اليوم — مناسبة خاصة",
-   "unk_en": "Swimming today? Message us and we'll tell you straight",
-   "unk_ar": "في سباحة اليوم؟ راسلنا ومنقلك عالسريع"
+   "unk_en": "Is the pool open today? Check with us on WhatsApp before you come",
+   "unk_ar": "المسبح فاتح اليوم؟ تأكد معنا عالواتساب قبل ما تجي"
   }
  },
  "restaurant": {
@@ -756,10 +752,6 @@
   "addons_title_ar": "إضافات مطلوبة",
   "addons": [
    {
-    "en": "Open bar packages from $15/guest",
-    "ar": "باقات بار مفتوح من ١٥$ للشخص"
-   },
-   {
     "en": "Approved catering vendors list",
     "ar": "لائحة متعهدي طعام معتمدين"
    },
@@ -781,11 +773,11 @@
   "deals": [
    {
     "big": "-10%",
-    "en": "on the venue when you book 6+ months ahead — plus a free bridal chalet night",
-    "ar": "على المكان إذا حجزت قبل ٦ أشهر أو أكتر — مع ليلة شاليه مجانية للعروسين"
+    "en": "on the venue when you book 6+ months ahead",
+    "ar": "على المكان إذا حجزت قبل ٦ أشهر أو أكتر"
    },
    {
-    "big": "-15%",
+    "big": "-10%",
     "en": "on the venue for weekday events (Mon–Thu)",
     "ar": "على المكان للمناسبات أيام الأسبوع (الاثنين–الخميس)"
    },
@@ -801,22 +793,22 @@
    "title_en": "Add the Feast",
    "title_ar": "زيد السفرة",
    "script": "صحتين وهنا",
-   "lead_en": "All buffet style — the way Lebanon celebrates. Every menu is built with you, and prices start per guest, on top of your venue.",
-   "lead_ar": "كل شي بوفيه — متل ما لبنان بيحب يحتفل. كل منيو منبنيه سوا، والأسعار بتبلش للشخص، فوق سعر المكان.",
+   "lead_en": "Venue rental covers the space and setup only — food and drinks are always added separately, all buffet style, the way Lebanon celebrates. Prices start per guest.",
+   "lead_ar": "سعر المكان بيغطي المكان والتجهيز بس — الأكل والشرب دايماً بينزادوا لحال، وكل شي بوفيه متل ما لبنان بيحب يحتفل. الأسعار بتبلش للشخص.",
    "cards": [
     {
-     "name_en": "The Bar",
-     "name_ar": "البار",
-     "price": "$15",
-     "tag_en": "Open bar, no food",
-     "tag_ar": "بار مفتوح بلا أكل",
-     "desc_en": "For cake-and-toast nights, or couples bringing their own caterer. Premium bar from $25.",
-     "desc_ar": "لسهرات القالب والنخب، أو للي جايبين متعهدن. بار بريميوم من ٢٥$."
+     "name_en": "Soft Drinks Only",
+     "name_ar": "مشروبات باردة فقط",
+     "price": "$10",
+     "tag_en": "Drinks, no food",
+     "tag_ar": "مشروبات بلا أكل",
+     "desc_en": "Soft drinks, juices and water all night — for events bringing their own caterer.",
+     "desc_ar": "مشروبات باردة وعصائر ومي طول السهرة — للمناسبات الجايبة متعهدها."
     },
     {
      "name_en": "Bites by the River",
      "name_ar": "لقيمات ع النهر",
-     "price": "$20",
+     "price": "$15",
      "tag_en": "Finger-food buffet",
      "tag_ar": "بوفيه لقيمات",
      "desc_en": "Passed bites, cold mezze, saj wraps and fruit — light, social, delicious.",
@@ -825,7 +817,7 @@
     {
      "name_en": "The Classic Buffet",
      "name_ar": "البوفيه الكلاسيكي",
-     "price": "$30",
+     "price": "$25",
      "tag_en": "The full Lebanese table",
      "tag_ar": "السفرة اللبنانية الكاملة",
      "desc_en": "Cold & hot mezze, salads, two mashawi, rice, a dessert corner and soft drinks.",
@@ -834,7 +826,7 @@
     {
      "name_en": "The Premium Buffet",
      "name_ar": "البوفيه البريميوم",
-     "price": "$40",
+     "price": "$35",
      "tag_en": "Live stations & more",
      "tag_ar": "محطات حية وأكتر",
      "desc_en": "The Classic plus live saj & grill stations, lamb or fish, a bigger dessert table and Lebanese coffee.",
@@ -843,11 +835,11 @@
     {
      "name_en": "The Grand Buffet",
      "name_ar": "البوفيه الكبير",
-     "price": "$55",
+     "price": "$50",
      "tag_en": "The ultimate",
      "tag_ar": "الشي الكبير",
-     "desc_en": "Whole-lamb centerpiece, carving & live stations, a dessert spectacle — soft bar included.",
-     "desc_ar": "خروف محشي بالنص، محطات حية وتقطيع، عرض حلويات — والبار الخفيف محسوب."
+     "desc_en": "Whole-lamb centerpiece, carving & live stations, a dessert spectacle — soft drinks included.",
+     "desc_ar": "خروف محشي بالنص، محطات حية وتقطيع، عرض حلويات — والمشروبات الباردة محسوبة."
     }
    ]
   },
@@ -861,10 +853,6 @@
   "lead_en": "Made for the kind of day that ends with tired, happy kids. A gentle side of the pool, lawns to run on, riverside walks, a playground in the park — and the club's famous ducks and geese waiting by the water. Bring bread, make friends. Parents get the sunbeds; kids get everything else.",
   "lead_ar": "معمول لنهار بيخلص بولاد تعبانين ومبسوطين. جهة مسبح هادية للصغار، ساحات خضرا يركضوا فيها، مشاوير ع ضفة النهر، ملعب بالحديقة — وبط ووز المنتجع المشهورين ناطرين عالمي. جيب خبز واعمل صحاب. الأهل إلن كراسي التشميس؛ والولاد إلن كل شي تاني.",
   "points": [
-   {
-    "en": "Riverside picnics & shaded walks",
-    "ar": "بيك نيك ع النهر ومشاوير مظللة"
-   },
    {
     "en": "Kids' playground in the park",
     "ar": "ملعب أطفال بالحديقة"
@@ -911,8 +899,8 @@
   "script": "تذكار حلو",
   "title_en": "The Gift Shop",
   "title_ar": "محل الهدايا",
-  "lead_en": "Before the road takes you back down the mountain, pass by the gift shop — local and handmade pieces, club keepsakes, and finds you won't see in the city. A little piece of Baissour to carry home.",
-  "lead_ar": "قبل ما تاخدك الطريق عالمدينة، مرّ ع محل الهدايا — قطع محلية وشغل يدوي، تذكارات المنتجع، وأغراض ما بتلاقيها بالمدينة. شقفة صغيرة من بيصور تاخدها معك عالبيت."
+  "lead_en": "Before the road takes you back down the mountain, pass by the gift shop — local and handmade pieces, club keepsakes, and finds you won't see in the city. A little piece of Mount Lebanon to carry home.",
+  "lead_ar": "قبل ما تاخدك الطريق عالمدينة، مرّ ع محل الهدايا — قطع محلية وشغل يدوي، تذكارات المنتجع، وأغراض ما بتلاقيها بالمدينة. شقفة صغيرة من جبل لبنان تاخدها معك عالبيت."
  },
  "socials": {
   "script": "شوف الفيديوهات",
@@ -971,8 +959,8 @@
    "guests_ar": "عدد الضيوف",
    "bar_en": "Bar",
    "bar_ar": "البار",
-   "bar_none_en": "Soft drinks only (included)",
-   "bar_none_ar": "مشروبات باردة فقط (ضمن السعر)",
+   "bar_none_en": "No bar service",
+   "bar_none_ar": "بلا بار",
    "bar_open_en": "Open bar (+$15/guest)",
    "bar_open_ar": "بار مفتوح (+١٥$ للشخص)",
    "bar_prem_en": "Premium bar (+$25/guest)",
@@ -981,8 +969,8 @@
    "extras_ar": "الإضافات",
    "deals_en": "Discounts",
    "deals_ar": "الحسومات",
-   "weekday_en": "Weekday event (Mon–Thu) — −15% venue",
-   "weekday_ar": "مناسبة يوم أسبوع (اثنين–خميس) — ١٥٪ حسم عالمكان",
+   "weekday_en": "Weekday event (Mon–Thu) — −10% venue",
+   "weekday_ar": "مناسبة يوم أسبوع (اثنين–خميس) — ١٠٪ حسم عالمكان",
    "early_en": "Booking 6+ months ahead — −10% venue",
    "early_ar": "حجز قبل ٦ أشهر أو أكتر — ١٠٪ حسم عالمكان",
    "total_en": "Rough estimate",
@@ -995,39 +983,21 @@
    "email_ar": "ابعت عالإيميل",
    "food_en": "Food (buffet, per guest)",
    "food_ar": "الأكل (بوفيه، للشخص)",
-   "food_none_en": "Venue only — no food from us",
-   "food_none_ar": "المكان فقط — بلا أكل منا"
+   "food_none_en": "No food or drinks from us",
+   "food_none_ar": "بلا أكل أو شرب منا"
   },
   "extras": [
    {
-    "id": "photo",
-    "price": 800,
-    "en": "Photography & video (+$800)",
-    "ar": "تصوير فوتو وفيديو (+٨٠٠$)"
-   },
-   {
     "id": "dj",
-    "price": 500,
-    "en": "DJ & sound (+$500)",
-    "ar": "دي جي وصوتيات (+٥٠٠$)"
-   },
-   {
-    "id": "zaffe",
-    "price": 400,
-    "en": "Zaffe entrance (+$400)",
-    "ar": "زفة (+٤٠٠$)"
+    "price": 750,
+    "en": "DJ & sound (+$750)",
+    "ar": "دي جي وصوتيات (+٧٥٠$)"
    },
    {
     "id": "fireworks",
-    "price": 300,
-    "en": "Fireworks (+$300)",
-    "ar": "ألعاب نارية (+٣٠٠$)"
-   },
-   {
-    "id": "kids",
-    "price": 200,
-    "en": "Kids corner & sitters (+$200)",
-    "ar": "ركن أطفال ومرافقات (+٢٠٠$)"
+    "price": 500,
+    "en": "Fireworks (+$500)",
+    "ar": "ألعاب نارية (+٥٠٠$)"
    }
   ]
  },

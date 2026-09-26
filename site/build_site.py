@@ -590,7 +590,7 @@ js = """
     var venue=parseInt(pkg.getAttribute('data-base'),10);
     var food=parseInt(document.getElementById('cal-food').value,10)||0;
     var disc=0;
-    if(document.getElementById('cal-weekday').checked) disc+=0.15;
+    if(document.getElementById('cal-weekday').checked) disc+=0.10;
     if(document.getElementById('cal-early').checked) disc+=0.10;
     venue=venue*(1-disc);
     var bar=parseInt(document.getElementById('cal-bar').value,10)||0;
@@ -614,7 +614,7 @@ js = """
     function calMsg(){
       var r=calCompute();
       var pkgNames={tahani:"Ta'Hani (riverside venue)",draj:'Draj el Ward (poolside venue)'};
-      var foodNames={0:'no food from the kitchen',20:'Bites by the River buffet',30:'The Classic Buffet',40:'The Premium Buffet',55:'The Grand Buffet'};
+      var foodNames={0:'no food or drinks from the kitchen',10:'Soft drinks only',15:'Bites by the River buffet',25:'The Classic Buffet',35:'The Premium Buffet',50:'The Grand Buffet'};
       var barNames={0:'soft drinks only',15:'open bar',25:'premium bar'};
       var ex=[];
       document.querySelectorAll('.cal-extra:checked').forEach(function(c){
@@ -796,13 +796,11 @@ for c in C["list"]:
 chnotes = "".join(f'<div class="rv">{LL(n["en"], n["ar"])}</div>' for n in C["notes"])
 pool_pts = "".join(f'<div class="rv"><span class="tick">✓</span>{LL(p["en"], p["ar"])}</div>' for p in P["points"])
 pool_rates = "".join(f'<div class="rv"><span class="tick">✓</span>{LL(r["en"], r["ar"])}</div>' for r in P["rates"])
-pool_rates_html = (f'<div class="split" style="margin-top:34px">'
-    f'<div>'
+pool_rates_html = (f'<div style="margin-top:34px">'
     f'<h3 class="vname rv"><span class="L en t-mid">{esc(P["rates_title_en"])}</span>'
     f'<span class="L ar t-mid" dir="rtl" lang="ar">{esc(P["rates_title_ar"])}</span></h3>'
     f'<p class="lead" style="margin-top:10px">{LL(P["rates_note_en"], P["rates_note_ar"])}</p>'
-    f'<div class="points">{pool_rates}</div></div>'
-    f'<div class="ph rv"><img src="{uri("pool_rates", 760, 62)}" alt="Baissour Country Club pool entrance rates" loading="lazy"></div>'
+    f'<div class="points">{pool_rates}</div>'
     f'</div>')
 
 BKF = BK["fields"]
@@ -903,10 +901,11 @@ calculator_html = f"""
       <label class="fl">{LL(CL["food_en"], CL["food_ar"])}</label>
       <select id="cal-food">
         <option value="0">{esc(CL["food_none_en"])} · {esc(CL["food_none_ar"])}</option>
-        <option value="20">Bites by the River — $20 · لقيمات ع النهر</option>
-        <option value="30">The Classic Buffet — $30 · البوفيه الكلاسيكي</option>
-        <option value="40">The Premium Buffet — $40 · البوفيه البريميوم</option>
-        <option value="55">The Grand Buffet — $55 · البوفيه الكبير</option>
+        <option value="10">Soft Drinks Only — $10 · مشروبات باردة فقط</option>
+        <option value="15">Bites by the River — $15 · لقيمات ع النهر</option>
+        <option value="25">The Classic Buffet — $25 · البوفيه الكلاسيكي</option>
+        <option value="35">The Premium Buffet — $35 · البوفيه البريميوم</option>
+        <option value="50">The Grand Buffet — $50 · البوفيه الكبير</option>
       </select>
       <label class="fl">{LL(CL["bar_en"], CL["bar_ar"])}</label>
       <select id="cal-bar">
