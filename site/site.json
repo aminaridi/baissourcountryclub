@@ -166,8 +166,8 @@
     ],
     "facts_en": "Open-air · wrapped around the pool · magical after sunset",
     "facts_ar": "هواء طلق · حول المسبح · سحري بعد الغروب",
-    "desc_en": "An open-air celebration wrapped in water and light — candles drifting on the pool, chandeliers in the branches, and the mountains turning gold behind your first dance.",
-    "desc_ar": "احتفال عالهوا الطلق ملفوف بالمي والضو — شموع عايمة ع وجه المسبح، ثريات بين الغصون، والجبال عم تصير دهب ورا رقصتكن الأولى."
+    "desc_en": "An open-air celebration wrapped in water and light — candles drifting on the pool, lights strung above the water, and the mountains turning gold behind your first dance.",
+    "desc_ar": "احتفال عالهوا الطلق ملفوف بالمي والضو — شموع عايمة ع وجه المسبح، إضاءة معلّقة فوق المي، والجبال عم تصير دهب ورا رقصتكن الأولى."
    },
    {
     "name": "Ta'Hani",
@@ -670,8 +670,8 @@
       "ar": "كهرباء وإضاءة ووصلات صوت جاهزين لمتعهدينك"
      },
      {
-      "en": "Bridal prep room + parking with attendant",
-      "ar": "غرفة تجهيز للعروس وموقف سيارات مع منظّم"
+      "en": "Bridal prep room + valet parking",
+      "ar": "غرفة تجهيز للعروس وخدمة فاليه باركينغ"
      },
      {
       "en": "Our staff, security & cleaning — before, during & after",
@@ -694,8 +694,8 @@
     "unit_ar": "سعر بداية · المكان إلك للسهرة",
     "items": [
      {
-      "en": "Candles on the water, chandeliers in the trees — all yours, never shared",
-      "ar": "شموع ع وجه المي وثريات بالشجر — كلن إلك، وما منشاركن مع حدا"
+      "en": "Candles on the water, lights all around the pool — all yours, never shared",
+      "ar": "شموع ع وجه المي وإضاءة حوالين المسبح — كلن إلك، وما منشاركن مع حدا"
      },
      {
       "en": "The most dramatic setting after sunset",
@@ -710,8 +710,8 @@
       "ar": "كهرباء وإضاءة ووصلات صوت جاهزين لمتعهدينك"
      },
      {
-      "en": "Bridal prep room + parking with attendant",
-      "ar": "غرفة تجهيز للعروس وموقف سيارات مع منظّم"
+      "en": "Bridal prep room + valet parking",
+      "ar": "غرفة تجهيز للعروس وخدمة فاليه باركينغ"
      },
      {
       "en": "Our staff, security & cleaning — before, during & after",
