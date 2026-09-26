@@ -4,3 +4,6 @@ __pycache__/
 site/assets/t*q*_*.jpg
 site/assets/w[0-9]*_*.jpg
 menu/assets/web_*.jpg
+site/BCC-Website.html
+site/assets/t*q*_*.jpg
+site/dist/
