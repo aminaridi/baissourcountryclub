@@ -37,14 +37,17 @@ def price_html(p):
         return f'<span class="price"><span class="num">${esc(p)}</span></span>'
     return '<span class="price blank" aria-label="price to be added"></span>'
 
-def item_html(it):
-    return (f'<div class="item">'
+def item_html(it, web=True):
+    thumb = ""
+    if web and it.get("img") and os.path.exists(os.path.join(A, f'{it["img"]}.jpg')):
+        thumb = f'<img class="ithumb" src="{img_uri(it["img"], 300, 62)}" alt="{esc(it["en"])}" loading="lazy">'
+    return (f'<div class="item">{thumb}<div class="ibody">'
             f'<div class="row1"><span class="name-en">{esc(it["en"])}</span>'
             f'<span class="leader"></span>{price_html(it["price"])}</div>'
             f'<div class="name-ar" dir="rtl" lang="ar">{esc(it["ar"])}</div>'
             f'<p class="desc-en">{esc(it["den"])}</p>'
             f'<p class="desc-ar" dir="rtl" lang="ar">{esc(it["dar"])}</p>'
-            f'</div>')
+            f'</div></div>')
 
 def section_html(s, web=True):
     imgtag = ""
@@ -55,7 +58,7 @@ def section_html(s, web=True):
     if s.get("note_en"):
         note = (f'<div class="note"><span>{esc(s["note_en"])}</span>'
                 f'<span dir="rtl" lang="ar">{esc(s["note_ar"])}</span></div>')
-    items = "".join(item_html(i) for i in s["items"])
+    items = "".join(item_html(i, web) for i in s["items"])
     return (f'<section class="menu-sec" id="{s["id"]}">'
             f'<header class="sec-head"><h2><span class="t-en">{esc(s["en"])}</span>'
             f'<span class="t-ar" dir="rtl" lang="ar">{esc(s["ar"])}</span>'
@@ -143,6 +146,9 @@ main{max-width:980px;margin:0 auto;padding:12px 22px 40px}
 .note [lang=ar]{font-family:'Almarai',sans-serif}
 .items{display:grid;grid-template-columns:1fr 1fr;gap:26px 44px;padding:16px 0 8px}
 @media (max-width:760px){.items{grid-template-columns:1fr}}
+.item{display:flex;gap:12px;align-items:flex-start}
+.ibody{flex:1;min-width:0}
+.ithumb{width:66px;height:66px;border-radius:12px;object-fit:cover;flex:0 0 auto;border:1px solid var(--line);background:var(--card)}
 .row1{display:flex;align-items:baseline;gap:8px}
 .name-en{font-weight:700;font-size:16.5px}
 .leader{flex:1;border-bottom:2px dotted var(--line);translate:0 -4px;min-width:24px}
