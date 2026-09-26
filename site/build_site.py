@@ -158,7 +158,7 @@ body{background:var(--paper);color:var(--ink);font-family:'Figtree',system-ui,sa
 .hero .wave{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:64px;z-index:3;display:block}
 .kicker{font-size:13px;letter-spacing:.24em;text-transform:uppercase;opacity:.92;margin-bottom:14px;font-weight:600}
 [dir=rtl] .kicker{letter-spacing:.06em}
-.hero h1 .t-h1{display:block;font-family:'Outfit',sans-serif;font-size:clamp(42px,7vw,86px);font-weight:700;line-height:1.04;letter-spacing:-.015em;text-wrap:balance}
+.hero h1 .t-h1{display:block;font-family:'Marcellus',serif;font-size:clamp(42px,7vw,86px);font-weight:400;line-height:1.06;letter-spacing:0;text-wrap:balance}
 [data-lang="ar"] .hero h1 .t-h1{font-family:'Almarai',sans-serif;font-weight:800;letter-spacing:0;line-height:1.2}
 .hero .sub{margin-top:18px;font-size:clamp(16px,1.9vw,20px);max-width:58ch;opacity:.96}
 .cta-row{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
@@ -176,14 +176,14 @@ body{background:var(--paper);color:var(--ink);font-family:'Figtree',system-ui,sa
 .stats{display:grid;grid-template-columns:repeat(4,1fr);background:var(--tint);border-bottom:1px solid var(--line)}
 .stats>div{padding:28px 10px;text-align:center;border-inline-start:1px solid var(--line)}
 .stats>div:first-child{border-inline-start:none}
-.stats .num{font-family:'Outfit',sans-serif;font-weight:700;font-size:clamp(28px,4vw,42px);color:var(--accent-ink)}
+.stats .num{font-family:'Marcellus',serif;font-weight:400;font-size:clamp(28px,4vw,42px);color:var(--accent-ink)}
 .stats .lab{font-size:13px;color:var(--muted);margin-top:2px}
 @media (max-width:700px){.stats{grid-template-columns:1fr 1fr}.stats>div:nth-child(3){border-inline-start:none}}
 /* sections */
 main{max-width:1120px;margin:0 auto;padding:0 22px}
 section.block{padding:66px 0 30px}
 .sec-head h2,.sec-head h1,.sec-head h3{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
-.t-big{font-family:'Outfit',sans-serif;font-size:clamp(32px,4.6vw,48px);font-weight:700;letter-spacing:-.01em}
+.t-big{font-family:'Marcellus',serif;font-size:clamp(32px,4.6vw,48px);font-weight:400;letter-spacing:.01em}
 .L.ar.t-big{font-family:'Almarai',sans-serif;font-weight:800;letter-spacing:0}
 .t-script{font-size:clamp(22px,3vw,30px);transform:rotate(-4deg);display:inline-block;translate:0 -2px}
 .lead{font-size:clamp(16px,1.9vw,19px);max-width:72ch;margin-top:16px;color:var(--ink)}
@@ -218,7 +218,7 @@ section.block{padding:66px 0 30px}
 [data-lang="ar"] .venue .vtag{letter-spacing:0}
 .venue .pad{padding:22px 24px 26px}
 .vname{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
-.vname .nm{font-family:'Outfit',sans-serif;font-size:26px;font-weight:700}
+.vname .nm{font-family:'Marcellus',serif;font-size:26px;font-weight:400}
 .vname .nm-ar{font-family:'Aref Ruqaa',serif;font-size:24px;color:var(--accent);transform:rotate(-3deg);display:inline-block}
 .venue .desc,.vb-body .desc{color:var(--muted);font-size:15px;margin-top:10px}
 .venue .duo{display:block;margin-top:0;aspect-ratio:16/9}
@@ -231,10 +231,10 @@ section.block{padding:66px 0 30px}
 .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}
 @media (max-width:700px){.quotes{grid-template-columns:1fr}}
 .quote{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px 22px;font-size:15px;box-shadow:var(--shadow)}
-.quote::before{content:"\\201C";display:block;font-family:'Outfit',sans-serif;font-size:38px;line-height:.6;color:var(--accent);font-weight:700;margin-bottom:10px}
+.quote::before{content:"\\201C";display:block;font-family:'Marcellus',serif;font-size:38px;line-height:.6;color:var(--accent);font-weight:400;margin-bottom:10px}
 [data-lang="ar"] .quote::before{content:"\\201D"}
 /* packages */
-.t-mid{font-family:'Outfit',sans-serif;font-size:clamp(26px,3.4vw,34px);font-weight:700;letter-spacing:-.01em}
+.t-mid{font-family:'Marcellus',serif;font-size:clamp(26px,3.4vw,34px);font-weight:400;letter-spacing:-.01em}
 .L.ar.t-mid{font-family:'Almarai',sans-serif;font-weight:800}
 .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px;align-items:stretch}
 @media (max-width:860px){.tiers{grid-template-columns:1fr}}
@@ -246,7 +246,7 @@ section.block{padding:66px 0 30px}
 .ttag{font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
 [data-lang="ar"] .ttag{letter-spacing:0}
 .tname{display:flex;align-items:baseline;gap:10px;margin-top:8px;flex-wrap:wrap}
-.tname .tn{font-family:'Outfit',sans-serif;font-size:25px;font-weight:700}
+.tname .tn{font-family:'Marcellus',serif;font-size:25px;font-weight:400}
 .tname .tn-ar{font-family:'Aref Ruqaa',serif;font-size:20px;color:var(--accent);transform:rotate(-3deg);display:inline-block}
 .tprice{font-size:38px;font-weight:800;color:var(--accent-ink);margin-top:12px;font-variant-numeric:tabular-nums}
 .tprice .L.en,.tprice .L.ar{font-size:inherit}
@@ -262,14 +262,14 @@ section.block{padding:66px 0 30px}
 .deals{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
 @media (max-width:800px){.deals{grid-template-columns:1fr}}
 .deal{background:var(--tint);border:1px solid var(--line);border-radius:18px;padding:20px 22px;display:flex;gap:16px;align-items:center}
-.deal .dbig{font-family:'Outfit',sans-serif;font-size:30px;font-weight:700;color:var(--accent-ink);white-space:nowrap;font-variant-numeric:tabular-nums}
+.deal .dbig{font-family:'Marcellus',serif;font-size:30px;font-weight:400;color:var(--accent-ink);white-space:nowrap;font-variant-numeric:tabular-nums}
 .deal .dtxt{font-size:13.5px}
 /* food tiers */
 .foodtiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:24px}
 .ftier{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px 20px 22px;box-shadow:var(--shadow);display:flex;flex-direction:column}
 .ftier .ftag{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 [data-lang="ar"] .ftier .ftag{letter-spacing:0}
-.ftier .fname{font-family:'Outfit',sans-serif;font-size:19px;font-weight:700;margin-top:6px}
+.ftier .fname{font-family:'Marcellus',serif;font-size:19px;font-weight:400;margin-top:6px}
 .ftier .fname .L.ar{font-family:'Almarai',sans-serif;font-weight:800}
 .ftier .fprice{color:var(--accent-ink);font-weight:800;font-size:19px;margin-top:8px}
 .ftier .fprice small{font-size:12px;color:var(--muted);font-weight:600}
@@ -298,7 +298,7 @@ section.block{padding:66px 0 30px}
 .kday .kemoji{font-size:36px;line-height:1}
 .kday .kwhen{font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);margin-top:12px}
 [data-lang="ar"] .kday .kwhen{letter-spacing:0}
-.kday h3{font-family:'Outfit',sans-serif;font-size:20px;font-weight:700;margin-top:4px}
+.kday h3{font-family:'Marcellus',serif;font-size:20px;font-weight:400;margin-top:4px}
 .kday h3 .L.ar{font-family:'Almarai',sans-serif;font-weight:800}
 .kday p{color:var(--muted);font-size:14px;margin-top:6px}
 /* calculator */
@@ -333,12 +333,12 @@ section.block{padding:66px 0 30px}
 .venue.nat-text .desc{font-size:16px}
 .gift{background:linear-gradient(135deg,var(--tint),var(--tint2));border-radius:22px;padding:34px 32px;border:1px solid var(--line)}
 .gift-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
-.gift .gt{font-family:'Outfit',sans-serif;font-size:clamp(25px,3.3vw,33px);font-weight:700}
+.gift .gt{font-family:'Marcellus',serif;font-size:clamp(25px,3.3vw,33px);font-weight:400}
 .gift .L.ar.gt{font-family:'Almarai',sans-serif;font-weight:800}
 .gift .lead{margin-top:10px}
 /* forms */
 .formcard{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px;margin-top:34px;box-shadow:var(--shadow)}
-.formcard h3{font-family:'Outfit',sans-serif;font-size:22px;font-weight:700;margin-bottom:6px}
+.formcard h3{font-family:'Marcellus',serif;font-size:22px;font-weight:400;margin-bottom:6px}
 .formcard h3 .L.ar{font-family:'Almarai',sans-serif;font-weight:800}
 .formcard .fl{font-size:13px;font-weight:700;color:var(--accent-ink);letter-spacing:.05em;display:block;margin:16px 0 6px}
 [data-lang="ar"] .formcard .fl{letter-spacing:0}
@@ -363,7 +363,7 @@ textarea{min-height:84px;resize:vertical}
   font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:4px 11px;margin-bottom:10px;align-self:flex-start}
 [data-lang="ar"] .tagpill{letter-spacing:0}
 .chalet h3.chname{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
-.chalet .cn{font-family:'Outfit',sans-serif;font-size:21px;font-weight:700}
+.chalet .cn{font-family:'Marcellus',serif;font-size:21px;font-weight:400}
 .chalet .cn-ar{font-family:'Aref Ruqaa',serif;font-size:18px;color:var(--accent);transform:rotate(-3deg);display:inline-block}
 .chalet .chsub{font-size:12.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-top:3px}
 [data-lang="ar"] .chalet .chsub{letter-spacing:0}
@@ -422,7 +422,7 @@ textarea{min-height:84px;resize:vertical}
 .timegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:8px}
 @media (max-width:600px){.timegrid{grid-template-columns:1fr 1fr}}
 .timegrid>div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 14px;text-align:center;box-shadow:0 2px 10px rgba(22,72,80,.05)}
-.timegrid .t{font-family:'Outfit',sans-serif;font-weight:700;font-size:20px;color:var(--accent-ink);font-variant-numeric:tabular-nums}
+.timegrid .t{font-family:'Marcellus',serif;font-weight:400;font-size:20px;color:var(--accent-ink);font-variant-numeric:tabular-nums}
 .timegrid .f{font-size:13.5px;color:var(--muted);margin-top:3px}
 .routecard{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:var(--shadow)}
 .routecard svg{width:100%;height:auto;display:block}
@@ -1031,7 +1031,7 @@ html = f"""<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Baissour Country Club — chalets under the pines, a mountain pool, riverside dining and two of Mount Lebanon's most loved wedding venues, 45 minutes from Beirut.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Figtree:wght@400;600;700;800&family=Outfit:wght@500;600;700&family=Aref+Ruqaa:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Figtree:wght@400;600;700;800&family=Marcellus&family=Aref+Ruqaa:wght@400;700&display=swap">
 <style>{css}</style>
 
 <div class="bar">
