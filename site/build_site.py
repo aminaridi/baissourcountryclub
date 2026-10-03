@@ -710,7 +710,7 @@ packages_html = (f'<div class="pk" id="packages"><header class="sec-head" style=
     f'<p class="form-note">{LL(PK["note_en"], PK["note_ar"])}</p></div>')
 
 nav = "".join(
-    f'<a href="#{n["id"]}">{LL(n["en"], n["ar"])}</a>' for n in S["nav"])
+    f'<a href="{n.get("href", "#" + n["id"])}">{LL(n["en"], n["ar"])}</a>' for n in S["nav"])
 stats = "".join(f'<div class="rv"><div class="num">{s["num"]}</div><div class="lab">{LL(s["en"], s["ar"])}</div></div>' for s in S["stats"])
 
 venues = ""
@@ -1095,8 +1095,10 @@ html = f"""<meta charset="utf-8">
   {sec_head(R)}
   <div class="split">
     <div>{lead(R)}
+      <p class="L en" style="margin-top:14px;color:var(--muted)">{esc(R["grill_en"])}</p><p class="L ar" dir="rtl" lang="ar" style="margin-top:14px;color:var(--muted)">{esc(R["grill_ar"])}</p>
       <div class="cta-row" style="margin-top:24px">
         <a class="btn btn-solid" href="{B["menu_link"]}" target="_blank" rel="noopener">{LL(R["cta_en"], R["cta_ar"])}</a>
+        <a class="btn btn-line" href="order.html">{LL(R["grill_cta_en"], R["grill_cta_ar"])}</a>
       </div>
     </div>
     <div class="ph rv"><img src="{uri('restaurant_hero', 940, 55)}" alt="The restaurant at Baissour Country Club" loading="lazy"></div>

@@ -39,6 +39,12 @@
    "ar": "المطعم"
   },
   {
+   "id": "order",
+   "href": "order.html",
+   "en": "Order BCC Grill",
+   "ar": "اطلب من BCC Grill"
+  },
+  {
    "id": "family",
    "page": "family",
    "en": "Families & Kids",
@@ -619,7 +625,11 @@
   "lead_en": "Long lunches under the trees, dinner to the sound of the river. Lebanese classics made with fresh mountain ingredients, served entirely in the open air through the warm season — message us for current hours before you drive up.",
   "lead_ar": "غدا طويل تحت الشجر، وعشا ع صوت النهر. أطباق لبنانية بمكونات جبلية طازجة، وكل شي عالهوا الطلق بموسم الدفا — راسلنا لتتأكد من الأوقات قبل ما تطلع.",
   "cta_en": "View the full menu",
-  "cta_ar": "شوف المنيو الكامل"
+  "cta_ar": "شوف المنيو الكامل",
+  "grill_en": "Craving the grill at home? BCC Grill, our take away next to Star Market in Baissour, delivers kabab, burgers and charcoal chicken across the area — order online and send it to us on WhatsApp.",
+  "grill_ar": "بدك المشاوي ع البيت؟ BCC Grill، التيك أواي تبعنا حد ستار ماركت ببيصور، بيوصّل كباب، برغر وفروج ع الفحم لكل المنطقة — اطلب أونلاين وابعتلنا الطلبية ع واتساب.",
+  "grill_cta_en": "Order BCC Grill · take away & delivery",
+  "grill_cta_ar": "اطلب من BCC Grill · تيك أواي وتوصيل"
  },
  "area": {
   "script": "ع البال",
