@@ -236,7 +236,7 @@ section.block{padding:66px 0 30px}
 /* packages */
 .t-mid{font-family:'Marcellus',serif;font-size:clamp(26px,3.4vw,34px);font-weight:400;letter-spacing:-.01em}
 .L.ar.t-mid{font-family:'Almarai',sans-serif;font-weight:800}
-.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px;align-items:stretch}
+.tiers{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:28px;align-items:stretch}
 @media (max-width:860px){.tiers{grid-template-columns:1fr}}
 .tier{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px 26px;display:flex;flex-direction:column;transition:transform .2s ease,box-shadow .2s ease;box-shadow:var(--shadow)}
 .tier:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(22,72,80,.14)}
@@ -588,16 +588,12 @@ js = """
     if(!pkg) return {total:0};
     var g=parseInt(val('cal-guests')||'0',10)||0;
     var venue=parseInt(pkg.getAttribute('data-base'),10);
-    var food=parseInt(document.getElementById('cal-food').value,10)||0;
     var disc=0;
     if(document.getElementById('cal-weekday').checked) disc+=0.10;
     if(document.getElementById('cal-early').checked) disc+=0.10;
     venue=venue*(1-disc);
-    var bar=parseInt(document.getElementById('cal-bar').value,10)||0;
-    var extras=0;
-    document.querySelectorAll('.cal-extra:checked').forEach(function(c){extras+=parseInt(c.getAttribute('data-price'),10)});
-    var total=Math.round(venue + (bar+food)*Math.max(g,1) + extras);
-    return {total:total,g:g,pkg:pkg.value,bar:bar,food:food,disc:disc};
+    var total=Math.round(venue);
+    return {total:total,g:g,pkg:pkg.value,disc:disc};
   }
   function calRender(){
     var r=calCompute();
@@ -614,22 +610,13 @@ js = """
     function calMsg(){
       var r=calCompute();
       var pkgNames={tahani:"Ta'Hani (riverside venue)",draj:'Draj el Ward (poolside venue)'};
-      var foodNames={0:'no food or drinks from the kitchen',10:'Soft drinks only',15:'Bites by the River buffet',25:'The Classic Buffet',35:'The Premium Buffet',50:'The Grand Buffet'};
-      var barNames={0:'soft drinks only',15:'open bar',25:'premium bar'};
-      var ex=[];
-      document.querySelectorAll('.cal-extra:checked').forEach(function(c){
-        ex.push(c.parentElement.textContent.trim().split('(')[0].trim());
-      });
       var ar=window.LANG==='ar';
       var m=(ar?'مرحبا! جرّبت حاسبة المناسبات، هيدي خطتي:':'Hello! I tried the event calculator, here is my plan:')+'\\n'+
         (ar?'• المكان: ':'• Venue: ')+pkgNames[r.pkg]+'\\n'+
-        (ar?'• الأكل: ':'• Food: ')+foodNames[r.food]+'\\n'+
-        (ar?'• الضيوف: ':'• Guests: ')+r.g+'\\n'+
-        (ar?'• البار: ':'• Bar: ')+barNames[r.bar]+
-        (ex.length?('\\n'+(ar?'• إضافات: ':'• Extras: ')+ex.join(', ')):'')+
+        (ar?'• الضيوف: ':'• Guests: ')+r.g+
         (r.disc?('\\n'+(ar?'• حسومات: ':'• Discounts: ')+Math.round(r.disc*100)+'%'):'')+'\\n'+
-        (ar?'• التقدير المبدئي: ~$':'• Rough estimate: ~$')+r.total.toLocaleString('en-US')+'\\n'+
-        (ar?'بحب ياخد عرض سعر رسمي 🙏':'I would love a proper quote please!');
+        (ar?'• سعر المكان المبدئي: ~$':'• Starting venue price: ~$')+r.total.toLocaleString('en-US')+'\\n'+
+        (ar?'بحب اتأكد إذا التاريخ متوفر 🙏':'I would love to check if my date is available!');
       return m;
     }
     document.getElementById('cal-send').addEventListener('click',function(){ openWA(calMsg(),'Event plan from the website calculator'); });
@@ -682,14 +669,14 @@ for t in PK["tiers"]:
               f'</article>')
 addons = "".join(f'<span class="chip rv">{LL(a["en"], a["ar"])}</span>' for a in PK["addons"])
 deals = "".join(f'<div class="deal rv"><div class="dbig">{esc(d["big"])}</div><div class="dtxt">{LL(d["en"], d["ar"])}</div></div>' for d in PK["deals"])
-FT = PK["food"]
+FT = PK.get("food") or {"cards": [], "title_en": "", "title_ar": "", "script": "", "lead_en": "", "lead_ar": ""}
 food_cards = "".join(
     f'<div class="ftier rv"><div class="ftag">{LL(c["tag_en"], c["tag_ar"])}</div>'
     f'<div class="fname"><span class="L en">{esc(c["name_en"])}</span><span class="L ar" dir="rtl" lang="ar">{esc(c["name_ar"])}</span></div>'
     f'<div class="fprice"><span class="L en">from {esc(c["price"])} <small>/ guest</small></span>'
     f'<span class="L ar" dir="rtl" lang="ar">من {esc(c["price"])} <small>للشخص</small></span></div>'
     f'<div class="fdesc">{LL(c["desc_en"], c["desc_ar"])}</div></div>' for c in FT["cards"])
-food_html = (f'<header class="sec-head" style="margin-top:48px"><h3>'
+food_html = '' if not FT['cards'] else (f'<header class="sec-head" style="margin-top:48px"><h3>'
     f'<span class="L en t-mid">{esc(FT["title_en"])}</span>'
     f'<span class="L ar t-mid" dir="rtl" lang="ar">{esc(FT["title_ar"])}</span>'
     f'<span class="t-script" dir="rtl" lang="ar" aria-hidden="true">{esc(FT["script"])}</span></h3></header>'
@@ -702,8 +689,8 @@ packages_html = (f'<div class="pk" id="packages"><header class="sec-head" style=
     f'<p class="lead L en">{esc(PK["lead_en"])}</p><p class="lead L ar" dir="rtl" lang="ar">{esc(PK["lead_ar"])}</p>'
     f'<div class="tiers">{tiers}</div>'
     f'{food_html}'
-    f'<h4 class="subhead">{LL(PK["addons_title_en"], PK["addons_title_ar"])}</h4>'
-    f'<div class="chips">{addons}</div>'
+    + (f'<h4 class="subhead">{LL(PK["addons_title_en"], PK["addons_title_ar"])}</h4>'
+    f'<div class="chips">{addons}</div>' if PK["addons"] else '') +
     f'<h4 class="subhead">{LL(PK["deals_title_en"], PK["deals_title_ar"])}</h4>'
     f'<div class="deals">{deals}</div>'
     f'<div class="localline rv">{LL(PK["local_en"], PK["local_ar"])}</div>'
@@ -898,25 +885,8 @@ calculator_html = f"""
       </div>
       <label class="fl">{LL(CL["guests_en"], CL["guests_ar"])}</label>
       <input id="cal-guests" type="number" min="10" max="600" value="150">
-      <label class="fl">{LL(CL["food_en"], CL["food_ar"])}</label>
-      <select id="cal-food">
-        <option value="0">{esc(CL["food_none_en"])} · {esc(CL["food_none_ar"])}</option>
-        <option value="10">Soft Drinks Only — $10 · مشروبات باردة فقط</option>
-        <option value="15">Bites by the River — $15 · لقيمات ع النهر</option>
-        <option value="25">The Classic Buffet — $25 · البوفيه الكلاسيكي</option>
-        <option value="35">The Premium Buffet — $35 · البوفيه البريميوم</option>
-        <option value="50">The Grand Buffet — $50 · البوفيه الكبير</option>
-      </select>
-      <label class="fl">{LL(CL["bar_en"], CL["bar_ar"])}</label>
-      <select id="cal-bar">
-        <option value="0">{esc(CL["bar_none_en"])} · {esc(CL["bar_none_ar"])}</option>
-        <option value="15">{esc(CL["bar_open_en"])} · {esc(CL["bar_open_ar"])}</option>
-        <option value="25">{esc(CL["bar_prem_en"])} · {esc(CL["bar_prem_ar"])}</option>
-      </select>
     </div>
     <div>
-      <label class="fl">{LL(CL["extras_en"], CL["extras_ar"])}</label>
-      <div class="radios">{cal_extras}</div>
       <label class="fl">{LL(CL["deals_en"], CL["deals_ar"])}</label>
       <div class="radios">
         <label class="cbx"><input type="checkbox" id="cal-weekday"><span>{LL(CL["weekday_en"], CL["weekday_ar"])}</span></label>

@@ -204,8 +204,8 @@
     "ar": "مكانان مميزان — ع المسبح وع النهر"
    },
    {
-    "en": "Full catering from our own kitchen",
-    "ar": "كاترينغ كامل من مطبخنا"
+    "en": "Bring your own caterer & vendors",
+    "ar": "جيب متعهد الأكل والفرق يلي بتختارهن"
    },
    {
     "en": "On-site chalets for your guests",
@@ -264,8 +264,8 @@
     "ar": "ديكور وورد وإضاءة عالطلب"
    },
    {
-    "en": "Your vendors, or ours — your call",
-    "ar": "متعهدينك أو متعهدينا — القرار إلك"
+    "en": "Bring the vendors you love",
+    "ar": "جيب المتعهدين يلي بتحبهن"
    }
   ],
   "moments_title_en": "Real nights, real moments",
@@ -653,10 +653,10 @@
  },
  "packages": {
   "script": "ليلتك عنا",
-  "title_en": "Your Night, Your Venue",
-  "title_ar": "ليلتك ومكانك",
-  "lead_en": "Every celebration starts the same way: one of our two venues becomes yours for the night — never shared, always all yours. Add a feast from our kitchen if you'd like, or bring your own caterer. Message us on WhatsApp and we'll build your night together.",
-  "lead_ar": "كل احتفال بيبلش بنفس الطريقة: واحد من مكانينا بيصير إلك للسهرة — ما منشاركه مع حدا، كله إلك. زيد سفرة من مطبخنا إذا بدك، أو جيب متعهدك. راسلنا عالواتساب ومنبني سهرتك سوا.",
+  "title_en": "Choose Your Venue",
+  "title_ar": "اختار مكانك",
+  "lead_en": "Two venues, one night that's all yours. Pick the river or the pool — the venue is never shared, and you bring the caterer and vendors you love. Message us on WhatsApp to check your date.",
+  "lead_ar": "مكانين، وسهرة كلها إلك. نقّي النهر أو المسبح — المكان ما منشاركه مع حدا، وإنت بتجيب متعهد الأكل والفرق يلي بتحبهن. راسلنا عالواتساب لتتأكد من تاريخك.",
   "tiers": [
    {
     "name_en": "Ta'Hani",
@@ -664,8 +664,8 @@
     "tag_en": "Riverside Venue",
     "tag_ar": "المكان ع النهر",
     "price": "$4,000",
-    "unit_en": "starting · the venue is yours for the night",
-    "unit_ar": "سعر بداية · المكان إلك للسهرة",
+    "unit_en": "starting · venue rental for the night",
+    "unit_ar": "سعر بداية · إيجار المكان للسهرة",
     "items": [
      {
       "en": "The river, the trees and the lights — all yours, never shared",
@@ -688,8 +688,8 @@
       "ar": "طاقمنا وأمن وتنظيف — قبل وخلال وبعد"
      },
      {
-      "en": "Feast from our kitchen, or your caterer is welcome",
-      "ar": "سفرة من مطبخنا، أو متعهدك أهلا وسهلا"
+      "en": "Bring your own caterer & vendors",
+      "ar": "جيب متعهد الأكل والفرق يلي بتختارهن"
      }
     ]
    },
@@ -700,8 +700,8 @@
     "tag_ar": "المكان ع المسبح",
     "featured": true,
     "price": "$5,000",
-    "unit_en": "starting · the venue is yours for the night",
-    "unit_ar": "سعر بداية · المكان إلك للسهرة",
+    "unit_en": "starting · venue rental for the night",
+    "unit_ar": "سعر بداية · إيجار المكان للسهرة",
     "items": [
      {
       "en": "Candles on the water, lights all around the pool — all yours, never shared",
@@ -726,58 +726,17 @@
      {
       "en": "Our staff, security & cleaning — before, during & after",
       "ar": "طاقمنا وأمن وتنظيف — قبل وخلال وبعد"
-     }
-    ]
-   },
-   {
-    "name_en": "The Whole Club",
-    "name_ar": "المنتجع كله",
-    "tag_en": "Total privacy",
-    "tag_ar": "خصوصية كاملة",
-    "price": "Ask us",
-    "price_ar": "احكينا",
-    "unit_en": "both venues + the restaurant, closed just for you",
-    "unit_ar": "المكانين والمطعم، مسكّرين إلك وبس",
-    "items": [
-     {
-      "en": "Every corner of the club, yours alone",
-      "ar": "كل زاوية بالمنتجع، إلك وحدك"
      },
      {
-      "en": "River venue, pool venue & restaurant together",
-      "ar": "مكان النهر ومكان المسبح والمطعم سوا"
-     },
-     {
-      "en": "For celebrations that deserve everything",
-      "ar": "للمناسبات يلي بتستاهل كل شي"
-     },
-     {
-      "en": "Message us and we'll dream it up together",
-      "ar": "راسلنا ومنحلم فيها سوا"
+      "en": "Bring your own caterer & vendors",
+      "ar": "جيب متعهد الأكل والفرق يلي بتختارهن"
      }
     ]
    }
   ],
   "addons_title_en": "Popular add-ons",
   "addons_title_ar": "إضافات مطلوبة",
-  "addons": [
-   {
-    "en": "Approved catering vendors list",
-    "ar": "لائحة متعهدي طعام معتمدين"
-   },
-   {
-    "en": "Guest chalet block discounts",
-    "ar": "خصومات شاليهات لضيوفك"
-   },
-   {
-    "en": "Photography & videography partners",
-    "ar": "شركاء تصوير فوتو وفيديو"
-   },
-   {
-    "en": "Anything else? Just ask",
-    "ar": "شي تاني؟ بس اطلب"
-   }
-  ],
+  "addons": [],
   "deals_title_en": "Deals & good timing",
   "deals_title_ar": "العروض والتوقيت الحلو",
   "deals": [
@@ -797,62 +756,8 @@
     "ar": "أسعار أيام الأسبوع وخارج الموسم بتبلش من هون — نفس النهر، وسعر أحلى"
    }
   ],
-  "note_en": "Every event gets its own tailored quote on WhatsApp — tell us your date, your guest count and your budget, and we'll build the night around it.",
-  "note_ar": "كل مناسبة بتاخد عرض سعر خاص عالواتساب — خبّرنا التاريخ وعدد الضيوف والميزانية، ومنبني السهرة عليهن.",
-  "food": {
-   "title_en": "Add the Feast",
-   "title_ar": "زيد السفرة",
-   "script": "صحتين وهنا",
-   "lead_en": "Venue rental covers the space and setup only — food and drinks are always added separately, all buffet style, the way Lebanon celebrates. Prices start per guest.",
-   "lead_ar": "سعر المكان بيغطي المكان والتجهيز بس — الأكل والشرب دايماً بينزادوا لحال، وكل شي بوفيه متل ما لبنان بيحب يحتفل. الأسعار بتبلش للشخص.",
-   "cards": [
-    {
-     "name_en": "Soft Drinks Only",
-     "name_ar": "مشروبات باردة فقط",
-     "price": "$10",
-     "tag_en": "Drinks, no food",
-     "tag_ar": "مشروبات بلا أكل",
-     "desc_en": "Soft drinks, juices and water all night — for events bringing their own caterer.",
-     "desc_ar": "مشروبات باردة وعصائر ومي طول السهرة — للمناسبات الجايبة متعهدها."
-    },
-    {
-     "name_en": "Bites by the River",
-     "name_ar": "لقيمات ع النهر",
-     "price": "$15",
-     "tag_en": "Finger-food buffet",
-     "tag_ar": "بوفيه لقيمات",
-     "desc_en": "Passed bites, cold mezze, saj wraps and fruit — light, social, delicious.",
-     "desc_ar": "لقيمات، مازة باردة، صاج وفواكه — خفيف وبيجمع الكل."
-    },
-    {
-     "name_en": "The Classic Buffet",
-     "name_ar": "البوفيه الكلاسيكي",
-     "price": "$25",
-     "tag_en": "The full Lebanese table",
-     "tag_ar": "السفرة اللبنانية الكاملة",
-     "desc_en": "Cold & hot mezze, salads, two mashawi, rice, a dessert corner and soft drinks.",
-     "desc_ar": "مازة باردة وساخنة، سلطات، نوعين مشاوي، رز، ركن حلو ومشروبات باردة."
-    },
-    {
-     "name_en": "The Premium Buffet",
-     "name_ar": "البوفيه البريميوم",
-     "price": "$35",
-     "tag_en": "Live stations & more",
-     "tag_ar": "محطات حية وأكتر",
-     "desc_en": "The Classic plus live saj & grill stations, lamb or fish, a bigger dessert table and Lebanese coffee.",
-     "desc_ar": "الكلاسيكي وفوقه محطات صاج ومشاوي حية، خروف أو سمك، طاولة حلو أكبر وقهوة لبنانية."
-    },
-    {
-     "name_en": "The Grand Buffet",
-     "name_ar": "البوفيه الكبير",
-     "price": "$50",
-     "tag_en": "The ultimate",
-     "tag_ar": "الشي الكبير",
-     "desc_en": "Whole-lamb centerpiece, carving & live stations, a dessert spectacle — soft drinks included.",
-     "desc_ar": "خروف محشي بالنص، محطات حية وتقطيع، عرض حلويات — والمشروبات الباردة محسوبة."
-    }
-   ]
-  },
+  "note_en": "Venue rental covers the venue, the setup and our team on the night. Every booking gets its own quote on WhatsApp — tell us your date and guest count.",
+  "note_ar": "إيجار المكان بيشمل المكان والتجهيز وفريقنا بالسهرة. كل حجز بياخد عرض سعر خاص عالواتساب — خبّرنا التاريخ وعدد الضيوف.",
   "local_en": "From Baissour or the villages around? Talk to us — there's always a way. 🌿",
   "local_ar": "منّك من بيصور أو الجوار؟ احكينا — دايماً في طريقة."
  },
@@ -958,10 +863,10 @@
  },
  "calculator": {
   "script": "قدّيش رح تكلف؟",
-  "title_en": "Event Calculator",
-  "title_ar": "حاسبة المناسبة",
-  "lead_en": "Pick your venue, add food if you want it, and get a rough starting estimate on the spot — then send us the plan in one tap for a real quote.",
-  "lead_ar": "نقّي المكان، زيد الأكل إذا بدك، وخود تقدير مبدئي عالسريع — وبعدين ابعتلنا الخطة بكبسة لعرض سعر فعلي.",
+  "title_en": "Venue Price Check",
+  "title_ar": "سعر المكان",
+  "lead_en": "Pick your venue and your timing for a quick starting price — then send it to us in one tap to check your date.",
+  "lead_ar": "نقّي المكان والتوقيت وخود سعر بداية عالسريع — وبعدين ابعتلنا ياه بكبسة لتتأكد من التاريخ.",
   "labels": {
    "package_en": "Venue",
    "package_ar": "المكان",
@@ -983,10 +888,10 @@
    "weekday_ar": "مناسبة يوم أسبوع (اثنين–خميس) — ١٠٪ حسم عالمكان",
    "early_en": "Booking 6+ months ahead — −10% venue",
    "early_ar": "حجز قبل ٦ أشهر أو أكتر — ١٠٪ حسم عالمكان",
-   "total_en": "Rough estimate",
-   "total_ar": "التقدير المبدئي",
-   "note_en": "A starting point, not a quote — the season, the menu and your ideas shape the final number. Discounts apply to the venue.",
-   "note_ar": "نقطة بداية مش عرض سعر — الموسم والمنيو وأفكارك بيرسموا الرقم النهائي. الحسومات ع المكان.",
+   "total_en": "Starting venue price",
+   "total_ar": "سعر المكان المبدئي",
+   "note_en": "A starting point, not a quote — your date and season shape the final number.",
+   "note_ar": "نقطة بداية مش عرض سعر — التاريخ والموسم بيحددوا الرقم النهائي.",
    "send_en": "Send this plan on WhatsApp",
    "send_ar": "ابعت هالخطة عالواتساب",
    "email_en": "Send via Email",
@@ -996,20 +901,7 @@
    "food_none_en": "No food or drinks from us",
    "food_none_ar": "بلا أكل أو شرب منا"
   },
-  "extras": [
-   {
-    "id": "dj",
-    "price": 750,
-    "en": "DJ & sound (+$750)",
-    "ar": "دي جي وصوتيات (+٧٥٠$)"
-   },
-   {
-    "id": "fireworks",
-    "price": 500,
-    "en": "Fireworks (+$500)",
-    "ar": "ألعاب نارية (+٥٠٠$)"
-   }
-  ]
+  "extras": []
  },
  "naturals": {
   "script": "عالطبيعي",
