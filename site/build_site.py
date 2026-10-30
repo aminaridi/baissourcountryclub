@@ -129,6 +129,9 @@ body{background:var(--paper);color:var(--ink);font-family:'Figtree',system-ui,sa
 .bar nav a{white-space:nowrap;text-decoration:none;color:var(--ink);font-size:13.5px;font-weight:600;
   padding:7px 12px;border-radius:999px;letter-spacing:.01em;cursor:pointer}
 .bar nav a:hover,.bar nav a:focus-visible{background:var(--tint);color:var(--accent-ink);outline:none}
+.bar nav a.grill{background:#8DC63F;color:#1F3308;font-weight:800;margin-inline-start:6px;padding-inline:14px;box-shadow:0 2px 10px rgba(141,198,63,.35)}
+.bar nav a.grill:hover,.bar nav a.grill:focus-visible{background:#9BD44C;color:#1F3308}
+.bar nav a.grill::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#1F3308;margin-inline-end:7px;translate:0 -1px}
 .lang-btn{flex:0 0 auto;border:1.5px solid var(--accent);background:none;color:var(--accent-ink);
   font-weight:700;font-size:13px;padding:6px 14px;border-radius:999px;cursor:pointer;font-family:inherit}
 .lang-btn:hover{background:var(--tint)}
@@ -697,7 +700,7 @@ packages_html = (f'<div class="pk" id="packages"><header class="sec-head" style=
     f'<p class="form-note">{LL(PK["note_en"], PK["note_ar"])}</p></div>')
 
 nav = "".join(
-    f'<a href="{n.get("href", "#" + n["id"])}">{LL(n["en"], n["ar"])}</a>' for n in S["nav"])
+    f'<a href="{n.get("href", "#" + n["id"])}"{" class=\"" + n["cls"] + "\"" if n.get("cls") else ""}>{LL(n["en"], n["ar"])}</a>' for n in S["nav"])
 stats = "".join(f'<div class="rv"><div class="num">{s["num"]}</div><div class="lab">{LL(s["en"], s["ar"])}</div></div>' for s in S["stats"])
 
 venues = ""
@@ -1068,7 +1071,7 @@ html = f"""<meta charset="utf-8">
       <p class="L en" style="margin-top:14px;color:var(--muted)">{esc(R["grill_en"])}</p><p class="L ar" dir="rtl" lang="ar" style="margin-top:14px;color:var(--muted)">{esc(R["grill_ar"])}</p>
       <div class="cta-row" style="margin-top:24px">
         <a class="btn btn-solid" href="{B["menu_link"]}" target="_blank" rel="noopener">{LL(R["cta_en"], R["cta_ar"])}</a>
-        <a class="btn btn-line" href="order.html">{LL(R["grill_cta_en"], R["grill_cta_ar"])}</a>
+        <a class="btn btn-line" href="grill/">{LL(R["grill_cta_en"], R["grill_cta_ar"])}</a>
       </div>
     </div>
     <div class="ph rv"><img src="{uri('restaurant_hero', 940, 55)}" alt="The restaurant at Baissour Country Club" loading="lazy"></div>

@@ -39,12 +39,6 @@
    "ar": "المطعم"
   },
   {
-   "id": "order",
-   "href": "order.html",
-   "en": "Order BCC Grill",
-   "ar": "اطلب من BCC Grill"
-  },
-  {
    "id": "family",
    "page": "family",
    "en": "Families & Kids",
@@ -67,6 +61,13 @@
    "page": "directions",
    "en": "Getting Here",
    "ar": "كيف توصل"
+  },
+  {
+   "id": "order",
+   "href": "grill/",
+   "en": "BCC Grill",
+   "ar": "BCC Grill",
+   "cls": "grill"
   }
  ],
  "directions": {
@@ -626,10 +627,10 @@
   "lead_ar": "غدا طويل تحت الشجر، وعشا ع صوت النهر. أطباق لبنانية بمكونات جبلية طازجة، وكل شي عالهوا الطلق بموسم الدفا — راسلنا لتتأكد من الأوقات قبل ما تطلع.",
   "cta_en": "View the full menu",
   "cta_ar": "شوف المنيو الكامل",
-  "grill_en": "Craving the grill at home? BCC Grill, our take away next to Star Market in Baissour, delivers kabab, burgers and charcoal chicken across the area — order online and send it to us on WhatsApp.",
-  "grill_ar": "بدك المشاوي ع البيت؟ BCC Grill، التيك أواي تبعنا حد ستار ماركت ببيصور، بيوصّل كباب، برغر وفروج ع الفحم لكل المنطقة — اطلب أونلاين وابعتلنا الطلبية ع واتساب.",
-  "grill_cta_en": "Order BCC Grill · take away & delivery",
-  "grill_cta_ar": "اطلب من BCC Grill · تيك أواي وتوصيل"
+  "grill_en": "BCC Grill, our new take away next to Star Market in Baissour, is opening soon — kabab, burgers and charcoal chicken, take away and delivery across the area. Have a look at the menu and see how ordering will work.",
+  "grill_ar": "BCC Grill، التيك أواي الجديد تبعنا حد ستار ماركت ببيصور، قريباً منفتح — كباب، برغر وفروج ع الفحم، تيك أواي وتوصيل لكل المنطقة. تفرّج ع المنيو وشوف كيف رح يصير الطلب.",
+  "grill_cta_en": "BCC Grill · coming soon — see the menu",
+  "grill_cta_ar": "BCC Grill · قريباً — شوف المنيو"
  },
  "area": {
   "script": "ع البال",
