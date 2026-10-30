@@ -252,8 +252,14 @@ section.block{padding:66px 0 30px}
 /* packages */
 .t-mid{font-family:'Marcellus',serif;font-size:clamp(26px,3.4vw,34px);font-weight:400;letter-spacing:-.01em}
 .L.ar.t-mid{font-family:'Almarai',sans-serif;font-weight:800}
-.tiers{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:28px;align-items:stretch}
-@media (max-width:860px){.tiers{grid-template-columns:1fr}}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px;align-items:stretch}
+@media (max-width:1040px){.tiers{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:700px){.tiers{grid-template-columns:1fr}}
+.catering{margin-top:22px;background:linear-gradient(135deg,var(--tint),var(--tint2));border:1px solid var(--line);border-radius:22px;padding:26px 28px;display:grid;grid-template-columns:1fr auto;gap:18px 28px;align-items:center}
+.catering h4{font-family:'Marcellus',serif;font-weight:400;font-size:clamp(20px,2.4vw,26px);margin:0 0 8px}
+[data-lang="ar"] .catering h4{font-family:'Almarai',sans-serif;font-weight:800}
+.catering p{color:var(--muted);font-size:15px;margin:0}
+@media (max-width:760px){.catering{grid-template-columns:1fr}}
 .tier{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px 26px;display:flex;flex-direction:column;transition:transform .2s ease,box-shadow .2s ease;box-shadow:var(--shadow)}
 .tier:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(22,72,80,.14)}
 .tier.featured{border:2px solid var(--accent);position:relative}
@@ -605,11 +611,10 @@ js = """
     var g=parseInt(val('cal-guests')||'0',10)||0;
     var venue=parseInt(pkg.getAttribute('data-base'),10);
     var disc=0;
-    if(document.getElementById('cal-weekday').checked) disc+=0.10;
     if(document.getElementById('cal-early').checked) disc+=0.10;
     venue=venue*(1-disc);
     var total=Math.round(venue);
-    return {total:total,g:g,pkg:pkg.value,disc:disc};
+    return {total:total,g:g,pkg:pkg.value,disc:disc,food:document.getElementById('cal-food').checked};
   }
   function calRender(){
     var r=calCompute();
@@ -625,13 +630,14 @@ js = """
     calRender();
     function calMsg(){
       var r=calCompute();
-      var pkgNames={tahani:"Ta'Hani (riverside venue)",draj:'Draj el Ward (poolside venue)'};
+      var pkgNames={tahani:"Ta'Hani (riverside venue)",draj:'Draj el Ward (poolside venue)',both:"Ta'Hani + Draj el Ward (both venues)"};
       var ar=window.LANG==='ar';
       var m=(ar?'مرحبا! جرّبت حاسبة المناسبات، هيدي خطتي:':'Hello! I tried the event calculator, here is my plan:')+'\\n'+
         (ar?'• المكان: ':'• Venue: ')+pkgNames[r.pkg]+'\\n'+
         (ar?'• الضيوف: ':'• Guests: ')+r.g+
         (r.disc?('\\n'+(ar?'• حسومات: ':'• Discounts: ')+Math.round(r.disc*100)+'%'):'')+'\\n'+
-        (ar?'• سعر المكان المبدئي: ~$':'• Starting venue price: ~$')+r.total.toLocaleString('en-US')+'\\n'+
+        (ar?'• سعر المكان: $':'• Venue price: $')+r.total.toLocaleString('en-US')+'\\n'+
+        (r.food?((ar?'• الأكل: مهتم ببوفيه من عندكن — ابعتولي الخيارات':'• Food: interested in your buffet — please send options')+'\\n'):'')+
         (ar?'بحب اتأكد إذا التاريخ متوفر 🙏':'I would love to check if my date is available!');
       return m;
     }
@@ -723,6 +729,9 @@ food_cards = "".join(
     f'<div class="fprice"><span class="L en">from {esc(c["price"])} <small>/ guest</small></span>'
     f'<span class="L ar" dir="rtl" lang="ar">من {esc(c["price"])} <small>للشخص</small></span></div>'
     f'<div class="fdesc">{LL(c["desc_en"], c["desc_ar"])}</div></div>' for c in FT["cards"])
+CTR = PK.get('catering')
+catering_html = '' if not CTR else (f'<div class="catering rv"><div><h4>{LL(CTR["title_en"], CTR["title_ar"])}</h4><p>{LL(CTR["text_en"], CTR["text_ar"])}</p></div>'
+    f'<a class="btn btn-wa" href="{B["whatsapp_link"]}?text={__import__("urllib.parse").parse.quote(CTR["wa_en"] + chr(10) + CTR["wa_ar"])}" target="_blank" rel="noopener">{LL(CTR["cta_en"], CTR["cta_ar"])}</a></div>')
 food_html = '' if not FT['cards'] else (f'<header class="sec-head" style="margin-top:48px"><h3>'
     f'<span class="L en t-mid">{esc(FT["title_en"])}</span>'
     f'<span class="L ar t-mid" dir="rtl" lang="ar">{esc(FT["title_ar"])}</span>'
@@ -735,6 +744,7 @@ packages_html = (f'<div class="pk" id="packages"><header class="sec-head" style=
     f'<span class="t-script" dir="rtl" lang="ar" aria-hidden="true">{esc(PK["script"])}</span></h3></header>'
     f'<p class="lead L en">{esc(PK["lead_en"])}</p><p class="lead L ar" dir="rtl" lang="ar">{esc(PK["lead_ar"])}</p>'
     f'<div class="tiers">{tiers}</div>'
+    f'{catering_html}'
     f'{food_html}'
     + (f'<h4 class="subhead">{LL(PK["addons_title_en"], PK["addons_title_ar"])}</h4>'
     f'<div class="chips">{addons}</div>' if PK["addons"] else '') +
@@ -930,8 +940,9 @@ calculator_html = f"""
     <div>
       <label class="fl">{LL(CL["package_en"], CL["package_ar"])}</label>
       <div class="radios">
-        <label class="cbx"><input type="radio" name="cal-venue" value="tahani" data-base="4000" checked><span>Ta'Hani — $4,000</span></label>
-        <label class="cbx"><input type="radio" name="cal-venue" value="draj" data-base="5000"><span>Draj el Ward — $5,000</span></label>
+        <label class="cbx"><input type="radio" name="cal-venue" value="tahani" data-base="2900" checked><span>Ta'Hani — $2,900</span></label>
+        <label class="cbx"><input type="radio" name="cal-venue" value="draj" data-base="3400"><span>Draj el Ward — $3,400</span></label>
+        <label class="cbx"><input type="radio" name="cal-venue" value="both" data-base="5900"><span>{LL("Both venues", "المكانين")} — $5,900</span></label>
       </div>
       <label class="fl">{LL(CL["guests_en"], CL["guests_ar"])}</label>
       <input id="cal-guests" type="number" min="10" max="600" value="150">
@@ -939,8 +950,11 @@ calculator_html = f"""
     <div>
       <label class="fl">{LL(CL["deals_en"], CL["deals_ar"])}</label>
       <div class="radios">
-        <label class="cbx"><input type="checkbox" id="cal-weekday"><span>{LL(CL["weekday_en"], CL["weekday_ar"])}</span></label>
         <label class="cbx"><input type="checkbox" id="cal-early"><span>{LL(CL["early_en"], CL["early_ar"])}</span></label>
+      </div>
+      <label class="fl">{LL(CL["extras_en"], CL["extras_ar"])}</label>
+      <div class="radios">
+        <label class="cbx"><input type="checkbox" id="cal-food"><span>{LL(CL["food_en"], CL["food_ar"])}</span></label>
       </div>
     </div>
   </div>

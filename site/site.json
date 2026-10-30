@@ -658,17 +658,17 @@
   "script": "ليلتك عنا",
   "title_en": "Choose Your Venue",
   "title_ar": "اختار مكانك",
-  "lead_en": "Two venues, one night that's all yours. Pick the river or the pool — the venue is never shared, and you bring the caterer and vendors you love. Message us on WhatsApp to check your date.",
-  "lead_ar": "مكانين، وسهرة كلها إلك. نقّي النهر أو المسبح — المكان ما منشاركه مع حدا، وإنت بتجيب متعهد الأكل والفرق يلي بتحبهن. راسلنا عالواتساب لتتأكد من تاريخك.",
+  "lead_en": "Two venues, one night that's all yours. Pick the river, the pool — or take both. The venue is never shared. Bring your own caterer and vendors, or let our kitchen set up the buffet. Message us on WhatsApp to check your date.",
+  "lead_ar": "مكانين، وسهرة كلها إلك. نقّي النهر أو المسبح — أو خودهن التنين. المكان ما منشاركه مع حدا. جيب متعهد الأكل والفرق يلي بتحبهن، أو خلّي مطبخنا يجهّز البوفيه. راسلنا عالواتساب لتتأكد من تاريخك.",
   "tiers": [
    {
     "name_en": "Ta'Hani",
     "name_ar": "تهاني",
     "tag_en": "Riverside Venue",
     "tag_ar": "المكان ع النهر",
-    "price": "$4,000",
-    "unit_en": "starting · venue rental for the night",
-    "unit_ar": "سعر بداية · إيجار المكان للسهرة",
+    "price": "$2,900",
+    "unit_en": "venue rental for the night",
+    "unit_ar": "إيجار المكان للسهرة",
     "items": [
      {
       "en": "The river, the trees and the lights — all yours, never shared",
@@ -691,8 +691,8 @@
       "ar": "طاقمنا وأمن وتنظيف — قبل وخلال وبعد"
      },
      {
-      "en": "Bring your own caterer & vendors",
-      "ar": "جيب متعهد الأكل والفرق يلي بتختارهن"
+      "en": "Bring your own caterer — or add our buffet",
+      "ar": "جيب متعهد الأكل تبعك — أو زيد بوفيه من عنا"
      }
     ]
    },
@@ -702,9 +702,9 @@
     "tag_en": "Poolside Venue",
     "tag_ar": "المكان ع المسبح",
     "featured": true,
-    "price": "$5,000",
-    "unit_en": "starting · venue rental for the night",
-    "unit_ar": "سعر بداية · إيجار المكان للسهرة",
+    "price": "$3,400",
+    "unit_en": "venue rental for the night",
+    "unit_ar": "إيجار المكان للسهرة",
     "items": [
      {
       "en": "Candles on the water, lights all around the pool — all yours, never shared",
@@ -731,8 +731,43 @@
       "ar": "طاقمنا وأمن وتنظيف — قبل وخلال وبعد"
      },
      {
-      "en": "Bring your own caterer & vendors",
-      "ar": "جيب متعهد الأكل والفرق يلي بتختارهن"
+      "en": "Bring your own caterer — or add our buffet",
+      "ar": "جيب متعهد الأكل تبعك — أو زيد بوفيه من عنا"
+     }
+    ]
+   },
+   {
+    "name_en": "Ta'Hani + Draj el Ward",
+    "name_ar": "تهاني + دراج الورد",
+    "tag_en": "River + Pool · save $400",
+    "tag_ar": "النهر + المسبح · وفّر ٤٠٠$",
+    "price": "$5,900",
+    "unit_en": "both venues for the night",
+    "unit_ar": "المكانين للسهرة",
+    "items": [
+     {
+      "en": "The whole club is yours — river and pool, never shared",
+      "ar": "المنتجع كلو إلك — النهر والمسبح، وما منشاركن مع حدا"
+     },
+     {
+      "en": "Cocktails by the river, dinner and dancing by the pool — or the other way round",
+      "ar": "كوكتيل ع النهر، عشا ورقص ع المسبح — أو العكس"
+     },
+     {
+      "en": "Room for the biggest guest lists",
+      "ar": "مساحة لأكبر لائحة ضيوف"
+     },
+     {
+      "en": "Everything in both venues: setup, power & sound, bridal room, valet",
+      "ar": "كل شي بالمكانين: التجهيز، الكهربا والصوت، غرفة العروس، الفاليه"
+     },
+     {
+      "en": "Our staff, security & cleaning — before, during & after",
+      "ar": "طاقمنا وأمن وتنظيف — قبل وخلال وبعد"
+     },
+     {
+      "en": "Bring your own caterer — or add our buffet",
+      "ar": "جيب متعهد الأكل تبعك — أو زيد بوفيه من عنا"
      }
     ]
    }
@@ -747,22 +782,22 @@
     "big": "-10%",
     "en": "on the venue when you book 6+ months ahead",
     "ar": "على المكان إذا حجزت قبل ٦ أشهر أو أكتر"
-   },
-   {
-    "big": "-10%",
-    "en": "on the venue for weekday events (Mon–Thu)",
-    "ar": "على المكان للمناسبات أيام الأسبوع (الاثنين–الخميس)"
-   },
-   {
-    "big": "$2,900",
-    "en": "weekday & off-season dates start here — the same river, a friendlier number",
-    "ar": "أسعار أيام الأسبوع وخارج الموسم بتبلش من هون — نفس النهر، وسعر أحلى"
    }
   ],
-  "note_en": "Venue rental covers the venue, the setup and our team on the night. Every booking gets its own quote on WhatsApp — tell us your date and guest count.",
-  "note_ar": "إيجار المكان بيشمل المكان والتجهيز وفريقنا بالسهرة. كل حجز بياخد عرض سعر خاص عالواتساب — خبّرنا التاريخ وعدد الضيوف.",
+  "note_en": "Venue rental covers the venue, the setup and our team on the night. Food, bar and other add-ons are quoted separately — tell us your date and guest count on WhatsApp.",
+  "note_ar": "إيجار المكان بيشمل المكان والتجهيز وفريقنا بالسهرة. الأكل والبار وباقي الإضافات بينحسبوا لحال — خبّرنا التاريخ وعدد الضيوف عالواتساب.",
   "local_en": "From Baissour or the villages around? Talk to us — there's always a way. 🌿",
-  "local_ar": "منّك من بيصور أو الجوار؟ احكينا — دايماً في طريقة."
+  "local_ar": "منّك من بيصور أو الجوار؟ احكينا — دايماً في طريقة.",
+  "catering": {
+   "title_en": "Add-on: let us do the food",
+   "title_ar": "إضافة: خلّي الأكل علينا",
+   "text_en": "Venue rental is the venue. If you'd like our kitchen to feed your guests too, we set up a full buffet — mezze, grills off the charcoal, salads and desserts — sized to your guest list. Message us and we'll put a menu and a price together for your night.",
+   "text_ar": "إيجار المكان هو المكان. وإذا بدك مطبخنا يطعمي ضيوفك كمان، منجهّز بوفيه كامل — مازة، مشاوي ع الفحم، سلطات وحلو — ع قد لائحة ضيوفك. راسلنا ومنركّبلك منيو وسعر لسهرتك.",
+   "cta_en": "Ask about the buffet on WhatsApp",
+   "cta_ar": "اسأل عن البوفيه عالواتساب",
+   "wa_en": "Hi! I'm looking at a venue rental and I'd like to add the food buffet — can you send me options and prices? 🌿",
+   "wa_ar": "مرحبا! عم شوف إيجار المكان وبدي زيد بوفيه الأكل — فيكن تبعتولي الخيارات والأسعار؟"
+  }
  },
  "families": {
   "script": "للعيلة كلها",
@@ -868,8 +903,8 @@
   "script": "قدّيش رح تكلف؟",
   "title_en": "Venue Price Check",
   "title_ar": "سعر المكان",
-  "lead_en": "Pick your venue and your timing for a quick starting price — then send it to us in one tap to check your date.",
-  "lead_ar": "نقّي المكان والتوقيت وخود سعر بداية عالسريع — وبعدين ابعتلنا ياه بكبسة لتتأكد من التاريخ.",
+  "lead_en": "Pick your venue and your timing for the venue price — then send it to us in one tap to check your date.",
+  "lead_ar": "نقّي المكان والتوقيت وخود سعر المكان — وبعدين ابعتلنا ياه بكبسة لتتأكد من التاريخ.",
   "labels": {
    "package_en": "Venue",
    "package_ar": "المكان",
@@ -891,16 +926,16 @@
    "weekday_ar": "مناسبة يوم أسبوع (اثنين–خميس) — ١٠٪ حسم عالمكان",
    "early_en": "Booking 6+ months ahead — −10% venue",
    "early_ar": "حجز قبل ٦ أشهر أو أكتر — ١٠٪ حسم عالمكان",
-   "total_en": "Starting venue price",
-   "total_ar": "سعر المكان المبدئي",
-   "note_en": "A starting point, not a quote — your date and season shape the final number.",
-   "note_ar": "نقطة بداية مش عرض سعر — التاريخ والموسم بيحددوا الرقم النهائي.",
+   "total_en": "Venue price",
+   "total_ar": "سعر المكان",
+   "note_en": "Venue rental price. Food, bar and other add-ons are quoted separately — send us your plan and we'll put it together.",
+   "note_ar": "سعر إيجار المكان. الأكل والبار وباقي الإضافات بينحسبوا لحال — ابعتلنا خطتك ومنركّبها سوا.",
    "send_en": "Send this plan on WhatsApp",
    "send_ar": "ابعت هالخطة عالواتساب",
    "email_en": "Send via Email",
    "email_ar": "ابعت عالإيميل",
-   "food_en": "Food (buffet, per guest)",
-   "food_ar": "الأكل (بوفيه، للشخص)",
+   "food_en": "Interested in our food buffet (quoted separately)",
+   "food_ar": "مهتم ببوفيه الأكل من عنا (بينحسب لحال)",
    "food_none_en": "No food or drinks from us",
    "food_none_ar": "بلا أكل أو شرب منا"
   },
