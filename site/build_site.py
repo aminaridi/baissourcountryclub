@@ -136,7 +136,12 @@ body{background:var(--paper);color:var(--ink);font-family:'Figtree',system-ui,sa
 .lang-btn{flex:0 0 auto;border:1.5px solid var(--accent);background:none;color:var(--accent-ink);
   font-weight:700;font-size:13px;padding:6px 14px;border-radius:999px;cursor:pointer;font-family:inherit}
 .lang-btn:hover{background:var(--tint)}
-.bar-wa{font-size:12.5px;padding:7px 14px;flex:0 0 auto}
+.bar-wa{font-size:12.5px;padding:7px 14px;flex:0 0 auto;display:inline-flex;align-items:center;gap:7px}
+.bar-wa .sdot{width:8px;height:8px;border-radius:50%;background:currentColor;opacity:.9;flex:0 0 auto}
+.bar-wa.st-open .sdot{animation:pulse 2s infinite}
+.bar-wa.st-soon{background:#F2A33A;color:#3A2300}
+.bar-wa.st-closed{background:#D9463B;color:#FFF5F3}
+.bar-wa.st-closed:hover{box-shadow:0 8px 20px rgba(217,70,59,.3)}
 /* narrow screens: pinned buttons stay on the first row, section links wrap to a scrolling second row */
 @media (max-width:820px){.bar{flex-wrap:wrap;row-gap:4px;padding-bottom:6px}.bar nav{order:10;flex:1 0 100%}.bar-grill{margin-inline-start:auto}}
 @media (max-width:480px){.bar{gap:7px;padding:8px 10px 6px}.bar .bar-grill,.bar .bar-wa{padding:7px 10px;font-size:12px}.bar-grill::before{display:none}.bar .lang-btn{padding:6px 9px;font-size:12px}.bar .logo{height:32px}}
@@ -639,6 +644,36 @@ js = """
   if(iqBtn) iqBtn.addEventListener('click',function(){ openWA(iqMsg(),'Event inquiry — '+val('iq-name')); });
   var iqEm=document.getElementById('iq-email');
   if(iqEm) iqEm.addEventListener('click',function(){ sendMail('Event inquiry — '+val('iq-name'), iqMsg()); });
+  /* open / closing soon / closed — driven by status.json, Beirut time */
+  (function(){
+    var btn=document.getElementById('statusBtn'); if(!btn) return;
+    var L=function(en,ar){return '<span class="L en">'+en+'</span><span class="L ar" dir="rtl" lang="ar">'+ar+'</span>';};
+    function set(state,en,ar){btn.classList.remove('st-open','st-soon','st-closed');btn.classList.add('st-'+state);btn.querySelector('.stxt').innerHTML=L(en,ar);}
+    function beirutNow(tz){
+      var parts=new Intl.DateTimeFormat('en-GB',{timeZone:tz||'Asia/Beirut',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date()),o={};
+      parts.forEach(function(p){o[p.type]=p.value;});
+      return {day:o.weekday.toLowerCase().slice(0,3),min:(parseInt(o.hour,10)%24)*60+parseInt(o.minute,10)};
+    }
+    var toMin=function(t){var a=t.split(':');return parseInt(a[0],10)*60+parseInt(a[1],10);};
+    var fmt=function(t){var h=parseInt(t.split(':')[0],10),m=t.split(':')[1];var ap=h>=12?'pm':'am';h=h%12||12;return h+(m==='00'?'':':'+m)+ap;};
+    function apply(d){
+      if(d.season==='closed'){set('closed',d.season_note_en||'Closed for winter · message us',d.season_note_ar||'مسكّرين بالشتوية · راسلنا');return;}
+      var hrs=d.hours||{},now=beirutNow(d.tz),today=hrs[now.day]||[],soon=d.closing_soon_minutes||60,i,o,c;
+      var any=Object.keys(hrs).some(function(k){return (hrs[k]||[]).length;});
+      if(!any) return; /* no hours given yet — keep the plain green "Book a table" */
+      for(i=0;i<today.length;i++){o=toMin(today[i][0]);c=toMin(today[i][1]);if(c<=o)c+=24*60;
+        if(now.min>=o&&now.min<c){
+          if(c-now.min<=soon){set('soon','Closing soon · book a table','عم نسكّر قريباً · احجز');}
+          else{set('open','Open now · book a table','فاتحين هلق · احجز طاولة');}
+          return;}}
+      var next=null;for(i=0;i<today.length;i++){if(toMin(today[i][0])>now.min){next=today[i][0];break;}}
+      if(next){set('closed','Closed · opens '+fmt(next),'مسكّرين · منفتح '+fmt(next));}
+      else{set('closed','Closed now · message us','مسكّرين هلق · راسلنا');}
+    }
+    try{
+      fetch('status.json?t='+Date.now()).then(function(x){return x.json()}).then(function(d){apply(d);setInterval(function(){apply(d);},60000);}).catch(function(){});
+    }catch(e){}
+  })();
   /* pool sign */
   (function(){
     var o=document.getElementById('ps-open'),r=document.getElementById('ps-res'),u=document.getElementById('ps-unk');
@@ -1016,7 +1051,7 @@ html = f"""<meta charset="utf-8">
   <a href="#home"><img class="logo" src="{uri('shared_logo-color')}" alt="Baissour Country Club logo"></a>
   <nav aria-label="Sections">{nav}</nav>
   {bar_links}
-  <a class="btn btn-wa bar-wa" href="{wa_table}" target="_blank" rel="noopener">{LL("Book a table", "احجز طاولة")}</a>
+  <a class="btn btn-wa bar-wa st-open" id="statusBtn" href="{wa_table}" target="_blank" rel="noopener"><span class="sdot"></span><span class="stxt">{LL("Book a table", "احجز طاولة")}</span></a>
   <button id="langbtn" class="lang-btn" type="button">عربي</button>
 </div>
 
