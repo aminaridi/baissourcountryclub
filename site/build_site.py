@@ -142,8 +142,11 @@ body{background:var(--paper);color:var(--ink);font-family:'Figtree',system-ui,sa
 .bar-wa.st-soon{background:#F2A33A;color:#3A2300}
 .bar-wa.st-closed{background:#D9463B;color:#FFF5F3}
 .bar-wa.st-closed:hover{box-shadow:0 8px 20px rgba(217,70,59,.3)}
-/* narrow screens: pinned buttons stay on the first row, section links wrap to a scrolling second row */
-@media (max-width:820px){.bar{flex-wrap:wrap;row-gap:4px;padding-bottom:6px}.bar nav{order:10;flex:1 0 100%}.bar-grill{margin-inline-start:auto}}
+/* mouse / remote-control devices (TVs, laptops): never hide links behind a hidden scrollbar — wrap them instead */
+@media (hover:hover){.bar nav{flex-wrap:wrap;overflow:visible;row-gap:2px}}
+/* when the row gets tight, pinned buttons keep the first row and the section links take a full-width second row
+   (wrapping on mouse devices, side-scrolling by touch on phones) */
+@media (max-width:1200px){.bar{flex-wrap:wrap;row-gap:4px;padding-bottom:6px}.bar nav{order:10;flex:1 0 100%}.bar-grill{margin-inline-start:auto}}
 @media (max-width:480px){.bar{gap:7px;padding:8px 10px 6px}.bar .bar-grill,.bar .bar-wa{padding:7px 10px;font-size:12px}.bar-grill::before{display:none}.bar .lang-btn{padding:6px 9px;font-size:12px}.bar .logo{height:32px}}
 /* hero */
 .hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;overflow:hidden}
