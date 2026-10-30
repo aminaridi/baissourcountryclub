@@ -129,14 +129,17 @@ body{background:var(--paper);color:var(--ink);font-family:'Figtree',system-ui,sa
 .bar nav a{white-space:nowrap;text-decoration:none;color:var(--ink);font-size:13.5px;font-weight:600;
   padding:7px 12px;border-radius:999px;letter-spacing:.01em;cursor:pointer}
 .bar nav a:hover,.bar nav a:focus-visible{background:var(--tint);color:var(--accent-ink);outline:none}
-.bar nav a.grill{background:#8DC63F;color:#1F3308;font-weight:800;margin-inline-start:6px;padding-inline:14px;box-shadow:0 2px 10px rgba(141,198,63,.35)}
-.bar nav a.grill:hover,.bar nav a.grill:focus-visible{background:#9BD44C;color:#1F3308}
-.bar nav a.grill::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#1F3308;margin-inline-end:7px;translate:0 -1px}
+.bar-grill{flex:0 0 auto;background:#8DC63F;color:#1F3308;font-weight:800;font-size:12.5px;padding:7px 14px;
+  box-shadow:0 2px 10px rgba(141,198,63,.35);white-space:nowrap}
+.bar-grill:hover,.bar-grill:focus-visible{background:#9BD44C;color:#1F3308}
+.bar-grill::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#1F3308;margin-inline-end:7px;translate:0 -1px}
 .lang-btn{flex:0 0 auto;border:1.5px solid var(--accent);background:none;color:var(--accent-ink);
   font-weight:700;font-size:13px;padding:6px 14px;border-radius:999px;cursor:pointer;font-family:inherit}
 .lang-btn:hover{background:var(--tint)}
 .bar-wa{font-size:12.5px;padding:7px 14px;flex:0 0 auto}
-@media (max-width:820px){.bar-wa{display:none}}
+/* narrow screens: pinned buttons stay on the first row, section links wrap to a scrolling second row */
+@media (max-width:820px){.bar{flex-wrap:wrap;row-gap:4px;padding-bottom:6px}.bar nav{order:10;flex:1 0 100%}.bar-grill{margin-inline-start:auto}}
+@media (max-width:480px){.bar{gap:7px;padding:8px 10px 6px}.bar .bar-grill,.bar .bar-wa{padding:7px 10px;font-size:12px}.bar-grill::before{display:none}.bar .lang-btn{padding:6px 9px;font-size:12px}.bar .logo{height:32px}}
 /* hero */
 .hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;overflow:hidden}
 .hero>img,.hero>video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -700,7 +703,9 @@ packages_html = (f'<div class="pk" id="packages"><header class="sec-head" style=
     f'<p class="form-note">{LL(PK["note_en"], PK["note_ar"])}</p></div>')
 
 nav = "".join(
-    f'<a href="{n.get("href", "#" + n["id"])}"{" class=\"" + n["cls"] + "\"" if n.get("cls") else ""}>{LL(n["en"], n["ar"])}</a>' for n in S["nav"])
+    f'<a href="{n.get("href", "#" + n["id"])}"{" class=\"" + n["cls"] + "\"" if n.get("cls") else ""}>{LL(n["en"], n["ar"])}</a>' for n in S["nav"] if not n.get("bar"))
+bar_links = "".join(
+    f'<a class="btn bar-grill" href="{n["href"]}">{LL(n["en"], n["ar"])}</a>' for n in S["nav"] if n.get("bar"))
 stats = "".join(f'<div class="rv"><div class="num">{s["num"]}</div><div class="lab">{LL(s["en"], s["ar"])}</div></div>' for s in S["stats"])
 
 venues = ""
@@ -1010,6 +1015,7 @@ html = f"""<meta charset="utf-8">
 <div class="bar">
   <a href="#home"><img class="logo" src="{uri('shared_logo-color')}" alt="Baissour Country Club logo"></a>
   <nav aria-label="Sections">{nav}</nav>
+  {bar_links}
   <a class="btn btn-wa bar-wa" href="{wa_table}" target="_blank" rel="noopener">{LL("Book a table", "احجز طاولة")}</a>
   <button id="langbtn" class="lang-btn" type="button">عربي</button>
 </div>
