@@ -67,7 +67,9 @@
    "href": "grill/",
    "en": "BCC Grill",
    "ar": "BCC Grill",
-   "bar": true
+   "bar": true,
+   "sub_en": "Coming soon",
+   "sub_ar": "قريباً"
   }
  ],
  "directions": {

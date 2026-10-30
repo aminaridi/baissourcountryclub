@@ -1,9 +1,9 @@
 {
- "_help": "Controls the top-right button on baissourcountryclub.com. season: 'closed' = red 'Closed for winter' on every page, ignores hours. season: 'open' = automatic from hours (Beirut time): green when open, orange within closing_soon_minutes of closing, red when closed. Hours are 24h 'HH:MM' pairs per day; a day with [] is closed; leave all days empty to keep the plain green button.",
+ "_help": "Controls the top-right button on baissourcountryclub.com. season: 'closed' = red season note (season_note_en/ar) on every page, ignores hours. season: 'open' = automatic from hours (Beirut time): green when open, orange within closing_soon_minutes of closing, red when closed. Hours are 24h 'HH:MM' pairs per day; a day with [] is closed; leave all days empty to keep the plain green button.",
  "tz": "Asia/Beirut",
  "season": "closed",
- "season_note_en": "Closed for winter · message us",
- "season_note_ar": "مسكّرين بالشتوية · راسلنا",
+ "season_note_en": "Back in summer 2027 · message us",
+ "season_note_ar": "منرجعلكن صيف ٢٠٢٧ · راسلنا",
  "closing_soon_minutes": 60,
  "hours": {
   "mon": [],

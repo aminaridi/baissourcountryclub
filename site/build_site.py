@@ -127,12 +127,13 @@ body{background:var(--paper);color:var(--ink);font-family:'Figtree',system-ui,sa
 .bar nav{display:flex;gap:2px;overflow-x:auto;flex:1;scrollbar-width:none}
 .bar nav::-webkit-scrollbar{display:none}
 .bar nav a{white-space:nowrap;text-decoration:none;color:var(--ink);font-size:13.5px;font-weight:600;
-  padding:7px 12px;border-radius:999px;letter-spacing:.01em;cursor:pointer}
+  padding:7px 10px;border-radius:999px;letter-spacing:.01em;cursor:pointer}
 .bar nav a:hover,.bar nav a:focus-visible{background:var(--tint);color:var(--accent-ink);outline:none}
-.bar-grill{flex:0 0 auto;background:#8DC63F;color:#1F3308;font-weight:800;font-size:12.5px;padding:7px 14px;
-  box-shadow:0 2px 10px rgba(141,198,63,.35);white-space:nowrap}
+.bar .bar-grill{flex:0 0 auto;background:#8DC63F;color:#1F3308;font-weight:800;font-size:12.5px;padding:4px 14px 5px;
+  box-shadow:0 2px 10px rgba(141,198,63,.35);white-space:nowrap;display:inline-flex;flex-direction:column;align-items:center;line-height:1.15}
+.bar-grill .g2{font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.85;margin-top:1px}
+[data-lang="ar"] .bar-grill .g2{letter-spacing:0;font-size:10.5px}
 .bar-grill:hover,.bar-grill:focus-visible{background:#9BD44C;color:#1F3308}
-.bar-grill::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#1F3308;margin-inline-end:7px;translate:0 -1px}
 .lang-btn{flex:0 0 auto;border:1.5px solid var(--accent);background:none;color:var(--accent-ink);
   font-weight:700;font-size:13px;padding:6px 14px;border-radius:999px;cursor:pointer;font-family:inherit}
 .lang-btn:hover{background:var(--tint)}
@@ -142,12 +143,13 @@ body{background:var(--paper);color:var(--ink);font-family:'Figtree',system-ui,sa
 .bar-wa.st-soon{background:#F2A33A;color:#3A2300}
 .bar-wa.st-closed{background:#D9463B;color:#FFF5F3}
 .bar-wa.st-closed:hover{box-shadow:0 8px 20px rgba(217,70,59,.3)}
+@media (max-width:1400px){.bar-wa .st-x{display:none}}
 /* mouse / remote-control devices (TVs, laptops): never hide links behind a hidden scrollbar — wrap them instead */
 @media (hover:hover){.bar nav{flex-wrap:wrap;overflow:visible;row-gap:2px}}
 /* when the row gets tight, pinned buttons keep the first row and the section links take a full-width second row
    (wrapping on mouse devices, side-scrolling by touch on phones) */
 @media (max-width:1200px){.bar{flex-wrap:wrap;row-gap:4px;padding-bottom:6px}.bar nav{order:10;flex:1 0 100%}.bar-grill{margin-inline-start:auto}}
-@media (max-width:480px){.bar{gap:7px;padding:8px 10px 6px}.bar .bar-grill,.bar .bar-wa{padding:7px 10px;font-size:12px}.bar-grill::before{display:none}.bar .lang-btn{padding:6px 9px;font-size:12px}.bar .logo{height:32px}}
+@media (max-width:480px){.bar{gap:7px;padding:8px 10px 6px}.bar .bar-grill{padding:4px 10px 5px;font-size:12px}.bar .bar-wa{padding:7px 10px;font-size:12px}.bar-wa .st-x{display:none}.bar .lang-btn{padding:6px 9px;font-size:12px}.bar .logo{height:32px}}
 /* hero */
 .hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;overflow:hidden}
 .hero>img,.hero>video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -650,7 +652,8 @@ js = """
   /* open / closing soon / closed — driven by status.json, Beirut time */
   (function(){
     var btn=document.getElementById('statusBtn'); if(!btn) return;
-    var L=function(en,ar){return '<span class="L en">'+en+'</span><span class="L ar" dir="rtl" lang="ar">'+ar+'</span>';};
+    var X=function(t){var i=t.indexOf(' · ');return i<0?t:t.slice(0,i)+'<span class="st-x"> · '+t.slice(i+3)+'</span>';};
+    var L=function(en,ar){return '<span class="L en">'+X(en)+'</span><span class="L ar" dir="rtl" lang="ar">'+X(ar)+'</span>';};
     function set(state,en,ar){btn.classList.remove('st-open','st-soon','st-closed');btn.classList.add('st-'+state);btn.querySelector('.stxt').innerHTML=L(en,ar);}
     function beirutNow(tz){
       var parts=new Intl.DateTimeFormat('en-GB',{timeZone:tz||'Asia/Beirut',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date()),o={};
@@ -743,7 +746,8 @@ packages_html = (f'<div class="pk" id="packages"><header class="sec-head" style=
 nav = "".join(
     f'<a href="{n.get("href", "#" + n["id"])}"{" class=\"" + n["cls"] + "\"" if n.get("cls") else ""}>{LL(n["en"], n["ar"])}</a>' for n in S["nav"] if not n.get("bar"))
 bar_links = "".join(
-    f'<a class="btn bar-grill" href="{n["href"]}">{LL(n["en"], n["ar"])}</a>' for n in S["nav"] if n.get("bar"))
+    f'<a class="btn bar-grill" href="{n["href"]}"><span class="g1">{LL(n["en"], n["ar"])}</span>'
+    + (f'<span class="g2">{LL(n["sub_en"], n["sub_ar"])}</span>' if n.get("sub_en") else "") + '</a>' for n in S["nav"] if n.get("bar"))
 stats = "".join(f'<div class="rv"><div class="num">{s["num"]}</div><div class="lab">{LL(s["en"], s["ar"])}</div></div>' for s in S["stats"])
 
 venues = ""
