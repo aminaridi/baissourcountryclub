@@ -9,6 +9,12 @@ const { chromium } = require('playwright'); const path=require('path');
     await p.pdf({path:`out/BCC_Grill_Menu_A4_${l.toUpperCase()}.pdf`,format:'A4',printBackground:true,preferCSSPageSize:true});
     await p.screenshot({path:`out/print_${l}_preview.png`,fullPage:true}); await p.close();
   }
+  for (const l of ['en','ar']) {
+    const p=await b.newPage({viewport:{width:397,height:559},deviceScaleFactor:2});
+    await p.goto(f(`card_${l}.html`),{waitUntil:'networkidle'}); await p.waitForTimeout(1200);
+    await p.pdf({path:`out/BCC_Grill_Bag_Card_A6_${l.toUpperCase()}.pdf`,width:'105mm',height:'148mm',printBackground:true,preferCSSPageSize:true});
+    await p.screenshot({path:`out/card_${l}_preview.png`,fullPage:true}); await p.close();
+  }
   for (const n of ['tv_bi','tv_en','tv_ar']) {
     const p=await b.newPage({viewport:{width:1920,height:1080},deviceScaleFactor:1});
     await p.goto(f(n+'.html'),{waitUntil:'networkidle'}); await p.waitForTimeout(1500);

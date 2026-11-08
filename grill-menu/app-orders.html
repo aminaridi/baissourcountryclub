@@ -286,13 +286,13 @@ const DRINKS = [['Pepsi', 0], ['7Up', 0], ['Mirinda', 0], ['Water', 0], ['Ayran'
 const BREADS = [['Lebanese bread', 0], ['Lettuce wrap (no bread)', 0]];
 const SAUCES = [['Toum', 0], ['Hummus', 0], ['Yogurt-tahini', 0], ['Hot harissa', 0], ['Toum mayo', 0], ['Cheese sauce', 0.5]];
 const REMOVE = [['No onion', 0], ['No pickles', 0], ['No tomato', 0], ['No parsley', 0], ['Sauce on the side', 0], ['Extra spicy', 0], ['Well done', 0]];
-const ADDONS = [['Extra fries', 2], ['Small hummus', 2], ['Fattoush side', 3], ['Batata harra', 3], ['Grilled vegetables', 2.5], ['Extra kafta skewer', 2.5], ['Extra taouk skewer', 2.5], ['BCC toum tub', 3], ['Extra bread', 1], ['Pickles & turnips', 1]];
+const ADDONS = [["Extra patty (burgers)", 2.5], ["Cheese", 0.5], ["Extra skewer", 2.5], ["Extra toum", 0.5], ["Fries on the side", 2], ["Small hummus", 2], ["Salad on the side", 3], ["Extra bread", 1], ["Pickles & turnips", 1], ["Fried egg", 1]];
 const C = (key, label, opts, o = {}) => ({ key, label, opts, ...o });
 /* every protein on the sandwich menu — used wherever a protein is chosen (lamb-cut / spiced upcharges vary by portion) */
 const PROT = (lamb, spiced) => [['Kafta', 0], ['Shish taouk', 0], ['Djej meshwi', 0], ['Lahmeh shi2af', lamb], ['Lamb kabab', lamb], ['Kabab orfali', spiced]];
 const SANDWICH = [C('bread', 'Bread', BREADS), C('sauce', 'Sauce (pick up to two)', SAUCES, { multi: true, max: 2 }), C('mods', 'Changes', REMOVE, { multi: true, optional: true })];
 const VEG = C('veg', 'Veggies on the burger or on the side?', [['On the burger', 0], ['On the side', 0]]);
-const BURGER = [VEG, C('mods', 'Changes', [['No onion', 0], ['No pickles', 0], ['No tomato', 0], ['No lettuce', 0], ['Sauce on the side', 0], ['Extra cheese', 0.5], ['Add fried egg', 1]], { multi: true, optional: true })];
+const BURGER = [VEG, C('mods', 'Changes', [['Extra patty', 2.5], ['Cheese', 0.5], ['No onion', 0], ['No pickles', 0], ['No tomato', 0], ['No lettuce', 0], ['Sauce on the side', 0], ['Add fried egg', 1]], { multi: true, optional: true })];
 const MEAL = [C('side', 'Side', SIDES), C('salad', 'Salad', SALADS), C('drink', 'Drink', DRINKS)];
 const PLATE = [C('salad', 'Salad', SALADS), C('side', 'Side', SIDES), C('bread', 'Bread', BREADS.slice(0, 1)), C('sauce', 'Sauces (pick up to two)', SAUCES, { multi: true, max: 2 })];
 const MENU = [

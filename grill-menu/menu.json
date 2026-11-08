@@ -58,7 +58,8 @@
    "price": 5,
    "photo": "kabab_fries.jpg",
    "descEn": "Loaded fries with charcoal grilled kafta, cheese sauce and toum — or make it taouk. Large +$3.",
-   "descAr": "بطاطا محمّلة بكفتة مشوية ع الفحم، صوص جبنة وتوم — أو خلّيها طاووق. كبير +٣$."
+   "descAr": "بطاطا محمّلة بكفتة مشوية ع الفحم، صوص جبنة وتوم — أو خلّيها طاووق. كبير +٣$.",
+   "pick": true
   }
  ],
  "sections": [
@@ -262,7 +263,8 @@
      "ar": "صحن كباب",
      "price": 9,
      "subEn": "three skewers of your choice · lamb +$2",
-     "subAr": "٣ سياخ ع ذوقك · لحمة غنم +٢$"
+     "subAr": "٣ سياخ ع ذوقك · لحمة غنم +٢$",
+     "pick": true
     },
     {
      "en": "BCC mixed grill",
@@ -306,14 +308,16 @@
      "ar": "سلطة مع بروتين",
      "price": 7,
      "subEn": "any of our salads topped with a grilled protein",
-     "subAr": "أي سلطة من عنّا مع بروتين مشوي"
+     "subAr": "أي سلطة من عنّا مع بروتين مشوي",
+     "pick": true
     },
     {
      "en": "Protein lettuce wrap",
      "ar": "لفّة خس مع بروتين",
      "price": 6,
      "subEn": "grilled protein or veggies wrapped in lettuce",
-     "subAr": "بروتين مشوي أو خضرا ملفوفين بالخس"
+     "subAr": "بروتين مشوي أو خضرا ملفوفين بالخس",
+     "pick": true
     }
    ]
   },
@@ -479,14 +483,150 @@
  },
  "meal": {
   "titleEn": "Make it a meal · +$3",
-  "titleAr": "عملها وجبة · <bdi dir=\"ltr\">+$3</bdi>",
-  "textEn": "Any sandwich or burger + a side, a salad and a drink. Salads: fattoush, tabbouleh, coleslaw, biwaz. Sides: fries, batata harra, rice, hummus, coleslaw. Removals are free · extra sides on any order.",
-  "textAr": "أي سندويش أو برغر + طبق جانبي وسلطة ومشروب. السلطات: فتوش، تبولة، كول سلو، بيواز. الجانبي: بطاطا، بطاطا حرّة، رز، حمص، كول سلو. الشيل ببلاش · زيد أطباق على أي طلب."
+  "titleAr": "عملها وجبة · +$3",
+  "textEn": "Any sandwich or burger + a side + a salad + a drink. Sides: fries, batata harra, rice, hummus, coleslaw. Salads: fattoush, tabbouleh, coleslaw, biwaz. Changes are free — no onion, sauce on the side, extra spicy.",
+  "textAr": "أي سندويش أو برغر + طبق جانبي + سلطة + مشروب. الجانبي: بطاطا، بطاطا حرّة، رز، حمص، كول سلو. السلطات: فتوش، تبولة، كول سلو، بيواز. التعديلات ببلاش — بلا بصل، الصوص ع جنب، حار زيادة."
  },
  "order": {
   "titleEn": "How to order",
   "titleAr": "كيف تطلب",
-  "textEn": "WhatsApp 81 461 188, the kiosk by the door, or the counter · we confirm your order and message you the time · take away or delivery across the area.",
-  "textAr": "واتساب <bdi dir=\"ltr\">81 461 188</bdi>، الكيوسك عند الباب، أو الكاونتر · منأكّد طلبك ومنبعتلك الوقت · تيك أواي أو توصيل لكل المنطقة."
- }
+  "stepsEn": [
+   "Scan the QR or WhatsApp 81 461 188 — or order at the counter",
+   "Pick your items; where you see ▸ choose your protein, bread and sauces",
+   "We confirm your order and message you the time",
+   "Take away, or delivery across the area — pin your door on the map"
+  ],
+  "stepsAr": [
+   "امسح الـ QR أو واتساب 81 461 188 — أو اطلب ع الكاونتر",
+   "اختار أصنافك؛ وين ما شفت ▸ اختار البروتين والخبز والصوص",
+   "منأكّد طلبك ومنبعتلك الوقت",
+   "تيك أواي، أو توصيل لكل المنطقة — حطّ الدبّوس ع بابك ع الخريطة"
+  ]
+ },
+ "proteins": {
+  "titleEn": "Pick your protein",
+  "titleAr": "اختار البروتين",
+  "introEn": "Anywhere you see ▸ you choose one of these. Sandwich / plate upcharge shown.",
+  "introAr": "وين ما شفت ▸ بتختار واحد من هول. الزيادة للسندويش / الصحن مكتوبة.",
+  "items": [
+   {
+    "en": "Kafta",
+    "ar": "كفتة",
+    "up": [
+     0,
+     0
+    ]
+   },
+   {
+    "en": "Shish taouk",
+    "ar": "شيش طاووق",
+    "up": [
+     0,
+     0
+    ]
+   },
+   {
+    "en": "Djej meshwi",
+    "ar": "دجاج مشوي",
+    "up": [
+     0,
+     0
+    ]
+   },
+   {
+    "en": "Kabab orfali",
+    "ar": "كباب أورفلي",
+    "up": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "en": "Lahmeh shi2af (beef)",
+    "ar": "لحمة شقف",
+    "up": [
+     1,
+     2
+    ]
+   },
+   {
+    "en": "Lamb kabab",
+    "ar": "كباب لحمة",
+    "up": [
+     1,
+     2
+    ]
+   }
+  ]
+ },
+ "addons": {
+  "titleEn": "Add-ons",
+  "titleAr": "إضافات",
+  "introEn": "Add to any item when you order",
+  "introAr": "زيدها على أي صنف وقت الطلب",
+  "items": [
+   {
+    "en": "Extra patty (burgers)",
+    "ar": "قرص لحمة زيادة (برغر)",
+    "price": 2.5
+   },
+   {
+    "en": "Cheese",
+    "ar": "جبنة",
+    "price": 0.5
+   },
+   {
+    "en": "Extra skewer",
+    "ar": "سيخ زيادة",
+    "price": 2.5
+   },
+   {
+    "en": "Extra toum",
+    "ar": "توم زيادة",
+    "price": 0.5
+   },
+   {
+    "en": "Fries on the side",
+    "ar": "بطاطا ع جنب",
+    "price": 2
+   },
+   {
+    "en": "Small hummus",
+    "ar": "حمص صغير",
+    "price": 2
+   },
+   {
+    "en": "Salad on the side",
+    "ar": "سلطة ع جنب",
+    "price": 3
+   },
+   {
+    "en": "Extra bread",
+    "ar": "خبز زيادة",
+    "price": 1
+   },
+   {
+    "en": "Pickles & turnips",
+    "ar": "كبيس ولفت",
+    "price": 1
+   },
+   {
+    "en": "Fried egg",
+    "ar": "بيضة مقلية",
+    "price": 1
+   }
+  ]
+ },
+ "rewards": {
+  "titleEn": "BCC Rewards",
+  "titleAr": "مكافآت BCC",
+  "textEn": "Give your phone number with every order: 1 point per $1. 50 points = $5 off your next order, online or at the counter.",
+  "textAr": "عطينا رقمك مع كل طلب: نقطة لكل $1. ٥٠ نقطة = $5 خصم ع طلبك الجاي، أونلاين أو بالمحل."
+ },
+ "featured": [
+  "bcc",
+  "smash",
+  "kfries",
+  "desserts"
+ ]
 }

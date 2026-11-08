@@ -24,7 +24,22 @@ const BASE_CSS = `
 [dir=rtl] body, [dir=rtl]{font-family:Alexandria,Rubik,sans-serif}
 .pill{display:inline-block;background:${LIME};color:${CH};border-radius:999px;padding:.12em .55em;font-weight:800}
 .tag{display:inline-block;font-size:.62em;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:.15em .5em;vertical-align:middle;margin-inline-start:.4em}
-.tag.new{background:${LIME};color:${CH}} .tag.vg{background:transparent;color:#3f7d1c;border:1.5px solid #3f7d1c}
+.tag.new{background:${LIME};color:${CH}}
+.pick{color:#3f7d1c;font-weight:900;margin-inline-end:.25em}
+.panel{background:#fff;border-radius:12px;padding:.7em .9em;border:1px solid rgba(46,46,48,.08)}
+.panel h4{margin:0 0 .35em;font-size:1.05em;display:flex;align-items:baseline;gap:.4em}
+.panel .intro{font-size:.72em;opacity:.7;margin:0 0 .4em;line-height:1.3}
+.prot{width:100%;border-collapse:collapse;font-size:.8em}
+.prot th{font-weight:600;text-align:end;font-size:.85em;opacity:.65;padding:0 0 .2em}
+.prot th:first-child{text-align:start}
+.prot td{padding:.18em 0;border-top:1px solid rgba(46,46,48,.08)}
+.prot td.u{text-align:end;font-weight:700;color:#3f7d1c;white-space:nowrap}
+.adds{columns:2;column-gap:1em;font-size:.8em}
+.adds div{display:flex;justify-content:space-between;gap:.5em;padding:.15em 0;break-inside:avoid;border-bottom:1px solid rgba(46,46,48,.08)}
+.adds div b{color:#3f7d1c;font-weight:700;white-space:nowrap}
+.steps{counter-reset:s;list-style:none;margin:0;padding:0;font-size:.8em;line-height:1.3}
+.steps li{display:flex;gap:.5em;padding:.2em 0}
+.steps li::before{counter-increment:s;content:counter(s);flex:none;width:1.5em;height:1.5em;border-radius:999px;background:${LIME};color:${CH};font-weight:800;display:inline-flex;align-items:center;justify-content:center;font-size:.9em} .tag.vg{background:transparent;color:#3f7d1c;border:1.5px solid #3f7d1c}
 [dir=rtl] .tag{letter-spacing:0;text-transform:none}
 .sec h3{margin:0 0 .25em;font-size:1.25em;display:flex;justify-content:space-between;align-items:baseline;gap:.5em}
 .sec h3 .alt{font-size:.78em;font-weight:700;opacity:.8}
@@ -75,7 +90,8 @@ function section(sec, lang, bilingual, opts = {}) {
   const items = sec.items.map(it => {
     const altn = bilingual ? `<span class="alt ${lang === 'ar' ? '' : 'ar'}">${lang === 'ar' ? it.en : it.ar}</span>` : '';
     const sub = opts.noSub ? '' : (t(it, 'sub', lang) ? `<span class="sub">${t(it, 'sub', lang)}</span>` : '');
-    return `<div class="item"><div class="n">${lang === 'ar' ? it.ar : it.en}${tags(it, lang)}${altn}${sub}</div><div class="p">${price(it.price)}</div></div>`;
+    const pk = it.pick ? `<span class="pick" title="your choice">▸</span>` : '';
+    return `<div class="item"><div class="n">${pk}${lang === 'ar' ? it.ar : it.en}${tags(it, lang)}${altn}${sub}</div><div class="p">${price(it.price)}</div></div>`;
   }).join('');
   return `<div class="sec"><h3><span class="disp">${name}</span>${alt}</h3><div class="rule"></div>${note ? `<p class="note">${note}</p>` : ''}${items}</div>`;
 }
@@ -97,14 +113,14 @@ function printedMenu(lang) {
   const css = BASE_CSS + `
   @page{size:A4;margin:0}
   html,body{width:210mm}
-  .page{width:210mm;height:297mm;padding:9mm 11mm 8mm;position:relative;page-break-after:always;overflow:hidden;font-size:9.3pt;display:flex;flex-direction:column}
+  .page{width:210mm;height:297mm;padding:8mm 11mm 7mm;position:relative;page-break-after:always;overflow:hidden;font-size:9.3pt;display:flex;flex-direction:column}
   .page:last-child{page-break-after:auto}
   .head{display:flex;justify-content:space-between;align-items:flex-end;gap:1em;padding-bottom:3mm;border-bottom:1.5px solid ${CH}}
   .head .right{text-align:end}
   .heroes{display:grid;grid-template-columns:repeat(2,1fr);gap:3mm;margin:3.5mm 0 3mm}
   .heroes .hero{height:39mm;font-size:9.3pt}
   .cols{display:grid;grid-template-columns:1fr 1fr;gap:5mm;flex:1}
-  .cols .sec{margin-bottom:3mm}
+  .cols .sec{margin-bottom:2.5mm}
   .foot{margin-top:auto;padding-top:3mm;border-top:1.5px solid ${CH}}
   .hero .cap{background:none;color:${CH};padding:1.6mm 2.4mm 1.8mm;text-shadow:0 0 2mm ${LIME},0 0 1mm ${LIME},0 0 .5mm ${LIME}}
   .hero .cap .t .alt{opacity:.75}
@@ -116,18 +132,25 @@ function printedMenu(lang) {
 
   const page1 = `<div class="page" dir="${dir}">${head}
     <div class="heroes">${M.signatures.map(s => hero(s, lang, false).replace('img/', 'img/print/')).join('')}</div>
-    <div class="cols"><div>${section(sec('charcoal'), lang, false)}${section(sec('lean'), lang, false)}</div><div>${section(sec('snack'), lang, false)}${section(sec('burgers'), lang, false)}${section(sec('kids'), lang, false)}</div></div>
+    <div class="cols"><div>${section(sec('charcoal'), lang, false)}${section(sec('kids'), lang, false)}</div><div>${section(sec('snack'), lang, false)}${section(sec('burgers'), lang, false)}${section(sec('lean'), lang, false)}</div></div>
     <div class="foot">${footer(lang)}</div></div>`;
 
   const scan = lang === 'ar' ? 'امسح واطلب' : 'Scan to order';
+  const up = v => v ? `<bdi dir="ltr">+$${v}</bdi>` : '—';
+  const P = M.proteins, A = M.addons, O = M.order, R = M.rewards;
+  const protPanel = `<div class="panel"><h4 class="disp"><span class="pick">▸</span>${t(P, 'title', lang)}</h4><p class="intro">${t(P, 'intro', lang)}</p><table class="prot"><tr><th>${lang === 'ar' ? 'البروتين' : 'Protein'}</th><th>${lang === 'ar' ? 'سندويش' : 'Sandwich'}</th><th>${lang === 'ar' ? 'صحن' : 'Plate'}</th></tr>${P.items.map(x => `<tr><td>${lang === 'ar' ? x.ar : x.en}</td><td class="u">${up(x.up[0])}</td><td class="u">${up(x.up[1])}</td></tr>`).join('')}</table></div>`;
+  const addPanel = `<div class="panel"><h4 class="disp">${t(A, 'title', lang)}</h4><p class="intro">${t(A, 'intro', lang)}</p><div class="adds">${A.items.map(x => `<div><span>${lang === 'ar' ? x.ar : x.en}</span><b><bdi dir="ltr">+$${x.price}</bdi></b></div>`).join('')}</div></div>`;
+  const mealPanel = `<div class="panel"><h4 class="disp">${t(M.meal, 'title', lang)}</h4><div style="font-size:.8em;line-height:1.35;opacity:.9">${t(M.meal, 'text', lang)}</div><h4 class="disp" style="margin-top:.6em">${t(R, 'title', lang)}</h4><div style="font-size:.8em;line-height:1.35;opacity:.9">${t(R, 'text', lang)}</div></div>`;
+  const steps = (lang === 'ar' ? O.stepsAr : O.stepsEn);
+  const orderPanel = `<div class="panel"><h4 class="disp">${t(O, 'title', lang)}</h4><ol class="steps">${steps.map(x => `<li><span>${x}</span></li>`).join('')}</ol></div>`;
+  const qrPanel = `<div class="panel dark" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2mm;text-align:center;background:${CH};color:${CREAM}"><div style="display:flex;gap:3mm"><div><div style="background:#fff;border-radius:2.5mm;padding:2mm;width:24mm;height:24mm"><img src="img/qr.png" style="width:100%;height:100%;display:block" alt="QR"></div><div class="disp" style="font-size:.95em;margin-top:1.5mm">${scan}</div><div style="font-size:.66em;opacity:.75">${B.web}</div></div><div><div style="background:#fff;border-radius:2.5mm;padding:2mm;width:24mm;height:24mm"><img src="img/qr_maps.png" style="width:100%;height:100%;display:block" alt="QR"></div><div class="disp" style="font-size:.95em;margin-top:1.5mm">${lang === 'ar' ? 'موقعنا' : 'Find us'}</div><div style="font-size:.66em;opacity:.75">Google Maps</div></div></div><div style="font-size:.75em;opacity:.85">Instagram ${B.instagram} · WhatsApp <bdi dir="ltr">${B.phone}</bdi></div></div>`;
   const page2 = `<div class="page" dir="${dir}">${head}
-    <div class="cols" style="margin-top:4mm;flex:0 0 auto"><div>${section(sec('plates'), lang, false)}<div class="hero" style="height:58mm;font-size:10pt;margin-top:3mm"><img src="img/print/kilo.jpg" alt=""><div class="cap"><div class="t"><span class="disp">${lang === 'ar' ? M.kilo.ar : M.kilo.en}</span></div></div></div></div>
-    <div>${section(sec('sides'), lang, false)}${section(sec('desserts'), lang, false)}${section(sec('drinks'), lang, false)}</div></div>
-    <div style="margin-top:4mm">${kiloBand(lang, false)}</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr 66mm;gap:3mm;margin-top:3mm;font-size:8.6pt;line-height:1.4;align-items:stretch"><div class="box"><b class="disp" style="font-size:1.15em">${t(M.meal, 'title', lang)}</b><div style="margin-top:.3em;opacity:.85">${t(M.meal, 'text', lang)}</div></div><div class="box"><b class="disp" style="font-size:1.15em">${t(M.order, 'title', lang)}</b><div style="margin-top:.3em;opacity:.85">${t(M.order, 'text', lang)}</div></div>
-    <div class="box dark" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2mm;text-align:center;background:${CH};color:${CREAM}"><div style="display:flex;gap:3mm"><div><div style="background:#fff;border-radius:2.5mm;padding:2mm;width:26mm;height:26mm"><img src="img/qr.png" style="width:100%;height:100%;display:block" alt="QR"></div><div class="disp" style="font-size:1em;margin-top:1.5mm">${scan}</div><div style="font-size:.68em;opacity:.75">${B.web}</div></div><div><div style="background:#fff;border-radius:2.5mm;padding:2mm;width:26mm;height:26mm"><img src="img/qr_maps.png" style="width:100%;height:100%;display:block" alt="QR"></div><div class="disp" style="font-size:1em;margin-top:1.5mm">${lang === 'ar' ? 'موقعنا' : 'Find us'}</div><div style="font-size:.68em;opacity:.75">Google Maps</div></div></div><div style="font-size:.78em;opacity:.85">Instagram ${B.instagram}</div></div></div>
+    <div class="cols" style="margin-top:3mm;flex:0 0 auto"><div>${section(sec('plates'), lang, false)}${section(sec('desserts'), lang, false)}</div>
+    <div>${section(sec('sides'), lang, false)}${section(sec('drinks'), lang, false)}</div></div>
+    <div style="margin-top:3mm">${kiloBand(lang, false)}</div>
+    <div style="display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:3mm;margin-top:3mm;font-size:8pt">${protPanel}${addPanel}${mealPanel}</div>
+    <div style="display:grid;grid-template-columns:1fr 60mm;gap:3mm;margin-top:3mm;font-size:8pt;flex:0 0 auto">${orderPanel}${qrPanel}</div>
     <div class="foot">${footer(lang)}</div></div>`;
-
   return `<!doctype html><html lang="${lang}" dir="${dir}"><head><meta charset="utf-8">${FONTS}<style>${css}</style></head><body>${page1}${page2}</body></html>`;
 }
 
@@ -184,6 +207,37 @@ const W = (n, h) => fs.writeFileSync(path.join(OUT, n), h);
 W('print_en.html', printedMenu('en')); W('print_ar.html', printedMenu('ar'));
 W('tv_bi.html', tvBoard('en', true)); W('tv_en.html', tvBoard('en', false)); W('tv_ar.html', tvBoard('ar', false));
 W('phone_bi.html', phoneMenu('en', true)); W('phone_ar.html', phoneMenu('ar', false));
+
+/* ---------- A6 BAG CARD (front: QR + order; back: favourites + rewards) ---------- */
+function bagCard(lang) {
+  const dir = lang === 'ar' ? 'rtl' : 'ltr'; const B = M.brand; const R = M.rewards;
+  const css = BASE_CSS + `
+  @page{size:105mm 148mm;margin:0} html,body{width:105mm}
+  .card{width:105mm;height:148mm;padding:7mm;page-break-after:always;display:flex;flex-direction:column;gap:3mm;font-size:8.5pt;position:relative;overflow:hidden}
+  .card:last-child{page-break-after:auto}
+  .front{background:${CH};color:${CREAM}}
+  .qrbox{background:#fff;border-radius:4mm;padding:4mm;width:62mm;height:62mm;margin:2mm auto}
+  .big{font-size:20pt;line-height:1.05}
+  .fav{display:flex;justify-content:space-between;gap:2mm;padding:1.4mm 0;border-bottom:1px solid rgba(46,46,48,.12);font-size:8.5pt}
+  .fav b{color:#3f7d1c}
+  `;
+  const favs = [...M.signatures.slice(0, 4).map(s => [lang === 'ar' ? s.ar : s.en, price(s.price)]),
+    ...['Kafta', 'Shish taouk', 'Basterma'].map(n => { const it = M.sections.flatMap(x => x.items).find(i => i.en === n); return [lang === 'ar' ? it.ar : it.en, price(it.price)]; }),
+    [lang === 'ar' ? M.kilo.ar : M.kilo.en, lang === 'ar' ? 'من $19' : 'from $19']];
+  const front = `<div class="card front" dir="${dir}">${brandMark(lang, true)}<div class="${lang === 'ar' ? '' : 'ar'}" style="font-size:8pt;opacity:.85">${B.arLine}</div>
+    <div class="disp big" style="margin-top:3mm">${lang === 'ar' ? 'امسح واطلب' : 'Scan to order'}</div>
+    <div style="font-size:8.5pt;opacity:.85;line-height:1.35">${lang === 'ar' ? 'المنيو كامل، اطلب أونلاين، حطّ دبّوس بيتك ع الخريطة — ومنوصّل لكل المنطقة.' : 'Full menu, order online, pin your door on the map — we deliver across the area.'}</div>
+    <div class="qrbox"><img src="img/qr.png" style="width:100%;height:100%;display:block" alt="QR"></div>
+    <div style="text-align:center;font-size:8pt;opacity:.8">${B.web}</div>
+    <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;gap:2mm"><div><div class="disp" style="font-size:13pt">WhatsApp · <bdi dir="ltr">${B.phone}</bdi></div><div style="font-size:7.5pt;opacity:.8">${t(B, 'hours', lang)} · ${t(B, 'address', lang)}</div></div><div style="font-size:7.5pt;opacity:.8;text-align:end">Instagram<br>${B.instagram}</div></div></div>`;
+  const back = `<div class="card" dir="${dir}">${brandMark(lang)}<div class="disp" style="font-size:13pt;margin-top:1mm">${lang === 'ar' ? 'المفضّلة' : 'Favourites'}</div>
+    <div>${favs.map(([n, p]) => `<div class="fav"><span>${n}</span><b>${p}</b></div>`).join('')}</div>
+    <div class="band" style="padding:2.5mm 3mm;margin-top:1mm"><div class="disp" style="font-size:10pt">${t(R, 'title', lang)}</div><div style="font-size:7.8pt;line-height:1.35">${t(R, 'text', lang)}</div></div>
+    <div style="margin-top:auto;display:flex;gap:3mm;align-items:center"><div style="background:#fff;border:1px solid rgba(46,46,48,.12);border-radius:3mm;padding:1.5mm;width:20mm;height:20mm"><img src="img/qr_maps.png" style="width:100%;height:100%;display:block"></div><div style="font-size:7.8pt;line-height:1.35"><b>${lang === 'ar' ? 'موقعنا على Google Maps' : 'Find us on Google Maps'}</b><br>${t(B, 'address', lang)}<br>${t(B, 'delivery', lang)}</div></div></div>`;
+  return `<!doctype html><html lang="${lang}" dir="${dir}"><head><meta charset="utf-8">${FONTS}<style>${css}</style></head><body>${front}${back}</body></html>`;
+}
+W('card_en.html', bagCard('en')); W('card_ar.html', bagCard('ar'));
+
 // img symlink for out/
 try { fs.symlinkSync(path.join(__dirname, 'img'), path.join(OUT, 'img')); } catch (e) {}
 console.log('built');

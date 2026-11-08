@@ -170,6 +170,15 @@ def replace_block(path, head, builder, kilo_head):
     print('updated', path.relative_to(REPO))
 
 
+def sync_addons():
+    adds = M['addons']['items']
+    w = REPO / 'docs/grill/index.html'; t = w.read_text(encoding='utf-8')
+    t = re.sub(r"const ADDONS=\[.*?\];", "const ADDONS=[" + ",".join(f"[{js(a['en'])},{a['price']}]" for a in adds) + "];", t, count=1)
+    w.write_text(t, encoding='utf-8')
+    a = ROOT / 'app-orders.html'; t = a.read_text(encoding='utf-8')
+    t = re.sub(r"const ADDONS = \[.*?\];", "const ADDONS = [" + ", ".join(f"[{js(a['en'])}, {a['price']}]" for a in adds) + "];", t, count=1)
+    a.write_text(t, encoding='utf-8')
+sync_addons()
 replace_block(REPO / 'docs/grill/index.html', 'const MENU=[', website_menu, " {id:'kilo'")
 replace_block(ROOT / 'app-orders.html', 'const MENU = [', app_menu, "  { id: 'kilo'")
 

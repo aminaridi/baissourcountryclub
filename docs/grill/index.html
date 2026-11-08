@@ -64,6 +64,16 @@ input,select,textarea{font:inherit;color:var(--ink);background:var(--panel);bord
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 [data-lang="ar"] .soon-badge{letter-spacing:0;font-size:14px}
 .hero-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.hero .in.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:28px;align-items:center}
+@media (max-width:860px){.hero .in.hero-grid{grid-template-columns:minmax(0,1fr)}}
+.feat{position:relative;border-radius:18px;overflow:hidden;background:#3A3A3E;aspect-ratio:4/3;box-shadow:0 10px 30px rgba(0,0,0,.35);cursor:pointer}
+.feat img{width:100%;height:100%;object-fit:cover;display:block}
+.feat .lbl{position:absolute;top:12px;inset-inline-start:12px;background:#8DC63F;color:#1F3308;font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:999px}
+[data-lang="ar"] .feat .lbl{letter-spacing:0;font-size:13px}
+.feat .cap{position:absolute;left:0;right:0;bottom:0;padding:40px 14px 14px;background:linear-gradient(to top,rgba(46,46,48,.95),rgba(46,46,48,0));color:#F4F3EE}
+.feat .cap b{font-size:20px;display:block}
+.feat .cap span{font-size:13px;opacity:.85;display:block;padding-inline-end:74px}
+.feat .cap .pr{position:absolute;inset-inline-end:14px;bottom:14px;background:#8DC63F;color:#1F3308;border-radius:999px;padding:4px 12px;font-weight:800;font-size:16px}
 .hbtn{font:inherit;font-weight:700;font-size:15px;padding:12px 18px;border-radius:12px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;cursor:pointer;border:1.5px solid transparent}
 .hbtn.solid{background:#8DC63F;color:#1F3308}
 .hbtn.solid:hover{background:#9BD44C}
@@ -88,6 +98,8 @@ body.soon.preview .pv-note{display:flex}
 .section .sub{color:var(--ink-3);font-size:13px;margin-bottom:12px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin-top:10px}
 .item{background:var(--panel);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:6px;border:1px solid var(--line);overflow:hidden}
+.upsell{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:13px;padding:6px 0}
+.upsell .u{background:var(--lime-soft,#E6F2D2);color:var(--lime-ink,#1F3308);border:1px solid #8DC63F;border-radius:999px;padding:6px 12px;font-weight:600;cursor:pointer}
 .item .photo{width:calc(100% + 28px);margin:-14px -14px 6px;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--panel-2)}
 .item.sig{border-color:var(--lime);box-shadow:inset 0 0 0 1px var(--lime)}
 .item .name{font-weight:600}
@@ -195,7 +207,8 @@ footer{max-width:1180px;margin:0 auto;padding:0 16px 40px;color:var(--ink-3);fon
 </header>
 
 <section class="hero" id="top">
-  <div class="in">
+  <div class="in hero-grid">
+  <div class="hero-text">
     <div class="sign"><span dir="rtl" lang="ar">مشوى منتجع بيصور السياحي</span></div>
     <div class="soon-badge soon-only" data-t="badge"></div>
     <h1 data-t="h1"></h1>
@@ -207,6 +220,8 @@ footer{max-width:1180px;margin:0 auto;padding:0 16px 40px;color:var(--ink-3);fon
       <a class="hbtn line" id="pdfMenu" href="menu/BCC-Grill-Menu-EN.pdf" target="_blank" rel="noopener" data-t="pdfMenu"></a>
       <a class="hbtn line" id="askWa" href="#" target="_blank" rel="noopener" data-t="askWa"></a>
     </div>
+  </div>
+  <div class="feat" id="feat" role="button" tabindex="0"></div>
   </div>
 </section>
 
@@ -220,6 +235,7 @@ footer{max-width:1180px;margin:0 auto;padding:0 16px 40px;color:var(--ink-3);fon
       <button class="close-cart" id="closeCart" aria-label="Close">×</button>
     </div>
     <div class="lines" id="lines"></div>
+    <div class="upsell" id="upsell" hidden></div>
     <div class="totals" id="totals"></div>
     <div class="form" id="checkout">
       <div class="seg" id="typeSeg">
@@ -327,6 +343,7 @@ const AR = {
   'Toum':'توم','Hummus':'حمص','Yogurt-tahini':'لبن وطحينة','Hot harissa':'هريسة حرّة','Toum mayo':'مايونيز بالتوم','Cheese sauce':'صوص جبنة',
   'No onion':'بلا بصل','No pickles':'بلا كبيس','No tomato':'بلا بندورة','No parsley':'بلا بقدونس','No lettuce':'بلا خس','Sauce on the side':'الصوص ع جنب','Extra spicy':'حرّ زيادة','Well done':'مستوي منيح',
   'Extra fries':'بطاطا زيادة','Fattoush side':'فتوش ع جنب','Extra kafta skewer':'سيخ كفتة زيادة','Extra taouk skewer':'سيخ طاووق زيادة','BCC toum tub':'علبة توم BCC','Extra bread ×6':'خبز ×٦','Pickles & turnips':'كبيس ولفت',
+  "Extra patty (burgers)":"قرص لحمة زيادة (برغر)","Cheese":"جبنة","Extra skewer":"سيخ زيادة","Extra toum":"توم زيادة","Fries on the side":"بطاطا ع جنب","Small hummus":"حمص صغير","Salad on the side":"سلطة ع جنب","Extra bread":"خبز زيادة","Pickles & turnips":"كبيس ولفت","Fried egg":"بيضة مقلية","Extra patty":"قرص لحمة زيادة",
   'On the burger':'ع البرغر','On the side':'ع جنب','Coleslaw and pickles in the bun':'الكول سلو والكبيس بالبرغر','Coleslaw and pickles on the side':'الكول سلو والكبيس ع جنب',
   'Burger only':'برغر بس','Meal: side + salad + drink':'وجبة: طبق جانبي + سلطة + مشروب','Extra cheese':'جبنة زيادة','Add fried egg':'زيد بيضة مقلية','Extra ketchup':'كاتشب زيادة',
   'Kafta':'كفتة','Lamb':'لحمة غنم','Taouk':'طاووق','Mixed':'مشكّل','Half and half':'نص ونص','Regular':'عادي','Large (share)':'كبير (للمشاركة)',
@@ -347,13 +364,13 @@ const DRINKS=[['Pepsi',0],['7Up',0],['Mirinda',0],['Water',0],['Ayran',0],['Fres
 const BREADS=[['Saj bread',0],['Pita',0],['Lettuce wrap (no bread)',0]];
 const SAUCES=[['Toum',0],['Hummus',0],['Yogurt-tahini',0],['Hot harissa',0],['Toum mayo',0],['Cheese sauce',.5]];
 const REMOVE=[['No onion',0],['No pickles',0],['No tomato',0],['No parsley',0],['Sauce on the side',0],['Extra spicy',0],['Well done',0]];
-const ADDONS=[['Extra fries',2],['Small hummus',2],['Fattoush side',3],['Batata harra',3],['Grilled vegetables',2.5],['Extra kafta skewer',2.5],['Extra taouk skewer',2.5],['BCC toum tub',3],['Extra bread',1],['Pickles & turnips',1]];
+const ADDONS=[["Extra patty (burgers)",2.5],["Cheese",0.5],["Extra skewer",2.5],["Extra toum",0.5],["Fries on the side",2],["Small hummus",2],["Salad on the side",3],["Extra bread",1],["Pickles & turnips",1],["Fried egg",1]];
 const C=(key,label,ar,opts,o={})=>({key,label,ar,opts,...o});
 /* every protein on the sandwich menu — used wherever a protein is chosen (lamb-cut / spiced upcharges vary by portion) */
 const PROT=(lamb,spiced)=>[['Kafta',0],['Shish taouk',0],['Djej meshwi',0],['Lahmeh shi2af',lamb],['Lamb kabab',lamb],['Kabab orfali',spiced]];
 const SANDWICH=[C('bread','Bread','الخبز',BREADS),C('sauce','Sauce (pick up to two)','الصوص (لحد تنين)',SAUCES,{multi:true,max:2}),C('mods','Changes','تعديلات',REMOVE,{multi:true,optional:true})];
 const VEG=C('veg','Veggies on the burger or on the side?','الخضرا ع البرغر أو ع جنب؟',[['On the burger',0],['On the side',0]],{msg:'Veggies'});
-const BURGER_MODS=C('mods','Changes','تعديلات',[['No onion',0],['No pickles',0],['No tomato',0],['No lettuce',0],['Sauce on the side',0],['Extra cheese',.5],['Add fried egg',1]],{multi:true,optional:true});
+const BURGER_MODS=C('mods','Changes','تعديلات',[['Extra patty',2.5],['Cheese',.5],['No onion',0],['No pickles',0],['No tomato',0],['No lettuce',0],['Sauce on the side',0],['Add fried egg',1]],{multi:true,optional:true});
 const MEALQ=C('meal','Make it a meal','عملها وجبة',[['Burger only',0],['Meal: side + salad + drink',3]],{msg:'Meal'});
 const MEAL_PICKS=[C('side','Meal side','الطبق الجانبي',SIDES,{when:'meal'}),C('salad','Meal salad','السلطة',SALADS,{when:'meal'}),C('drink','Meal drink','المشروب',DRINKS,{when:'meal'})];
 const MEAL=[C('side','Side','طبق جانبي',SIDES),C('salad','Salad','سلطة',SALADS),C('drink','Drink','مشروب',DRINKS)];
@@ -455,6 +472,14 @@ function toast(m){const d=document.createElement('div');d.className='toast';d.se
 function saveCart(){try{localStorage.setItem('bcc-grill-cart',JSON.stringify(cart));}catch(e){}}
 const findItem=id=>{for(const c of MENU)for(const it of c.items)if(it.id===id)return it;};
 
+/* ===== featured item of the day (rotates daily, same for everyone) ===== */
+const FEATURED=[{id:'bccburger',img:'featured-bcc.jpg'},{id:'smash',img:'featured-smash.jpg'},{id:'kfries',img:'featured-kfries.jpg'},{sec:'dessert',img:'featured-desserts.jpg'}];
+function renderFeatured(){const d=new Date();const day=Math.floor((Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()))/86400000);const f=FEATURED[day%FEATURED.length];
+  let name,ar,pr,desc,target;
+  if(f.id){const it=findItem(f.id);if(!it)return;name=it.name;ar=it.ar;pr=money(it.price);desc=lang==='ar'?it.descAr:it.desc;target=()=>openSheet(it);}
+  else{const c=MENU.find(x=>x.id===f.sec);name=c.name;ar=c.ar;pr=lang==='ar'?'من $2.5':'from $2.5';desc=lang==='ar'?c.subAr:c.sub;target=()=>document.getElementById('sec-'+c.id).scrollIntoView({block:'start'});}
+  const el=$('#feat');el.innerHTML=`<img src="menu/photos/${f.img}" alt=""><div class="lbl">${lang==='ar'?'طبق اليوم':"Today's pick"}</div><div class="cap"><b>${lang==='ar'?ar:name}</b><span>${desc||''}</span><div class="pr num">${pr}</div></div>`;
+  el.onclick=target;el.onkeydown=e=>{if(e.key==='Enter')target();};}
 /* ===== language ===== */
 function applyLang(){
   const r=document.documentElement;
@@ -465,7 +490,7 @@ function applyLang(){
   $('#appLink').href=APP_URL;$('#pdfMenu').href=lang==='ar'?'menu/BCC-Grill-Menu-AR.pdf':'menu/BCC-Grill-Menu-EN.pdf';
   if(!LIVE){document.body.classList.add('soon');$('[data-t="h1"]').innerHTML=t('h1Soon');$('[data-t="intro"]').innerHTML=t('introSoon');$('#sendBtn span').innerHTML=t('soonBtn');$('.applink').hidden=true;
     $('#askWa').href='https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(t('askMsg'));}
-  renderMenu();renderCart();
+  renderMenu();renderCart();renderFeatured();
 }
 const firstSec=()=>{const s=document.querySelector('.section');if(s)s.scrollIntoView({block:'start'});};
 $('#seeMenu').onclick=firstSec;
@@ -547,6 +572,15 @@ function openSheet(it){
 /* ===== cart ===== */
 const subtotal=()=>cart.reduce((s,l)=>s+l.unit*l.qty,0);
 const fee=()=>orderType==='delivery'?ZONE_FEE[$('#cZone').value](subtotal()):0;
+function renderUpsell(){const u=$('#upsell');if(!cart.length){u.hidden=true;return;}
+  const has=id=>cart.some(l=>l.id===id);const hasSec=sec=>cart.some(l=>{const c=MENU.find(x=>x.items.some(i=>i.id===l.id));return c&&c.id===sec;});
+  const sug=[];
+  if(!hasSec('drinks'))sug.push('freshlemonadew');
+  if(!hasSec('dessert'))sug.push('rizbhalib');
+  if(!has('fries')&&!hasSec('sides'))sug.push('fries');
+  const chips=sug.map(id=>findItem(id)).filter(Boolean).slice(0,3).map(it=>`<button type="button" class="u" data-add="${it.id}">+ ${lang==='ar'?it.ar:it.name} · ${money(it.price)}</button>`).join('');
+  u.hidden=!chips;u.innerHTML=`<span style="opacity:.7">${lang==='ar'?'كمّل طلبيتك:':'Complete it:'}</span>${chips}`;
+  u.querySelectorAll('[data-add]').forEach(b=>b.onclick=()=>{const it=findItem(b.dataset.add);cart.push({id:it.id,qty:1,unit:it.price,picks:[],notes:''});saveCart();renderCart();toast(t('added'));});}
 function renderCart(){
   const lines=$('#lines');lines.innerHTML='';
   if(!cart.length)lines.innerHTML=`<div class="empty">${t('empty')}</div>`;
@@ -558,6 +592,7 @@ function renderCart(){
     const [m,p]=d.querySelectorAll('.qty button');
     m.onclick=()=>{l.qty--;if(l.qty<1)cart.splice(i,1);saveCart();renderCart();};p.onclick=()=>{l.qty++;saveCart();renderCart();};
     lines.appendChild(d);});
+  renderUpsell();
   const s=subtotal(),f=fee();
   $('#totals').innerHTML=cart.length?`<div><span>${t('subtotal')}</span><span class="num">${money(s)}</span></div>`+(orderType==='delivery'?`<div><span>${t('deliveryFee')}</span><span class="num">${f?money(f):t('free')}</span></div>`:'')+`<div class="grand"><span>${t('total')}</span><span class="num">${money(s+f)}</span></div>`:'';
   $('#sendBtn').disabled=!cart.length||!LIVE;
