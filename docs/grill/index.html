@@ -413,7 +413,7 @@ const MENU=[
   {id:"kidstaouk",name:"Kids taouk",ar:"طاووق الأولاد",price:5,desc:"one taouk skewer with bread",descAr:"سيخ طاووق مع خبز",choices:[C('side','Side','طبق جانبي',[['Small fries',0],['Cucumber & carrot sticks',0],['Small rice',0]]),C('drink','Drink','مشروب',[['Apple juice',0],['Orange juice',0],['Water',0]]),C('mods','Changes','تعديلات',[['Add cheese',0],['Add ketchup',0],['Cut in half',0]],{multi:true,optional:true})]},
   {id:"kidskafta",name:"Kids kafta",ar:"كفتة الأولاد",price:5,desc:"one kafta skewer with bread",descAr:"سيخ كفتة مع خبز",choices:[C('side','Side','طبق جانبي',[['Small fries',0],['Cucumber & carrot sticks',0],['Small rice',0]]),C('drink','Drink','مشروب',[['Apple juice',0],['Orange juice',0],['Water',0]]),C('mods','Changes','تعديلات',[['Add cheese',0],['Add ketchup',0],['Cut in half',0]],{multi:true,optional:true})]},
  ]},
- {id:'plates',name:'Plates & boxes',ar:'صحون وبوكسات',sub:"Every plate: your side, your salad, hummus, bread",subAr:"كل صحن: طبق جانبي وسلطة ع ذوقك، حمص، خبز",items:[
+ {id:'plates',name:'Plates & boxes',ar:'صحون وبوكسات',sub:"Every plate: your side (fries, rice, batata harra, hummus), your salad, hummus, bread",subAr:"كل صحن: طبق جانبي ع ذوقك (بطاطا، رز، بطاطا حرّة، حمص)، سلطة، حمص، خبز",items:[
   {id:"kplate",name:"Kabab plate",ar:"صحن كباب",price:9,desc:"three skewers of your choice · lamb +$2",descAr:"٣ سياخ ع ذوقك · لحمة غنم +٢$",choices:[C('protein','Skewers','السياخ',[...PROT(2,.5),['Half and half',0]]),...PLATE]},
   {id:"mixed",name:"BCC mixed grill",ar:"مشاوي BCC",price:12,desc:"kafta, lamb and taouk together",descAr:"كفتة ولحمة وطاووق سوا",choices:PLATE},
   {id:"farrouj",name:"Farrouj meshwi 3al fa7m",ar:"فروج مشوي ع الفحم",price:13.0,desc:"whole or half charcoal chicken with the sides",descAr:"فروج كامل أو نص ع الفحم مع الإضافات",choices:[C('size','Size','الحجم',[['Whole',0],['Half',-6]]),C('sauce','Sauces (pick up to two)','الصوص (لحد تنين)',SAUCES,{multi:true,max:2}),C('mods','Changes','تعديلات',[['Extra crispy',0],['Extra spicy',0],['No pickles',0],['Salad instead of fries',0]],{multi:true,optional:true})]},
@@ -437,6 +437,7 @@ const MENU=[
  {id:'sides',name:'Sides & sauces',ar:'مقبلات وصوص',items:[
   {id:"fries",name:"Fries",ar:"بطاطا مقلية",price:2,desc:"crispy golden fries",descAr:"بطاطا مقلية مقرمشة"},
   {id:"hummus",name:"Hummus",ar:"حمص",price:2.5,desc:"smooth house hummus",descAr:"حمص ناعم من عنّا"},
+  {id:"vermicellirice",name:"Vermicelli rice",ar:"رز بالشعيرية",price:2.5,desc:"a side for any plate",descAr:"طبق جانبي لأي صحن"},
   {id:"fattoush",name:"Fattoush",ar:"فتوش",price:3,desc:"the Lebanese classic",descAr:"الكلاسيكية اللبنانية"},
   {id:"tabbouleh",name:"Tabbouleh",ar:"تبولة",price:3,desc:"fresh and lemony",descAr:"طازة وحامضة"},
   {id:"coleslaw",name:"Coleslaw",ar:"كول سلو",price:2.5,desc:"creamy and crunchy",descAr:"كريمي ومقرمش"},

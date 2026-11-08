@@ -255,8 +255,8 @@
    "id": "plates",
    "en": "Plates & boxes",
    "ar": "صحون وبوكسات",
-   "noteEn": "Every plate: your side, your salad, hummus, bread",
-   "noteAr": "كل صحن: طبق جانبي وسلطة ع ذوقك، حمص، خبز",
+   "noteEn": "Every plate: your side (fries, rice, batata harra, hummus), your salad, hummus, bread",
+   "noteAr": "كل صحن: طبق جانبي ع ذوقك (بطاطا، رز، بطاطا حرّة، حمص)، سلطة، حمص، خبز",
    "items": [
     {
      "en": "Kabab plate",
@@ -339,6 +339,13 @@
      "price": 2.5,
      "subEn": "smooth house hummus",
      "subAr": "حمص ناعم من عنّا"
+    },
+    {
+     "en": "Vermicelli rice",
+     "ar": "رز بالشعيرية",
+     "price": 2.5,
+     "subEn": "a side for any plate",
+     "subAr": "طبق جانبي لأي صحن"
     },
     {
      "en": "Fattoush",

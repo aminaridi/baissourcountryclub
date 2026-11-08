@@ -330,7 +330,7 @@ const MENU = [
     { id: "kidstaouk", name: "Kids taouk", ar: "طاووق الأولاد", price: 5, desc: "one taouk skewer with bread", choices: [C('side', 'Side', [['Small fries', 0], ['Cucumber & carrot sticks', 0], ['Small rice', 0]]), C('drink', 'Drink', [['Apple juice', 0], ['Orange juice', 0], ['Water', 0]]), C('mods', 'Changes', [['Add cheese', 0], ['Add ketchup', 0], ['Cut in half', 0]], { multi: true, optional: true })] },
     { id: "kidskafta", name: "Kids kafta", ar: "كفتة الأولاد", price: 5, desc: "one kafta skewer with bread", choices: [C('side', 'Side', [['Small fries', 0], ['Cucumber & carrot sticks', 0], ['Small rice', 0]]), C('drink', 'Drink', [['Apple juice', 0], ['Orange juice', 0], ['Water', 0]]), C('mods', 'Changes', [['Add cheese', 0], ['Add ketchup', 0], ['Cut in half', 0]], { multi: true, optional: true })] },
   ]},
-  { id: 'plates', name: 'Plates & boxes', ar: 'صحون وبوكسات', sub: "Every plate: your side, your salad, hummus, bread", items: [
+  { id: 'plates', name: 'Plates & boxes', ar: 'صحون وبوكسات', sub: "Every plate: your side (fries, rice, batata harra, hummus), your salad, hummus, bread", items: [
     { id: "kplate", name: "Kabab plate", ar: "صحن كباب", price: 9, desc: "three skewers of your choice · lamb +$2", choices: [C('protein', 'Skewers', [...PROT(2, 0.5), ['Half and half', 0]]), ...PLATE] },
     { id: "mixed", name: "BCC mixed grill", ar: "مشاوي BCC", price: 12, desc: "kafta, lamb and taouk together", choices: PLATE },
     { id: "farrouj", name: "Farrouj meshwi 3al fa7m", ar: "فروج مشوي ع الفحم", price: 13.0, desc: "whole or half charcoal chicken with the sides", choices: [C('size', 'Size', [['Whole', 0], ['Half', -6]]), C('sauce', 'Sauces (pick up to two)', SAUCES, { multi: true, max: 2 }), C('mods', 'Changes', [['Extra crispy', 0], ['Extra spicy', 0], ['No pickles', 0], ['Salad instead of fries', 0]], { multi: true, optional: true })] },
@@ -350,6 +350,7 @@ const MENU = [
   { id: 'sides', name: 'Sides & sauces', ar: 'مقبلات وصوص', items: [
     { id: "fries", name: "Fries", ar: "بطاطا مقلية", price: 2, desc: "crispy golden fries" },
     { id: "hummus", name: "Hummus", ar: "حمص", price: 2.5, desc: "smooth house hummus" },
+    { id: "vermicellirice", name: "Vermicelli rice", ar: "رز بالشعيرية", price: 2.5, desc: "a side for any plate" },
     { id: "fattoush", name: "Fattoush", ar: "فتوش", price: 3, desc: "the Lebanese classic" },
     { id: "tabbouleh", name: "Tabbouleh", ar: "تبولة", price: 3, desc: "fresh and lemony" },
     { id: "coleslaw", name: "Coleslaw", ar: "كول سلو", price: 2.5, desc: "creamy and crunchy" },
