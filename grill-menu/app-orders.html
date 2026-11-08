@@ -289,7 +289,7 @@ const REMOVE = [['No onion', 0], ['No pickles', 0], ['No tomato', 0], ['No parsl
 const ADDONS = [['Extra fries', 2], ['Small hummus', 2], ['Fattoush side', 3], ['Batata harra', 3], ['Grilled vegetables', 2.5], ['Extra kafta skewer', 2.5], ['Extra taouk skewer', 2.5], ['BCC toum tub', 3], ['Extra bread', 1], ['Pickles & turnips', 1]];
 const C = (key, label, opts, o = {}) => ({ key, label, opts, ...o });
 /* every protein on the sandwich menu — used wherever a protein is chosen (lamb-cut / spiced upcharges vary by portion) */
-const PROT = (lamb, spiced) => [['Kafta', 0], ['Shish taouk', 0], ['Djej meshwi', 0], ['Lahmeh sha2af', lamb], ['Lamb kabab', lamb], ['Kabab orfali', spiced]];
+const PROT = (lamb, spiced) => [['Kafta', 0], ['Shish taouk', 0], ['Djej meshwi', 0], ['Lahmeh shi2af', lamb], ['Lamb kabab', lamb], ['Kabab orfali', spiced]];
 const SANDWICH = [C('bread', 'Bread', BREADS), C('sauce', 'Sauce (pick up to two)', SAUCES, { multi: true, max: 2 }), C('mods', 'Changes', REMOVE, { multi: true, optional: true })];
 const VEG = C('veg', 'Veggies on the burger or on the side?', [['On the burger', 0], ['On the side', 0]]);
 const BURGER = [VEG, C('mods', 'Changes', [['No onion', 0], ['No pickles', 0], ['No tomato', 0], ['No lettuce', 0], ['Sauce on the side', 0], ['Extra cheese', 0.5], ['Add fried egg', 1]], { multi: true, optional: true })];
@@ -305,7 +305,7 @@ const MENU = [
   { id: "charcoal", name: "Charcoal grilled sandwiches", ar: "سندويشات مشوية على الفحم", sub: "Lebanese bread · pick 2 sauces", items: [
     { id: "kafta", name: "Kafta", ar: "كفتة", price: 5, desc: "our signature kafta, charcoal grilled", choices: SANDWICH },
     { id: "lamb", name: "Lamb kabab", ar: "كباب لحمة", price: 5.5, desc: "tender lamb cubes off the charcoal", choices: SANDWICH },
-    { id: "lahme", name: "Lahmeh sha2af", ar: "لحمة شقف", price: 5.5, desc: "marinated beef cubes, charcoal grilled", choices: SANDWICH },
+    { id: "lahme", name: "Lahmeh shi2af", ar: "لحمة شقف", price: 5.5, desc: "marinated beef cubes, charcoal grilled", choices: SANDWICH },
     { id: "taouk", name: "Shish taouk", ar: "شيش طاووق", price: 5, desc: "charcoal grilled taouk, toum, pickles, fries", choices: SANDWICH },
     { id: "djej", name: "Djej meshwi", ar: "دجاج مشوي", price: 5, desc: "charcoal grilled chicken, fries, toum, special sauce, lettuce, pickles", tag: 'New', choices: SANDWICH },
     { id: "orfali", name: "Kabab orfali", ar: "كباب أورفلي", price: 5, desc: "kafta with pine nuts and spices", choices: SANDWICH },

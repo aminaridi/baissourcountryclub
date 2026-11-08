@@ -19,7 +19,7 @@ js = lambda v: json.dumps(v, ensure_ascii=False)
 clean = lambda t: re.sub(r'<[^>]+>', '', t or '').replace(' Large +$3.', '').replace(' كبير +٣$.', '').strip()
 sec = lambda i: next(x for x in M['sections'] if x['id'] == i)
 slug = lambda en: re.sub(r'[^a-z0-9]+', '', en.lower())[:14]
-IDS = {'Kafta': 'kafta', 'Lamb kabab': 'lamb', 'Lahmeh sha2af': 'lahme', 'Shish taouk': 'taouk', 'Djej meshwi': 'djej',
+IDS = {'Kafta': 'kafta', 'Lamb kabab': 'lamb', 'Lahmeh shi2af': 'lahme', 'Shish taouk': 'taouk', 'Djej meshwi': 'djej',
        'Kabab orfali': 'orfali', 'Arayes': 'arayes', 'Vegetarian skewer': 'vegskewer'}
 KIDS_W = "[C('side','Side','طبق جانبي',[['Small fries',0],['Cucumber & carrot sticks',0],['Small rice',0]]),C('drink','Drink','مشروب',[['Apple juice',0],['Orange juice',0],['Water',0]]),C('mods','Changes','تعديلات',[['Add cheese',0],['Add ketchup',0],['Cut in half',0]],{multi:true,optional:true})]"
 KIDS_A = "[C('side', 'Side', [['Small fries', 0], ['Cucumber & carrot sticks', 0], ['Small rice', 0]]), C('drink', 'Drink', [['Apple juice', 0], ['Orange juice', 0], ['Water', 0]]), C('mods', 'Changes', [['Add cheese', 0], ['Add ketchup', 0], ['Cut in half', 0]], { multi: true, optional: true })]"

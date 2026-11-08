@@ -350,7 +350,7 @@ const REMOVE=[['No onion',0],['No pickles',0],['No tomato',0],['No parsley',0],[
 const ADDONS=[['Extra fries',2],['Small hummus',2],['Fattoush side',3],['Batata harra',3],['Grilled vegetables',2.5],['Extra kafta skewer',2.5],['Extra taouk skewer',2.5],['BCC toum tub',3],['Extra bread',1],['Pickles & turnips',1]];
 const C=(key,label,ar,opts,o={})=>({key,label,ar,opts,...o});
 /* every protein on the sandwich menu — used wherever a protein is chosen (lamb-cut / spiced upcharges vary by portion) */
-const PROT=(lamb,spiced)=>[['Kafta',0],['Shish taouk',0],['Djej meshwi',0],['Lahmeh sha2af',lamb],['Lamb kabab',lamb],['Kabab orfali',spiced]];
+const PROT=(lamb,spiced)=>[['Kafta',0],['Shish taouk',0],['Djej meshwi',0],['Lahmeh shi2af',lamb],['Lamb kabab',lamb],['Kabab orfali',spiced]];
 const SANDWICH=[C('bread','Bread','الخبز',BREADS),C('sauce','Sauce (pick up to two)','الصوص (لحد تنين)',SAUCES,{multi:true,max:2}),C('mods','Changes','تعديلات',REMOVE,{multi:true,optional:true})];
 const VEG=C('veg','Veggies on the burger or on the side?','الخضرا ع البرغر أو ع جنب؟',[['On the burger',0],['On the side',0]],{msg:'Veggies'});
 const BURGER_MODS=C('mods','Changes','تعديلات',[['No onion',0],['No pickles',0],['No tomato',0],['No lettuce',0],['Sauce on the side',0],['Extra cheese',.5],['Add fried egg',1]],{multi:true,optional:true});
@@ -371,7 +371,7 @@ const MENU=[
  {id:"charcoal",name:"Charcoal grilled sandwiches",ar:"سندويشات مشوية على الفحم",sub:"Lebanese bread · pick 2 sauces",subAr:"خبز عربي · اختار صوصين",items:[
   {id:"kafta",name:"Kafta",ar:"كفتة",price:5,desc:"our signature kafta, charcoal grilled",descAr:"كفتتنا المميّزة مشوية ع الفحم",choices:SANDWICH},
   {id:"lamb",name:"Lamb kabab",ar:"كباب لحمة",price:5.5,desc:"tender lamb cubes off the charcoal",descAr:"قطع لحمة غنم طرية ع الفحم",choices:SANDWICH},
-  {id:"lahme",name:"Lahmeh sha2af",ar:"لحمة شقف",price:5.5,desc:"marinated beef cubes, charcoal grilled",descAr:"قطع لحمة بقر متبّلة ع الفحم",choices:SANDWICH},
+  {id:"lahme",name:"Lahmeh shi2af",ar:"لحمة شقف",price:5.5,desc:"marinated beef cubes, charcoal grilled",descAr:"قطع لحمة بقر متبّلة ع الفحم",choices:SANDWICH},
   {id:"taouk",name:"Shish taouk",ar:"شيش طاووق",price:5,desc:"charcoal grilled taouk, toum, pickles, fries",descAr:"طاووق مشوي ع الفحم، توم، كبيس، بطاطا",choices:SANDWICH},
   {id:"djej",name:"Djej meshwi",ar:"دجاج مشوي",price:5,tag:'new',desc:"charcoal grilled chicken, fries, toum, special sauce, lettuce, pickles",descAr:"دجاج مشوي ع الفحم، بطاطا، توم، صوص خاص، خس، كبيس",choices:SANDWICH},
   {id:"orfali",name:"Kabab orfali",ar:"كباب أورفلي",price:5,desc:"kafta with pine nuts and spices",descAr:"كفتة مع صنوبر وبهارات",choices:SANDWICH},
