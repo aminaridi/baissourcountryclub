@@ -334,7 +334,7 @@ const AR = {
   '4 kafta + 4 taouk':'٤ كفتة + ٤ طاووق','All kafta':'كلها كفتة','All taouk':'كلها طاووق','Mixed with lamb':'مشكّل مع لحمة غنم',
   'Grilled now':'مشوي هلق','Raw & marinated, to grill at home':'نيّ ومتبّل، لتشويه بالبيت','1 kg':'١ كيلو','½ kg':'½ كيلو','2 kg':'٢ كيلو',
   'Kafta + taouk + lamb':'كفتة + طاووق + لحمة','Kafta + taouk':'كفتة + طاووق','Extra lamb':'لحمة زيادة',
-  'Hummus 500 g':'حمص ٥٠٠ غ','Fattoush large':'فتوش كبير','Tabbouleh large':'تبولة كبيرة','Batata harra large':'بطاطا حرّة كبيرة','Extra bread ×6':'خبز صاج ×٦',
+  'Hummus 500 g':'حمص ٥٠٠ غ','Fattoush large':'فتوش كبير','Tabbouleh large':'تبولة كبيرة','Batata harra large':'بطاطا حرّة كبيرة','Extra bread ×6':'خبز ×٦',
   'With 8 brioche buns':'مع ٨ خبز بريوش','Patties only':'الأقراص بس','Cheese slices ×8':'شرحات جبنة ×٨'
 };
 
@@ -345,7 +345,7 @@ const DRINKS=[['Pepsi',0],['7Up',0],['Mirinda',0],['Water',0],['Ayran',0],['Fres
 const BREADS=[['Saj bread',0],['Pita',0],['Lettuce wrap (no bread)',0]];
 const SAUCES=[['Toum',0],['Hummus',0],['Yogurt-tahini',0],['Hot harissa',0],['Toum mayo',0],['Cheese sauce',.5]];
 const REMOVE=[['No onion',0],['No pickles',0],['No tomato',0],['No parsley',0],['Sauce on the side',0],['Extra spicy',0],['Well done',0]];
-const ADDONS=[['Extra fries',2],['Small hummus',2],['Fattoush side',3],['Batata harra',3],['Grilled vegetables',2.5],['Extra kafta skewer',2.5],['Extra taouk skewer',2.5],['BCC toum tub',3],['Extra saj bread',1],['Pickles & turnips',1]];
+const ADDONS=[['Extra fries',2],['Small hummus',2],['Fattoush side',3],['Batata harra',3],['Grilled vegetables',2.5],['Extra kafta skewer',2.5],['Extra taouk skewer',2.5],['BCC toum tub',3],['Extra bread',1],['Pickles & turnips',1]];
 const C=(key,label,ar,opts,o={})=>({key,label,ar,opts,...o});
 /* every protein on the sandwich menu — used wherever a protein is chosen (lamb-cut / spiced upcharges vary by portion) */
 const PROT=(lamb,spiced)=>[['Kafta',0],['Shish taouk',0],['Djej meshwi',0],['Lahmeh sha2af',lamb],['Lamb kabab',lamb],['Kabab orfali',spiced]];
