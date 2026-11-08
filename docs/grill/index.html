@@ -162,7 +162,16 @@ footer{max-width:1180px;margin:0 auto;padding:0 16px 40px;color:var(--ink-3);fon
 }
 @media (max-width:420px){.two{grid-template-columns:1fr}.top .back{font-size:13px}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  #pinMap{height:210px;border-radius:12px;overflow:hidden;background:#e8e6dc;margin-top:8px;border:1px solid rgba(46,46,48,.12)}
+  .maprow{display:flex;gap:10px;align-items:center;margin-top:8px;flex-wrap:wrap}
+  .maprow button{border:1.5px solid #2E2E30;background:#fff;border-radius:999px;padding:7px 14px;font:inherit;font-weight:600;cursor:pointer}
+  .maprow button:hover{background:#F4F3EE}
+  .maprow .hint{font-size:.85em;opacity:.75;flex:1;min-width:160px}
+  .maprow .hint.ok{color:#3f7d1c;opacity:1;font-weight:600}
+  .leaflet-container{font:inherit}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" crossorigin="">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" crossorigin=""></script>
 </head>
 <body>
 
@@ -217,6 +226,8 @@ footer{max-width:1180px;margin:0 auto;padding:0 16px 40px;color:var(--ink-3);fon
           <option value="C" data-t="zC"></option>
         </select>
         <input id="cAddress" data-ph="address">
+        <div id="pinMap" role="application" aria-label="Map"></div>
+        <div class="maprow"><button type="button" id="locBtn" data-t="useLoc"></button><span class="hint" id="pinStatus" data-t="pinHint"></span></div>
       </div>
       <input id="cNotes" data-ph="notes">
       <div class="seg" id="paySeg">
@@ -244,6 +255,8 @@ footer{max-width:1180px;margin:0 auto;padding:0 16px 40px;color:var(--ink-3);fon
 
 <script>
 /* ===== settings — change these two lines when the Grill gets its own number / the app link goes public ===== */
+const SB_URL = 'https://ungpmhwxanalqwozeiua.supabase.co';   /* BCC Grill customer memory (Supabase project bcc-grill) */
+const SB_KEY = 'sb_publishable_nC3CeNYYdQB28VDjrB8lkw_rHz95fXZ';
 const WHATSAPP = '96181461188';            /* BCC Grill's own WhatsApp number — 81 461 188 (Amin, 7 Nov 2026) */
 const APP_URL = 'https://claude.ai/artifact/XTxWubQaqW8fzNhVNYxP2o'; /* BCC Grill ordering app */
 const LIVE = false;                        /* OPENING DAY: change to true — removes "coming soon", turns ordering on */
@@ -262,6 +275,7 @@ const T = {
     orApp: 'Prefer the app?', appLink: 'Order in the BCC Grill app',
     foot: 'BCC Grill is the take away of Baissour Country Club', choose: 'Choose', add: 'Add', addToOrder: 'Add to order', addSides: 'Add sides for extra', addSidesHint: 'Added to this item',
     kitchenNotes: 'Notes for the kitchen', notesPh: 'e.g. extra toum, no onion', optional: 'Optional', pickN: n => `Choose ${n}`, upTo: n => `Pick up to ${n}`, chooseOne: 'Choose one',
+    welcomeBack: 'Welcome back, {n} — we remembered your location. Check the pin is still right.', useLoc: 'Use my location', pinHint: 'Drop the pin on your door — tap the map or drag the pin.', pinSet: 'Location pinned ✓ — the driver gets a Google Maps link.', pinFail: 'Could not get your location — tap the map instead.',
     needName: 'Add your name and phone number.', needAddr: 'Add your address or a landmark.', minC: 'Down the road delivery has a $15 minimum.', added: 'Added to your order', view: 'View order', items: n => n === 1 ? '1 item' : `${n} items`,
     sent: 'WhatsApp is opening with your order. Tap send there — we reply to confirm and tell you the time.', kcal: 'kcal',
     badge: 'Coming soon', h1Soon: 'BCC Grill is coming soon',
@@ -282,6 +296,7 @@ const T = {
     orApp: 'بتفضّل التطبيق؟', appLink: 'اطلب من تطبيق BCC Grill',
     foot: 'BCC Grill هو التيك أواي تبع منتجع بيصور السياحي', choose: 'اختار', add: 'زيد', addToOrder: 'زيد ع الطلبية', addSides: 'زيد أطباق جانبية', addSidesHint: 'بتنزاد ع هالصنف',
     kitchenNotes: 'ملاحظات للمطبخ', notesPh: 'مثلاً: توم زيادة، بلا بصل', optional: 'اختياري', pickN: n => `اختار ${n}`, upTo: n => `لحد ${n}`, chooseOne: 'اختار واحد',
+    welcomeBack: 'أهلاً برجعتك {n} — تذكّرنا موقعك. تأكّد إنو الدبّوس بعدو بمحلّو.', useLoc: 'استخدم موقعي', pinHint: 'حطّ الدبّوس ع بابك — كبس ع الخريطة أو جرّ الدبّوس.', pinSet: 'تم تحديد الموقع ✓ — بيوصل للسائق رابط Google Maps.', pinFail: 'ما قدرنا نجيب موقعك — كبس ع الخريطة.',
     needName: 'حط اسمك ورقم تلفونك.', needAddr: 'حط عنوانك أو أقرب معلم.', minC: 'التوصيل لنزلة الطريق أقل طلبية فيه ١٥$.', added: 'انزاد ع طلبيتك', view: 'شوف الطلبية', items: n => n === 1 ? 'صنف واحد' : `${n} أصناف`,
     sent: 'عم ينفتح واتساب مع طلبيتك. كبس إرسال هونيك — منرد لنأكد ومنقلك الوقت.', kcal: 'سعرة',
     badge: 'قريباً', h1Soon: 'BCC Grill قريباً',
@@ -534,10 +549,40 @@ function renderCart(){
   $('#cartbar').hidden=!n;$('#cbCount').textContent=t('view')+' · '+t('items')(n);$('#cbTotal').textContent=money(s+f);
 }
 function seg(id,attr,cb){$(id).querySelectorAll('button').forEach(b=>b.onclick=()=>{$(id).querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true');cb(b.dataset[attr]);});}
-seg('#typeSeg','type',v=>{orderType=v;$('#deliveryFields').hidden=v!=='delivery';renderCart();});
+seg('#typeSeg','type',v=>{orderType=v;$('#deliveryFields').hidden=v!=='delivery';renderCart();if(v==='delivery'){initPinMap();setTimeout(()=>pinMap&&pinMap.invalidateSize(),350);}});
 seg('#paySeg','pay',v=>{pay=v;});
 $('#cZone').onchange=renderCart;
-$('#cartbar').onclick=()=>document.body.classList.add('cart-open');
+/* ===== delivery pin (Leaflet + OpenStreetMap; the customer's pin is sent as a Google Maps link) ===== */
+let pin=null,pinMap=null,pinMarker=null;
+const BAISSOUR=[33.770350,35.565687];
+function setPin(lat,lng){pin={lat:+lat.toFixed(6),lng:+lng.toFixed(6)};
+  if(!pinMarker)pinMarker=L.marker([lat,lng],{draggable:true}).addTo(pinMap).on('dragend',e=>{const q=e.target.getLatLng();setPin(q.lat,q.lng);});
+  else pinMarker.setLatLng([lat,lng]);
+  const st=$('#pinStatus');st.textContent=t('pinSet');st.classList.add('ok');}
+function initPinMap(){if(pinMap||typeof L==='undefined'||!$('#pinMap'))return;
+  pinMap=L.map('pinMap',{zoomControl:true,attributionControl:true}).setView(BAISSOUR,15);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap'}).addTo(pinMap);
+  L.circleMarker(BAISSOUR,{radius:7,color:'#2E2E30',fillColor:'#8DC63F',fillOpacity:1,weight:2}).addTo(pinMap).bindTooltip('BCC Grill');
+  pinMap.on('click',e=>setPin(e.latlng.lat,e.latlng.lng));
+  $('#locBtn').onclick=()=>{if(!navigator.geolocation)return toast(t('pinFail'));
+    navigator.geolocation.getCurrentPosition(p=>{setPin(p.coords.latitude,p.coords.longitude);pinMap.setView([p.coords.latitude,p.coords.longitude],17);},()=>toast(t('pinFail')),{enableHighAccuracy:true,timeout:10000});};
+  setTimeout(()=>pinMap.invalidateSize(),300);}
+/* ===== customer memory: phone -> name, landmark, pinned location ===== */
+const sbRpc=(fn,body)=>fetch(SB_URL+'/rest/v1/rpc/'+fn,{method:'POST',headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':'application/json'},body:JSON.stringify(body),keepalive:true}).then(r=>r.ok?r.json():null).catch(()=>null);
+let lastLookup='';
+async function lookupCustomer(){const raw=$('#cPhone').value,d=raw.replace(/\D/g,'');if(d.length<7)return;const key=d.replace(/^00/,'').replace(/^961/,'').replace(/^0/,'');if(key===lastLookup)return;lastLookup=key;
+  const rows=await sbRpc('grill_lookup',{p_phone:raw});const c=rows&&rows[0];if(!c)return;
+  if(c.name&&!$('#cName').value.trim())$('#cName').value=c.name;
+  if(c.address&&!$('#cAddress').value.trim())$('#cAddress').value=c.address;
+  if(c.zone){$('#cZone').value=c.zone;renderCart();}
+  if(c.lat&&c.lng){initPinMap();setPin(c.lat,c.lng);pinMap&&pinMap.setView([c.lat,c.lng],17);}
+  toast(t('welcomeBack').replace('{n}',c.name||''));}
+$('#cPhone').addEventListener('blur',lookupCustomer);$('#cPhone').addEventListener('change',lookupCustomer);
+function saveOrder(name,phone,addr,zone,s,f,notes){sbRpc('grill_save_order',{p:{name,phone,type:orderType,zone:orderType==='delivery'?zone:null,address:orderType==='delivery'?addr:null,
+  lat:orderType==='delivery'&&pin?pin.lat:null,lng:orderType==='delivery'&&pin?pin.lng:null,pay,
+  items:cart.map(l=>{const it=findItem(l.id);return{id:l.id,name:it.name,qty:l.qty,unit:l.unit,picks:l.picks,notes:l.notes||null};}),
+  subtotal:s,fee:f,total:s+f,notes:notes||null,source:'website'}});}
+$('#cartbar').onclick=()=>{document.body.classList.add('cart-open');initPinMap();setTimeout(()=>pinMap&&pinMap.invalidateSize(),350);};
 $('#closeCart').onclick=()=>document.body.classList.remove('cart-open');
 
 /* ===== send on WhatsApp ===== */
@@ -551,12 +596,13 @@ $('#sendBtn').onclick=()=>{
   if(orderType==='delivery'&&zone==='C'&&subtotal()<15)return bad(t('minC'));
   const zoneTxt={A:'Baissour',B:'Neighbouring village',C:'Down the road'}[zone];
   const L=['*BCC Grill order — website*','',(orderType==='delivery'?'Delivery':'Take away')+' · '+({cash:'Cash',whish:'Whish',omt:'OMT',card:'Card'}[pay]),'Name: '+name,'Phone: '+phone];
-  if(orderType==='delivery')L.push('Area: '+zoneTxt,'Address: '+addr);
+  if(orderType==='delivery'){L.push('Area: '+zoneTxt,'Address: '+addr);if(pin)L.push('Location: https://maps.google.com/?q='+pin.lat+','+pin.lng);}
   L.push('');
   cart.forEach(l=>{const it=findItem(l.id);L.push(`${l.qty}× ${it.name} (${it.ar}) — ${money(l.unit*l.qty)}`);l.picks.forEach(p=>L.push(`   ${p.k}: ${p.v.join(', ')}`));if(l.notes)L.push('   Note: '+l.notes);});
   const s=subtotal(),f=fee();
   L.push('','Subtotal: '+money(s));if(orderType==='delivery')L.push('Delivery: '+(f?money(f):'Free'));L.push('*Total: '+money(s+f)+'*');
   const notes=$('#cNotes').value.trim();if(notes)L.push('','Kitchen notes: '+notes);
+  saveOrder(name,phone,addr,zone,s,f,notes);
   window.open('https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(L.join('\n')),'_blank','noopener');
   toast(t('sent'));
 };
