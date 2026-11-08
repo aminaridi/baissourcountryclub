@@ -191,7 +191,7 @@ sec(("9 · Light & Lean, sides, dessert cups, drinks", "٩ · خفيف وصحي�
     recipe(("Dessert cups — made every morning", "كاسات الحلو — بتنعمل كل صباح"), ("20 cups each", "٢٠ كاسة لكل نوع"),
         [("RIZ B'HALIB $2.50: 2 L milk, 200 g short rice, 200 g sugar, 2 tbsp orange-blossom water, pistachio on top.", "رز بحليب $2.50: ٢ ل حليب، ٢٠٠ غ رز قصير، ٢٠٠ غ سكر، ملعقتين ماء زهر، فستق حلبي فوق."), ("MHALABIYA $2.50: 2 L milk, 160 g cornflour, 200 g sugar, 2 tbsp rose water, pistachio.", "مهلبية $2.50: ٢ ل حليب، ١٦٠ غ نشا، ٢٠٠ غ سكر، ملعقتين ماء ورد، فستق حلبي."), ("CHOCOLATE MOUSSE $3: 500 g dark chocolate melted, 1 L cream whipped, 100 g sugar; hazelnut crumble on top.", "موس شوكولا $3: ٥٠٠ غ شوكولا غامقة دايبة، ١ ل كريمة مخفوقة، ١٠٠ غ سكر؛ بندق مطحون فوق.")],
         [("Portion into the 200 ml cups, lid, date sticker, cold case. 2 days max. Count at closing.", "وزّع بكاسات ٢٠٠ مل، غطا، لاصقة تاريخ، الفيترين البارد. يومين حد أقصى. عدّ عند الإغلاق."), ("Grab-and-go: nothing is made to order. Every dessert goes out with a spoon + napkin.", "جاهز للأخذ: ما في شي بينعمل ع الطلب. كل حلو بيطلع مع ملعقة + محرمة.")]),
-    recipe(("Sides and drinks", "المقبلات والمشروبات"), ("", ""), [("Fries $2 · hummus $2.50 · fattoush $3 · tabbouleh $3 · coleslaw $2.50 · batata harra $3 · toum tub $3 · extra bread $1", "بطاطا $2 · حمص $2.50 · فتوش $3 · تبولة $3 · كول سلو $2.50 · بطاطا حرّة $3 · علبة توم $3 · خبز زيادة $1"), ("Soft drink $1.50 · water $1 · ayran $1.50 · fresh lemonade with mint $2.50 (squeezed to order: 2 lemons, 25 g sugar, mint, ice, 300 ml)", "مشروب غازي $1.50 · مي $1 · عيران $1.50 · ليموناضة بالنعنع $2.50 (معصورة ع الطلب: ٢ حامض، ٢٥ غ سكر، نعنع، تلج، ٣٠٠ مل)")], [("Every can or bottle goes out with a straw. Cold drinks in their own bag so they don't warm the food.", "كل تنكة أو قنينة بتطلع مع شاليمو. المشروبات الباردة بكيس لحالها ليما تسخّن الأكل.")], photo=False),
+    recipe(("Sides and drinks", "المقبلات والمشروبات"), ("", ""), [("Fries $2 · hummus $2.50 · fattoush $3 · tabbouleh $3 · coleslaw $2.50 · batata harra $3 · toum tub $3 · extra bread $1", "بطاطا $2 · حمص $2.50 · فتوش $3 · تبولة $3 · كول سلو $2.50 · بطاطا حرّة $3 · علبة توم $3 · خبز زيادة $1"), ("Soft drink $1.50 · water $1 · ayran $1.50", "مشروب غازي $1.50 · مي $1 · عيران $1.50")], [("Every can or bottle goes out with a straw. Cold drinks in their own bag so they don't warm the food.", "كل تنكة أو قنينة بتطلع مع شاليمو. المشروبات الباردة بكيس لحالها ليما تسخّن الأكل.")], photo=False),
 ])
 
 # ---------------------------------------------------------------- 10 · Packing
@@ -223,7 +223,7 @@ sec(("11 · Service scripts", "١١ · عبارات الخدمة"), None, [
     ]),
     text(("The three upsell questions (ask them, every order)", "أسئلة الزيادة التلاتة (اسألها بكل طلب)"), [
         ("1 · 'Make it a meal for $3 more — side, salad and a drink?'", "١ · 'عملها وجبة بـ$3 زيادة — جانبي وسلطة ومشروب؟'"),
-        ("2 · 'Anything to drink? Fresh lemonade with mint is $2.50.'", "٢ · 'شي تشربو؟ الليموناضة بالنعنع بـ$2.50.'"),
+        ("2 · 'Anything to drink? Ayran or a cold soft drink?'", "٢ · 'شي تشربو؟ عيران أو مشروب غازي بارد؟'"),
         ("3 · 'A dessert cup for after? Riz b'halib or chocolate mousse.' — and for burgers: 'extra patty for $2.50?'", "٣ · 'كاسة حلو لبعدين؟ رز بحليب أو موس شوكولا.' — وللبرغر: 'قرص زيادة بـ$2.50؟'"),
         ("Never push twice. One question each, then thank them.", "ما تلحّ مرتين. سؤال واحد لكل شي، وبعدين اشكرو."),
     ]),

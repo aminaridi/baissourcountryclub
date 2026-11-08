@@ -360,7 +360,7 @@ const AR = {
 /* ===== menu ===== */
 const SALADS=[['Fattoush',0],['Tabbouleh',0],['Coleslaw',0],['Biwaz (onion, parsley, sumac)',0],['Greek-style salad',.5]];
 const SIDES=[['Fries',0],['Batata harra',0],['Vermicelli rice',0],['Grilled vegetables',.5],['Small hummus',0]];
-const DRINKS=[['Pepsi',0],['7Up',0],['Mirinda',0],['Water',0],['Ayran',0],['Fresh lemonade with mint',1]];
+const DRINKS=[['Pepsi',0],['7Up',0],['Mirinda',0],['Water',0],['Ayran',0]];
 const BREADS=[['Saj bread',0],['Pita',0],['Lettuce wrap (no bread)',0]];
 const SAUCES=[['Toum',0],['Hummus',0],['Yogurt-tahini',0],['Hot harissa',0],['Toum mayo',0],['Cheese sauce',.5]];
 const REMOVE=[['No onion',0],['No pickles',0],['No tomato',0],['No parsley',0],['Sauce on the side',0],['Extra spicy',0],['Well done',0]];
@@ -454,7 +454,6 @@ const MENU=[
   {id:"soft",name:"Soft drink",ar:"مشروب غازي",price:1.5,desc:"Pepsi, 7Up, Mirinda, Diet Pepsi",descAr:"بيبسي، سفن أب، ميرندا، دايت بيبسي",choices:[C('kind','Which','أيا واحد',[['Pepsi',0],['7Up',0],['Mirinda',0],['Diet Pepsi',0]])]},
   {id:"water",name:"Water",ar:"مي",price:1,desc:"bottled water",descAr:"مي معدنية"},
   {id:"ayran",name:"Ayran",ar:"عيران",price:1.5,desc:"cold yogurt drink",descAr:"عيران بارد"},
-  {id:"freshlemonadew",name:"Fresh lemonade with mint",ar:"ليموناضة بالنعنع",price:2.5,desc:"freshly squeezed",descAr:"معصورة طازة"},
  ]},
 ];
 const TAGS={sig:['Signature','مميّز'],new:['New','جديد'],lean:['Lean','خفيف'],kilo:['Kilo','كيلو'],fam:['Every day','كل يوم']};
@@ -576,7 +575,7 @@ const fee=()=>orderType==='delivery'?ZONE_FEE[$('#cZone').value](subtotal()):0;
 function renderUpsell(){const u=$('#upsell');if(!cart.length){u.hidden=true;return;}
   const has=id=>cart.some(l=>l.id===id);const hasSec=sec=>cart.some(l=>{const c=MENU.find(x=>x.items.some(i=>i.id===l.id));return c&&c.id===sec;});
   const sug=[];
-  if(!hasSec('drinks'))sug.push('freshlemonadew');
+  if(!hasSec('drinks'))sug.push('ayran');
   if(!hasSec('dessert'))sug.push('rizbhalib');
   if(!has('fries')&&!hasSec('sides'))sug.push('fries');
   const chips=sug.map(id=>findItem(id)).filter(Boolean).slice(0,3).map(it=>`<button type="button" class="u" data-add="${it.id}">+ ${lang==='ar'?it.ar:it.name} · ${money(it.price)}</button>`).join('');
