@@ -169,6 +169,14 @@ footer{max-width:1180px;margin:0 auto;padding:0 16px 40px;color:var(--ink-3);fon
   .maprow .hint{font-size:.85em;opacity:.75;flex:1;min-width:160px}
   .maprow .hint.ok{color:#3f7d1c;opacity:1;font-weight:600}
   .leaflet-container{font:inherit}
+  .orders{display:grid;gap:10px}
+  .order{background:var(--panel-2);border-radius:12px;padding:12px 14px;display:grid;gap:6px}
+  .order .o-head{display:flex;justify-content:space-between;gap:10px;font-weight:600}
+  .order .o-items{font-size:.9em;opacity:.8;line-height:1.4}
+  .order .o-foot{display:flex;justify-content:space-between;align-items:center;gap:10px}
+  .order .o-foot button{background:var(--lime);color:var(--lime-ink);border-radius:999px;padding:7px 14px;font-weight:600}
+  .acct-row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+  .acct-row .ghost{background:var(--panel-2);color:var(--ink);border-radius:999px;padding:7px 14px}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" crossorigin="">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" crossorigin=""></script>
@@ -181,6 +189,7 @@ footer{max-width:1180px;margin:0 auto;padding:0 16px 40px;color:var(--ink-3);fon
     <span class="disp">BCC <span>GRILL</span></span>
   </a>
   <a class="back" href="../"><span data-t="back"></span></a>
+  <button class="lang" id="acctBtn" type="button" data-t="acct"></button>
   <button class="lang" id="langbtn" type="button">عربي</button>
 </header>
 
@@ -233,8 +242,6 @@ footer{max-width:1180px;margin:0 auto;padding:0 16px 40px;color:var(--ink-3);fon
       <div class="seg" id="paySeg">
         <button type="button" data-pay="cash" aria-pressed="true" data-t="cash"></button>
         <button type="button" data-pay="whish" aria-pressed="false">Whish</button>
-        <button type="button" data-pay="omt" aria-pressed="false">OMT</button>
-        <button type="button" data-pay="card" aria-pressed="false" data-t="card"></button>
       </div>
       <div class="warn" id="warn" hidden></div>
       <button class="primary" id="sendBtn" disabled>
@@ -271,10 +278,11 @@ const T = {
     delivery: 'Delivery', pickup: 'Take away', name: 'Name', phone: 'Phone (03 xxx xxx)', address: 'Address or landmark', notes: 'Notes for the kitchen (no onion, extra toum…)',
     zA: 'Baissour · free over $8 (else $1)', zB: 'Neighbouring villages · $2', zC: 'Down the road · $3 (min $15)',
     cash: 'Cash', card: 'Card', send: 'Send order on WhatsApp',
-    payNote: 'Cash is paid at the door or the counter. Whish and OMT: we send the wallet number on WhatsApp when we confirm your order.',
+    payNote: 'Cash is paid at the door or the counter. Whish: we send the wallet number on WhatsApp when we confirm your order.',
     orApp: 'Prefer the app?', appLink: 'Order in the BCC Grill app',
     foot: 'BCC Grill is the take away of Baissour Country Club', choose: 'Choose', add: 'Add', addToOrder: 'Add to order', addSides: 'Add sides for extra', addSidesHint: 'Added to this item',
     kitchenNotes: 'Notes for the kitchen', notesPh: 'e.g. extra toum, no onion', optional: 'Optional', pickN: n => `Choose ${n}`, upTo: n => `Pick up to ${n}`, chooseOne: 'Choose one',
+    acct: 'My orders', acctHi: 'Hi {n}', signIn: 'Sign in', signOut: 'Sign out', pinLbl: 'PIN (4 digits)', pinHelp: 'First time? Choose a 4-digit PIN — we create your account.', pinWrong: 'Wrong PIN — try again.', recent: 'Recent orders', noOrders: 'No orders yet.', reorder: 'Order again', reordered: 'Added to your order', welcomeNew: 'Account created — welcome!', signedOut: 'Signed out.', acctWho: 'Signed in as',
     welcomeBack: 'Welcome back, {n} — we remembered your location. Check the pin is still right.', useLoc: 'Use my location', pinHint: 'Drop the pin on your door — tap the map or drag the pin.', pinSet: 'Location pinned ✓ — the driver gets a Google Maps link.', pinFail: 'Could not get your location — tap the map instead.',
     needName: 'Add your name and phone number.', needAddr: 'Add your address or a landmark.', minC: 'Down the road delivery has a $15 minimum.', added: 'Added to your order', view: 'View order', items: n => n === 1 ? '1 item' : `${n} items`,
     sent: 'WhatsApp is opening with your order. Tap send there — we reply to confirm and tell you the time.', kcal: 'kcal',
@@ -292,10 +300,11 @@ const T = {
     delivery: 'توصيل', pickup: 'تيك أواي', name: 'الاسم', phone: 'رقم التلفون (03 xxx xxx)', address: 'العنوان أو أقرب معلم', notes: 'ملاحظات للمطبخ (بلا بصل، توم زيادة…)',
     zA: 'بيصور · مجاني فوق ٨$ (غير هيك ١$)', zB: 'الضيع المجاورة · ٢$', zC: 'نزلة الطريق · ٣$ (أقل طلبية ١٥$)',
     cash: 'كاش', card: 'بطاقة', send: 'ابعت الطلبية ع واتساب',
-    payNote: 'الكاش بتدفعو ع الباب أو بالمحل. Whish و OMT: منبعتلك رقم المحفظة ع واتساب لما نأكد الطلبية.',
+    payNote: 'الكاش بتدفعو ع الباب أو بالمحل. Whish: منبعتلك رقم المحفظة ع واتساب لما نأكد الطلبية.',
     orApp: 'بتفضّل التطبيق؟', appLink: 'اطلب من تطبيق BCC Grill',
     foot: 'BCC Grill هو التيك أواي تبع منتجع بيصور السياحي', choose: 'اختار', add: 'زيد', addToOrder: 'زيد ع الطلبية', addSides: 'زيد أطباق جانبية', addSidesHint: 'بتنزاد ع هالصنف',
     kitchenNotes: 'ملاحظات للمطبخ', notesPh: 'مثلاً: توم زيادة، بلا بصل', optional: 'اختياري', pickN: n => `اختار ${n}`, upTo: n => `لحد ${n}`, chooseOne: 'اختار واحد',
+    acct: 'طلباتي', acctHi: 'أهلاً {n}', signIn: 'تسجيل دخول', signOut: 'تسجيل خروج', pinLbl: 'الرقم السري (٤ أرقام)', pinHelp: 'أول مرة؟ اختار رقم سري من ٤ أرقام — منعملك حساب.', pinWrong: 'الرقم السري غلط — جرّب مرة تانية.', recent: 'آخر الطلبات', noOrders: 'بعد ما في طلبات.', reorder: 'اطلب نفس الشي', reordered: 'انضاف لطلبيتك', welcomeNew: 'انعمل الحساب — أهلاً فيك!', signedOut: 'سجّلت خروج.', acctWho: 'مسجّل دخول كـ',
     welcomeBack: 'أهلاً برجعتك {n} — تذكّرنا موقعك. تأكّد إنو الدبّوس بعدو بمحلّو.', useLoc: 'استخدم موقعي', pinHint: 'حطّ الدبّوس ع بابك — كبس ع الخريطة أو جرّ الدبّوس.', pinSet: 'تم تحديد الموقع ✓ — بيوصل للسائق رابط Google Maps.', pinFail: 'ما قدرنا نجيب موقعك — كبس ع الخريطة.',
     needName: 'حط اسمك ورقم تلفونك.', needAddr: 'حط عنوانك أو أقرب معلم.', minC: 'التوصيل لنزلة الطريق أقل طلبية فيه ١٥$.', added: 'انزاد ع طلبيتك', view: 'شوف الطلبية', items: n => n === 1 ? 'صنف واحد' : `${n} أصناف`,
     sent: 'عم ينفتح واتساب مع طلبيتك. كبس إرسال هونيك — منرد لنأكد ومنقلك الوقت.', kcal: 'سعرة',
@@ -582,7 +591,45 @@ function saveOrder(name,phone,addr,zone,s,f,notes){sbRpc('grill_save_order',{p:{
   lat:orderType==='delivery'&&pin?pin.lat:null,lng:orderType==='delivery'&&pin?pin.lng:null,pay,
   items:cart.map(l=>{const it=findItem(l.id);return{id:l.id,name:it.name,qty:l.qty,unit:l.unit,picks:l.picks,notes:l.notes||null};}),
   subtotal:s,fee:f,total:s+f,notes:notes||null,source:'website'}});}
+/* ===== customer account: phone + PIN, recent orders, order again ===== */
+let me=null;const TOK='bcc-grill-token';
+const getTok=()=>{try{return localStorage.getItem(TOK)}catch(e){return null}};const setTok=v=>{try{v?localStorage.setItem(TOK,v):localStorage.removeItem(TOK)}catch(e){}};
+function applyProfile(c){if(!c)return;if(c.name&&!$('#cName').value.trim())$('#cName').value=c.name;if(c.phone&&!$('#cPhone').value.trim())$('#cPhone').value=c.phone.length===7?'0'+c.phone:c.phone;
+  if(c.address&&!$('#cAddress').value.trim())$('#cAddress').value=c.address;if(c.zone){$('#cZone').value=c.zone;}
+  if(c.lat&&c.lng){initPinMap();if(pinMap){setPin(c.lat,c.lng);pinMap.setView([c.lat,c.lng],17);}}
+  $('#acctBtn').textContent=c.name?t('acctHi').replace('{n}',c.name.split(' ')[0]):t('acct');}
+async function loadMe(){const tok=getTok();if(!tok)return;const r=await sbRpc('grill_me',{p_token:tok});if(r&&r.phone){me=r;applyProfile(me);}else{setTok(null);me=null;}}
+const fmtDate=iso=>{const d=new Date(iso);return d.toLocaleDateString(lang==='ar'?'ar-LB':'en-GB',{day:'numeric',month:'short'})+' · '+d.toLocaleTimeString(lang==='ar'?'ar-LB':'en-GB',{hour:'2-digit',minute:'2-digit'});};
+function openAccount(){
+  const bg=document.createElement('div');bg.className='sheet-bg';const sh=document.createElement('div');sh.className='sheet';sh.setAttribute('role','dialog');bg.appendChild(sh);document.body.appendChild(bg);
+  const close=()=>bg.remove();bg.onclick=e=>{if(e.target===bg)close();};
+  const render=()=>{
+    if(!me){sh.innerHTML=`<div class="head"><h3 class="disp">${t('acct')}</h3><button class="x" type="button">×</button></div>
+      <div class="form"><input id="aPhone" inputmode="tel" placeholder="${t('phone')}" value="${$('#cPhone').value||''}"><input id="aPin" inputmode="numeric" maxlength="6" type="password" placeholder="${t('pinLbl')}"><div class="hint" style="font-size:12px;color:var(--ink-3)">${t('pinHelp')}</div><div class="warn" id="aWarn" hidden></div>
+      <button class="primary" id="aGo" type="button">${t('signIn')}</button></div><div style="height:16px"></div>`;
+      sh.querySelector('.x').onclick=close;
+      sh.querySelector('#aGo').onclick=async()=>{const ph=sh.querySelector('#aPhone').value,pin=sh.querySelector('#aPin').value,w=sh.querySelector('#aWarn');w.hidden=true;
+        const r=await sbRpc('grill_signin',{p_phone:ph,p_pin:pin});
+        if(!r||r.error){w.textContent=r&&r.error==='wrong_pin'?t('pinWrong'):(r&&r.error==='pin_format'?t('pinLbl'):t('needName'));w.hidden=false;return;}
+        setTok(r.token);toast(r.new?t('welcomeNew'):t('welcomeBack').replace('{n}',r.name||''));await loadMe();if(!me)me={phone:r.phone,name:r.name,orders:[]};applyProfile(me);render();};
+    }else{
+      const list=(me.orders||[]).map(o=>{const items=(o.items||[]).map(i=>`${i.qty}× ${i.name}`).join(', ');
+        return `<div class="order"><div class="o-head"><span>${fmtDate(o.at)}</span><span class="num">${money(+o.total||0)}</span></div><div class="o-items">${items}</div><div class="o-foot"><span style="font-size:12px;color:var(--ink-3)">${o.type==='delivery'?t('delivery'):t('pickup')} · ${o.status}</span><button type="button" data-re="${o.id}">${t('reorder')}</button></div></div>`;}).join('')||`<div class="hint" style="color:var(--ink-3)">${t('noOrders')}</div>`;
+      sh.innerHTML=`<div class="head"><h3 class="disp">${t('recent')}</h3><button class="x" type="button">×</button></div>
+        <div class="acct-row"><span style="font-size:13px;color:var(--ink-3)">${t('acctWho')} <b>${me.name||''}</b> · <bdi dir="ltr">${me.phone.length===7?'0'+me.phone:me.phone}</bdi></span><button class="ghost" type="button" id="aOut">${t('signOut')}</button></div>
+        <div class="orders">${list}</div><div style="height:16px"></div>`;
+      sh.querySelector('.x').onclick=close;
+      sh.querySelector('#aOut').onclick=async()=>{await sbRpc('grill_signout',{p_token:getTok()});setTok(null);me=null;$('#acctBtn').textContent=t('acct');toast(t('signedOut'));render();};
+      sh.querySelectorAll('[data-re]').forEach(b=>b.onclick=()=>{const o=me.orders.find(x=>x.id===b.dataset.re);let n=0;(o.items||[]).forEach(i=>{const it=findItem(i.id);if(!it)return;cart.push({id:i.id,qty:i.qty||1,unit:it.price,picks:i.picks||[],notes:i.notes||''});n++;});
+        renderCart();toast(t('reordered'));close();if(n)document.body.classList.add('cart-open');});
+    }};
+  render();}
+$('#acctBtn').onclick=openAccount;
+loadMe();
 $('#cartbar').onclick=()=>{document.body.classList.add('cart-open');initPinMap();setTimeout(()=>pinMap&&pinMap.invalidateSize(),350);};
+/* start the map as soon as the delivery fields are actually visible (preview mode, cart opened any way) */
+if('IntersectionObserver' in window){new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){initPinMap();setTimeout(()=>pinMap&&pinMap.invalidateSize(),200);}});}).observe($('#pinMap'));}
+if('ResizeObserver' in window){new ResizeObserver(()=>{if($('#pinMap').offsetHeight>0){initPinMap();pinMap&&pinMap.invalidateSize();}}).observe($('#pinMap'));}
 $('#closeCart').onclick=()=>document.body.classList.remove('cart-open');
 
 /* ===== send on WhatsApp ===== */
@@ -595,7 +642,7 @@ $('#sendBtn').onclick=()=>{
   if(orderType==='delivery'&&!addr)return bad(t('needAddr'));
   if(orderType==='delivery'&&zone==='C'&&subtotal()<15)return bad(t('minC'));
   const zoneTxt={A:'Baissour',B:'Neighbouring village',C:'Down the road'}[zone];
-  const L=['*BCC Grill order — website*','',(orderType==='delivery'?'Delivery':'Take away')+' · '+({cash:'Cash',whish:'Whish',omt:'OMT',card:'Card'}[pay]),'Name: '+name,'Phone: '+phone];
+  const L=['*BCC Grill order — website*','',(orderType==='delivery'?'Delivery':'Take away')+' · '+({cash:'Cash',whish:'Whish'}[pay]||'Cash'),'Name: '+name,'Phone: '+phone];
   if(orderType==='delivery'){L.push('Area: '+zoneTxt,'Address: '+addr);if(pin)L.push('Location: https://maps.google.com/?q='+pin.lat+','+pin.lng);}
   L.push('');
   cart.forEach(l=>{const it=findItem(l.id);L.push(`${l.qty}× ${it.name} (${it.ar}) — ${money(l.unit*l.qty)}`);l.picks.forEach(p=>L.push(`   ${p.k}: ${p.v.join(', ')}`));if(l.notes)L.push('   Note: '+l.notes);});
