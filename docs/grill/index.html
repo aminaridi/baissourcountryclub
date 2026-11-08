@@ -87,7 +87,8 @@ body.soon.preview .pv-note{display:flex}
 .section h2 small{font-family:'Almarai',sans-serif;font-weight:700;color:var(--ink-3);font-size:15px;margin-inline-start:6px}
 .section .sub{color:var(--ink-3);font-size:13px;margin-bottom:12px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin-top:10px}
-.item{background:var(--panel);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:6px;border:1px solid var(--line)}
+.item{background:var(--panel);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:6px;border:1px solid var(--line);overflow:hidden}
+.item .photo{width:calc(100% + 28px);margin:-14px -14px 6px;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--panel-2)}
 .item.sig{border-color:var(--lime);box-shadow:inset 0 0 0 1px var(--lime)}
 .item .name{font-weight:600}
 .item .alt{color:var(--ink-3);font-size:13px}
@@ -203,6 +204,7 @@ footer{max-width:1180px;margin:0 auto;padding:0 16px 40px;color:var(--ink-3);fon
     <div class="hero-cta soon-only">
       <button class="hbtn solid" id="seeMenu" type="button" data-t="seeMenu"></button>
       <button class="hbtn line" id="previewBtn" type="button" data-t="preview"></button>
+      <a class="hbtn line" id="pdfMenu" href="menu/BCC-Grill-Menu-EN.pdf" target="_blank" rel="noopener" data-t="pdfMenu"></a>
       <a class="hbtn line" id="askWa" href="#" target="_blank" rel="noopener" data-t="askWa"></a>
     </div>
   </div>
@@ -288,7 +290,7 @@ const T = {
     sent: 'WhatsApp is opening with your order. Tap send there — we reply to confirm and tell you the time.', kcal: 'kcal',
     badge: 'Coming soon', h1Soon: 'BCC Grill is coming soon',
     introSoon: 'Charcoal grilled kabab, burgers and farrouj from the Baissour Country Club kitchen — our new take away next to Star Market in Baissour, with delivery across the area. We open soon: have a look at the menu, and preview how Order Now will work.',
-    seeMenu: 'See the menu', preview: 'Preview Order Now', askWa: 'Ask us on WhatsApp', askMsg: 'Hi! When does BCC Grill open?',
+    seeMenu: 'See the menu', pdfMenu: 'Menu (PDF)', preview: 'Preview Order Now', askWa: 'Ask us on WhatsApp', askMsg: 'Hi! When does BCC Grill open?',
     pvNote: 'Preview — this is how Order Now will work when we open. Ordering isn’t live yet, so nothing is sent.', pvOff: 'Back to the menu',
     soonBtn: 'Ordering opens soon', soonToast: 'Ordering opens soon — stay tuned!', pvOn: 'Preview on — add items to see how ordering will work.'
   },
@@ -310,7 +312,7 @@ const T = {
     sent: 'عم ينفتح واتساب مع طلبيتك. كبس إرسال هونيك — منرد لنأكد ومنقلك الوقت.', kcal: 'سعرة',
     badge: 'قريباً', h1Soon: 'BCC Grill قريباً',
     introSoon: 'كباب، برغر وفروج ع الفحم من مطبخ منتجع بيصور السياحي — التيك أواي الجديد تبعنا حد ستار ماركت ببيصور، مع توصيل لكل المنطقة. قريباً منفتح: تفرّج ع المنيو وشوف كيف رح يصير الطلب.',
-    seeMenu: 'شوف المنيو', preview: 'شوف صفحة الطلب', askWa: 'اسألنا ع واتساب', askMsg: 'مرحبا! إيمتى بيفتح BCC Grill؟',
+    seeMenu: 'شوف المنيو', pdfMenu: 'المنيو (PDF)', preview: 'شوف صفحة الطلب', askWa: 'اسألنا ع واتساب', askMsg: 'مرحبا! إيمتى بيفتح BCC Grill؟',
     pvNote: 'معاينة — هيك رح يصير الطلب لما نفتح. الطلب لسا مش شغّال، وما في شي عم ينبعت.', pvOff: 'رجوع للمنيو',
     soonBtn: 'الطلب بيفتح قريباً', soonToast: 'الطلب بيفتح قريباً — خليك متابع!', pvOn: 'المعاينة شغّالة — زيد أصناف لتشوف كيف بيصير الطلب.'
   }
@@ -366,7 +368,7 @@ const MENU=[
   {id:"smash",name:"BCC Kafta Smash",ar:"كفتة سماش",price:6,tag:"sig",desc:"Our kafta, smashed crispy on the saj with the classic fixings.",descAr:"كفتتنا مرقوقة ومقرمشة ع الصاج مع الإضافات الكلاسيكية.",choices:SANDWICH},
   {id:"kfries",name:"Kafta Fries",ar:"بطاطا كفتة",price:5,tag:"sig",desc:"Loaded fries with charcoal grilled kafta, cheese sauce and toum — or make it taouk.",descAr:"بطاطا محمّلة بكفتة مشوية ع الفحم، صوص جبنة وتوم — أو خلّيها طاووق.",choices:[C('size','Size','الحجم',[['Regular',0],['Large (share)',3]]),C('protein','Meat','اللحمة',[['Kafta',0],['Shish taouk',0],['Mixed',.5]]),C('mods','Changes','تعديلات',[['No cheese sauce',0],['No sumac onion',0],['Extra toum',.5],['Extra spicy',0]],{multi:true,optional:true})]},
  ]},
- {id:'charcoal',name:"Charcoal grilled sandwiches",ar:"سندويشات مشوية على الفحم",sub:"Lebanese bread · pick 2 sauces",subAr:"خبز عربي · اختار صوصين",items:[
+ {id:"charcoal",name:"Charcoal grilled sandwiches",ar:"سندويشات مشوية على الفحم",sub:"Lebanese bread · pick 2 sauces",subAr:"خبز عربي · اختار صوصين",items:[
   {id:"kafta",name:"Kafta",ar:"كفتة",price:4.5,desc:"our signature kafta, charcoal grilled",descAr:"كفتتنا المميّزة مشوية ع الفحم",choices:SANDWICH},
   {id:"lamb",name:"Lamb kabab",ar:"كباب لحمة",price:5.5,desc:"tender lamb cubes off the charcoal",descAr:"قطع لحمة غنم طرية ع الفحم",choices:SANDWICH},
   {id:"lahme",name:"Lahmeh sha2af",ar:"لحمة شقف",price:5.5,desc:"marinated beef cubes, charcoal grilled",descAr:"قطع لحمة بقر متبّلة ع الفحم",choices:SANDWICH},
@@ -376,7 +378,7 @@ const MENU=[
   {id:"arayes",name:"Arayes",ar:"عرايس",price:4,desc:"grilled bread stuffed with kafta and cheese",descAr:"خبز محشي كفتة وجبنة ومشوي",choices:SANDWICH},
   {id:"vegskewer",name:"Vegetarian skewer",ar:"سيخ خضرا",price:4,tag:'new',desc:"charcoal grilled vegetables",descAr:"خضرا مشوية ع الفحم",choices:SANDWICH},
  ]},
- {id:'snack',name:"Snack sandwiches",ar:"سندويشات سناك",sub:"Lebanese snack-shop classics",subAr:"كلاسيكيات السناك اللبناني",items:[
+ {id:"snack",name:"Snack sandwiches",ar:"سندويشات سناك",sub:"Lebanese snack-shop classics",subAr:"كلاسيكيات السناك اللبناني",items:[
   {id:"basterma",name:"Basterma",ar:"بسترما",price:5.5,tag:'new',desc:"premium cured basterma, Lebanese style",descAr:"بسترما فاخرة ع الطريقة اللبنانية",choices:SANDWICH},
   {id:"sawdadjej",name:"Sawda djej",ar:"سودة دجاج",price:4,tag:'new',desc:"chicken livers, Lebanese style",descAr:"سودة دجاج ع الطريقة اللبنانية",choices:SANDWICH},
   {id:"sujuk",name:"Sujuk",ar:"سجق",price:4.5,tag:'new',desc:"spiced Lebanese sausage",descAr:"سجق لبناني متبّل",choices:SANDWICH},
@@ -460,7 +462,7 @@ function applyLang(){
   $('#langbtn').textContent=lang==='ar'?'English':'عربي';
   document.querySelectorAll('[data-t]').forEach(e=>{const v=t(e.dataset.t);if(typeof v==='string')e.innerHTML=v;});
   document.querySelectorAll('[data-ph]').forEach(e=>e.placeholder=t(e.dataset.ph));
-  $('#appLink').href=APP_URL;
+  $('#appLink').href=APP_URL;$('#pdfMenu').href=lang==='ar'?'menu/BCC-Grill-Menu-AR.pdf':'menu/BCC-Grill-Menu-EN.pdf';
   if(!LIVE){document.body.classList.add('soon');$('[data-t="h1"]').innerHTML=t('h1Soon');$('[data-t="intro"]').innerHTML=t('introSoon');$('#sendBtn span').innerHTML=t('soonBtn');$('.applink').hidden=true;
     $('#askWa').href='https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(t('askMsg'));}
   renderMenu();renderCart();
@@ -485,7 +487,7 @@ function renderMenu(){
       const d=document.createElement('article');d.className='item'+(it.tag==='sig'||it.tag==='new'?' sig':'');
       const tg=it.tag?`<span class="tag ${it.tag==='lean'?'lean':''}">${TAGS[it.tag][lang==='ar'?1:0]}</span>`:'';
       const nm=lang==='ar'?it.ar:it.name, alt=lang==='ar'?it.name:it.ar, ds=lang==='ar'?(it.descAr||''):(it.desc||'');
-      d.innerHTML=`<div style="display:flex;justify-content:space-between;gap:8px;align-items:flex-start"><div><div class="name">${nm}</div><div class="alt" lang="${lang==='ar'?'en':'ar'}">${alt}</div></div>${tg}</div>
+      d.innerHTML=`${it.img?`<img class="photo" src="menu/photos/${it.img}" alt="${nm}" loading="lazy">`:''}<div style="display:flex;justify-content:space-between;gap:8px;align-items:flex-start"><div><div class="name">${nm}</div><div class="alt" lang="${lang==='ar'?'en':'ar'}">${alt}</div></div>${tg}</div>
         ${ds?`<div class="desc">${ds}</div>`:''}${it.kcal?`<div class="kcal num">≈ ${it.kcal} ${t('kcal')}</div>`:''}
         <div class="row"><span class="price num">${money(it.price)}</span><button type="button" class="add">${it.choices?t('choose'):t('add')}</button></div>`;
       d.querySelector('.add').onclick=()=>openSheet(it);

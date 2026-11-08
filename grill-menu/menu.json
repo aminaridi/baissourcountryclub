@@ -1,0 +1,492 @@
+{
+ "brand": {
+  "name": "bcc",
+  "tag": "grill",
+  "arLine": "مشوى منتجع بيصور السياحي",
+  "descriptorEn": "CHARCOAL KABAB · FARROUJ · BURGERS",
+  "descriptorAr": "كباب على الفحم · فروج · برغر",
+  "takeawayEn": "Take away & delivery",
+  "takeawayAr": "تيك أواي وتوصيل",
+  "phone": "81 461 188",
+  "web": "baissourcountryclub.com/grill",
+  "instagram": "@bccgrill",
+  "mapsShort": "maps.google.com/?q=33.770350,35.565687",
+  "hoursEn": "Daily 11:00 – 23:00",
+  "hoursAr": "يومياً <bdi dir=\"ltr\">11:00 – 23:00</bdi>",
+  "addressEn": "Baissour main road, next to Star Market",
+  "addressAr": "طريق بيصور العام، جنب ستار ماركت",
+  "deliveryEn": "Delivery across the area · we confirm every order on WhatsApp",
+  "deliveryAr": "توصيل لكل المنطقة · منأكّد كل طلب على واتساب",
+  "payEn": "Cash USD / LBP · Whish",
+  "payAr": "كاش دولار / ليرة · Whish",
+  "pricesEn": "PRICES IN USD · LBP AT TODAY'S RATE",
+  "pricesAr": "الأسعار بالدولار · بالليرة على سعر اليوم"
+ },
+ "signatures": [
+  {
+   "id": "bcc",
+   "en": "The BCC Burger",
+   "ar": "برغر BCC",
+   "price": 6,
+   "photo": "bcc_burger.jpg",
+   "descEn": "Our classic smash burger with cheddar and the works, on a toasted brioche bun.",
+   "descAr": "برغر السماش الكلاسيكي تبعنا مع شيدر وكل الإضافات، بخبز بريوش محمّص."
+  },
+  {
+   "id": "leb",
+   "en": "Lebanese Burger",
+   "ar": "برغر لبناني",
+   "price": 7,
+   "photo": "leb_burger.jpg",
+   "new": true,
+   "descEn": "The Lebanese snack-shop burger — beef patty, coleslaw, pickles and fries in the bun.",
+   "descAr": "برغر السناك اللبناني — قرص لحمة، كول سلو، كبيس وبطاطا جوّا الخبز."
+  },
+  {
+   "id": "smash",
+   "en": "BCC Kafta Smash",
+   "ar": "كفتة سماش",
+   "price": 6,
+   "photo": "smash.jpg",
+   "descEn": "Our kafta, smashed crispy on the saj with the classic fixings.",
+   "descAr": "كفتتنا مرقوقة ومقرمشة ع الصاج مع الإضافات الكلاسيكية."
+  },
+  {
+   "id": "kfries",
+   "en": "Kafta Fries",
+   "ar": "بطاطا كفتة",
+   "price": 5,
+   "photo": "kabab_fries.jpg",
+   "descEn": "Loaded fries with charcoal grilled kafta, cheese sauce and toum — or make it taouk. Large +$3.",
+   "descAr": "بطاطا محمّلة بكفتة مشوية ع الفحم، صوص جبنة وتوم — أو خلّيها طاووق. كبير +٣$."
+  }
+ ],
+ "sections": [
+  {
+   "id": "charcoal",
+   "en": "Charcoal grilled sandwiches",
+   "ar": "سندويشات مشوية على الفحم",
+   "noteEn": "Lebanese bread · pick 2 sauces",
+   "noteAr": "خبز عربي · اختار صوصين",
+   "items": [
+    {
+     "en": "Kafta",
+     "ar": "كفتة",
+     "price": 4.5,
+     "subEn": "our signature kafta, charcoal grilled",
+     "subAr": "كفتتنا المميّزة مشوية ع الفحم"
+    },
+    {
+     "en": "Lamb kabab",
+     "ar": "كباب لحمة",
+     "price": 5.5,
+     "subEn": "tender lamb cubes off the charcoal",
+     "subAr": "قطع لحمة غنم طرية ع الفحم"
+    },
+    {
+     "en": "Lahmeh sha2af",
+     "ar": "لحمة شقف",
+     "price": 5.5,
+     "subEn": "marinated beef cubes, charcoal grilled",
+     "subAr": "قطع لحمة بقر متبّلة ع الفحم"
+    },
+    {
+     "en": "Shish taouk",
+     "ar": "شيش طاووق",
+     "price": 4.5,
+     "subEn": "marinated chicken, charcoal grilled",
+     "subAr": "دجاج متبّل مشوي ع الفحم"
+    },
+    {
+     "en": "Djej meshwi",
+     "ar": "دجاج مشوي",
+     "price": 4.5,
+     "new": true,
+     "subEn": "juicy grilled chicken, lemon and herbs",
+     "subAr": "دجاج مشوي طري بالحامض والأعشاب"
+    },
+    {
+     "en": "Kabab orfali",
+     "ar": "كباب أورفلي",
+     "price": 5,
+     "subEn": "kafta with pine nuts and spices",
+     "subAr": "كفتة مع صنوبر وبهارات"
+    },
+    {
+     "en": "Arayes",
+     "ar": "عرايس",
+     "price": 4,
+     "subEn": "grilled bread stuffed with kafta and cheese",
+     "subAr": "خبز محشي كفتة وجبنة ومشوي"
+    },
+    {
+     "en": "Vegetarian skewer",
+     "ar": "سيخ خضرا",
+     "price": 4,
+     "new": true,
+     "vegan": true,
+     "subEn": "charcoal grilled vegetables",
+     "subAr": "خضرا مشوية ع الفحم"
+    }
+   ]
+  },
+  {
+   "id": "snack",
+   "en": "Snack sandwiches",
+   "ar": "سندويشات سناك",
+   "noteEn": "Lebanese snack-shop classics",
+   "noteAr": "كلاسيكيات السناك اللبناني",
+   "items": [
+    {
+     "en": "Basterma",
+     "ar": "بسترما",
+     "price": 5.5,
+     "new": true,
+     "subEn": "premium cured basterma, Lebanese style",
+     "subAr": "بسترما فاخرة ع الطريقة اللبنانية"
+    },
+    {
+     "en": "Sawda djej",
+     "ar": "سودة دجاج",
+     "price": 4,
+     "new": true,
+     "subEn": "chicken livers, Lebanese style",
+     "subAr": "سودة دجاج ع الطريقة اللبنانية"
+    },
+    {
+     "en": "Sujuk",
+     "ar": "سجق",
+     "price": 4.5,
+     "new": true,
+     "subEn": "spiced Lebanese sausage",
+     "subAr": "سجق لبناني متبّل"
+    },
+    {
+     "en": "Makanek",
+     "ar": "مقانق",
+     "price": 4.5,
+     "new": true,
+     "subEn": "Lebanese lamb sausages",
+     "subAr": "مقانق لبنانية"
+    },
+    {
+     "en": "Sandwich batata",
+     "ar": "سندويش بطاطا",
+     "price": 3,
+     "new": true,
+     "vegan": true,
+     "subEn": "fries and coleslaw in bread, with our sauces",
+     "subAr": "بطاطا وكول سلو بالخبز مع صوصاتنا"
+    }
+   ]
+  },
+  {
+   "id": "burgers",
+   "en": "Burgers",
+   "ar": "برغر",
+   "noteEn": "Cooked through on the flat saj · make it a meal +$3",
+   "noteAr": "مستوي منيح ع الصاج · عملها وجبة <bdi dir=\"ltr\">+$3</bdi>",
+   "items": [
+    {
+     "en": "BCC Burger meal",
+     "ar": "وجبة برغر BCC",
+     "price": 9,
+     "subEn": "the BCC Burger with a side, a salad and a drink",
+     "subAr": "برغر BCC مع طبق جانبي وسلطة ومشروب"
+    },
+    {
+     "en": "Kafta burger",
+     "ar": "برغر كفتة",
+     "price": 5.5,
+     "subEn": "our kafta in a burger bun",
+     "subAr": "كفتتنا بخبز البرغر"
+    },
+    {
+     "en": "Grilled chicken burger",
+     "ar": "برغر دجاج مشوي",
+     "price": 5,
+     "new": true,
+     "subEn": "grilled chicken breast, light and juicy",
+     "subAr": "صدر دجاج مشوي، خفيف وطري"
+    },
+    {
+     "en": "Veggie burger",
+     "ar": "برغر نباتي",
+     "price": 5,
+     "new": true,
+     "vegan": true,
+     "subEn": "our house vegetarian patty",
+     "subAr": "قرص نباتي معمول عنّا"
+    }
+   ]
+  },
+  {
+   "id": "kids",
+   "en": "Kids",
+   "ar": "الأولاد",
+   "noteEn": "Each with a small side and a juice",
+   "noteAr": "كل وحدة مع طبق جانبي صغير وعصير",
+   "items": [
+    {
+     "en": "Kids burger",
+     "ar": "برغر الأولاد",
+     "price": 5,
+     "subEn": "a smaller plain burger",
+     "subAr": "برغر صغير سادة"
+    },
+    {
+     "en": "Kids taouk",
+     "ar": "طاووق الأولاد",
+     "price": 5,
+     "subEn": "one taouk skewer with bread",
+     "subAr": "سيخ طاووق مع خبز"
+    },
+    {
+     "en": "Kids kafta",
+     "ar": "كفتة الأولاد",
+     "price": 5,
+     "subEn": "one kafta skewer with bread",
+     "subAr": "سيخ كفتة مع خبز"
+    }
+   ]
+  },
+  {
+   "id": "plates",
+   "en": "Plates & boxes",
+   "ar": "صحون وبوكسات",
+   "noteEn": "Every plate: your side, your salad, hummus, bread",
+   "noteAr": "كل صحن: طبق جانبي وسلطة ع ذوقك، حمص، خبز",
+   "items": [
+    {
+     "en": "Kabab plate",
+     "ar": "صحن كباب",
+     "price": 9,
+     "subEn": "three skewers of your choice · lamb +$2",
+     "subAr": "٣ سياخ ع ذوقك · لحمة غنم +٢$"
+    },
+    {
+     "en": "BCC mixed grill",
+     "ar": "مشاوي BCC",
+     "price": 12,
+     "subEn": "kafta, lamb and taouk together",
+     "subAr": "كفتة ولحمة وطاووق سوا"
+    },
+    {
+     "en": "Farrouj meshwi 3al fa7m",
+     "ar": "فروج مشوي ع الفحم",
+     "price": "13 · 7",
+     "subEn": "whole or half charcoal chicken with the sides",
+     "subAr": "فروج كامل أو نص ع الفحم مع الإضافات"
+    },
+    {
+     "en": "Farrouj msa7ab",
+     "ar": "فروج مسحّب",
+     "price": 15,
+     "subEn": "boneless flattened chicken off the charcoal",
+     "subAr": "فروج مسحّب بلا عضم ع الفحم"
+    },
+    {
+     "en": "Mashawi Family Box",
+     "ar": "بوكس مشاوي العيلة",
+     "price": 26,
+     "subEn": "mixed mashawi for the whole family, with sides and drinks",
+     "subAr": "مشاوي مشكّلة للعيلة كلها مع الإضافات والمشروبات"
+    }
+   ]
+  },
+  {
+   "id": "lean",
+   "en": "Light & Lean",
+   "ar": "خفيف وصحي",
+   "noteEn": "Grilled, not fried · sauces on the side",
+   "noteAr": "مشوي مش مقلي · الصوص ع جنب",
+   "items": [
+    {
+     "en": "Salad & protein",
+     "ar": "سلطة مع بروتين",
+     "price": 7,
+     "subEn": "any of our salads topped with a grilled protein",
+     "subAr": "أي سلطة من عنّا مع بروتين مشوي"
+    },
+    {
+     "en": "Protein lettuce wrap",
+     "ar": "لفّة خس مع بروتين",
+     "price": 6,
+     "subEn": "grilled protein or veggies wrapped in lettuce",
+     "subAr": "بروتين مشوي أو خضرا ملفوفين بالخس"
+    }
+   ]
+  },
+  {
+   "id": "sides",
+   "en": "Sides & sauces",
+   "ar": "مقبلات وصوص",
+   "items": [
+    {
+     "en": "Fries",
+     "ar": "بطاطا مقلية",
+     "price": 2,
+     "subEn": "crispy golden fries",
+     "subAr": "بطاطا مقلية مقرمشة"
+    },
+    {
+     "en": "Hummus",
+     "ar": "حمص",
+     "price": 2.5,
+     "subEn": "smooth house hummus",
+     "subAr": "حمص ناعم من عنّا"
+    },
+    {
+     "en": "Fattoush",
+     "ar": "فتوش",
+     "price": 3,
+     "subEn": "the Lebanese classic",
+     "subAr": "الكلاسيكية اللبنانية"
+    },
+    {
+     "en": "Tabbouleh",
+     "ar": "تبولة",
+     "price": 3,
+     "subEn": "fresh and lemony",
+     "subAr": "طازة وحامضة"
+    },
+    {
+     "en": "Coleslaw",
+     "ar": "كول سلو",
+     "price": 2.5,
+     "subEn": "creamy and crunchy",
+     "subAr": "كريمي ومقرمش"
+    },
+    {
+     "en": "Batata harra",
+     "ar": "بطاطا حرّة",
+     "price": 3,
+     "subEn": "spicy potatoes with garlic and coriander",
+     "subAr": "بطاطا حارّة بالتوم والكزبرة"
+    },
+    {
+     "en": "BCC toum tub",
+     "ar": "علبة توم BCC",
+     "price": 3,
+     "subEn": "our garlic toum to take home",
+     "subAr": "توم BCC خدو معك ع البيت"
+    },
+    {
+     "en": "Extra bread",
+     "ar": "خبز زيادة",
+     "price": 1,
+     "subEn": "Lebanese bread",
+     "subAr": "خبز عربي"
+    }
+   ]
+  },
+  {
+   "id": "desserts",
+   "en": "Dessert cups",
+   "ar": "كاسات حلو",
+   "noteEn": "Made fresh daily, ready to go",
+   "noteAr": "محضّرة طازة كل يوم، جاهزة",
+   "items": [
+    {
+     "en": "Riz b'halib",
+     "ar": "رز بحليب",
+     "price": 2.5,
+     "subEn": "Lebanese rice pudding",
+     "subAr": "رز بحليب لبناني"
+    },
+    {
+     "en": "Mhalabiya",
+     "ar": "مهلبية",
+     "price": 2.5,
+     "subEn": "Lebanese milk pudding",
+     "subAr": "مهلبية لبنانية"
+    },
+    {
+     "en": "Chocolate mousse cup",
+     "ar": "كاسة موس شوكولا",
+     "price": 3,
+     "subEn": "rich and chocolatey",
+     "subAr": "غنية بالشوكولا"
+    }
+   ]
+  },
+  {
+   "id": "drinks",
+   "en": "Drinks",
+   "ar": "مشروبات",
+   "items": [
+    {
+     "en": "Soft drink",
+     "ar": "مشروب غازي",
+     "price": 1.5,
+     "subEn": "Pepsi, 7Up, Mirinda, Diet Pepsi",
+     "subAr": "بيبسي، سفن أب، ميرندا، دايت بيبسي"
+    },
+    {
+     "en": "Water",
+     "ar": "مي",
+     "price": 1,
+     "subEn": "bottled water",
+     "subAr": "مي معدنية"
+    },
+    {
+     "en": "Ayran",
+     "ar": "عيران",
+     "price": 1.5,
+     "subEn": "cold yogurt drink",
+     "subAr": "عيران بارد"
+    },
+    {
+     "en": "Fresh lemonade with mint",
+     "ar": "ليموناضة بالنعنع",
+     "price": 2.5,
+     "subEn": "freshly squeezed",
+     "subAr": "معصورة طازة"
+    }
+   ]
+  }
+ ],
+ "kilo": {
+  "en": "Mashawi by the kilo",
+  "ar": "مشاوي بالكيلو",
+  "photo": "kilo.jpg",
+  "lineEn": "Grilled now, or raw & marinated to grill at home (−25%) · ½ kg and 2 kg · bread, biwaz & grilled veg included · order by 6 pm",
+  "lineAr": "مشوية هلق، أو نيّة ومتبّلة لتشويها بالبيت (<bdi dir=\"ltr\">−25%</bdi>) · نص كيلو وكيلوين · الخبز والبيواز والخضرا المشوية ضمناً · اطلب قبل الساعة ٦",
+  "items": [
+   {
+    "en": "Mixed mashawi",
+    "ar": "مشاوي مشكّل",
+    "price": 26
+   },
+   {
+    "en": "Kafta",
+    "ar": "كفتة",
+    "price": 20
+   },
+   {
+    "en": "Shish taouk",
+    "ar": "شيش طاووق",
+    "price": 19
+   },
+   {
+    "en": "Lamb kabab",
+    "ar": "كباب لحمة",
+    "price": 32
+   }
+  ],
+  "sundayEn": "Sunday Kilo Day · mixed kilo $33 with the works",
+  "sundayAr": "أحد الكيلو · كيلو مشكّل <bdi dir=\"ltr\">$33</bdi> مع كل شي"
+ },
+ "meal": {
+  "titleEn": "Make it a meal · +$3",
+  "titleAr": "عملها وجبة · <bdi dir=\"ltr\">+$3</bdi>",
+  "textEn": "Any sandwich or burger + a side, a salad and a drink. Salads: fattoush, tabbouleh, coleslaw, biwaz. Sides: fries, batata harra, rice, hummus, coleslaw. Removals are free · extra sides on any order.",
+  "textAr": "أي سندويش أو برغر + طبق جانبي وسلطة ومشروب. السلطات: فتوش، تبولة، كول سلو، بيواز. الجانبي: بطاطا، بطاطا حرّة، رز، حمص، كول سلو. الشيل ببلاش · زيد أطباق على أي طلب."
+ },
+ "order": {
+  "titleEn": "How to order",
+  "titleAr": "كيف تطلب",
+  "textEn": "WhatsApp 81 461 188, the kiosk by the door, or the counter · we confirm your order and message you the time · take away or delivery across the area.",
+  "textAr": "واتساب <bdi dir=\"ltr\">81 461 188</bdi>، الكيوسك عند الباب، أو الكاونتر · منأكّد طلبك ومنبعتلك الوقت · تيك أواي أو توصيل لكل المنطقة."
+ }
+}

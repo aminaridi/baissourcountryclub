@@ -1,0 +1,659 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>BCC Grill Orders</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Rubik:wght@400;500;600;700&display=swap">
+<style>
+  :root {
+    --ground: #F4F3EE; --panel: #FFFFFF; --panel-2: #EBEAE3; --line: #D9D8D0;
+    --ink: #2E2E30; --ink-2: #58585B; --ink-3: #8A8A86;
+    --lime: #8DC63F; --lime-ink: #1F3308; --lime-soft: #E6F2D2;
+    --oak: #C9A56A; --amber: #E0A030; --amber-soft: #FBEFD6; --red: #D9483B; --red-soft: #F9DCD8;
+    --shadow: 0 6px 24px rgba(46,46,48,0.10);
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+    --ground: #1E1E20; --panel: #2A2A2D; --panel-2: #333336; --line: #45454A;
+    --ink: #F4F3EE; --ink-2: #C9C9C4; --ink-3: #8F8F8A;
+    --lime: #9BD44C; --lime-ink: #16260A; --lime-soft: #2F3F1C;
+    --oak: #D4B47C; --amber: #E8B04A; --amber-soft: #4A3A18; --red: #E56A5E; --red-soft: #4A2320;
+    --shadow: 0 6px 24px rgba(0,0,0,0.35);
+  } }
+  :root[data-theme="dark"] {
+    --ground: #1E1E20; --panel: #2A2A2D; --panel-2: #333336; --line: #45454A;
+    --ink: #F4F3EE; --ink-2: #C9C9C4; --ink-3: #8F8F8A;
+    --lime: #9BD44C; --lime-ink: #16260A; --lime-soft: #2F3F1C;
+    --oak: #D4B47C; --amber: #E8B04A; --amber-soft: #4A3A18; --red: #E56A5E; --red-soft: #4A2320;
+    --shadow: 0 6px 24px rgba(0,0,0,0.35);
+  }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  body { margin: 0; background: var(--ground); color: var(--ink); font-family: 'Rubik', 'Helvetica Neue', Arial, sans-serif; font-size: 15px; line-height: 1.45; }
+  h1, h2, h3, .disp { font-family: 'Bricolage Grotesque', 'Helvetica Neue', Arial, sans-serif; letter-spacing: -0.02em; margin: 0; }
+  button { font: inherit; cursor: pointer; border: 0; border-radius: 10px; }
+  button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid var(--lime); outline-offset: 2px; }
+  input, select, textarea { font: inherit; color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; width: 100%; }
+  .ar { direction: rtl; }
+  .num { font-variant-numeric: tabular-nums; }
+  .hidden-x { display: none !important; }
+
+  /* top bar */
+  .top { position: sticky; top: 0; z-index: 20; background: #2E2E30; color: #F4F3EE; display: flex; align-items: center; gap: 14px; padding: 10px 16px; }
+  .top .brand { display: flex; align-items: center; gap: 10px; }
+  .top .brand .disp { font-size: 20px; font-weight: 800; color: #F4F3EE; }
+  .top .brand .disp span { color: var(--lime); }
+  .modes { margin-left: auto; display: flex; gap: 4px; background: rgba(255,255,255,0.08); padding: 4px; border-radius: 12px; }
+  .modes button { background: transparent; color: #D9D8D0; padding: 8px 12px; border-radius: 9px; font-weight: 500; }
+  .modes button[aria-pressed="true"] { background: #8DC63F; color: #1F3308; font-weight: 600; }
+  .status-dot { width: 9px; height: 9px; border-radius: 50%; background: #E0A030; }
+  .status-dot.on { background: #8DC63F; }
+  .status-dot.off { background: #D9483B; }
+
+  /* order view */
+  .order { display: grid; grid-template-columns: 150px minmax(0, 1fr) 340px; gap: 20px; padding: 20px 16px 120px; max-width: 1360px; margin: 0 auto; }
+  .cats { position: sticky; top: 64px; align-self: start; display: flex; flex-direction: column; gap: 4px; }
+  .cats button { text-align: left; background: transparent; color: var(--ink-2); padding: 9px 12px; font-weight: 500; }
+  .cats button[aria-current="true"] { background: var(--panel); color: var(--ink); box-shadow: var(--shadow); font-weight: 600; }
+  .section { margin-bottom: 28px; }
+  .section h2 { font-size: 22px; font-weight: 800; margin-bottom: 4px; }
+  .section .sub { color: var(--ink-3); font-size: 13px; margin-bottom: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+  .item { background: var(--panel); border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 6px; border: 1px solid var(--line); overflow: hidden; }
+  .item .photo { width: calc(100% + 28px); margin: -14px -14px 6px; aspect-ratio: 4/3; object-fit: cover; display: block; background: var(--panel-2); }
+  .item.signature { border-color: var(--lime); box-shadow: inset 0 0 0 1px var(--lime); }
+  .item .name { font-weight: 600; }
+  .item .arname { color: var(--ink-3); font-size: 13px; }
+  .item .desc { color: var(--ink-2); font-size: 13px; }
+  .item .row { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 6px; }
+  .price { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 18px; color: var(--ink); }
+  .tag { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; background: var(--lime-soft); color: var(--lime-ink); }
+  .tag.lean { background: var(--panel-2); color: var(--ink-2); }
+  .add { background: var(--ink); color: var(--ground); padding: 8px 14px; font-weight: 600; }
+  .add:hover { background: var(--lime); color: var(--lime-ink); }
+  .kcal { color: var(--ink-3); font-size: 12px; }
+
+  /* bowl builder */
+  .builder { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: grid; gap: 14px; }
+  .builder .step { display: grid; gap: 6px; }
+  .builder .step .label { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chips button { background: var(--panel-2); color: var(--ink); padding: 8px 12px; border-radius: 999px; font-weight: 500; }
+  .chips button[aria-pressed="true"] { background: var(--lime); color: var(--lime-ink); font-weight: 600; }
+  .builder .foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+  .step .hint { font-size: 12px; color: var(--ink-3); }
+  .sheet-bg { position: fixed; inset: 0; background: rgba(0,0,0,0.45); display: flex; align-items: flex-end; justify-content: center; z-index: 60; }
+  .sheet { background: var(--panel); color: var(--ink); width: 100%; max-width: 620px; max-height: 90vh; overflow: auto; border-radius: 18px 18px 0 0; padding: 18px 18px 22px; display: grid; gap: 14px; box-shadow: var(--shadow); }
+  .sheet .head { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+  .sheet h3 { margin: 0; font-size: 20px; }
+  .sheet .close { background: var(--panel-2); color: var(--ink); border-radius: 999px; width: 34px; height: 34px; font-size: 18px; }
+  .sheet .step { display: grid; gap: 6px; }
+  .sheet .step .label { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
+  .sheet textarea { width: 100%; min-height: 56px; border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; background: var(--ground); color: var(--ink); font: inherit; }
+  .sheet .foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; position: sticky; bottom: -22px; background: var(--panel); padding: 10px 0 4px; }
+  .qty { display: inline-flex; align-items: center; gap: 6px; }
+  .qty button { background: var(--panel-2); color: var(--ink); width: 32px; height: 32px; border-radius: 999px; font-size: 18px; }
+  @media (min-width: 720px) { .sheet-bg { align-items: center; } .sheet { border-radius: 18px; } }
+
+  /* cart */
+  .cart { position: sticky; top: 64px; align-self: start; background: var(--panel); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); padding: 16px; display: flex; flex-direction: column; gap: 10px; max-height: calc(100vh - 84px); }
+  .cart h2 { font-size: 20px; font-weight: 800; }
+  .lines { overflow: auto; display: flex; flex-direction: column; gap: 8px; }
+  .line { display: grid; grid-template-columns: 1fr auto auto; gap: 8px; align-items: center; font-size: 14px; }
+  .line small { display: block; color: var(--ink-3); }
+  .qty { display: inline-flex; align-items: center; gap: 6px; }
+  .qty button { width: 26px; height: 26px; border-radius: 8px; background: var(--panel-2); color: var(--ink); font-weight: 700; }
+  .totals { border-top: 1px solid var(--line); padding-top: 8px; display: grid; gap: 4px; font-size: 14px; }
+  .totals div { display: flex; justify-content: space-between; }
+  .totals .grand { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; }
+  .primary { background: var(--lime); color: var(--lime-ink); padding: 12px 16px; font-weight: 700; font-size: 16px; width: 100%; }
+  .primary:disabled { opacity: 0.5; cursor: not-allowed; }
+  .ghost { background: var(--panel-2); color: var(--ink); padding: 10px 14px; font-weight: 600; }
+  .empty { color: var(--ink-3); font-size: 14px; padding: 12px 0; }
+
+  /* checkout form */
+  .form { display: grid; gap: 10px; }
+  .form .two { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .seg { display: grid; grid-auto-flow: column; gap: 4px; background: var(--panel-2); padding: 4px; border-radius: 12px; }
+  .seg button { background: transparent; color: var(--ink-2); padding: 9px; font-weight: 500; border-radius: 9px; }
+  .seg button[aria-pressed="true"] { background: var(--panel); color: var(--ink); font-weight: 600; box-shadow: var(--shadow); }
+  .note { font-size: 13px; color: var(--ink-3); }
+  .reward { background: var(--lime-soft); color: var(--lime-ink); border-radius: 10px; padding: 10px 12px; font-size: 14px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .confirm { text-align: center; display: grid; gap: 8px; padding: 10px 0; }
+  .confirm .big { font-family: 'Bricolage Grotesque', sans-serif; font-size: 64px; font-weight: 800; line-height: 1; color: var(--lime-ink); background: var(--lime); border-radius: 16px; padding: 14px; }
+
+  /* kitchen */
+  .kitchen { padding: 16px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; max-width: 1600px; margin: 0 auto; }
+  .col h2 { font-size: 15px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); display: flex; justify-content: space-between; margin-bottom: 10px; }
+  .col h2 b { color: var(--ink); }
+  .cards { display: flex; flex-direction: column; gap: 12px; }
+  .card { background: var(--panel); border-radius: 14px; border: 1px solid var(--line); border-left: 8px solid var(--lime); padding: 12px 14px; display: grid; gap: 8px; }
+  .card.warn { border-left-color: var(--amber); }
+  .card.late { border-left-color: var(--red); }
+  .card .head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+  .card .no { font-family: 'Bricolage Grotesque', sans-serif; font-size: 34px; font-weight: 800; line-height: 1; }
+  .card .timer { font-family: 'Bricolage Grotesque', sans-serif; font-size: 30px; font-weight: 800; padding: 2px 10px; border-radius: 10px; background: var(--lime-soft); color: var(--lime-ink); }
+  .card.warn .timer { background: var(--amber-soft); color: var(--ink); }
+  .card.late .timer { background: var(--red-soft); color: var(--ink); }
+  .card .meta { display: flex; gap: 8px; flex-wrap: wrap; font-size: 12px; color: var(--ink-2); }
+  .card .meta span { background: var(--panel-2); padding: 2px 8px; border-radius: 999px; }
+  .card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 3px; font-size: 15px; }
+  .card li b { display: inline-block; min-width: 26px; }
+  .card li small { color: var(--ink-3); }
+  .card .notes { font-size: 13px; color: var(--red); font-weight: 500; }
+  .card .actions { display: flex; gap: 8px; }
+  .card .actions button { flex: 1; padding: 12px; font-weight: 700; font-size: 15px; }
+  .act-start { background: var(--ink); color: var(--ground); }
+  .act-ready { background: var(--lime); color: var(--lime-ink); }
+  .act-out { background: var(--oak); color: #2E2E30; }
+  .act-done { background: var(--panel-2); color: var(--ink); }
+  .kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; padding: 16px 16px 0; max-width: 1600px; margin: 0 auto; }
+  .kpi { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; }
+  .kpi .l { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
+  .kpi .v { font-family: 'Bricolage Grotesque', sans-serif; font-size: 30px; font-weight: 800; }
+
+  /* ready board */
+  .board { min-height: calc(100vh - 56px); background: #2E2E30; color: #F4F3EE; padding: 24px; display: grid; grid-template-rows: auto 1fr; gap: 20px; }
+  .board h1 { font-size: 40px; font-weight: 800; color: #F4F3EE; }
+  .board h1 span { color: #8DC63F; }
+  .board .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .board .nums { display: flex; flex-wrap: wrap; gap: 14px; align-content: start; }
+  .board .n { font-family: 'Bricolage Grotesque', sans-serif; font-size: 72px; font-weight: 800; line-height: 1; padding: 14px 26px; border-radius: 16px; background: #3A3A3E; color: #F4F3EE; }
+  .board .n.ready { background: #8DC63F; color: #1F3308; }
+  .board .lbl { font-size: 16px; letter-spacing: 0.12em; text-transform: uppercase; color: #C9C9C4; margin-bottom: 12px; }
+
+  /* rewards */
+  .rewards { max-width: 900px; margin: 0 auto; padding: 20px 16px; display: grid; gap: 16px; }
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: grid; gap: 10px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--line); }
+  th { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); }
+
+  .toast { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); background: var(--ink); color: var(--ground); padding: 12px 18px; border-radius: 12px; box-shadow: var(--shadow); z-index: 50; font-weight: 500; }
+  .banner { background: var(--amber-soft); color: var(--ink); padding: 10px 16px; font-size: 14px; text-align: center; }
+
+  @media (max-width: 980px) {
+    .order { grid-template-columns: minmax(0, 1fr); padding-bottom: 140px; }
+    .cats { position: static; flex-direction: row; overflow-x: auto; gap: 6px; }
+    .cats button { white-space: nowrap; }
+    .cart { position: fixed; left: 8px; right: 8px; bottom: 8px; top: auto; max-height: 70vh; z-index: 30; }
+    .cart.collapsed .lines, .cart.collapsed .totals, .cart.collapsed .form, .cart.collapsed .note { display: none; }
+    .kitchen { grid-template-columns: 1fr; }
+    .kpis { grid-template-columns: repeat(2, 1fr); }
+    .board .cols { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+
+<div class="top">
+  <div class="brand">
+    <img src="data:image/png;base64,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" width="22" height="32" alt="" style="display:block;width:22px;height:32px;">
+    <div class="disp">BCC <span>GRILL</span></div>
+  </div>
+  <div class="status-dot" id="dbdot" title="Live connection"></div>
+  <nav class="modes" aria-label="Screens">
+    <button data-mode="order" aria-pressed="true">Order</button>
+    <button data-mode="kitchen" aria-pressed="false">Kitchen</button>
+    <button data-mode="board" aria-pressed="false">Ready board</button>
+    <button data-mode="rewards" aria-pressed="false">Rewards</button>
+  </nav>
+</div>
+<div class="banner" id="banner" hidden></div>
+
+<!-- ORDER -->
+<section id="view-order" class="order">
+  <aside class="cats" id="cats"></aside>
+  <main id="menu"></main>
+  <aside class="cart" id="cart">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <h2>Your order</h2>
+      <button class="ghost" id="cartToggle" style="display:none;">Show</button>
+    </div>
+    <div class="lines" id="lines"><div class="empty">Nothing yet. Start with the BCC Burger.</div></div>
+    <div class="totals" id="totals"></div>
+    <div class="form" id="checkout">
+      <div class="seg" id="typeSeg">
+        <button data-type="delivery" aria-pressed="true">Delivery</button>
+        <button data-type="pickup" aria-pressed="false">Take away</button>
+      </div>
+      <div class="two">
+        <input id="cName" placeholder="Name" autocomplete="name">
+        <input id="cPhone" placeholder="Phone (03 xxx xxx)" inputmode="tel" autocomplete="tel">
+      </div>
+      <div id="deliveryFields" class="form">
+        <select id="cZone">
+          <option value="A">Baissour · free over $8 (else $1)</option>
+          <option value="B">Neighbouring villages · $2</option>
+          <option value="C">Down the road · $3 (min $15)</option>
+        </select>
+        <input id="cAddress" placeholder="Address or landmark">
+      </div>
+      <input id="cNotes" placeholder="Notes for the kitchen (no onion, extra toum…)">
+      <div class="seg" id="paySeg">
+        <button data-pay="cash" aria-pressed="true">Cash</button>
+        <button data-pay="whish" aria-pressed="false">Whish</button>
+      </div>
+      <div class="reward" id="rewardBox" hidden></div>
+      <button class="primary" id="placeBtn" disabled>Place order</button>
+      <div class="note">Cash is paid at the door or the counter. Whish: we send the wallet number on WhatsApp when the order is confirmed. You earn 1 point per dollar; 50 points is $5 off.</div>
+    </div>
+    <div class="confirm" id="confirm" hidden></div>
+  </aside>
+</section>
+
+<!-- KITCHEN -->
+<section id="view-kitchen" hidden>
+  <div class="kpis">
+    <div class="kpi"><div class="l">Open orders</div><div class="v num" id="kOpen">0</div></div>
+    <div class="kpi"><div class="l">Avg time to ready today</div><div class="v num" id="kAvg">–</div></div>
+    <div class="kpi"><div class="l">On time today (≤ 15 min)</div><div class="v num" id="kOnTime">–</div></div>
+    <div class="kpi"><div class="l">Orders today</div><div class="v num" id="kCount">0</div></div>
+  </div>
+  <div class="kitchen">
+    <div class="col"><h2>New <b id="cNew">0</b></h2><div class="cards" id="colNew"></div></div>
+    <div class="col"><h2>On the grill <b id="cCook">0</b></h2><div class="cards" id="colCook"></div></div>
+    <div class="col"><h2>Ready · out <b id="cReady">0</b></h2><div class="cards" id="colReady"></div></div>
+  </div>
+</section>
+
+<!-- READY BOARD -->
+<section id="view-board" class="board" hidden>
+  <h1>Now <span>ready</span> · جاهز</h1>
+  <div class="cols">
+    <div><div class="lbl">Ready to collect</div><div class="nums" id="bReady"></div></div>
+    <div><div class="lbl">Being prepared</div><div class="nums" id="bPrep"></div></div>
+  </div>
+</section>
+
+<!-- REWARDS -->
+<section id="view-rewards" class="rewards" hidden>
+  <div class="panel">
+    <h2 class="disp" style="font-size:22px;font-weight:800;">BCC Club rewards</h2>
+    <div class="note">Points are earned by phone number: 1 point per dollar, 50 points = $5 off, redeemed at checkout. Every 500 points unlocks a Club perk (a summer pool pass at Baissour Country Club). This screen is for the counter: look a customer up, add points for a cash order, or check the top regulars.</div>
+    <div class="two" style="display:grid;grid-template-columns:1fr auto;gap:10px;">
+      <input id="rPhone" placeholder="Phone number">
+      <button class="ghost" id="rLookup">Look up</button>
+    </div>
+    <div id="rResult" class="note"></div>
+  </div>
+  <div class="panel">
+    <h3 class="disp" style="font-size:18px;font-weight:800;">Top regulars</h3>
+    <div style="overflow-x:auto;"><table><thead><tr><th>Name</th><th>Phone</th><th class="num">Points</th><th class="num">Orders</th><th>Last order</th></tr></thead><tbody id="rTable"></tbody></table></div>
+  </div>
+</section>
+
+<script>
+/* ---------- choice lists (every combo picks its salad, side and drink; every item can add sides for extra) ---------- */
+const SALADS = [['Fattoush', 0], ['Tabbouleh', 0], ['Coleslaw', 0], ['Biwaz (onion, parsley, sumac)', 0], ['Greek-style salad', 0.5]];
+const SIDES = [['Fries', 0], ['Batata harra', 0], ['Vermicelli rice', 0], ['Grilled vegetables', 0.5], ['Small hummus', 0]];
+const DRINKS = [['Pepsi', 0], ['7Up', 0], ['Mirinda', 0], ['Water', 0], ['Ayran', 0], ['Fresh lemonade with mint', 1]];
+const BREADS = [['Lebanese bread', 0], ['Lettuce wrap (no bread)', 0]];
+const SAUCES = [['Toum', 0], ['Hummus', 0], ['Yogurt-tahini', 0], ['Hot harissa', 0], ['Toum mayo', 0], ['Cheese sauce', 0.5]];
+const REMOVE = [['No onion', 0], ['No pickles', 0], ['No tomato', 0], ['No parsley', 0], ['Sauce on the side', 0], ['Extra spicy', 0], ['Well done', 0]];
+const ADDONS = [['Extra fries', 2], ['Small hummus', 2], ['Fattoush side', 3], ['Batata harra', 3], ['Grilled vegetables', 2.5], ['Extra kafta skewer', 2.5], ['Extra taouk skewer', 2.5], ['BCC toum tub', 3], ['Extra bread', 1], ['Pickles & turnips', 1]];
+const C = (key, label, opts, o = {}) => ({ key, label, opts, ...o });
+/* every protein on the sandwich menu — used wherever a protein is chosen (lamb-cut / spiced upcharges vary by portion) */
+const PROT = (lamb, spiced) => [['Kafta', 0], ['Shish taouk', 0], ['Djej meshwi', 0], ['Lahmeh sha2af', lamb], ['Lamb kabab', lamb], ['Kabab orfali', spiced]];
+const SANDWICH = [C('bread', 'Bread', BREADS), C('sauce', 'Sauce (pick up to two)', SAUCES, { multi: true, max: 2 }), C('mods', 'Changes', REMOVE, { multi: true, optional: true })];
+const VEG = C('veg', 'Veggies on the burger or on the side?', [['On the burger', 0], ['On the side', 0]]);
+const BURGER = [VEG, C('mods', 'Changes', [['No onion', 0], ['No pickles', 0], ['No tomato', 0], ['No lettuce', 0], ['Sauce on the side', 0], ['Extra cheese', 0.5], ['Add fried egg', 1]], { multi: true, optional: true })];
+const MEAL = [C('side', 'Side', SIDES), C('salad', 'Salad', SALADS), C('drink', 'Drink', DRINKS)];
+const PLATE = [C('salad', 'Salad', SALADS), C('side', 'Side', SIDES), C('bread', 'Bread', BREADS.slice(0, 1)), C('sauce', 'Sauces (pick up to two)', SAUCES, { multi: true, max: 2 })];
+const MENU = [
+  { id: 'sig', name: 'Signatures', ar: 'المميّزين', items: [
+    { id: "bccburger", name: "The BCC Burger", ar: "برغر BCC", price: 6, desc: "Our classic smash burger with cheddar and the works, on a toasted brioche bun.", tag: "Signature", choices: [C('meal', 'Make it a meal', [['Burger only', 0], ['Meal: side + salad + drink', 3]]), ...BURGER, C('side', 'Meal side', SIDES, { optional: true, when: 'meal' }), C('salad', 'Meal salad', SALADS, { optional: true, when: 'meal' }), C('drink', 'Meal drink', DRINKS, { optional: true, when: 'meal' })] },
+    { id: "lebburger", name: "Lebanese Burger", ar: "برغر لبناني", price: 7, desc: "The Lebanese snack-shop burger — beef patty, coleslaw, pickles and fries in the bun.", tag: "New", choices: [C('meal', 'Make it a meal', [['Burger only', 0], ['Meal: side + salad + drink', 3]]), C('veg', 'Coleslaw and pickles on the side?', [['Coleslaw and pickles in the bun', 0], ['Coleslaw and pickles on the side', 0]]), C('mods', 'Changes', [['No pickles', 0], ['Extra ketchup', 0], ['Add fried egg', 1]], { multi: true, optional: true }), C('side', 'Meal side', SIDES, { optional: true, when: 'meal' }), C('salad', 'Meal salad', SALADS, { optional: true, when: 'meal' }), C('drink', 'Meal drink', DRINKS, { optional: true, when: 'meal' })] },
+    { id: "smash", name: "BCC Kafta Smash", ar: "كفتة سماش", price: 6, desc: "Our kafta, smashed crispy on the saj with the classic fixings.", tag: "Signature", choices: SANDWICH },
+    { id: "kfries", name: "Kafta Fries", ar: "بطاطا كفتة", price: 5, desc: "Loaded fries with charcoal grilled kafta, cheese sauce and toum — or make it taouk.", tag: "Signature", choices: [C('size', 'Size', [['Regular', 0], ['Large (share)', 3]]), C('protein', 'Meat', [['Kafta', 0], ['Shish taouk', 0], ['Mixed', 0.5]]), C('mods', 'Changes', [['No cheese sauce', 0], ['No sumac onion', 0], ['Extra toum', 0.5], ['Extra spicy', 0]], { multi: true, optional: true })] },
+  ]},
+  { id: "charcoal", name: "Charcoal grilled sandwiches", ar: "سندويشات مشوية على الفحم", sub: "Lebanese bread · pick 2 sauces", items: [
+    { id: "kafta", name: "Kafta", ar: "كفتة", price: 4.5, desc: "our signature kafta, charcoal grilled", choices: SANDWICH },
+    { id: "lamb", name: "Lamb kabab", ar: "كباب لحمة", price: 5.5, desc: "tender lamb cubes off the charcoal", choices: SANDWICH },
+    { id: "lahme", name: "Lahmeh sha2af", ar: "لحمة شقف", price: 5.5, desc: "marinated beef cubes, charcoal grilled", choices: SANDWICH },
+    { id: "taouk", name: "Shish taouk", ar: "شيش طاووق", price: 4.5, desc: "marinated chicken, charcoal grilled", choices: SANDWICH },
+    { id: "djej", name: "Djej meshwi", ar: "دجاج مشوي", price: 4.5, desc: "juicy grilled chicken, lemon and herbs", tag: 'New', choices: SANDWICH },
+    { id: "orfali", name: "Kabab orfali", ar: "كباب أورفلي", price: 5, desc: "kafta with pine nuts and spices", choices: SANDWICH },
+    { id: "arayes", name: "Arayes", ar: "عرايس", price: 4, desc: "grilled bread stuffed with kafta and cheese", choices: SANDWICH },
+    { id: "vegskewer", name: "Vegetarian skewer", ar: "سيخ خضرا", price: 4, desc: "charcoal grilled vegetables", tag: 'New', choices: SANDWICH },
+  ]},
+  { id: "snack", name: "Snack sandwiches", ar: "سندويشات سناك", sub: "Lebanese snack-shop classics", items: [
+    { id: "basterma", name: "Basterma", ar: "بسترما", price: 5.5, desc: "premium cured basterma, Lebanese style", tag: 'New', choices: SANDWICH },
+    { id: "sawdadjej", name: "Sawda djej", ar: "سودة دجاج", price: 4, desc: "chicken livers, Lebanese style", tag: 'New', choices: SANDWICH },
+    { id: "sujuk", name: "Sujuk", ar: "سجق", price: 4.5, desc: "spiced Lebanese sausage", tag: 'New', choices: SANDWICH },
+    { id: "makanek", name: "Makanek", ar: "مقانق", price: 4.5, desc: "Lebanese lamb sausages", tag: 'New', choices: SANDWICH },
+    { id: "sandwichbatata", name: "Sandwich batata", ar: "سندويش بطاطا", price: 3, desc: "fries and coleslaw in bread, with our sauces", tag: 'New', choices: SANDWICH },
+  ]},
+  { id: 'burgers', name: 'Burgers', ar: 'برغر', sub: "Cooked through on the flat saj · make it a meal +$3", items: [
+    { id: "bmeal", name: "BCC Burger meal", ar: "وجبة برغر BCC", price: 9, desc: "the BCC Burger with a side, a salad and a drink", choices: [...MEAL, ...BURGER] },
+    { id: "kburger", name: "Kafta burger", ar: "برغر كفتة", price: 5.5, desc: "our kafta in a burger bun", choices: [C('meal', 'Make it a meal', [['Burger only', 0], ['Meal: side + salad + drink', 3]]), ...BURGER, C('side', 'Meal side', SIDES, { optional: true, when: 'meal' }), C('salad', 'Meal salad', SALADS, { optional: true, when: 'meal' }), C('drink', 'Meal drink', DRINKS, { optional: true, when: 'meal' })] },
+    { id: "gchicken", name: "Grilled chicken burger", ar: "برغر دجاج مشوي", price: 5, desc: "grilled chicken breast, light and juicy", tag: 'New', choices: [C('meal', 'Make it a meal', [['Burger only', 0], ['Meal: side + salad + drink', 3]]), ...BURGER, C('side', 'Meal side', SIDES, { optional: true, when: 'meal' }), C('salad', 'Meal salad', SALADS, { optional: true, when: 'meal' }), C('drink', 'Meal drink', DRINKS, { optional: true, when: 'meal' })] },
+    { id: "veggie", name: "Veggie burger", ar: "برغر نباتي", price: 5, desc: "our house vegetarian patty", tag: 'New', choices: [C('meal', 'Make it a meal', [['Burger only', 0], ['Meal: side + salad + drink', 3]]), ...BURGER, C('side', 'Meal side', SIDES, { optional: true, when: 'meal' }), C('salad', 'Meal salad', SALADS, { optional: true, when: 'meal' }), C('drink', 'Meal drink', DRINKS, { optional: true, when: 'meal' })] },
+  ]},
+  { id: 'kids', name: 'Kids', ar: 'الأولاد', sub: "Each with a small side and a juice", items: [
+    { id: "kidsburger", name: "Kids burger", ar: "برغر الأولاد", price: 5, desc: "a smaller plain burger", choices: [C('side', 'Side', [['Small fries', 0], ['Cucumber & carrot sticks', 0], ['Small rice', 0]]), C('drink', 'Drink', [['Apple juice', 0], ['Orange juice', 0], ['Water', 0]]), C('mods', 'Changes', [['Add cheese', 0], ['Add ketchup', 0], ['Cut in half', 0]], { multi: true, optional: true })] },
+    { id: "kidstaouk", name: "Kids taouk", ar: "طاووق الأولاد", price: 5, desc: "one taouk skewer with bread", choices: [C('side', 'Side', [['Small fries', 0], ['Cucumber & carrot sticks', 0], ['Small rice', 0]]), C('drink', 'Drink', [['Apple juice', 0], ['Orange juice', 0], ['Water', 0]]), C('mods', 'Changes', [['Add cheese', 0], ['Add ketchup', 0], ['Cut in half', 0]], { multi: true, optional: true })] },
+    { id: "kidskafta", name: "Kids kafta", ar: "كفتة الأولاد", price: 5, desc: "one kafta skewer with bread", choices: [C('side', 'Side', [['Small fries', 0], ['Cucumber & carrot sticks', 0], ['Small rice', 0]]), C('drink', 'Drink', [['Apple juice', 0], ['Orange juice', 0], ['Water', 0]]), C('mods', 'Changes', [['Add cheese', 0], ['Add ketchup', 0], ['Cut in half', 0]], { multi: true, optional: true })] },
+  ]},
+  { id: 'plates', name: 'Plates & boxes', ar: 'صحون وبوكسات', sub: "Every plate: your side, your salad, hummus, bread", items: [
+    { id: "kplate", name: "Kabab plate", ar: "صحن كباب", price: 9, desc: "three skewers of your choice · lamb +$2", choices: [C('protein', 'Skewers', [...PROT(2, 0.5), ['Half and half', 0]]), ...PLATE] },
+    { id: "mixed", name: "BCC mixed grill", ar: "مشاوي BCC", price: 12, desc: "kafta, lamb and taouk together", choices: PLATE },
+    { id: "farrouj", name: "Farrouj meshwi 3al fa7m", ar: "فروج مشوي ع الفحم", price: 13.0, desc: "whole or half charcoal chicken with the sides", choices: [C('size', 'Size', [['Whole', 0], ['Half', -6]]), C('sauce', 'Sauces (pick up to two)', SAUCES, { multi: true, max: 2 }), C('mods', 'Changes', [['Extra crispy', 0], ['Extra spicy', 0], ['No pickles', 0], ['Salad instead of fries', 0]], { multi: true, optional: true })] },
+    { id: "msahab", name: "Farrouj msa7ab", ar: "فروج مسحّب", price: 15, desc: "boneless flattened chicken off the charcoal", choices: [C('sauce', 'Sauces (pick up to two)', SAUCES, { multi: true, max: 2 }), C('salad', 'Salad', SALADS), C('mods', 'Changes', [['Extra crispy', 0], ['Extra spicy', 0], ['No pickles', 0], ['Salad instead of fries', 0]], { multi: true, optional: true })] },
+    { id: "family", name: "Mashawi Family Box", ar: "بوكس مشاوي العيلة", price: 26, desc: "mixed mashawi for the whole family, with sides and drinks", tag: "Every day", choices: [C('mix', 'Skewers', [['4 kafta + 4 taouk', 0], ['All kafta', 0], ['All taouk', 0], ['Mixed with lamb', 4]]), C('side', 'Two large sides (pick two)', SIDES, { multi: true, max: 2, min: 2 }), C('salad', 'Two salads (pick two)', SALADS, { multi: true, max: 2, min: 2 }), C('drink', 'Four drinks (pick up to four)', DRINKS, { multi: true, max: 4 }), C('sauce', 'Sauces (pick up to three)', SAUCES, { multi: true, max: 3 })] },
+  ]},
+  { id: 'kilo', name: 'Mashawi by the kilo', ar: 'مشاوي بالكيلو', sub: 'Grilled now, or raw & marinated to grill at home (−25%) · order by 6 pm · Sunday Kilo Day: mixed kilo $33 with the works', items: [
+    { id: 'kmix', name: 'Mixed mashawi · 1 kg', ar: 'مشاوي مشكّل · كيلو', price: 26, desc: 'Kafta, taouk and lamb (raw weight), with bread, biwaz, grilled tomato and onion. Feeds 3–4.', tag: 'Kilo', choices: [C('form', 'How', [['Grilled now', 0], ['Raw & marinated, to grill at home', -6.5]]), C('weight', 'Weight', [['1 kg', 0], ['½ kg', -12], ['2 kg', 26]]), C('mix', 'Mix', [['Kafta + taouk + lamb', 0], ['Kafta + taouk', -3], ['Extra lamb', 3]]), C('sauce', 'Sauces (pick up to three)', SAUCES, { multi: true, max: 3 }), C('sides', 'Add for the table', [['Hummus 500 g', 5], ['Fattoush large', 6], ['Tabbouleh large', 6], ['Batata harra large', 5], ['Extra bread ×6', 3], ['Pickles & turnips', 2]], { multi: true, optional: true })] },
+    { id: 'kkafta', name: 'Kafta · 1 kg', ar: 'كفتة · كيلو', price: 20, desc: "BCC kafta, about 8 skewers, with bread, biwaz and grilled vegetables.", tag: 'Kilo', choices: [C('form', 'How', [['Grilled now', 0], ['Raw & marinated, to grill at home', -5]]), C('weight', 'Weight', [['1 kg', 0], ['½ kg', -9], ['2 kg', 20]]), C('sides', 'Add for the table', [['Hummus 500 g', 5], ['Fattoush large', 6], ['Extra bread ×6', 3]], { multi: true, optional: true })] },
+    { id: 'ktaouk', name: 'Shish taouk · 1 kg', ar: 'شيش طاووق · كيلو', price: 19, desc: 'Marinated chicken, about 7 skewers, with bread, toum, biwaz and grilled vegetables.', tag: 'Kilo', choices: [C('form', 'How', [['Grilled now', 0], ['Raw & marinated, to grill at home', -5]]), C('weight', 'Weight', [['1 kg', 0], ['½ kg', -9], ['2 kg', 19]]), C('sides', 'Add for the table', [['Hummus 500 g', 5], ['Fattoush large', 6], ['Extra bread ×6', 3]], { multi: true, optional: true })] },
+    { id: 'klamb', name: 'Lamb kabab · 1 kg', ar: 'كباب لحمة · كيلو', price: 32, desc: 'Lamb cubes with fat, about 8 skewers, with bread, hummus, biwaz and grilled vegetables.', tag: 'Kilo', choices: [C('form', 'How', [['Grilled now', 0], ['Raw & marinated, to grill at home', -8]]), C('weight', 'Weight', [['1 kg', 0], ['½ kg', -15], ['2 kg', 32]]), C('sides', 'Add for the table', [['Hummus 500 g', 5], ['Fattoush large', 6], ['Extra bread ×6', 3]], { multi: true, optional: true })] },
+  ]},
+  { id: 'lean', name: 'Light & Lean', ar: 'خفيف وصحي', sub: "Grilled, not fried · sauces on the side", items: [
+    { id: "saladpro", name: "Salad & protein", ar: "سلطة مع بروتين", price: 7, desc: "any of our salads topped with a grilled protein", tag: "Lean", choices: [C('salad', 'Salad', SALADS), C('protein', 'Protein', [...PROT(1.5, 0.5), ['Double protein', 3]])] },
+    { id: "lettuce", name: "Protein lettuce wrap", ar: "لفّة خس مع بروتين", price: 6, desc: "grilled protein or veggies wrapped in lettuce", tag: "Lean", choices: [C('filling', 'Protein or veggies', [...PROT(1.5, 0.5), ['Grilled veggies', 0]])] },
+  ]},
+  { id: 'sides', name: 'Sides & sauces', ar: 'مقبلات وصوص', items: [
+    { id: "fries", name: "Fries", ar: "بطاطا مقلية", price: 2, desc: "crispy golden fries" },
+    { id: "hummus", name: "Hummus", ar: "حمص", price: 2.5, desc: "smooth house hummus" },
+    { id: "fattoush", name: "Fattoush", ar: "فتوش", price: 3, desc: "the Lebanese classic" },
+    { id: "tabbouleh", name: "Tabbouleh", ar: "تبولة", price: 3, desc: "fresh and lemony" },
+    { id: "coleslaw", name: "Coleslaw", ar: "كول سلو", price: 2.5, desc: "creamy and crunchy" },
+    { id: "batataharra", name: "Batata harra", ar: "بطاطا حرّة", price: 3, desc: "spicy potatoes with garlic and coriander" },
+    { id: "bcctoumtub", name: "BCC toum tub", ar: "علبة توم BCC", price: 3, desc: "our garlic toum to take home" },
+    { id: "extrabread", name: "Extra bread", ar: "خبز زيادة", price: 1, desc: "Lebanese bread" },
+  ]},
+  { id: 'dessert', name: "Dessert cups", ar: "كاسات حلو", sub: "Made fresh daily, ready to go", items: [
+    { id: "rizbhalib", name: "Riz b'halib", ar: "رز بحليب", price: 2.5, desc: "Lebanese rice pudding" },
+    { id: "mhalabiya", name: "Mhalabiya", ar: "مهلبية", price: 2.5, desc: "Lebanese milk pudding" },
+    { id: "chocolatemouss", name: "Chocolate mousse cup", ar: "كاسة موس شوكولا", price: 3, desc: "rich and chocolatey" },
+  ]},
+  { id: 'drinks', name: 'Drinks', ar: 'مشروبات', items: [
+    { id: "soft", name: "Soft drink", ar: "مشروب غازي", price: 1.5, desc: "Pepsi, 7Up, Mirinda, Diet Pepsi", choices: [C('kind', 'Which', [['Pepsi', 0], ['7Up', 0], ['Mirinda', 0], ['Diet Pepsi', 0]])] },
+    { id: "water", name: "Water", ar: "مي", price: 1, desc: "bottled water" },
+    { id: "ayran", name: "Ayran", ar: "عيران", price: 1.5, desc: "cold yogurt drink" },
+    { id: "freshlemonadew", name: "Fresh lemonade with mint", ar: "ليموناضة بالنعنع", price: 2.5, desc: "freshly squeezed" },
+  ]},
+];
+const BOWL = {
+  size: [['Regular', 0, 0], ['Large (double base)', 2, 150]],
+  base: [['Fattoush', 0, 120], ['Tabbouleh', 0, 150], ['Burghul pilaf', 0, 210], ['Vermicelli rice', 0, 230], ['Mixed greens & quinoa', 1, 160], ['Half salad, half grain', 0, 180]],
+  protein: [['Kafta (2 skewers)', 0, 320], ['Taouk (2 skewers)', 0, 280], ['Lamb (2 skewers)', 1.5, 340], ['BCC burger patty', 0.5, 330], ['Falafel', -1, 260], ['Grilled veg only', -1.5, 120], ['Double protein', 3, 600]],
+  extras: [['Grilled tomato & onion', 0, 30], ['Pickles & turnips', 0, 10], ['Sumac onion', 0, 15], ['Cucumber & tomato', 0, 20], ['Roasted peppers', 0, 25], ['Hummus', 0.5, 80], ['Labneh', 0.5, 70], ['Roasted chickpeas', 0.5, 90], ['Avocado', 1, 120], ['Feta', 0.75, 90], ['Boiled egg', 0.75, 70]],
+  crunch: [['Toasted pine nuts', 0.75, 60], ['Sumac pita chips', 0.5, 80], ['Seeds mix', 0.5, 60], ['Fried onions', 0.5, 70]],
+  sauce: [['Yogurt-tahini', 0, 60], ['Lemon & olive oil', 0, 80], ['Toum', 0, 70], ['Hot harissa', 0, 20], ['Pomegranate molasses', 0, 40], ['No sauce', 0, 0]],
+};
+const BOWL_BASE_PRICE = 7.5, BOWL_FREE_EXTRAS = 3, BOWL_EXTRA_FEE = 0.5;
+const ZONE_FEE = { A: t => (t >= 8 ? 0 : 1), B: () => 2, C: () => 3 };
+const TARGET_READY_MIN = 15, WARN_MIN = 10;
+
+let db = null, cart = [], orderType = 'delivery', pay = 'cash', mode = 'order';
+let bowlSel = { size: 'Regular', base: 'Fattoush', protein: 'Kafta (2 skewers)', extras: new Set(['Grilled tomato & onion']), crunch: new Set(), sauce: new Set(['Yogurt-tahini']), addons: new Set(), sideSauce: false, notes: '' };
+let orders = [], customers = {}, redeem = false, knownPoints = null;
+const $ = s => document.querySelector(s);
+const money = n => '$' + (Math.round(n * 100) / 100).toFixed(n % 1 ? 2 : 0);
+const toast = m => { const t = document.createElement('div'); t.className = 'toast'; t.textContent = m; document.body.appendChild(t); setTimeout(() => t.remove(), 2600); };
+
+/* ---------- menu ---------- */
+function renderMenu() {
+  const cats = $('#cats'), menu = $('#menu');
+  cats.innerHTML = ''; menu.innerHTML = '';
+  MENU.forEach((c, i) => {
+    const b = document.createElement('button'); b.textContent = c.name; b.setAttribute('aria-current', i === 0 ? 'true' : 'false');
+    b.onclick = () => { document.getElementById('sec-' + c.id).scrollIntoView({ behavior: 'smooth', block: 'start' }); cats.querySelectorAll('button').forEach(x => x.setAttribute('aria-current', 'false')); b.setAttribute('aria-current', 'true'); };
+    cats.appendChild(b);
+    const sec = document.createElement('div'); sec.className = 'section'; sec.id = 'sec-' + c.id;
+    sec.innerHTML = `<h2>${c.name} <span class="ar" style="font-weight:500;color:var(--ink-3);font-size:16px;">${c.ar}</span></h2>` + (c.builder ? `<div class="sub">Build your own: size, base, protein, extras, crunch, sauces.</div>` : (c.sub ? `<div class="sub">${c.sub}</div>` : ''));
+    if (c.builder) sec.appendChild(renderBuilder());
+    const grid = document.createElement('div'); grid.className = 'grid';
+    c.items.forEach(it => {
+      const d = document.createElement('div'); d.className = 'item' + (it.tag === 'Signature' ? ' signature' : '');
+      d.innerHTML = `${it.img ? `<img class="photo" src="https://baissourcountryclub.com/grill/menu/photos/${it.img}" alt="${it.name}" loading="lazy">` : ''}<div style="display:flex;justify-content:space-between;gap:8px;align-items:flex-start;"><div><div class="name">${it.name}</div><div class="arname ar" style="text-align:left;">${it.ar}</div></div>${it.tag ? `<span class="tag ${it.tag === 'Lean' ? 'lean' : ''}">${it.tag}</span>` : ''}</div>
+        ${it.desc ? `<div class="desc">${it.desc}</div>` : ''}${it.kcal ? `<div class="kcal num">≈ ${it.kcal} kcal</div>` : ''}
+        <div class="row"><span class="price num">${money(it.price)}</span><button class="add">${it.choices ? 'Choose' : 'Add'}</button></div>`;
+      d.querySelector('.add').onclick = () => openSheet(it);
+      grid.appendChild(d);
+    });
+    sec.appendChild(grid); menu.appendChild(sec);
+  });
+}
+/* ---------- customise sheet (choices, removals, paid add-on sides, notes, quantity) ---------- */
+let sheetSel = null;
+function openSheet(it) {
+  const sel = { qty: 1, notes: '', addons: new Set(), pick: {} };
+  (it.choices || []).forEach(g => { sel.pick[g.key] = g.multi ? new Set(g.min ? g.opts.slice(0, g.min).map(o => o[0]) : []) : (g.optional ? null : g.opts[0][0]); });
+  sheetSel = sel;
+  const bg = document.createElement('div'); bg.className = 'sheet-bg'; bg.onclick = e => { if (e.target === bg) bg.remove(); };
+  const sheet = document.createElement('div'); sheet.className = 'sheet'; bg.appendChild(sheet); document.body.appendChild(bg);
+  const visible = g => !g.when || (sel.pick[g.when] && !/only/i.test(sel.pick[g.when]));
+  const price = () => {
+    let p = it.price;
+    (it.choices || []).forEach(g => { if (!visible(g)) return; const v = sel.pick[g.key]; const add = n => { const o = g.opts.find(x => x[0] === n); if (o) p += o[1]; }; if (v instanceof Set) v.forEach(add); else if (v) add(v); });
+    sel.addons.forEach(n => { const o = ADDONS.find(x => x[0] === n); if (o) p += o[1]; });
+    return p;
+  };
+  const chipRow = (label, opts, get, set, multi, max, hint, base) => {
+    const st = document.createElement('div'); st.className = 'step'; st.innerHTML = `<div class="label">${label}</div>` + (hint ? `<div class="hint">${hint}</div>` : '');
+    const chips = document.createElement('div'); chips.className = 'chips';
+    opts.forEach(([name, extra]) => {
+      const b = document.createElement('button'); b.textContent = name + (base != null ? ` · ${money(base + extra)}` : (extra ? ` ${extra > 0 ? '+' : '−'}$${Math.abs(extra)}` : ''));
+      const cur = get(); b.setAttribute('aria-pressed', multi ? cur.has(name) : cur === name);
+      b.onclick = () => { if (multi) { if (cur.has(name)) cur.delete(name); else if (!max || cur.size < max) cur.add(name); else toast(`Pick up to ${max}`); } else set(cur === name && !opts.required ? name : name); draw(); };
+      chips.appendChild(b);
+    });
+    st.appendChild(chips); return st;
+  };
+  function draw() {
+    sheet.innerHTML = `<div class="head"><div><h3>${it.name}</h3><div class="ar" style="color:var(--ink-3);text-align:left;">${it.ar || ''}</div>${it.desc ? `<div class="desc" style="color:var(--ink-2);font-size:13px;margin-top:4px;">${it.desc}</div>` : ''}</div><button class="close" aria-label="Close">×</button></div>`;
+    sheet.querySelector('.close').onclick = () => bg.remove();
+    (it.choices || []).forEach(g => { if (!visible(g)) return; sheet.appendChild(chipRow(g.label, g.opts, () => sel.pick[g.key], v => { sel.pick[g.key] = v; }, g.multi, g.max, g.min ? `Choose ${g.min}` : (g.when ? 'Choose one' : (g.optional ? 'Optional' : '')), g.abs ? it.price : null)); });
+    sheet.appendChild(chipRow('Add sides for extra', ADDONS, () => sel.addons, null, true, null, 'Anything from the sides list, added to this item'));
+    const notes = document.createElement('div'); notes.className = 'step'; notes.innerHTML = `<div class="label">Notes for the kitchen</div><textarea placeholder="e.g. no onion on the kids one, extra toum">${sel.notes}</textarea>`;
+    notes.querySelector('textarea').oninput = e => { sel.notes = e.target.value; }; sheet.appendChild(notes);
+    const foot = document.createElement('div'); foot.className = 'foot';
+    foot.innerHTML = `<div class="qty"><button aria-label="Less">−</button><b class="num">${sel.qty}</b><button aria-label="More">+</button></div><div><span class="price num">${money(price() * sel.qty)}</span></div>`;
+    const [minus, plus] = foot.querySelectorAll('.qty button'); minus.onclick = () => { if (sel.qty > 1) { sel.qty--; draw(); } }; plus.onclick = () => { sel.qty++; draw(); };
+    const add = document.createElement('button'); add.className = 'add'; add.textContent = `Add ${sel.qty > 1 ? sel.qty + ' ' : ''}to order`;
+    add.onclick = () => {
+      for (const g of (it.choices || [])) { if (!visible(g)) continue; const v = sel.pick[g.key]; if (g.min && v.size < g.min) return toast(`${g.label}: choose ${g.min}`); if (!g.multi && !v && (!g.optional || g.when)) return toast(`Choose ${g.label.toLowerCase()}`); }
+      const parts = [];
+      (it.choices || []).forEach(g => { if (!visible(g)) return; const v = sel.pick[g.key]; if (v instanceof Set) { if (v.size) parts.push([...v].join(', ')); } else if (v) parts.push(v); });
+      if (sel.addons.size) parts.push('+ ' + [...sel.addons].join(', + '));
+      if (sel.notes.trim()) parts.push('“' + sel.notes.trim() + '”');
+      addToCart({ id: it.id, name: [it.name, ...parts].join(' · '), price: price() }, sel.qty);
+      bg.remove();
+    };
+    foot.appendChild(add); sheet.appendChild(foot);
+  }
+  draw();
+}
+function bowlPrice() {
+  let p = BOWL_BASE_PRICE;
+  const pick = (list, name) => (list.find(x => x[0] === name) || [0, 0, 0]);
+  p += pick(BOWL.size, bowlSel.size)[1] + pick(BOWL.base, bowlSel.base)[1] + pick(BOWL.protein, bowlSel.protein)[1];
+  let i = 0; bowlSel.extras.forEach(e => { p += pick(BOWL.extras, e)[1]; if (++i > BOWL_FREE_EXTRAS) p += BOWL_EXTRA_FEE; });
+  bowlSel.crunch.forEach(e => { p += pick(BOWL.crunch, e)[1]; });
+  bowlSel.addons.forEach(n => { p += (ADDONS.find(x => x[0] === n) || [0, 0])[1]; });
+  return p;
+}
+function bowlKcal() {
+  const k = (list, name) => (list.find(x => x[0] === name) || [0, 0, 0])[2];
+  let c = k(BOWL.size, bowlSel.size) + k(BOWL.base, bowlSel.base) + k(BOWL.protein, bowlSel.protein);
+  bowlSel.extras.forEach(e => c += k(BOWL.extras, e)); bowlSel.crunch.forEach(e => c += k(BOWL.crunch, e)); bowlSel.sauce.forEach(e => c += k(BOWL.sauce, e));
+  return Math.round(c / 10) * 10;
+}
+function renderBuilder() {
+  const box = document.createElement('div'); box.className = 'builder';
+  const step = (label, key, list, multi, max, hint) => {
+    const s = document.createElement('div'); s.className = 'step'; s.innerHTML = `<div class="label">${label}</div>` + (hint ? `<div class="hint">${hint}</div>` : '');
+    const chips = document.createElement('div'); chips.className = 'chips';
+    list.forEach(([name, extra]) => {
+      const b = document.createElement('button'); b.textContent = name + (extra ? ` ${extra > 0 ? '+' : '−'}$${Math.abs(extra)}` : '');
+      const cur = bowlSel[key]; const pressed = multi ? cur.has(name) : cur === name; b.setAttribute('aria-pressed', pressed);
+      b.onclick = () => { if (multi) { if (cur.has(name)) cur.delete(name); else if (!max || cur.size < max) cur.add(name); else toast(`Pick up to ${max}`); } else bowlSel[key] = name; const nb = renderBuilder(); box.replaceWith(nb); };
+      chips.appendChild(b);
+    });
+    s.appendChild(chips); return s;
+  };
+  box.appendChild(step('1 · Size', 'size', BOWL.size));
+  box.appendChild(step('2 · Base', 'base', BOWL.base));
+  box.appendChild(step('3 · Protein', 'protein', BOWL.protein));
+  box.appendChild(step('4 · Extras', 'extras', BOWL.extras, true, 6, `First ${BOWL_FREE_EXTRAS} free, then +$${BOWL_EXTRA_FEE} each (up to six)`));
+  box.appendChild(step('5 · Crunch', 'crunch', BOWL.crunch, true, 2, 'Optional'));
+  box.appendChild(step('6 · Sauce', 'sauce', BOWL.sauce, true, 2, 'Up to two'));
+  box.appendChild(step('7 · Add sides for extra', 'addons', ADDONS, true, null, 'Optional'));
+  const tog = document.createElement('div'); tog.className = 'step'; tog.innerHTML = `<div class="chips"><button aria-pressed="${bowlSel.sideSauce}">Sauce on the side</button></div>`;
+  tog.querySelector('button').onclick = () => { bowlSel.sideSauce = !bowlSel.sideSauce; const nb = renderBuilder(); box.replaceWith(nb); }; box.appendChild(tog);
+  const notes = document.createElement('div'); notes.className = 'step'; notes.innerHTML = `<div class="label">Notes for the kitchen</div><textarea placeholder="e.g. light on the lemon" style="width:100%;min-height:44px;border:1px solid var(--line);border-radius:10px;padding:8px 10px;background:var(--ground);color:var(--ink);font:inherit;">${bowlSel.notes}</textarea>`;
+  notes.querySelector('textarea').oninput = e => { bowlSel.notes = e.target.value; }; box.appendChild(notes);
+  const foot = document.createElement('div'); foot.className = 'foot';
+  foot.innerHTML = `<div><span class="price num">${money(bowlPrice())}</span> <span class="kcal num">≈ ${bowlKcal()} kcal</span></div>`;
+  const add = document.createElement('button'); add.className = 'add'; add.textContent = 'Add bowl';
+  add.onclick = () => addToCart({ id: 'bowl', name: `Bowl (${bowlSel.size}) · ${bowlSel.base} · ${bowlSel.protein} · ${[...bowlSel.extras].join(', ') || 'no extras'}${bowlSel.crunch.size ? ' · ' + [...bowlSel.crunch].join(', ') : ''} · ${[...bowlSel.sauce].join(' & ') || 'no sauce'}${bowlSel.sideSauce ? ' (on the side)' : ''}${bowlSel.addons.size ? ' · + ' + [...bowlSel.addons].join(', + ') : ''}${bowlSel.notes.trim() ? ' · “' + bowlSel.notes.trim() + '”' : ''}`, price: bowlPrice() });
+  foot.appendChild(add); box.appendChild(foot);
+  return box;
+}
+
+/* ---------- cart ---------- */
+function addToCart(it, qty = 1) { const ex = cart.find(l => l.name === it.name); if (ex) ex.qty += qty; else cart.push({ ...it, qty }); renderCart(); toast(it.name.split(' · ')[0] + ' added'); }
+function subtotal() { return cart.reduce((a, l) => a + l.price * l.qty, 0); }
+function fee() { return orderType === 'delivery' ? ZONE_FEE[$('#cZone').value](subtotal()) : 0; }
+function discount() { return redeem && knownPoints >= 50 ? 5 : 0; }
+function total() { return Math.max(0, subtotal() + fee() - discount()); }
+function renderCart() {
+  const lines = $('#lines');
+  if (!cart.length) lines.innerHTML = '<div class="empty">Nothing yet. Start with the BCC Burger.</div>';
+  else lines.innerHTML = cart.map((l, i) => `<div class="line"><div>${l.name.split(' · ')[0]}<small>${l.name.split(' · ').slice(1).join(' · ')}</small></div><div class="qty"><button data-i="${i}" data-d="-1">−</button><span class="num">${l.qty}</span><button data-i="${i}" data-d="1">+</button></div><div class="num">${money(l.price * l.qty)}</div></div>`).join('');
+  lines.querySelectorAll('button').forEach(b => b.onclick = () => { const l = cart[+b.dataset.i]; l.qty += +b.dataset.d; if (l.qty <= 0) cart.splice(+b.dataset.i, 1); renderCart(); });
+  const st = subtotal(), f = fee(), d = discount();
+  $('#totals').innerHTML = cart.length ? `<div><span>Subtotal</span><span class="num">${money(st)}</span></div>${orderType === 'delivery' ? `<div><span>Delivery</span><span class="num">${f ? money(f) : 'Free'}</span></div>` : ''}${d ? `<div><span>Rewards</span><span class="num">−${money(d)}</span></div>` : ''}<div class="grand"><span>Total</span><span class="num">${money(total())}</span></div><div class="note"><span>Earns</span><span class="num">${Math.floor(total())} points</span></div>` : '';
+  $('#placeBtn').disabled = !cart.length;
+  $('#cartToggle').textContent = cart.length ? `${cart.reduce((a, l) => a + l.qty, 0)} items · ${money(total())}` : 'Show';
+}
+$('#typeSeg').querySelectorAll('button').forEach(b => b.onclick = () => { orderType = b.dataset.type; $('#typeSeg').querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b)); $('#deliveryFields').hidden = orderType !== 'delivery'; renderCart(); });
+$('#paySeg').querySelectorAll('button').forEach(b => b.onclick = () => { pay = b.dataset.pay; $('#paySeg').querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b)); });
+$('#cZone').onchange = renderCart;
+$('#cartToggle').onclick = () => $('#cart').classList.toggle('collapsed');
+if (matchMedia('(max-width: 980px)').matches) { $('#cartToggle').style.display = ''; $('#cart').classList.add('collapsed'); }
+
+$('#cPhone').addEventListener('change', async () => {
+  const ph = normPhone($('#cPhone').value); knownPoints = null; redeem = false; $('#rewardBox').hidden = true;
+  if (!db || !ph) return;
+  const snap = await db.doc('customers/' + ph).get();
+  if (snap.exists) { const c = snap.data(); knownPoints = c.points || 0; if (!$('#cName').value && c.name) $('#cName').value = c.name;
+    const box = $('#rewardBox'); box.hidden = false;
+    box.innerHTML = `<span>Welcome back${c.name ? ', ' + c.name.split(' ')[0] : ''} · <b class="num">${knownPoints}</b> points</span>` + (knownPoints >= 50 ? `<button class="ghost" id="redeemBtn">Use 50 for $5 off</button>` : '');
+    const rb = $('#redeemBtn'); if (rb) rb.onclick = () => { redeem = !redeem; rb.textContent = redeem ? 'Applied · undo' : 'Use 50 for $5 off'; renderCart(); };
+  }
+});
+function normPhone(v) { return (v || '').replace(/[^0-9]/g, '').replace(/^961/, '0').replace(/^(?!0)/, '0').slice(0, 10) || ''; }
+
+$('#placeBtn').onclick = async () => {
+  const name = $('#cName').value.trim(), phone = normPhone($('#cPhone').value);
+  if (!name || phone.length < 8) return toast('Add your name and phone number');
+  if (orderType === 'delivery' && !$('#cAddress').value.trim()) return toast('Add an address or a landmark');
+  if (orderType === 'delivery' && $('#cZone').value === 'C' && subtotal() < 15) return toast('Zone C needs a $15 minimum');
+  if (!db) return toast('Ordering is offline right now — call or WhatsApp us');
+  $('#placeBtn').disabled = true;
+  try {
+    const number = await nextNumber();
+    const order = { number, items: cart.map(l => ({ name: l.name, qty: l.qty, price: l.price })), subtotal: subtotal(), fee: fee(), discount: discount(), total: total(), type: orderType,
+      customer: { name, phone, address: orderType === 'delivery' ? $('#cAddress').value.trim() : '', zone: orderType === 'delivery' ? $('#cZone').value : '' }, notes: $('#cNotes').value.trim(), payment: pay,
+      status: 'new', createdAt: Date.now(), day: dayKey(), points: Math.floor(total()) };
+    await db.collection('orders').add(order);
+    const cref = db.doc('customers/' + phone); const cs = await cref.get(); const prev = cs.exists ? cs.data() : { points: 0, orders: 0 };
+    await cref.set({ name, phone, points: (prev.points || 0) + order.points - (order.discount ? 50 : 0), orders: (prev.orders || 0) + 1, lastOrder: Date.now(), lastItems: order.items.map(i => i.name.split(' · ')[0]).slice(0, 3) });
+    cart = []; redeem = false; knownPoints = null; renderCart();
+    $('#checkout').hidden = true; const c = $('#confirm'); c.hidden = false;
+    c.innerHTML = `<div class="note">Order number</div><div class="big num">${number}</div><div><b>${orderType === 'delivery' ? 'On its way — we\'ll message you the time' : 'Ready to collect in about 15 minutes'}</b></div><div class="note">Paying by ${pay}. We message you on WhatsApp when it is on the grill and when it leaves. You earned ${order.points} points.</div><button class="ghost" id="again">Order again</button>`;
+    $('#again').onclick = () => { $('#confirm').hidden = true; $('#checkout').hidden = false; $('#cNotes').value = ''; };
+    toast('Order ' + number + ' placed');
+  } catch (e) { console.error(e); toast('Could not place the order. Try again or WhatsApp us.'); $('#placeBtn').disabled = false; }
+};
+function dayKey() { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
+async function nextNumber() {
+  const ref = db.doc('meta/counter'); const holder = 'c' + Math.random().toString(36).slice(2);
+  const lease = await ref.acquire({ holder, ttlMs: 3000 });
+  const snap = await ref.get(); const d = snap.exists ? snap.data() : {}; const today = dayKey();
+  const n = (d.day === today ? (d.n || 100) : 100) + 1;
+  await ref.set({ day: today, n }); return n;
+}
+
+/* ---------- kitchen ---------- */
+function elapsed(ms) { const s = Math.max(0, Math.floor((Date.now() - ms) / 1000)); return String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0'); }
+function renderKitchen() {
+  const open = orders.filter(o => o.status !== 'done');
+  const cols = { new: $('#colNew'), cooking: $('#colCook'), ready: $('#colReady') };
+  const counts = { new: 0, cooking: 0, ready: 0 };
+  Object.values(cols).forEach(c => c.innerHTML = '');
+  open.sort((a, b) => a.createdAt - b.createdAt).forEach(o => {
+    const col = o.status === 'new' ? 'new' : o.status === 'cooking' ? 'cooking' : 'ready'; counts[col]++;
+    const mins = (Date.now() - o.createdAt) / 60000; const cls = o.status === 'ready' || o.status === 'out' ? '' : mins >= TARGET_READY_MIN ? ' late' : mins >= WARN_MIN ? ' warn' : '';
+    const d = document.createElement('div'); d.className = 'card' + cls;
+    const clockBase = o.status === 'ready' ? o.readyAt : o.status === 'out' ? o.outAt : o.createdAt;
+    d.innerHTML = `<div class="head"><div class="no num">#${o.number}</div><div class="timer num" data-t="${clockBase}">${elapsed(clockBase)}</div></div>
+      <div class="meta"><span>${o.type === 'delivery' ? 'Delivery · zone ' + o.customer.zone : 'Take away'}</span><span>${o.customer.name}</span><span>${o.payment}</span><span class="num">${money(o.total)}</span>${o.status === 'out' ? '<span>Out with driver</span>' : ''}</div>
+      <ul>${o.items.map(i => `<li><b class="num">${i.qty}×</b> ${i.name.split(' · ')[0]}${i.name.includes(' · ') ? `<br><small>${i.name.split(' · ').slice(1).join(' · ')}</small>` : ''}</li>`).join('')}</ul>
+      ${o.notes ? `<div class="notes">Note: ${o.notes}</div>` : ''}
+      <div class="actions">${o.status === 'new' ? '<button class="act-start" data-s="cooking">Start</button>' : o.status === 'cooking' ? '<button class="act-ready" data-s="ready">Ready</button>' : o.status === 'ready' ? (o.type === 'delivery' ? '<button class="act-out" data-s="out">Out for delivery</button>' : '<button class="act-done" data-s="done">Collected</button>') : '<button class="act-done" data-s="done">Delivered</button>'}</div>`;
+    d.querySelectorAll('[data-s]').forEach(b => b.onclick = () => setStatus(o, b.dataset.s));
+    cols[col].appendChild(d);
+  });
+  $('#cNew').textContent = counts.new; $('#cCook').textContent = counts.cooking; $('#cReady').textContent = counts.ready;
+  const today = orders.filter(o => o.day === dayKey()); const readyToday = today.filter(o => o.readyAt);
+  $('#kOpen').textContent = open.length; $('#kCount').textContent = today.length;
+  $('#kAvg').textContent = readyToday.length ? Math.round(readyToday.reduce((a, o) => a + (o.readyAt - o.createdAt), 0) / readyToday.length / 60000) + ' min' : '–';
+  $('#kOnTime').textContent = readyToday.length ? Math.round(100 * readyToday.filter(o => o.readyAt - o.createdAt <= TARGET_READY_MIN * 60000) / readyToday.length) + '%' : '–';
+  // ready board
+  $('#bReady').innerHTML = open.filter(o => o.status === 'ready' && o.type === 'pickup').map(o => `<div class="n ready num">${o.number}</div>`).join('') || '<div class="lbl">—</div>';
+  $('#bPrep').innerHTML = open.filter(o => (o.status === 'new' || o.status === 'cooking') && o.type === 'pickup').map(o => `<div class="n num">${o.number}</div>`).join('') || '<div class="lbl">—</div>';
+}
+async function setStatus(o, s) {
+  const patch = { status: s }; const now = Date.now();
+  if (s === 'cooking') patch.startedAt = now; if (s === 'ready') patch.readyAt = now; if (s === 'out') patch.outAt = now; if (s === 'done') patch.doneAt = now;
+  try { await db.doc('orders/' + o.id).update(patch); } catch (e) { toast('Could not update the order'); }
+}
+setInterval(() => { document.querySelectorAll('.timer[data-t]').forEach(t => t.textContent = elapsed(+t.dataset.t)); if (mode === 'kitchen' && orders.some(o => o.status === 'new' || o.status === 'cooking')) renderKitchen(); }, 1000);
+let audio; function beep() { try { audio = audio || new (window.AudioContext || window.webkitAudioContext)(); const o = audio.createOscillator(), g = audio.createGain(); o.connect(g); g.connect(audio.destination); o.frequency.value = 880; g.gain.value = 0.15; o.start(); o.stop(audio.currentTime + 0.25); } catch (e) {} }
+
+/* ---------- rewards ---------- */
+function renderRewards() {
+  const list = Object.values(customers).sort((a, b) => (b.points || 0) - (a.points || 0)).slice(0, 25);
+  $('#rTable').innerHTML = list.map(c => `<tr><td>${c.name || '—'}</td><td class="num">${c.phone}</td><td class="num">${c.points || 0}</td><td class="num">${c.orders || 0}</td><td>${c.lastOrder ? new Date(c.lastOrder).toLocaleDateString() : '—'}</td></tr>`).join('') || '<tr><td colspan="5" class="note">No customers yet.</td></tr>';
+}
+$('#rLookup').onclick = async () => {
+  const ph = normPhone($('#rPhone').value); if (!ph || !db) return;
+  const snap = await db.doc('customers/' + ph).get(); const r = $('#rResult');
+  if (!snap.exists) { r.innerHTML = `No customer at ${ph}. <button class="ghost" id="rCreate">Create with 0 points</button>`; $('#rCreate').onclick = async () => { await db.doc('customers/' + ph).set({ phone: ph, points: 0, orders: 0 }); $('#rLookup').click(); }; return; }
+  const c = snap.data();
+  r.innerHTML = `<b>${c.name || ph}</b> · <span class="num">${c.points || 0}</span> points · ${c.orders || 0} orders · last: ${(c.lastItems || []).join(', ') || '—'}<br><div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;"><input id="rAmt" placeholder="Cash order total ($)" inputmode="decimal" style="max-width:200px;"><button class="ghost" id="rAdd">Add points</button><button class="ghost" id="rRedeem" ${(c.points || 0) < 50 ? 'disabled' : ''}>Redeem 50 = $5</button></div>`;
+  $('#rAdd').onclick = async () => { const amt = Math.floor(+$('#rAmt').value || 0); if (!amt) return; await db.doc('customers/' + ph).update({ points: (c.points || 0) + amt, orders: (c.orders || 0) + 1, lastOrder: Date.now() }); toast(`+${amt} points`); $('#rLookup').click(); };
+  $('#rRedeem').onclick = async () => { await db.doc('customers/' + ph).update({ points: (c.points || 0) - 50 }); toast('Redeemed $5'); $('#rLookup').click(); };
+};
+
+/* ---------- modes ---------- */
+document.querySelectorAll('.modes button').forEach(b => b.onclick = () => setMode(b.dataset.mode));
+function setMode(m) {
+  mode = m; document.querySelectorAll('.modes button').forEach(x => x.setAttribute('aria-pressed', x.dataset.mode === m));
+  ['order', 'kitchen', 'board', 'rewards'].forEach(v => $('#view-' + v).hidden = v !== m);
+  if (m === 'kitchen' || m === 'board') renderKitchen(); if (m === 'rewards') renderRewards();
+  try { localStorage.setItem('bcc-mode', m); } catch (e) {}
+}
+
+/* ---------- boot ---------- */
+renderMenu(); renderCart();
+try { const saved = localStorage.getItem('bcc-mode'); if (saved) setMode(saved); } catch (e) {}
+(async () => {
+  const dot = $('#dbdot');
+  db = window.claude ? await claude.use('db') : null;
+  if (!db) { dot.className = 'status-dot off'; const b = $('#banner'); b.hidden = false; b.textContent = 'Live ordering is not connected in this view — the menu still works for browsing. Orders, the kitchen screen and rewards need the connected version.'; return; }
+  dot.className = 'status-dot on';
+  let known = new Set();
+  db.collection('orders').where('createdAt', '>', Date.now() - 36 * 3600 * 1000).onSnapshot(snap => {
+    orders = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    if (mode === 'kitchen') { snap.docChanges().forEach(ch => { if (ch.type === 'added' && !known.has(ch.doc.id) && ch.doc.data().status === 'new' && !snap.metadata.fromCache) beep(); }); }
+    snap.docs.forEach(d => known.add(d.id));
+    if (mode === 'kitchen' || mode === 'board') renderKitchen();
+    // housekeeping: archive orders older than 36h into a daily summary, then delete (keeps the store small)
+  }, e => { dot.className = 'status-dot off'; console.error(e); });
+  db.collection('customers').orderBy('points', 'desc').limit(200).onSnapshot(snap => { customers = {}; snap.docs.forEach(d => customers[d.id] = d.data()); if (mode === 'rewards') renderRewards(); }, e => console.error(e));
+  // prune: delete done orders older than 7 days (one pass per load)
+  try { const old = await db.collection('orders').where('createdAt', '<', Date.now() - 7 * 86400000).limit(50).get(); for (const d of old.docs) { const o = d.data(); if (o.status === 'done') await db.doc('orders/' + d.id).delete(); } } catch (e) {}
+})();
+</script>
+
+</body></html>
