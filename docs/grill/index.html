@@ -272,7 +272,7 @@ const LIVE = false;                        /* OPENING DAY: change to true — re
 const T = {
   en: {
     back: '← Baissour Country Club', h1: 'Order BCC Grill',
-    intro: 'Kabab, burgers and charcoal chicken from the Baissour Country Club kitchen. Build your order here and send it to us on WhatsApp — we confirm it and message you the time.',
+    intro: 'Charcoal grilled kabab, burgers and farrouj from the Baissour Country Club kitchen. Build your order here and send it to us on WhatsApp — we confirm it and message you the time.',
     p1: 'Next to Star Market, Baissour', p2: 'Delivery across the area', p3: 'Take away',
     yourOrder: 'Your order', empty: 'Nothing yet. Start with the BCC Burger.', subtotal: 'Subtotal', deliveryFee: 'Delivery', free: 'Free', total: 'Total',
     delivery: 'Delivery', pickup: 'Take away', name: 'Name', phone: 'Phone (03 xxx xxx)', address: 'Address or landmark', notes: 'Notes for the kitchen (no onion, extra toum…)',
@@ -287,7 +287,7 @@ const T = {
     needName: 'Add your name and phone number.', needAddr: 'Add your address or a landmark.', minC: 'Down the road delivery has a $15 minimum.', added: 'Added to your order', view: 'View order', items: n => n === 1 ? '1 item' : `${n} items`,
     sent: 'WhatsApp is opening with your order. Tap send there — we reply to confirm and tell you the time.', kcal: 'kcal',
     badge: 'Coming soon', h1Soon: 'BCC Grill is coming soon',
-    introSoon: 'Kabab, burgers and charcoal chicken from the Baissour Country Club kitchen — our new take away next to Star Market in Baissour, with delivery across the area. We open soon: have a look at the menu, and preview how Order Now will work.',
+    introSoon: 'Charcoal grilled kabab, burgers and farrouj from the Baissour Country Club kitchen — our new take away next to Star Market in Baissour, with delivery across the area. We open soon: have a look at the menu, and preview how Order Now will work.',
     seeMenu: 'See the menu', preview: 'Preview Order Now', askWa: 'Ask us on WhatsApp', askMsg: 'Hi! When does BCC Grill open?',
     pvNote: 'Preview — this is how Order Now will work when we open. Ordering isn’t live yet, so nothing is sent.', pvOff: 'Back to the menu',
     soonBtn: 'Ordering opens soon', soonToast: 'Ordering opens soon — stay tuned!', pvOn: 'Preview on — add items to see how ordering will work.'
@@ -324,7 +324,7 @@ const AR = {
   'Saj bread':'خبز صاج','Pita':'خبز عربي','Lettuce wrap (no bread)':'بورق خس (بلا خبز)',
   'Toum':'توم','Hummus':'حمص','Yogurt-tahini':'لبن وطحينة','Hot harissa':'هريسة حرّة','Toum mayo':'مايونيز بالتوم','Cheese sauce':'صوص جبنة',
   'No onion':'بلا بصل','No pickles':'بلا كبيس','No tomato':'بلا بندورة','No parsley':'بلا بقدونس','No lettuce':'بلا خس','Sauce on the side':'الصوص ع جنب','Extra spicy':'حرّ زيادة','Well done':'مستوي منيح',
-  'Extra fries':'بطاطا زيادة','Fattoush side':'فتوش ع جنب','Extra kafta skewer':'سيخ كفتة زيادة','Extra taouk skewer':'سيخ طاووق زيادة','BCC toum tub':'علبة توم BCC','Extra saj bread':'خبز صاج زيادة','Pickles & turnips':'كبيس ولفت',
+  'Extra fries':'بطاطا زيادة','Fattoush side':'فتوش ع جنب','Extra kafta skewer':'سيخ كفتة زيادة','Extra taouk skewer':'سيخ طاووق زيادة','BCC toum tub':'علبة توم BCC','Extra bread ×6':'خبز ×٦','Pickles & turnips':'كبيس ولفت',
   'On the burger':'ع البرغر','On the side':'ع جنب','Coleslaw and pickles in the bun':'الكول سلو والكبيس بالبرغر','Coleslaw and pickles on the side':'الكول سلو والكبيس ع جنب',
   'Burger only':'برغر بس','Meal: side + salad + drink':'وجبة: طبق جانبي + سلطة + مشروب','Extra cheese':'جبنة زيادة','Add fried egg':'زيد بيضة مقلية','Extra ketchup':'كاتشب زيادة',
   'Kafta':'كفتة','Lamb':'لحمة غنم','Taouk':'طاووق','Mixed':'مشكّل','Half and half':'نص ونص','Regular':'عادي','Large (share)':'كبير (للمشاركة)',
@@ -334,7 +334,7 @@ const AR = {
   '4 kafta + 4 taouk':'٤ كفتة + ٤ طاووق','All kafta':'كلها كفتة','All taouk':'كلها طاووق','Mixed with lamb':'مشكّل مع لحمة غنم',
   'Grilled now':'مشوي هلق','Raw & marinated, to grill at home':'نيّ ومتبّل، لتشويه بالبيت','1 kg':'١ كيلو','½ kg':'½ كيلو','2 kg':'٢ كيلو',
   'Kafta + taouk + lamb':'كفتة + طاووق + لحمة','Kafta + taouk':'كفتة + طاووق','Extra lamb':'لحمة زيادة',
-  'Hummus 500 g':'حمص ٥٠٠ غ','Fattoush large':'فتوش كبير','Tabbouleh large':'تبولة كبيرة','Batata harra large':'بطاطا حرّة كبيرة','Extra saj bread ×6':'خبز صاج ×٦',
+  'Hummus 500 g':'حمص ٥٠٠ غ','Fattoush large':'فتوش كبير','Tabbouleh large':'تبولة كبيرة','Batata harra large':'بطاطا حرّة كبيرة','Extra bread ×6':'خبز صاج ×٦',
   'With 8 brioche buns':'مع ٨ خبز بريوش','Patties only':'الأقراص بس','Cheese slices ×8':'شرحات جبنة ×٨'
 };
 
@@ -348,7 +348,7 @@ const REMOVE=[['No onion',0],['No pickles',0],['No tomato',0],['No parsley',0],[
 const ADDONS=[['Extra fries',2],['Small hummus',2],['Fattoush side',3],['Batata harra',3],['Grilled vegetables',2.5],['Extra kafta skewer',2.5],['Extra taouk skewer',2.5],['BCC toum tub',3],['Extra saj bread',1],['Pickles & turnips',1]];
 const C=(key,label,ar,opts,o={})=>({key,label,ar,opts,...o});
 /* every protein on the sandwich menu — used wherever a protein is chosen (lamb-cut / spiced upcharges vary by portion) */
-const PROT=(lamb,spiced)=>[['Kafta',0],['Shish taouk',0],['La7me mishwiye',lamb],['Lamb kabab',lamb],['Kabab khashkhash',spiced],['Kabab orfali',spiced]];
+const PROT=(lamb,spiced)=>[['Kafta',0],['Shish taouk',0],['Djej meshwi',0],['Lahmeh sha2af',lamb],['Lamb kabab',lamb],['Kabab orfali',spiced]];
 const SANDWICH=[C('bread','Bread','الخبز',BREADS),C('sauce','Sauce (pick up to two)','الصوص (لحد تنين)',SAUCES,{multi:true,max:2}),C('mods','Changes','تعديلات',REMOVE,{multi:true,optional:true})];
 const VEG=C('veg','Veggies on the burger or on the side?','الخضرا ع البرغر أو ع جنب؟',[['On the burger',0],['On the side',0]],{msg:'Veggies'});
 const BURGER_MODS=C('mods','Changes','تعديلات',[['No onion',0],['No pickles',0],['No tomato',0],['No lettuce',0],['Sauce on the side',0],['Extra cheese',.5],['Add fried egg',1]],{multi:true,optional:true});
@@ -357,48 +357,53 @@ const MEAL_PICKS=[C('side','Meal side','الطبق الجانبي',SIDES,{when:'
 const MEAL=[C('side','Side','طبق جانبي',SIDES),C('salad','Salad','سلطة',SALADS),C('drink','Drink','مشروب',DRINKS)];
 const PLATE=[C('salad','Salad','سلطة',SALADS),C('side','Side','طبق جانبي',SIDES),C('bread','Bread','الخبز',BREADS.slice(0,2)),C('sauce','Sauces (pick up to two)','الصوص (لحد تنين)',SAUCES,{multi:true,max:2})];
 const LEB_SIDE=C('veg','Coleslaw and pickles on the side?','الكول سلو والكبيس ع جنب؟',[['Coleslaw and pickles in the bun',0],['Coleslaw and pickles on the side',0]],{msg:'Coleslaw & pickles',hint:'The fries always stay inside the bun.',hintAr:'البطاطا بتضل جوّا البرغر.'});
-const KILO_ADD=C('sides','Add for the table','زيد للطاولة',[['Hummus 500 g',5],['Fattoush large',6],['Extra saj bread ×6',3]],{multi:true,optional:true});
+const KILO_ADD=C('sides','Add for the table','زيد للطاولة',[['Hummus 500 g',5],['Fattoush large',6],['Extra bread ×6',3]],{multi:true,optional:true});
 
 const MENU=[
  {id:'sig',name:'Signatures',ar:'المميّزين',items:[
-  {id:'bccburger',name:'The BCC Burger',ar:'برغر BCC',price:6,tag:'sig',desc:'Two 75 g smash patties pressed on the flat saj plate for a dark crust and lacy edges, cooked through. Cheddar melted between them, toum mayo, pickles, tomato, lettuce, toasted sesame brioche.',descAr:'قرصين سماش ٧٥ غ ع صاج مسطّح، قشرة مقرمشة وأطراف رفيعة، مستويين منيح. شيدر دايب بيناتن، مايونيز بالتوم، كبيس، بندورة، خس، خبز بريوش بالسمسم محمّص.',
-   choices:[MEALQ,VEG,BURGER_MODS,...MEAL_PICKS]},
-  {id:'lebburger',name:'Lebanese Burger',ar:'برغر لبناني',price:7,tag:'new',desc:'The snack-shop classic: 150 g beef patty seasoned with seven-spice, ketchup, creamy coleslaw, spicy pickles and hot fries inside the bun. Cooked through on the saj plate.',descAr:'برغر السناك الأصلي: قرص لحمة ١٥٠ غ ببهارات سبع بهارات، كاتشب، كول سلو كريمي، كبيس حار وبطاطا سخنة جوّا الخبز. مستوي منيح ع الصاج.',
-   choices:[MEALQ,LEB_SIDE,C('mods','Changes','تعديلات',[['No pickles',0],['Extra ketchup',0],['Add fried egg',1]],{multi:true,optional:true}),...MEAL_PICKS]},
-  {id:'smash',name:'BCC Kafta Smash',ar:'كفتة سماش',price:6,tag:'sig',desc:'Kafta smashed thin on the saj, toum, pickled turnip, tomato, grilled onion.',descAr:'كفتة مرقوقة ع الصاج، توم، لفت مكبوس، بندورة، بصل مشوي.',choices:SANDWICH},
-  {id:'kfries',name:'Kabab Fries',ar:'بطاطا كباب',price:5,tag:'sig',desc:'Fries, chopped charcoal kafta, toum, cheese sauce, sumac onion.',descAr:'بطاطا، كفتة ع الفحم مقطّعة، توم، صوص جبنة، بصل بسماق.',
-   choices:[C('size','Size','الحجم',[['Regular',0],['Large (share)',3]]),C('protein','Meat','اللحمة',[...PROT(1,.5),['Mixed',.5]]),C('mods','Changes','تعديلات',[['No cheese sauce',0],['No sumac onion',0],['Extra toum',.5],['Extra spicy',0]],{multi:true,optional:true})]},
+  {id:"bccburger",name:"The BCC Burger",ar:"برغر BCC",price:6,tag:"sig",desc:"Our classic smash burger with cheddar and the works, on a toasted brioche bun.",descAr:"برغر السماش الكلاسيكي تبعنا مع شيدر وكل الإضافات، بخبز بريوش محمّص.",choices:[MEALQ,VEG,BURGER_MODS,...MEAL_PICKS]},
+  {id:"lebburger",name:"Lebanese Burger",ar:"برغر لبناني",price:7,tag:"new",desc:"The Lebanese snack-shop burger — beef patty, coleslaw, pickles and fries in the bun.",descAr:"برغر السناك اللبناني — قرص لحمة، كول سلو، كبيس وبطاطا جوّا الخبز.",choices:[MEALQ,LEB_SIDE,C('mods','Changes','تعديلات',[['No pickles',0],['Extra ketchup',0],['Add fried egg',1]],{multi:true,optional:true}),...MEAL_PICKS]},
+  {id:"smash",name:"BCC Kafta Smash",ar:"كفتة سماش",price:6,tag:"sig",desc:"Our kafta, smashed crispy on the saj with the classic fixings.",descAr:"كفتتنا مرقوقة ومقرمشة ع الصاج مع الإضافات الكلاسيكية.",choices:SANDWICH},
+  {id:"kfries",name:"Kafta Fries",ar:"بطاطا كفتة",price:5,tag:"sig",desc:"Loaded fries with charcoal grilled kafta, cheese sauce and toum — or make it taouk.",descAr:"بطاطا محمّلة بكفتة مشوية ع الفحم، صوص جبنة وتوم — أو خلّيها طاووق.",choices:[C('size','Size','الحجم',[['Regular',0],['Large (share)',3]]),C('protein','Meat','اللحمة',[['Kafta',0],['Shish taouk',0],['Mixed',.5]]),C('mods','Changes','تعديلات',[['No cheese sauce',0],['No sumac onion',0],['Extra toum',.5],['Extra spicy',0]],{multi:true,optional:true})]},
  ]},
- {id:'kabab',name:'Sandwiches',ar:'سندويشات',items:[
-  {id:'lahme',name:'La7me mishwiye',ar:'لحمة مشوية',price:5.5,tag:'new',desc:'Charcoal-grilled meat cubes with grilled tomato and onion, parsley, pickles and hummus.',descAr:'قطع لحمة مشوية ع الفحم مع بندورة وبصل مشويين، بقدونس، كبيس وحمص.',choices:SANDWICH},
-  {id:'kafta',name:'Kafta',ar:'كفتة',price:4.5,desc:'Lamb and beef kafta, toum, biwaz, pickles.',descAr:'كفتة غنم وبقر، توم، بيواز، كبيس.',choices:SANDWICH},
-  {id:'lamb',name:'Lamb kabab',ar:'كباب لحمة',price:5.5,desc:'Charcoal lamb cubes, hummus, grilled tomato.',descAr:'قطع لحمة غنم ع الفحم، حمص، بندورة مشوية.',choices:SANDWICH},
-  {id:'taouk',name:'Shish taouk',ar:'شيش طاووق',price:4.5,desc:'Marinated chicken, toum, pickles.',descAr:'دجاج متبّل، توم، كبيس.',choices:SANDWICH},
-  {id:'khash',name:'Kabab khashkhash',ar:'كباب خشخاش',price:5,desc:'Spicy kafta, garlic-tomato sauce.',descAr:'كفتة حارّة، صلصة بندورة وتوم.',choices:SANDWICH},
-  {id:'orfali',name:'Kabab orfali',ar:'كباب أورفلي',price:5,desc:'Kafta with pine nuts and spices.',descAr:'كفتة مع صنوبر وبهارات.',choices:SANDWICH},
-  {id:'arayes',name:'Arayes',ar:'عرايس',price:4,desc:'Grilled pita stuffed with kafta and cheese.',descAr:'خبز عربي محشي كفتة وجبنة ومشوي.',choices:SANDWICH},
+ {id:'charcoal',name:"Charcoal grilled sandwiches",ar:"سندويشات مشوية على الفحم",sub:"Lebanese bread · pick 2 sauces",subAr:"خبز عربي · اختار صوصين",items:[
+  {id:"kafta",name:"Kafta",ar:"كفتة",price:4.5,desc:"our signature kafta, charcoal grilled",descAr:"كفتتنا المميّزة مشوية ع الفحم",choices:SANDWICH},
+  {id:"lamb",name:"Lamb kabab",ar:"كباب لحمة",price:5.5,desc:"tender lamb cubes off the charcoal",descAr:"قطع لحمة غنم طرية ع الفحم",choices:SANDWICH},
+  {id:"lahme",name:"Lahmeh sha2af",ar:"لحمة شقف",price:5.5,desc:"marinated beef cubes, charcoal grilled",descAr:"قطع لحمة بقر متبّلة ع الفحم",choices:SANDWICH},
+  {id:"taouk",name:"Shish taouk",ar:"شيش طاووق",price:4.5,desc:"marinated chicken, charcoal grilled",descAr:"دجاج متبّل مشوي ع الفحم",choices:SANDWICH},
+  {id:"djej",name:"Djej meshwi",ar:"دجاج مشوي",price:4.5,tag:'new',desc:"juicy grilled chicken, lemon and herbs",descAr:"دجاج مشوي طري بالحامض والأعشاب",choices:SANDWICH},
+  {id:"orfali",name:"Kabab orfali",ar:"كباب أورفلي",price:5,desc:"kafta with pine nuts and spices",descAr:"كفتة مع صنوبر وبهارات",choices:SANDWICH},
+  {id:"arayes",name:"Arayes",ar:"عرايس",price:4,desc:"grilled bread stuffed with kafta and cheese",descAr:"خبز محشي كفتة وجبنة ومشوي",choices:SANDWICH},
+  {id:"vegskewer",name:"Vegetarian skewer",ar:"سيخ خضرا",price:4,tag:'new',desc:"charcoal grilled vegetables",descAr:"خضرا مشوية ع الفحم",choices:SANDWICH},
  ]},
- {id:'burgers',name:'Burgers',ar:'برغر',sub:'Cooked through on the flat saj plate',subAr:'مستوي منيح ع الصاج المسطّح',items:[
-  {id:'bmeal',name:'BCC Burger meal',ar:'وجبة برغر BCC',price:9,desc:'The BCC Burger with your choice of side, salad and drink.',descAr:'برغر BCC مع طبق جانبي، سلطة ومشروب ع ذوقك.',choices:[...MEAL,VEG,BURGER_MODS]},
-  {id:'kburger',name:'Kafta burger',ar:'برغر كفتة',price:5.5,desc:'BCC kafta mix, toum mayo, pickles.',descAr:'كفتة BCC، مايونيز بالتوم، كبيس.',choices:[MEALQ,VEG,BURGER_MODS,...MEAL_PICKS]},
-  {id:'crispy',name:'Crispy chicken burger',ar:'برغر دجاج كرسبي',price:5,desc:'Buttermilk chicken, slaw, hot honey.',descAr:'دجاج مقرمش، كول سلو، عسل حار.',choices:[MEALQ,C('heat','Heat','الحرارة',[['Mild',0],['Hot honey',0],['Extra hot',0]]),...MEAL_PICKS]},
-  {id:'kids',name:'Kids burger',ar:'برغر الأولاد',price:5,desc:'90 g plain burger, a side and a juice.',descAr:'برغر سادة ٩٠ غ، طبق جانبي وعصير.',
-   choices:[C('side','Side','طبق جانبي',[['Small fries',0],['Cucumber & carrot sticks',0],['Small rice',0]]),C('drink','Drink','مشروب',[['Apple juice',0],['Orange juice',0],['Water',0]]),C('mods','Changes','تعديلات',[['Add cheese',0],['Add ketchup',0],['Cut in half',0]],{multi:true,optional:true})]},
+ {id:'snack',name:"Snack sandwiches",ar:"سندويشات سناك",sub:"Lebanese snack-shop classics",subAr:"كلاسيكيات السناك اللبناني",items:[
+  {id:"basterma",name:"Basterma",ar:"بسترما",price:5.5,tag:'new',desc:"premium cured basterma, Lebanese style",descAr:"بسترما فاخرة ع الطريقة اللبنانية",choices:SANDWICH},
+  {id:"sawdadjej",name:"Sawda djej",ar:"سودة دجاج",price:4,tag:'new',desc:"chicken livers, Lebanese style",descAr:"سودة دجاج ع الطريقة اللبنانية",choices:SANDWICH},
+  {id:"sujuk",name:"Sujuk",ar:"سجق",price:4.5,tag:'new',desc:"spiced Lebanese sausage",descAr:"سجق لبناني متبّل",choices:SANDWICH},
+  {id:"makanek",name:"Makanek",ar:"مقانق",price:4.5,tag:'new',desc:"Lebanese lamb sausages",descAr:"مقانق لبنانية",choices:SANDWICH},
+  {id:"sandwichbatata",name:"Sandwich batata",ar:"سندويش بطاطا",price:3,tag:'new',desc:"fries and coleslaw in bread, with our sauces",descAr:"بطاطا وكول سلو بالخبز مع صوصاتنا",choices:SANDWICH},
  ]},
- {id:'plates',name:'Plates & boxes',ar:'صحون وبوكسات',items:[
-  {id:'kplate',name:'Kabab plate',ar:'صحن كباب',price:9,desc:'3 skewers, your side, your salad, hummus, bread.',descAr:'٣ سياخ، طبق جانبي وسلطة ع ذوقك، حمص، خبز.',choices:[C('protein','Skewers','السياخ',[...PROT(2,.5),['Half and half',0]]),...PLATE]},
-  {id:'lplate',name:'Lamb kabab plate',ar:'صحن كباب لحمة',price:11,desc:'3 lamb skewers, your side, your salad, hummus, bread.',descAr:'٣ سياخ لحمة غنم، طبق جانبي وسلطة ع ذوقك، حمص، خبز.',choices:PLATE},
-  {id:'mixed',name:'BCC mixed grill',ar:'مشاوي BCC',price:12,desc:'Kafta, lamb, taouk, your side, your salad, hummus, bread.',descAr:'كفتة، لحمة، طاووق، طبق جانبي وسلطة ع ذوقك، حمص، خبز.',choices:PLATE},
-  {id:'farrouj',name:'Farrouj meshwi 3al fa7m',ar:'فروج مشوي ع الفحم',price:13,desc:'Whole chicken marinated overnight and grilled over charcoal, with toum, pickles, fries and saj bread.',descAr:'فروج كامل متبّل من الليل ومشوي ع الفحم، مع توم، كبيس، بطاطا وخبز صاج.',
-   choices:[C('size','Size','الحجم',[['Whole',0],['Half',-6]]),C('sauce','Sauces (pick up to two)','الصوص (لحد تنين)',SAUCES,{multi:true,max:2}),C('mods','Changes','تعديلات',[['Extra crispy',0],['Extra spicy',0],['No pickles',0],['Fries instead of bread',0],['Salad instead of fries',0]],{multi:true,optional:true})]},
-  {id:'msahab',name:'Farrouj msa7ab',ar:'فروج مسحّب',price:15,desc:'Whole chicken, boned and flattened, marinated and grilled over charcoal so it stays juicy, with toum, pickles, fries and saj bread.',descAr:'فروج كامل بلا عضم، متبّل ومشوي ع الفحم ليضل طري، مع توم، كبيس، بطاطا وخبز صاج.',
-   choices:[C('sauce','Sauces (pick up to two)','الصوص (لحد تنين)',SAUCES,{multi:true,max:2}),C('salad','Salad','سلطة',SALADS),C('mods','Changes','تعديلات',[['Extra crispy',0],['Extra spicy',0],['No pickles',0],['Salad instead of fries',0]],{multi:true,optional:true})]},
-  {id:'family',name:'Mashawi Family Box',ar:'بوكس مشاوي العيلة',price:26,tag:'fam',desc:'8 skewers, saj bread, hummus, two large sides, two salads, four drinks.',descAr:'٨ سياخ، خبز صاج، حمص، طبقين جانبيين كبار، سلطتين، ٤ مشروبات.',
-   choices:[C('mix','Skewers','السياخ',[['4 kafta + 4 taouk',0],['All kafta',0],['All taouk',0],['Mixed with lamb',4]]),C('side','Two large sides (pick two)','طبقين جانبيين (اختار تنين)',SIDES,{multi:true,max:2,min:2}),C('salad','Two salads (pick two)','سلطتين (اختار تنين)',SALADS,{multi:true,max:2,min:2}),C('drink','Four drinks (pick up to four)','٤ مشروبات (لحد أربعة)',DRINKS,{multi:true,max:4}),C('sauce','Sauces (pick up to three)','الصوص (لحد تلاتة)',SAUCES,{multi:true,max:3})]},
+ {id:'burgers',name:'Burgers',ar:'برغر',sub:"Cooked through on the flat saj · make it a meal +$3",subAr:"مستوي منيح ع الصاج · عملها وجبة <bdi dir=\"ltr\">+$3</bdi>",items:[
+  {id:"bmeal",name:"BCC Burger meal",ar:"وجبة برغر BCC",price:9,desc:"the BCC Burger with a side, a salad and a drink",descAr:"برغر BCC مع طبق جانبي وسلطة ومشروب",choices:[...MEAL,VEG,BURGER_MODS]},
+  {id:"kburger",name:"Kafta burger",ar:"برغر كفتة",price:5.5,desc:"our kafta in a burger bun",descAr:"كفتتنا بخبز البرغر",choices:[MEALQ,VEG,BURGER_MODS,...MEAL_PICKS]},
+  {id:"gchicken",name:"Grilled chicken burger",ar:"برغر دجاج مشوي",price:5,tag:'new',desc:"grilled chicken breast, light and juicy",descAr:"صدر دجاج مشوي، خفيف وطري",choices:[MEALQ,VEG,BURGER_MODS,...MEAL_PICKS]},
+  {id:"veggie",name:"Veggie burger",ar:"برغر نباتي",price:5,tag:'new',desc:"our house vegetarian patty",descAr:"قرص نباتي معمول عنّا",choices:[MEALQ,VEG,BURGER_MODS,...MEAL_PICKS]},
  ]},
- {id:'kilo',name:'Mashawi by the kilo',ar:'مشاوي بالكيلو',sub:'Grilled now or raw and marinated for your own grill · order by 6 pm for the weekend',subAr:'مشوية هلق أو نيّة ومتبّلة لتشويها ع مشواتك · اطلب قبل الساعة ٦ للويكند',items:[
-  {id:'kmix',name:'Mixed mashawi · 1 kg',ar:'مشاوي مشكّل · كيلو',price:26,tag:'kilo',desc:'Kafta, taouk and lamb (raw weight), with saj bread, biwaz, grilled tomato and onion. Feeds 3–4.',descAr:'كفتة، طاووق ولحمة (الوزن نيّ)، مع خبز صاج، بيواز، بندورة وبصل مشويين. بيكفّي ٣–٤.',
-   choices:[C('form','How','كيف بدك ياها',[['Grilled now',0],['Raw & marinated, to grill at home',-6.5]]),C('weight','Weight','الوزن',[['1 kg',0],['½ kg',-12],['2 kg',26]]),C('mix','Mix','الخلطة',[['Kafta + taouk + lamb',0],['Kafta + taouk',-3],['Extra lamb',3]]),C('sauce','Sauces (pick up to three)','الصوص (لحد تلاتة)',SAUCES,{multi:true,max:3}),C('sides','Add for the table','زيد للطاولة',[['Hummus 500 g',5],['Fattoush large',6],['Tabbouleh large',6],['Batata harra large',5],['Extra saj bread ×6',3],['Pickles & turnips',2]],{multi:true,optional:true})]},
+ {id:'kids',name:'Kids',ar:'الأولاد',sub:"Each with a small side and a juice",subAr:"كل وحدة مع طبق جانبي صغير وعصير",items:[
+  {id:"kidsburger",name:"Kids burger",ar:"برغر الأولاد",price:5,desc:"a smaller plain burger",descAr:"برغر صغير سادة",choices:[C('side','Side','طبق جانبي',[['Small fries',0],['Cucumber & carrot sticks',0],['Small rice',0]]),C('drink','Drink','مشروب',[['Apple juice',0],['Orange juice',0],['Water',0]]),C('mods','Changes','تعديلات',[['Add cheese',0],['Add ketchup',0],['Cut in half',0]],{multi:true,optional:true})]},
+  {id:"kidstaouk",name:"Kids taouk",ar:"طاووق الأولاد",price:5,desc:"one taouk skewer with bread",descAr:"سيخ طاووق مع خبز",choices:[C('side','Side','طبق جانبي',[['Small fries',0],['Cucumber & carrot sticks',0],['Small rice',0]]),C('drink','Drink','مشروب',[['Apple juice',0],['Orange juice',0],['Water',0]]),C('mods','Changes','تعديلات',[['Add cheese',0],['Add ketchup',0],['Cut in half',0]],{multi:true,optional:true})]},
+  {id:"kidskafta",name:"Kids kafta",ar:"كفتة الأولاد",price:5,desc:"one kafta skewer with bread",descAr:"سيخ كفتة مع خبز",choices:[C('side','Side','طبق جانبي',[['Small fries',0],['Cucumber & carrot sticks',0],['Small rice',0]]),C('drink','Drink','مشروب',[['Apple juice',0],['Orange juice',0],['Water',0]]),C('mods','Changes','تعديلات',[['Add cheese',0],['Add ketchup',0],['Cut in half',0]],{multi:true,optional:true})]},
+ ]},
+ {id:'plates',name:'Plates & boxes',ar:'صحون وبوكسات',sub:"Every plate: your side, your salad, hummus, bread",subAr:"كل صحن: طبق جانبي وسلطة ع ذوقك، حمص، خبز",items:[
+  {id:"kplate",name:"Kabab plate",ar:"صحن كباب",price:9,desc:"three skewers of your choice · lamb +$2",descAr:"٣ سياخ ع ذوقك · لحمة غنم +٢$",choices:[C('protein','Skewers','السياخ',[...PROT(2,.5),['Half and half',0]]),...PLATE]},
+  {id:"mixed",name:"BCC mixed grill",ar:"مشاوي BCC",price:12,desc:"kafta, lamb and taouk together",descAr:"كفتة ولحمة وطاووق سوا",choices:PLATE},
+  {id:"farrouj",name:"Farrouj meshwi 3al fa7m",ar:"فروج مشوي ع الفحم",price:13.0,desc:"whole or half charcoal chicken with the sides",descAr:"فروج كامل أو نص ع الفحم مع الإضافات",choices:[C('size','Size','الحجم',[['Whole',0],['Half',-6]]),C('sauce','Sauces (pick up to two)','الصوص (لحد تنين)',SAUCES,{multi:true,max:2}),C('mods','Changes','تعديلات',[['Extra crispy',0],['Extra spicy',0],['No pickles',0],['Salad instead of fries',0]],{multi:true,optional:true})]},
+  {id:"msahab",name:"Farrouj msa7ab",ar:"فروج مسحّب",price:15,desc:"boneless flattened chicken off the charcoal",descAr:"فروج مسحّب بلا عضم ع الفحم",choices:[C('sauce','Sauces (pick up to two)','الصوص (لحد تنين)',SAUCES,{multi:true,max:2}),C('salad','Salad','سلطة',SALADS),C('mods','Changes','تعديلات',[['Extra crispy',0],['Extra spicy',0],['No pickles',0],['Salad instead of fries',0]],{multi:true,optional:true})]},
+  {id:"family",name:"Mashawi Family Box",ar:"بوكس مشاوي العيلة",price:26,tag:"fam",desc:"mixed mashawi for the whole family, with sides and drinks",descAr:"مشاوي مشكّلة للعيلة كلها مع الإضافات والمشروبات",choices:[C('mix','Skewers','السياخ',[['4 kafta + 4 taouk',0],['All kafta',0],['All taouk',0],['Mixed with lamb',4]]),C('side','Two large sides (pick two)','طبقين جانبيين (اختار تنين)',SIDES,{multi:true,max:2,min:2}),C('salad','Two salads (pick two)','سلطتين (اختار تنين)',SALADS,{multi:true,max:2,min:2}),C('drink','Four drinks (pick up to four)','٤ مشروبات (لحد أربعة)',DRINKS,{multi:true,max:4}),C('sauce','Sauces (pick up to three)','الصوص (لحد تلاتة)',SAUCES,{multi:true,max:3})]},
+ ]},
+ {id:'kilo',name:'Mashawi by the kilo',ar:'مشاوي بالكيلو',sub:'Grilled now or raw and marinated for your own grill · order by 6 pm · Sunday Kilo Day: mixed kilo $33 with the works',subAr:'مشوية هلق أو نيّة ومتبّلة لتشويها ع مشواتك · اطلب قبل الساعة ٦ · أحد الكيلو: كيلو مشكّل ٣٣$ مع كل شي',items:[
+  {id:'kmix',name:'Mixed mashawi · 1 kg',ar:'مشاوي مشكّل · كيلو',price:26,tag:'kilo',desc:'Kafta, taouk and lamb (raw weight), with bread, biwaz, grilled tomato and onion. Feeds 3–4.',descAr:'كفتة، طاووق ولحمة (الوزن نيّ)، مع خبز صاج، بيواز، بندورة وبصل مشويين. بيكفّي ٣–٤.',
+   choices:[C('form','How','كيف بدك ياها',[['Grilled now',0],['Raw & marinated, to grill at home',-6.5]]),C('weight','Weight','الوزن',[['1 kg',0],['½ kg',-12],['2 kg',26]]),C('mix','Mix','الخلطة',[['Kafta + taouk + lamb',0],['Kafta + taouk',-3],['Extra lamb',3]]),C('sauce','Sauces (pick up to three)','الصوص (لحد تلاتة)',SAUCES,{multi:true,max:3}),C('sides','Add for the table','زيد للطاولة',[['Hummus 500 g',5],['Fattoush large',6],['Tabbouleh large',6],['Batata harra large',5],['Extra bread ×6',3],['Pickles & turnips',2]],{multi:true,optional:true})]},
   {id:'kkafta',name:'Kafta · 1 kg',ar:'كفتة · كيلو',price:20,tag:'kilo',desc:'BCC kafta, about 8 skewers, with bread, biwaz and grilled vegetables.',descAr:'كفتة BCC، حوالي ٨ سياخ، مع خبز، بيواز وخضرا مشوية.',
    choices:[C('form','How','كيف بدك ياها',[['Grilled now',0],['Raw & marinated, to grill at home',-5]]),C('weight','Weight','الوزن',[['1 kg',0],['½ kg',-9],['2 kg',20]]),KILO_ADD]},
   {id:'ktaouk',name:'Shish taouk · 1 kg',ar:'شيش طاووق · كيلو',price:19,tag:'kilo',desc:'Marinated chicken, about 7 skewers, with bread, toum, biwaz and grilled vegetables.',descAr:'دجاج متبّل، حوالي ٧ سياخ، مع خبز، توم، بيواز وخضرا مشوية.',
@@ -406,33 +411,33 @@ const MENU=[
   {id:'klamb',name:'Lamb kabab · 1 kg',ar:'كباب لحمة · كيلو',price:32,tag:'kilo',desc:'Lamb cubes with fat, about 8 skewers, with bread, hummus, biwaz and grilled vegetables.',descAr:'قطع لحمة غنم مع دهن، حوالي ٨ سياخ، مع خبز، حمص، بيواز وخضرا مشوية.',
    choices:[C('form','How','كيف بدك ياها',[['Grilled now',0],['Raw & marinated, to grill at home',-8]]),C('weight','Weight','الوزن',[['1 kg',0],['½ kg',-15],['2 kg',32]]),KILO_ADD]},
  ]},
- {id:'lean',name:'Light & Lean',ar:'خفيف وصحي',sub:'Grilled, not fried · calories shown · sauces on the side',subAr:'مشوي مش مقلي · السعرات مكتوبة · الصوص ع جنب',items:[
-  {id:'saladpro',name:'Salad & protein',ar:'سلطة مع بروتين',price:7,tag:'lean',desc:'Pick any of our salads and top it with the grilled protein you like. Lemon and olive oil on the side.',descAr:'اختار أي سلطة من سلطاتنا وزيد عليها البروتين المشوي يلي بتحبو. الليمون وزيت الزيتون ع جنب.',choices:[C('salad','Salad','السلطة',SALADS),C('protein','Protein','البروتين',PROT(1.5,.5)),C('double','Double the protein?','دبل البروتين؟',[['Single portion',0],['Double protein',3]],{msg:'Portion'})]},
-  {id:'lettuce',name:'Protein lettuce wrap',ar:'لفّة خس مع بروتين',price:6,tag:'lean',desc:'Your choice of grilled protein or grilled veggies, wrapped in crisp lettuce with biwaz and yogurt-tahini.',descAr:'بروتين مشوي أو خضرا مشوية ع ذوقك، ملفوفين بورق خس مع بيواز ولبن وطحينة.',choices:[C('filling','Protein or veggies','بروتين أو خضرا',[...PROT(1.5,.5),['Grilled veggies',0]])]},
-  {id:'vegskew',name:'Grilled vegetable skewers',ar:'سياخ خضرا مشوية',price:6.5,tag:'lean',desc:'Peppers, onion, sumac.',descAr:'فليفلة، بصل، سماق.'},
+ {id:'lean',name:'Light & Lean',ar:'خفيف وصحي',sub:"Grilled, not fried · sauces on the side",subAr:"مشوي مش مقلي · الصوص ع جنب",items:[
+  {id:"saladpro",name:"Salad & protein",ar:"سلطة مع بروتين",price:7,tag:"lean",desc:"any of our salads topped with a grilled protein",descAr:"أي سلطة من عنّا مع بروتين مشوي",choices:[C('salad','Salad','السلطة',SALADS),C('protein','Protein','البروتين',PROT(1.5,.5)),C('double','Double the protein?','دبل البروتين؟',[['Single portion',0],['Double protein',3]],{msg:'Portion'})]},
+  {id:"lettuce",name:"Protein lettuce wrap",ar:"لفّة خس مع بروتين",price:6,tag:"lean",desc:"grilled protein or veggies wrapped in lettuce",descAr:"بروتين مشوي أو خضرا ملفوفين بالخس",choices:[C('filling','Protein or veggies','بروتين أو خضرا',[...PROT(1.5,.5),['Grilled veggies',0]])]},
  ]},
  {id:'sides',name:'Sides & sauces',ar:'مقبلات وصوص',items:[
-  {id:'fries',name:'Fries',ar:'بطاطا مقلية',price:2},
-  {id:'hummus',name:'Hummus',ar:'حمص',price:2.5},
-  {id:'fattoush',name:'Fattoush',ar:'فتوش',price:3,kcal:160,tag:'lean'},
-  {id:'batata',name:'Batata harra',ar:'بطاطا حرّة',price:3},
-  {id:'toum',name:'BCC toum tub',ar:'علبة توم BCC',price:3,desc:'Take the taste home.',descAr:'خود الطعمة معك ع البيت.'},
-  {id:'bread',name:'Extra saj bread',ar:'خبز صاج زيادة',price:1},
+  {id:"fries",name:"Fries",ar:"بطاطا مقلية",price:2,desc:"crispy golden fries",descAr:"بطاطا مقلية مقرمشة"},
+  {id:"hummus",name:"Hummus",ar:"حمص",price:2.5,desc:"smooth house hummus",descAr:"حمص ناعم من عنّا"},
+  {id:"fattoush",name:"Fattoush",ar:"فتوش",price:3,desc:"the Lebanese classic",descAr:"الكلاسيكية اللبنانية"},
+  {id:"tabbouleh",name:"Tabbouleh",ar:"تبولة",price:3,desc:"fresh and lemony",descAr:"طازة وحامضة"},
+  {id:"coleslaw",name:"Coleslaw",ar:"كول سلو",price:2.5,desc:"creamy and crunchy",descAr:"كريمي ومقرمش"},
+  {id:"batataharra",name:"Batata harra",ar:"بطاطا حرّة",price:3,desc:"spicy potatoes with garlic and coriander",descAr:"بطاطا حارّة بالتوم والكزبرة"},
+  {id:"bcctoumtub",name:"BCC toum tub",ar:"علبة توم BCC",price:3,desc:"our garlic toum to take home",descAr:"توم BCC خدو معك ع البيت"},
+  {id:"extrabread",name:"Extra bread",ar:"خبز زيادة",price:1,desc:"Lebanese bread",descAr:"خبز عربي"},
  ]},
- {id:'dessert',name:'Desserts',ar:'حلو',items:[
-  {id:'choc',name:'Chocolate & banana saj',ar:'صاج شوكولا وموز',price:4,desc:'Hot saj bread, chocolate spread, banana, hazelnut.',descAr:'خبز صاج سخن، شوكولا، موز، بندق.'},
-  {id:'ashta',name:'Ashta & honey saj',ar:'صاج قشطة وعسل',price:4.5,desc:'Ashta, mountain honey, pistachio.',descAr:'قشطة، عسل جبلي، فستق حلبي.'},
-  {id:'riz',name:"Riz b'halib cup",ar:'رز بحليب',price:2.5,desc:'Cold rice pudding, orange blossom, pistachio.',descAr:'رز بحليب بارد، ماء زهر، فستق حلبي.'},
-  {id:'sahlab',name:'Sahlab',ar:'سحلب',price:2.5,desc:'Hot, cinnamon, coconut. Winter only.',descAr:'سخن، قرفة، جوز هند. بالشتي بس.'},
+ {id:'dessert',name:"Dessert cups",ar:"كاسات حلو",sub:"Made fresh daily, ready to go",subAr:"محضّرة طازة كل يوم، جاهزة",items:[
+  {id:"rizbhalib",name:"Riz b'halib",ar:"رز بحليب",price:2.5,desc:"Lebanese rice pudding",descAr:"رز بحليب لبناني"},
+  {id:"mhalabiya",name:"Mhalabiya",ar:"مهلبية",price:2.5,desc:"Lebanese milk pudding",descAr:"مهلبية لبنانية"},
+  {id:"chocolatemouss",name:"Chocolate mousse cup",ar:"كاسة موس شوكولا",price:3,desc:"rich and chocolatey",descAr:"غنية بالشوكولا"},
  ]},
  {id:'drinks',name:'Drinks',ar:'مشروبات',items:[
-  {id:'soft',name:'Soft drink',ar:'مشروب غازي',price:1.5,choices:[C('kind','Which','أيا واحد',[['Pepsi',0],['7Up',0],['Mirinda',0],['Diet Pepsi',0]])]},
-  {id:'water',name:'Water',ar:'مي',price:1},
-  {id:'ayran',name:'Ayran',ar:'عيران',price:1.5},
-  {id:'lemonade',name:'Fresh lemonade with mint',ar:'ليموناضة بالنعنع',price:2.5,kcal:90},
+  {id:"soft",name:"Soft drink",ar:"مشروب غازي",price:1.5,desc:"Pepsi, 7Up, Mirinda, Diet Pepsi",descAr:"بيبسي، سفن أب، ميرندا، دايت بيبسي",choices:[C('kind','Which','أيا واحد',[['Pepsi',0],['7Up',0],['Mirinda',0],['Diet Pepsi',0]])]},
+  {id:"water",name:"Water",ar:"مي",price:1,desc:"bottled water",descAr:"مي معدنية"},
+  {id:"ayran",name:"Ayran",ar:"عيران",price:1.5,desc:"cold yogurt drink",descAr:"عيران بارد"},
+  {id:"freshlemonadew",name:"Fresh lemonade with mint",ar:"ليموناضة بالنعنع",price:2.5,desc:"freshly squeezed",descAr:"معصورة طازة"},
  ]},
 ];
-const TAGS={sig:['Signature','مميّز'],new:['New','جديد'],lean:['Lean','خفيف'],kilo:['Kilo','كيلو'],fam:['Friday','الجمعة']};
+const TAGS={sig:['Signature','مميّز'],new:['New','جديد'],lean:['Lean','خفيف'],kilo:['Kilo','كيلو'],fam:['Every day','كل يوم']};
 const ZONE_FEE={A:t=>(t>=8?0:1),B:()=>2,C:()=>3};
 
 /* ===== state ===== */
