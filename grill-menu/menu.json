@@ -72,7 +72,7 @@
     {
      "en": "Kafta",
      "ar": "كفتة",
-     "price": 4.5,
+     "price": 5,
      "subEn": "our signature kafta, charcoal grilled",
      "subAr": "كفتتنا المميّزة مشوية ع الفحم"
     },
@@ -93,14 +93,14 @@
     {
      "en": "Shish taouk",
      "ar": "شيش طاووق",
-     "price": 4.5,
+     "price": 5,
      "subEn": "charcoal grilled taouk, toum, pickles, fries",
      "subAr": "طاووق مشوي ع الفحم، توم، كبيس، بطاطا"
     },
     {
      "en": "Djej meshwi",
      "ar": "دجاج مشوي",
-     "price": 4.5,
+     "price": 5,
      "new": true,
      "subEn": "charcoal grilled chicken, fries, toum, special sauce, lettuce, pickles",
      "subAr": "دجاج مشوي ع الفحم، بطاطا، توم، صوص خاص، خس، كبيس"
@@ -115,14 +115,14 @@
     {
      "en": "Arayes",
      "ar": "عرايس",
-     "price": 4.5,
+     "price": 5,
      "subEn": "grilled bread stuffed with kafta and cheese",
      "subAr": "خبز محشي كفتة وجبنة ومشوي"
     },
     {
      "en": "Vegetarian skewer",
      "ar": "سيخ خضرا",
-     "price": 4.5,
+     "price": 5,
      "new": true,
      "vegan": true,
      "subEn": "charcoal grilled vegetables",
@@ -148,7 +148,7 @@
     {
      "en": "Sawda djej",
      "ar": "سودة دجاج",
-     "price": 4.5,
+     "price": 5,
      "new": true,
      "subEn": "chicken livers, Lebanese style",
      "subAr": "سودة دجاج ع الطريقة اللبنانية"
@@ -156,7 +156,7 @@
     {
      "en": "Sujuk",
      "ar": "سجق",
-     "price": 4.5,
+     "price": 5,
      "new": true,
      "subEn": "spiced Lebanese sausage",
      "subAr": "سجق لبناني متبّل"
@@ -164,7 +164,7 @@
     {
      "en": "Makanek",
      "ar": "مقانق",
-     "price": 4.5,
+     "price": 5,
      "new": true,
      "subEn": "Lebanese lamb sausages",
      "subAr": "مقانق لبنانية"
@@ -172,7 +172,7 @@
     {
      "en": "Sandwich batata",
      "ar": "سندويش بطاطا",
-     "price": 3.5,
+     "price": 4.5,
      "new": true,
      "vegan": true,
      "subEn": "fries and coleslaw in bread, with our sauces",
