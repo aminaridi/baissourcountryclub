@@ -281,8 +281,8 @@
 <script>
 /* ---------- choice lists (every combo picks its salad, side and drink; every item can add sides for extra) ---------- */
 const SALADS = [['Fattoush', 0], ['Tabbouleh', 0], ['Coleslaw', 0], ['Biwaz (onion, parsley, sumac)', 0], ['Greek-style salad', 0.5]];
-const SIDES = [['Fries', 0], ['Batata harra', 0], ['Vermicelli rice', 0], ['Grilled vegetables', 0.5], ['Small hummus', 0]];
-const DRINKS = [['Pepsi', 0], ['7Up', 0], ['Mirinda', 0], ['Water', 0], ['Ayran', 0]];
+const SIDES = [['Fries', 0], ['Vermicelli rice', 0], ['Batata harra', 0], ['Small hummus', 0], ['Coleslaw', 0], ['Fattoush', 0], ['Tabbouleh', 0]];
+const DRINKS = [['Pepsi', 0], ['7Up', 0], ['Mirinda', 0], ['Diet Pepsi', 0], ['Water', 0], ['Ayran', 0]];
 const BREADS = [['Lebanese bread', 0], ['Lettuce wrap (no bread)', 0]];
 const SAUCES = [['Toum', 0], ['Hummus', 0], ['Yogurt-tahini', 0], ['Hot harissa', 0], ['Toum mayo', 0], ['Cheese sauce', 0.5]];
 const REMOVE = [['No onion', 0], ['No pickles', 0], ['No tomato', 0], ['No parsley', 0], ['Sauce on the side', 0], ['Extra spicy', 0], ['Well done', 0]];
@@ -290,19 +290,20 @@ const ADDONS = [["Extra patty (burgers)", 2.5], ["Cheese", 0.5], ["Extra skewer"
 const C = (key, label, opts, o = {}) => ({ key, label, opts, ...o });
 /* every protein on the sandwich menu — used wherever a protein is chosen (lamb-cut / spiced upcharges vary by portion) */
 const PROT = (lamb, spiced) => [['Kafta', 0], ['Shish taouk', 0], ['Djej meshwi', 0], ['Lahmeh shi2af', lamb], ['Lamb kabab', lamb], ['Kabab orfali', spiced]];
-const SANDWICH = [C('bread', 'Bread', BREADS), C('sauce', 'Sauce (pick up to two)', SAUCES, { multi: true, max: 2 }), C('mods', 'Changes', REMOVE, { multi: true, optional: true })];
+const COMBO = [C('meal', 'Make it a combo', [['Item only', 0], ['Combo: side + drink', 3]]), C('side', 'Combo side', SIDES, { optional: true, when: 'meal' }), C('drink', 'Combo drink', DRINKS, { optional: true, when: 'meal' })];
+const SANDWICH = [COMBO[0], C('bread', 'Bread', BREADS), C('mods', 'Changes', REMOVE, { multi: true, optional: true }), COMBO[1], COMBO[2]];
 const VEG = C('veg', 'Veggies on the burger or on the side?', [['On the burger', 0], ['On the side', 0]]);
 const BURGER = [VEG, C('mods', 'Changes', [['Extra patty', 2.5], ['Cheese', 0.5], ['No onion', 0], ['No pickles', 0], ['No tomato', 0], ['No lettuce', 0], ['Sauce on the side', 0], ['Add fried egg', 1]], { multi: true, optional: true })];
 const MEAL = [C('side', 'Side', SIDES), C('salad', 'Salad', SALADS), C('drink', 'Drink', DRINKS)];
-const PLATE = [C('salad', 'Salad', SALADS), C('side', 'Side', SIDES), C('bread', 'Bread', BREADS.slice(0, 1)), C('sauce', 'Sauces (pick up to two)', SAUCES, { multi: true, max: 2 })];
+const PLATE = [C('sides', 'Two sides (pick two)', SIDES, { multi: true, max: 2, min: 2 }), C('mods', 'Changes', REMOVE, { multi: true, optional: true })];
 const MENU = [
   { id: 'sig', name: 'Signatures', ar: 'المميّزين', items: [
-    { id: "bccburger", name: "The BCC Burger", ar: "برغر BCC", price: 6, desc: "Our classic smash burger with cheddar and the works, on a toasted brioche bun.", tag: "Signature", choices: [C('meal', 'Make it a meal', [['Burger only', 0], ['Meal: side + salad + drink', 3]]), ...BURGER, C('side', 'Meal side', SIDES, { optional: true, when: 'meal' }), C('salad', 'Meal salad', SALADS, { optional: true, when: 'meal' }), C('drink', 'Meal drink', DRINKS, { optional: true, when: 'meal' })] },
-    { id: "lebburger", name: "Lebanese Burger", ar: "برغر لبناني", price: 7, desc: "The Lebanese snack-shop burger — beef patty, coleslaw, pickles and fries in the bun.", tag: "New", choices: [C('meal', 'Make it a meal', [['Burger only', 0], ['Meal: side + salad + drink', 3]]), C('veg', 'Coleslaw and pickles on the side?', [['Coleslaw and pickles in the bun', 0], ['Coleslaw and pickles on the side', 0]]), C('mods', 'Changes', [['No pickles', 0], ['Extra ketchup', 0], ['Add fried egg', 1]], { multi: true, optional: true }), C('side', 'Meal side', SIDES, { optional: true, when: 'meal' }), C('salad', 'Meal salad', SALADS, { optional: true, when: 'meal' }), C('drink', 'Meal drink', DRINKS, { optional: true, when: 'meal' })] },
+    { id: "bccburger", name: "The BCC Burger", ar: "برغر BCC", price: 6, desc: "Our classic smash burger with cheddar and the works, on a toasted brioche bun.", tag: "Signature", choices: [C('meal', 'Make it a combo', [['Item only', 0], ['Combo: side + drink', 3]]), ...BURGER, C('side', 'Combo side', SIDES, { optional: true, when: 'meal' }), C('drink', 'Combo drink', DRINKS, { optional: true, when: 'meal' })] },
+    { id: "lebburger", name: "Lebanese Burger", ar: "برغر لبناني", price: 7, desc: "The Lebanese snack-shop burger — beef patty, coleslaw, pickles and fries in the bun.", tag: "New", choices: [C('meal', 'Make it a combo', [['Item only', 0], ['Combo: side + drink', 3]]), C('veg', 'Coleslaw and pickles on the side?', [['Coleslaw and pickles in the bun', 0], ['Coleslaw and pickles on the side', 0]]), C('mods', 'Changes', [['No pickles', 0], ['Extra ketchup', 0], ['Add fried egg', 1]], { multi: true, optional: true }), C('side', 'Combo side', SIDES, { optional: true, when: 'meal' }), C('drink', 'Combo drink', DRINKS, { optional: true, when: 'meal' })] },
     { id: "smash", name: "BCC Kafta Smash", ar: "كفتة سماش", price: 6, desc: "Our kafta, smashed crispy on the saj with the classic fixings.", tag: "Signature", choices: SANDWICH },
     { id: "kfries", name: "Kafta Fries", ar: "بطاطا كفتة", price: 5, desc: "Loaded fries with charcoal grilled kafta, cheese sauce and toum — or make it taouk.", tag: "Signature", choices: [C('size', 'Size', [['Regular', 0], ['Large (share)', 3]]), C('protein', 'Meat', [['Kafta', 0], ['Shish taouk', 0], ['Mixed', 0.5]]), C('mods', 'Changes', [['No cheese sauce', 0], ['No sumac onion', 0], ['Extra toum', 0.5], ['Extra spicy', 0]], { multi: true, optional: true })] },
   ]},
-  { id: "charcoal", name: "Charcoal grilled sandwiches", ar: "سندويشات مشوية على الفحم", sub: "Lebanese bread · pick 2 sauces", items: [
+  { id: "charcoal", name: "Charcoal grilled sandwiches", ar: "سندويشات مشوية على الفحم", sub: "Lebanese bread · biwaz with meats, toum with chicken · changes are free · combo +$3", items: [
     { id: "kafta", name: "Kafta", ar: "كفتة", price: 5, desc: "our signature kafta, charcoal grilled", choices: SANDWICH },
     { id: "lamb", name: "Lamb kabab", ar: "كباب لحمة", price: 5.5, desc: "tender lamb cubes off the charcoal", choices: SANDWICH },
     { id: "lahme", name: "Lahmeh shi2af", ar: "لحمة شقف", price: 5.5, desc: "marinated beef cubes, charcoal grilled", choices: SANDWICH },
@@ -312,27 +313,30 @@ const MENU = [
     { id: "arayes", name: "Arayes", ar: "عرايس", price: 5, desc: "grilled bread stuffed with kafta and cheese", choices: SANDWICH },
     { id: "vegskewer", name: "Vegetarian skewer", ar: "سيخ خضرا", price: 5, desc: "charcoal grilled vegetables", tag: 'New', choices: SANDWICH },
   ]},
-  { id: "snack", name: "Snack sandwiches", ar: "سندويشات سناك", sub: "Lebanese snack-shop classics", items: [
+  { id: "snack", name: "Snack sandwiches", ar: "سندويشات سناك", sub: "Lebanese snack-shop classics · combo +$3", items: [
     { id: "basterma", name: "Basterma", ar: "بسترما", price: 5.5, desc: "premium cured basterma, Lebanese style", tag: 'New', choices: SANDWICH },
     { id: "sawdadjej", name: "Sawda djej", ar: "سودة دجاج", price: 5, desc: "chicken livers, Lebanese style", tag: 'New', choices: SANDWICH },
     { id: "sujuk", name: "Sujuk", ar: "سجق", price: 5, desc: "spiced Lebanese sausage", tag: 'New', choices: SANDWICH },
     { id: "makanek", name: "Makanek", ar: "مقانق", price: 5, desc: "Lebanese lamb sausages", tag: 'New', choices: SANDWICH },
     { id: "sandwichbatata", name: "Sandwich batata", ar: "سندويش بطاطا", price: 4.5, desc: "fries and coleslaw in bread, with our sauces", tag: 'New', choices: SANDWICH },
   ]},
-  { id: 'burgers', name: 'Burgers', ar: 'برغر', sub: "Cooked through on the flat saj · make it a meal +$3", items: [
-    { id: "bmeal", name: "BCC Burger meal", ar: "وجبة برغر BCC", price: 9, desc: "the BCC Burger with a side, a salad and a drink", choices: [...MEAL, ...BURGER] },
-    { id: "kburger", name: "Kafta burger", ar: "برغر كفتة", price: 5.5, desc: "our kafta in a burger bun", choices: [C('meal', 'Make it a meal', [['Burger only', 0], ['Meal: side + salad + drink', 3]]), ...BURGER, C('side', 'Meal side', SIDES, { optional: true, when: 'meal' }), C('salad', 'Meal salad', SALADS, { optional: true, when: 'meal' }), C('drink', 'Meal drink', DRINKS, { optional: true, when: 'meal' })] },
-    { id: "gchicken", name: "Grilled chicken burger", ar: "برغر دجاج مشوي", price: 5, desc: "grilled chicken breast, light and juicy", tag: 'New', choices: [C('meal', 'Make it a meal', [['Burger only', 0], ['Meal: side + salad + drink', 3]]), ...BURGER, C('side', 'Meal side', SIDES, { optional: true, when: 'meal' }), C('salad', 'Meal salad', SALADS, { optional: true, when: 'meal' }), C('drink', 'Meal drink', DRINKS, { optional: true, when: 'meal' })] },
-    { id: "veggie", name: "Veggie burger", ar: "برغر نباتي", price: 5, desc: "our house vegetarian patty", tag: 'New', choices: [C('meal', 'Make it a meal', [['Burger only', 0], ['Meal: side + salad + drink', 3]]), ...BURGER, C('side', 'Meal side', SIDES, { optional: true, when: 'meal' }), C('salad', 'Meal salad', SALADS, { optional: true, when: 'meal' }), C('drink', 'Meal drink', DRINKS, { optional: true, when: 'meal' })] },
+  { id: 'burgers', name: 'Burgers', ar: 'برغر', sub: "Cooked through on the flat saj · combo +$3 (side + drink)", items: [
+    { id: "kburger", name: "Kafta burger", ar: "برغر كفتة", price: 5.5, desc: "our kafta in a burger bun", choices: [C('meal', 'Make it a combo', [['Item only', 0], ['Combo: side + drink', 3]]), ...BURGER, C('side', 'Combo side', SIDES, { optional: true, when: 'meal' }), C('drink', 'Combo drink', DRINKS, { optional: true, when: 'meal' })] },
+    { id: "gchicken", name: "Grilled chicken burger", ar: "برغر دجاج مشوي", price: 5, desc: "grilled chicken breast, light and juicy", tag: 'New', choices: [C('meal', 'Make it a combo', [['Item only', 0], ['Combo: side + drink', 3]]), ...BURGER, C('side', 'Combo side', SIDES, { optional: true, when: 'meal' }), C('drink', 'Combo drink', DRINKS, { optional: true, when: 'meal' })] },
+    { id: "veggie", name: "Veggie burger", ar: "برغر نباتي", price: 5, desc: "our house vegetarian patty", tag: 'New', choices: [C('meal', 'Make it a combo', [['Item only', 0], ['Combo: side + drink', 3]]), ...BURGER, C('side', 'Combo side', SIDES, { optional: true, when: 'meal' }), C('drink', 'Combo drink', DRINKS, { optional: true, when: 'meal' })] },
   ]},
   { id: 'kids', name: 'Kids', ar: 'الأولاد', sub: "Each with a small side and a juice", items: [
     { id: "kidsburger", name: "Kids burger", ar: "برغر الأولاد", price: 5, desc: "a smaller plain burger", choices: [C('side', 'Side', [['Small fries', 0], ['Cucumber & carrot sticks', 0], ['Small rice', 0]]), C('drink', 'Drink', [['Apple juice', 0], ['Orange juice', 0], ['Water', 0]]), C('mods', 'Changes', [['Add cheese', 0], ['Add ketchup', 0], ['Cut in half', 0]], { multi: true, optional: true })] },
     { id: "kidstaouk", name: "Kids taouk", ar: "طاووق الأولاد", price: 5, desc: "one taouk skewer with bread", choices: [C('side', 'Side', [['Small fries', 0], ['Cucumber & carrot sticks', 0], ['Small rice', 0]]), C('drink', 'Drink', [['Apple juice', 0], ['Orange juice', 0], ['Water', 0]]), C('mods', 'Changes', [['Add cheese', 0], ['Add ketchup', 0], ['Cut in half', 0]], { multi: true, optional: true })] },
     { id: "kidskafta", name: "Kids kafta", ar: "كفتة الأولاد", price: 5, desc: "one kafta skewer with bread", choices: [C('side', 'Side', [['Small fries', 0], ['Cucumber & carrot sticks', 0], ['Small rice', 0]]), C('drink', 'Drink', [['Apple juice', 0], ['Orange juice', 0], ['Water', 0]]), C('mods', 'Changes', [['Add cheese', 0], ['Add ketchup', 0], ['Cut in half', 0]], { multi: true, optional: true })] },
   ]},
-  { id: 'plates', name: 'Plates & boxes', ar: 'صحون وبوكسات', sub: "Every plate: your side (fries, rice, batata harra, hummus), your salad, hummus, bread", items: [
-    { id: "kplate", name: "Kabab plate", ar: "صحن كباب", price: 9, desc: "three skewers of your choice · lamb +$2", choices: [C('protein', 'Skewers', [...PROT(2, 0.5), ['Half and half', 0]]), ...PLATE] },
-    { id: "mixed", name: "BCC mixed grill", ar: "مشاوي BCC", price: 12, desc: "kafta, lamb and taouk together", choices: PLATE },
+  { id: 'plates', name: 'Plates & boxes', ar: 'صحون وبوكسات', sub: "Every plate: 2 skewers, bread, biwaz or toum, and your choice of 2 sides (fries, rice, batata harra, hummus, coleslaw, fattoush, tabbouleh). Drinks separate.", items: [
+    { id: "kaftaplate", name: "Kafta plate", ar: "صحن كفتة", price: 9, desc: "2 kafta skewers, bread, biwaz, 2 sides", choices: PLATE },
+    { id: "shishtaoukplat", name: "Shish taouk plate", ar: "صحن شيش طاووق", price: 9, desc: "2 taouk skewers, bread, toum, 2 sides", choices: PLATE },
+    { id: "djejmeshwiplat", name: "Djej meshwi plate", ar: "صحن دجاج مشوي", price: 9, desc: "grilled chicken, bread, toum, 2 sides", choices: PLATE },
+    { id: "lahmehshi2afpl", name: "Lahmeh shi2af plate", ar: "صحن لحمة شقف", price: 11, desc: "2 beef skewers, bread, biwaz, 2 sides", choices: PLATE },
+    { id: "lambkababplate", name: "Lamb kabab plate", ar: "صحن كباب لحمة", price: 11, desc: "2 lamb skewers, bread, biwaz, 2 sides", choices: PLATE },
+    { id: "mixed", name: "BCC mixed grill", ar: "مشاوي BCC", price: 12, desc: "kafta, lamb and taouk skewers, bread, biwaz & toum, 2 sides", choices: PLATE },
     { id: "farrouj", name: "Farrouj meshwi 3al fa7m", ar: "فروج مشوي ع الفحم", price: 13.0, desc: "whole or half charcoal chicken with the sides", choices: [C('size', 'Size', [['Whole', 0], ['Half', -6]]), C('sauce', 'Sauces (pick up to two)', SAUCES, { multi: true, max: 2 }), C('mods', 'Changes', [['Extra crispy', 0], ['Extra spicy', 0], ['No pickles', 0], ['Salad instead of fries', 0]], { multi: true, optional: true })] },
     { id: "msahab", name: "Farrouj msa7ab", ar: "فروج مسحّب", price: 15, desc: "boneless flattened chicken off the charcoal", choices: [C('sauce', 'Sauces (pick up to two)', SAUCES, { multi: true, max: 2 }), C('salad', 'Salad', SALADS), C('mods', 'Changes', [['Extra crispy', 0], ['Extra spicy', 0], ['No pickles', 0], ['Salad instead of fries', 0]], { multi: true, optional: true })] },
     { id: "family", name: "Mashawi Family Box", ar: "بوكس مشاوي العيلة", price: 26, desc: "mixed mashawi for the whole family, with sides and drinks", tag: "Every day", choices: [C('mix', 'Skewers', [['4 kafta + 4 taouk', 0], ['All kafta', 0], ['All taouk', 0], ['Mixed with lamb', 4]]), C('side', 'Two large sides (pick two)', SIDES, { multi: true, max: 2, min: 2 }), C('salad', 'Two salads (pick two)', SALADS, { multi: true, max: 2, min: 2 }), C('drink', 'Four drinks (pick up to four)', DRINKS, { multi: true, max: 4 }), C('sauce', 'Sauces (pick up to three)', SAUCES, { multi: true, max: 3 })] },
@@ -364,8 +368,8 @@ const MENU = [
     { id: "chocolatemouss", name: "Chocolate mousse cup", ar: "كاسة موس شوكولا", price: 3, desc: "rich and chocolatey" },
   ]},
   { id: 'drinks', name: 'Drinks', ar: 'مشروبات', items: [
-    { id: "soft", name: "Soft drink", ar: "مشروب غازي", price: 1.5, desc: "Pepsi, 7Up, Mirinda, Diet Pepsi", choices: [C('kind', 'Which', [['Pepsi', 0], ['7Up', 0], ['Mirinda', 0], ['Diet Pepsi', 0]])] },
-    { id: "water", name: "Water", ar: "مي", price: 1, desc: "bottled water" },
+    { id: "soft", name: "Soft drink", ar: "مشروب غازي", price: 2, desc: "Pepsi, 7Up, Mirinda, Diet Pepsi", choices: [C('kind', 'Which', [['Pepsi', 0], ['7Up', 0], ['Mirinda', 0], ['Diet Pepsi', 0]])] },
+    { id: "water", name: "Water", ar: "مي", price: 1.5, desc: "bottled water" },
     { id: "ayran", name: "Ayran", ar: "عيران", price: 1.5, desc: "cold yogurt drink" },
   ]},
 ];

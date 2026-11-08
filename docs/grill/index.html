@@ -300,7 +300,7 @@ const T = {
     orApp: 'Prefer the app?', appLink: 'Order in the BCC Grill app',
     foot: 'BCC Grill is the take away of Baissour Country Club', choose: 'Choose', add: 'Add', addToOrder: 'Add to order', addSides: 'Add sides for extra', addSidesHint: 'Added to this item',
     kitchenNotes: 'Notes for the kitchen', notesPh: 'e.g. extra toum, no onion', optional: 'Optional', pickN: n => `Choose ${n}`, upTo: n => `Pick up to ${n}`, chooseOne: 'Choose one',
-    acct: 'My orders', acctHi: 'Hi {n}', signIn: 'Sign in', signOut: 'Sign out', pinLbl: 'PIN (4 digits)', pinHelp: 'First time? Choose a 4-digit PIN — we create your account.', pinWrong: 'Wrong PIN — try again.', recent: 'Recent orders', noOrders: 'No orders yet.', reorder: 'Order again', reordered: 'Added to your order', welcomeNew: 'Account created — welcome!', signedOut: 'Signed out.', acctWho: 'Signed in as',
+    rewardsHint: '1 point per $1 · 50 points = $5 off', forgotPin: 'Forgot your PIN? WhatsApp us and we reset it.', forgotMsg: 'Hi! I forgot my BCC Rewards PIN for {p} — can you reset it please?', pointsYou: 'You have {n} points', usePts: 'Use 50 points — $5 off', ptsApplied: '$5 off applied · undo', rewardsLine: 'Rewards', saveName: 'Save name', nameSaved: 'Name saved', earnLine: 'This order earns {n} points', acct: 'My orders', acctHi: 'Hi {n}', signIn: 'Sign in', signOut: 'Sign out', pinLbl: 'PIN (4 digits)', pinHelp: 'First time? Choose a 4-digit PIN — we create your account.', pinWrong: 'Wrong PIN — try again.', recent: 'Recent orders', noOrders: 'No orders yet.', reorder: 'Order again', reordered: 'Added to your order', welcomeNew: 'Account created — welcome!', signedOut: 'Signed out.', acctWho: 'Signed in as',
     welcomeBack: 'Welcome back, {n} — we remembered your location. Check the pin is still right.', useLoc: 'Use my location', pinHint: 'Drop the pin on your door — tap the map or drag the pin.', pinSet: 'Location pinned ✓ — the driver gets a Google Maps link.', pinFail: 'Could not get your location — tap the map instead.',
     needName: 'Add your name and phone number.', needAddr: 'Add your address or a landmark.', minC: 'Down the road delivery has a $15 minimum.', added: 'Added to your order', view: 'View order', items: n => n === 1 ? '1 item' : `${n} items`,
     sent: 'WhatsApp is opening with your order. Tap send there — we reply to confirm and tell you the time.', kcal: 'kcal',
@@ -322,7 +322,7 @@ const T = {
     orApp: 'بتفضّل التطبيق؟', appLink: 'اطلب من تطبيق BCC Grill',
     foot: 'BCC Grill هو التيك أواي تبع منتجع بيصور السياحي', choose: 'اختار', add: 'زيد', addToOrder: 'زيد ع الطلبية', addSides: 'زيد أطباق جانبية', addSidesHint: 'بتنزاد ع هالصنف',
     kitchenNotes: 'ملاحظات للمطبخ', notesPh: 'مثلاً: توم زيادة، بلا بصل', optional: 'اختياري', pickN: n => `اختار ${n}`, upTo: n => `لحد ${n}`, chooseOne: 'اختار واحد',
-    acct: 'طلباتي', acctHi: 'أهلاً {n}', signIn: 'تسجيل دخول', signOut: 'تسجيل خروج', pinLbl: 'الرقم السري (٤ أرقام)', pinHelp: 'أول مرة؟ اختار رقم سري من ٤ أرقام — منعملك حساب.', pinWrong: 'الرقم السري غلط — جرّب مرة تانية.', recent: 'آخر الطلبات', noOrders: 'بعد ما في طلبات.', reorder: 'اطلب نفس الشي', reordered: 'انضاف لطلبيتك', welcomeNew: 'انعمل الحساب — أهلاً فيك!', signedOut: 'سجّلت خروج.', acctWho: 'مسجّل دخول كـ',
+    rewardsHint: 'نقطة لكل $1 · ٥٠ نقطة = خصم $5', forgotPin: 'نسيت الرقم السري؟ ابعتلنا واتساب ومنرجّعو.', forgotMsg: 'مرحبا! نسيت الرقم السري لمكافآت BCC للرقم {p} — فيكن تعملولي ريسِت؟', pointsYou: 'معك {n} نقطة', usePts: 'استعمل ٥٠ نقطة — خصم $5', ptsApplied: 'انطبّق خصم $5 · تراجع', rewardsLine: 'المكافآت', saveName: 'احفظ الاسم', nameSaved: 'انحفظ الاسم', earnLine: 'هالطلب بيجمّعلك {n} نقطة', acct: 'طلباتي', acctHi: 'أهلاً {n}', signIn: 'تسجيل دخول', signOut: 'تسجيل خروج', pinLbl: 'الرقم السري (٤ أرقام)', pinHelp: 'أول مرة؟ اختار رقم سري من ٤ أرقام — منعملك حساب.', pinWrong: 'الرقم السري غلط — جرّب مرة تانية.', recent: 'آخر الطلبات', noOrders: 'بعد ما في طلبات.', reorder: 'اطلب نفس الشي', reordered: 'انضاف لطلبيتك', welcomeNew: 'انعمل الحساب — أهلاً فيك!', signedOut: 'سجّلت خروج.', acctWho: 'مسجّل دخول كـ',
     welcomeBack: 'أهلاً برجعتك {n} — تذكّرنا موقعك. تأكّد إنو الدبّوس بعدو بمحلّو.', useLoc: 'استخدم موقعي', pinHint: 'حطّ الدبّوس ع بابك — كبس ع الخريطة أو جرّ الدبّوس.', pinSet: 'تم تحديد الموقع ✓ — بيوصل للسائق رابط Google Maps.', pinFail: 'ما قدرنا نجيب موقعك — كبس ع الخريطة.',
     needName: 'حط اسمك ورقم تلفونك.', needAddr: 'حط عنوانك أو أقرب معلم.', minC: 'التوصيل لنزلة الطريق أقل طلبية فيه ١٥$.', added: 'انزاد ع طلبيتك', view: 'شوف الطلبية', items: n => n === 1 ? 'صنف واحد' : `${n} أصناف`,
     sent: 'عم ينفتح واتساب مع طلبيتك. كبس إرسال هونيك — منرد لنأكد ومنقلك الوقت.', kcal: 'سعرة',
@@ -344,6 +344,7 @@ const AR = {
   'No onion':'بلا بصل','No pickles':'بلا كبيس','No tomato':'بلا بندورة','No parsley':'بلا بقدونس','No lettuce':'بلا خس','Sauce on the side':'الصوص ع جنب','Extra spicy':'حرّ زيادة','Well done':'مستوي منيح',
   'Extra fries':'بطاطا زيادة','Fattoush side':'فتوش ع جنب','Extra kafta skewer':'سيخ كفتة زيادة','Extra taouk skewer':'سيخ طاووق زيادة','BCC toum tub':'علبة توم BCC','Extra bread ×6':'خبز ×٦','Pickles & turnips':'كبيس ولفت',
   "Extra patty (burgers)":"قرص لحمة زيادة (برغر)","Cheese":"جبنة","Extra skewer":"سيخ زيادة","Extra toum":"توم زيادة","Fries on the side":"بطاطا ع جنب","Small hummus":"حمص صغير","Salad on the side":"سلطة ع جنب","Extra bread":"خبز زيادة","Pickles & turnips":"كبيس ولفت","Fried egg":"بيضة مقلية","Extra patty":"قرص لحمة زيادة",
+  'Item only':'الصنف لحالو','Combo: side + drink':'كومبو: جانبي + مشروب','Lebanese bread':'خبز عربي','Vermicelli rice':'رز بالشعيرية','Small hummus':'حمص صغير','Coleslaw':'كول سلو','Tabbouleh':'تبولة','Fattoush':'فتوش',
   'On the burger':'ع البرغر','On the side':'ع جنب','Coleslaw and pickles in the bun':'الكول سلو والكبيس بالبرغر','Coleslaw and pickles on the side':'الكول سلو والكبيس ع جنب',
   'Burger only':'برغر بس','Meal: side + salad + drink':'وجبة: طبق جانبي + سلطة + مشروب','Extra cheese':'جبنة زيادة','Add fried egg':'زيد بيضة مقلية','Extra ketchup':'كاتشب زيادة',
   'Kafta':'كفتة','Lamb':'لحمة غنم','Taouk':'طاووق','Mixed':'مشكّل','Half and half':'نص ونص','Regular':'عادي','Large (share)':'كبير (للمشاركة)',
@@ -359,22 +360,22 @@ const AR = {
 
 /* ===== menu ===== */
 const SALADS=[['Fattoush',0],['Tabbouleh',0],['Coleslaw',0],['Biwaz (onion, parsley, sumac)',0],['Greek-style salad',.5]];
-const SIDES=[['Fries',0],['Batata harra',0],['Vermicelli rice',0],['Grilled vegetables',.5],['Small hummus',0]];
-const DRINKS=[['Pepsi',0],['7Up',0],['Mirinda',0],['Water',0],['Ayran',0]];
-const BREADS=[['Saj bread',0],['Pita',0],['Lettuce wrap (no bread)',0]];
+const SIDES=[['Fries',0],['Vermicelli rice',0],['Batata harra',0],['Small hummus',0],['Coleslaw',0],['Fattoush',0],['Tabbouleh',0]];
+const DRINKS=[['Pepsi',0],['7Up',0],['Mirinda',0],['Diet Pepsi',0],['Water',0],['Ayran',0]];
+const BREADS=[['Lebanese bread',0],['Lettuce wrap (no bread)',0]];
 const SAUCES=[['Toum',0],['Hummus',0],['Yogurt-tahini',0],['Hot harissa',0],['Toum mayo',0],['Cheese sauce',.5]];
 const REMOVE=[['No onion',0],['No pickles',0],['No tomato',0],['No parsley',0],['Sauce on the side',0],['Extra spicy',0],['Well done',0]];
 const ADDONS=[["Extra patty (burgers)",2.5],["Cheese",0.5],["Extra skewer",2.5],["Extra toum",0.5],["Fries on the side",2],["Small hummus",2],["Salad on the side",3],["Extra bread",1],["Pickles & turnips",1],["Fried egg",1]];
 const C=(key,label,ar,opts,o={})=>({key,label,ar,opts,...o});
 /* every protein on the sandwich menu — used wherever a protein is chosen (lamb-cut / spiced upcharges vary by portion) */
 const PROT=(lamb,spiced)=>[['Kafta',0],['Shish taouk',0],['Djej meshwi',0],['Lahmeh shi2af',lamb],['Lamb kabab',lamb],['Kabab orfali',spiced]];
-const SANDWICH=[C('bread','Bread','الخبز',BREADS),C('sauce','Sauce (pick up to two)','الصوص (لحد تنين)',SAUCES,{multi:true,max:2}),C('mods','Changes','تعديلات',REMOVE,{multi:true,optional:true})];
 const VEG=C('veg','Veggies on the burger or on the side?','الخضرا ع البرغر أو ع جنب؟',[['On the burger',0],['On the side',0]],{msg:'Veggies'});
 const BURGER_MODS=C('mods','Changes','تعديلات',[['Extra patty',2.5],['Cheese',.5],['No onion',0],['No pickles',0],['No tomato',0],['No lettuce',0],['Sauce on the side',0],['Add fried egg',1]],{multi:true,optional:true});
-const MEALQ=C('meal','Make it a meal','عملها وجبة',[['Burger only',0],['Meal: side + salad + drink',3]],{msg:'Meal'});
-const MEAL_PICKS=[C('side','Meal side','الطبق الجانبي',SIDES,{when:'meal'}),C('salad','Meal salad','السلطة',SALADS,{when:'meal'}),C('drink','Meal drink','المشروب',DRINKS,{when:'meal'})];
+const MEALQ=C('meal','Make it a combo','عملها كومبو',[['Item only',0],['Combo: side + drink',3]],{msg:'Combo'});
+const MEAL_PICKS=[C('side','Combo side','الطبق الجانبي',SIDES,{when:'meal'}),C('drink','Combo drink','المشروب',DRINKS,{when:'meal'})];
+const SANDWICH=[MEALQ,C('bread','Bread','الخبز',BREADS),C('mods','Changes','تعديلات',REMOVE,{multi:true,optional:true}),...MEAL_PICKS];
 const MEAL=[C('side','Side','طبق جانبي',SIDES),C('salad','Salad','سلطة',SALADS),C('drink','Drink','مشروب',DRINKS)];
-const PLATE=[C('salad','Salad','سلطة',SALADS),C('side','Side','طبق جانبي',SIDES),C('bread','Bread','الخبز',BREADS.slice(0,2)),C('sauce','Sauces (pick up to two)','الصوص (لحد تنين)',SAUCES,{multi:true,max:2})];
+const PLATE=[C('sides','Two sides (pick two)','طبقين جانبيين (اختار تنين)',SIDES,{multi:true,max:2,min:2}),C('mods','Changes','تعديلات',REMOVE,{multi:true,optional:true})];
 const LEB_SIDE=C('veg','Coleslaw and pickles on the side?','الكول سلو والكبيس ع جنب؟',[['Coleslaw and pickles in the bun',0],['Coleslaw and pickles on the side',0]],{msg:'Coleslaw & pickles',hint:'The fries always stay inside the bun.',hintAr:'البطاطا بتضل جوّا البرغر.'});
 const KILO_ADD=C('sides','Add for the table','زيد للطاولة',[['Hummus 500 g',5],['Fattoush large',6],['Extra bread ×6',3]],{multi:true,optional:true});
 
@@ -385,7 +386,7 @@ const MENU=[
   {id:"smash",name:"BCC Kafta Smash",ar:"كفتة سماش",price:6,tag:"sig",desc:"Our kafta, smashed crispy on the saj with the classic fixings.",descAr:"كفتتنا مرقوقة ومقرمشة ع الصاج مع الإضافات الكلاسيكية.",choices:SANDWICH},
   {id:"kfries",name:"Kafta Fries",ar:"بطاطا كفتة",price:5,tag:"sig",desc:"Loaded fries with charcoal grilled kafta, cheese sauce and toum — or make it taouk.",descAr:"بطاطا محمّلة بكفتة مشوية ع الفحم، صوص جبنة وتوم — أو خلّيها طاووق.",choices:[C('size','Size','الحجم',[['Regular',0],['Large (share)',3]]),C('protein','Meat','اللحمة',[['Kafta',0],['Shish taouk',0],['Mixed',.5]]),C('mods','Changes','تعديلات',[['No cheese sauce',0],['No sumac onion',0],['Extra toum',.5],['Extra spicy',0]],{multi:true,optional:true})]},
  ]},
- {id:"charcoal",name:"Charcoal grilled sandwiches",ar:"سندويشات مشوية على الفحم",sub:"Lebanese bread · pick 2 sauces",subAr:"خبز عربي · اختار صوصين",items:[
+ {id:"charcoal",name:"Charcoal grilled sandwiches",ar:"سندويشات مشوية على الفحم",sub:"Lebanese bread · biwaz with meats, toum with chicken · changes are free · combo +$3",subAr:"خبز عربي · بيواز مع اللحمة، توم مع الدجاج · التعديلات ببلاش · كومبو +$3",items:[
   {id:"kafta",name:"Kafta",ar:"كفتة",price:5,desc:"our signature kafta, charcoal grilled",descAr:"كفتتنا المميّزة مشوية ع الفحم",choices:SANDWICH},
   {id:"lamb",name:"Lamb kabab",ar:"كباب لحمة",price:5.5,desc:"tender lamb cubes off the charcoal",descAr:"قطع لحمة غنم طرية ع الفحم",choices:SANDWICH},
   {id:"lahme",name:"Lahmeh shi2af",ar:"لحمة شقف",price:5.5,desc:"marinated beef cubes, charcoal grilled",descAr:"قطع لحمة بقر متبّلة ع الفحم",choices:SANDWICH},
@@ -395,15 +396,14 @@ const MENU=[
   {id:"arayes",name:"Arayes",ar:"عرايس",price:5,desc:"grilled bread stuffed with kafta and cheese",descAr:"خبز محشي كفتة وجبنة ومشوي",choices:SANDWICH},
   {id:"vegskewer",name:"Vegetarian skewer",ar:"سيخ خضرا",price:5,tag:'new',desc:"charcoal grilled vegetables",descAr:"خضرا مشوية ع الفحم",choices:SANDWICH},
  ]},
- {id:"snack",name:"Snack sandwiches",ar:"سندويشات سناك",sub:"Lebanese snack-shop classics",subAr:"كلاسيكيات السناك اللبناني",items:[
+ {id:"snack",name:"Snack sandwiches",ar:"سندويشات سناك",sub:"Lebanese snack-shop classics · combo +$3",subAr:"كلاسيكيات السناك اللبناني · كومبو +$3",items:[
   {id:"basterma",name:"Basterma",ar:"بسترما",price:5.5,tag:'new',desc:"premium cured basterma, Lebanese style",descAr:"بسترما فاخرة ع الطريقة اللبنانية",choices:SANDWICH},
   {id:"sawdadjej",name:"Sawda djej",ar:"سودة دجاج",price:5,tag:'new',desc:"chicken livers, Lebanese style",descAr:"سودة دجاج ع الطريقة اللبنانية",choices:SANDWICH},
   {id:"sujuk",name:"Sujuk",ar:"سجق",price:5,tag:'new',desc:"spiced Lebanese sausage",descAr:"سجق لبناني متبّل",choices:SANDWICH},
   {id:"makanek",name:"Makanek",ar:"مقانق",price:5,tag:'new',desc:"Lebanese lamb sausages",descAr:"مقانق لبنانية",choices:SANDWICH},
   {id:"sandwichbatata",name:"Sandwich batata",ar:"سندويش بطاطا",price:4.5,tag:'new',desc:"fries and coleslaw in bread, with our sauces",descAr:"بطاطا وكول سلو بالخبز مع صوصاتنا",choices:SANDWICH},
  ]},
- {id:'burgers',name:'Burgers',ar:'برغر',sub:"Cooked through on the flat saj · make it a meal +$3",subAr:"مستوي منيح ع الصاج · عملها وجبة <bdi dir=\"ltr\">+$3</bdi>",items:[
-  {id:"bmeal",name:"BCC Burger meal",ar:"وجبة برغر BCC",price:9,desc:"the BCC Burger with a side, a salad and a drink",descAr:"برغر BCC مع طبق جانبي وسلطة ومشروب",choices:[...MEAL,VEG,BURGER_MODS]},
+ {id:'burgers',name:'Burgers',ar:'برغر',sub:"Cooked through on the flat saj · combo +$3 (side + drink)",subAr:"مستوي منيح ع الصاج · كومبو +$3 (جانبي + مشروب)",items:[
   {id:"kburger",name:"Kafta burger",ar:"برغر كفتة",price:5.5,desc:"our kafta in a burger bun",descAr:"كفتتنا بخبز البرغر",choices:[MEALQ,VEG,BURGER_MODS,...MEAL_PICKS]},
   {id:"gchicken",name:"Grilled chicken burger",ar:"برغر دجاج مشوي",price:5,tag:'new',desc:"grilled chicken breast, light and juicy",descAr:"صدر دجاج مشوي، خفيف وطري",choices:[MEALQ,VEG,BURGER_MODS,...MEAL_PICKS]},
   {id:"veggie",name:"Veggie burger",ar:"برغر نباتي",price:5,tag:'new',desc:"our house vegetarian patty",descAr:"قرص نباتي معمول عنّا",choices:[MEALQ,VEG,BURGER_MODS,...MEAL_PICKS]},
@@ -413,9 +413,13 @@ const MENU=[
   {id:"kidstaouk",name:"Kids taouk",ar:"طاووق الأولاد",price:5,desc:"one taouk skewer with bread",descAr:"سيخ طاووق مع خبز",choices:[C('side','Side','طبق جانبي',[['Small fries',0],['Cucumber & carrot sticks',0],['Small rice',0]]),C('drink','Drink','مشروب',[['Apple juice',0],['Orange juice',0],['Water',0]]),C('mods','Changes','تعديلات',[['Add cheese',0],['Add ketchup',0],['Cut in half',0]],{multi:true,optional:true})]},
   {id:"kidskafta",name:"Kids kafta",ar:"كفتة الأولاد",price:5,desc:"one kafta skewer with bread",descAr:"سيخ كفتة مع خبز",choices:[C('side','Side','طبق جانبي',[['Small fries',0],['Cucumber & carrot sticks',0],['Small rice',0]]),C('drink','Drink','مشروب',[['Apple juice',0],['Orange juice',0],['Water',0]]),C('mods','Changes','تعديلات',[['Add cheese',0],['Add ketchup',0],['Cut in half',0]],{multi:true,optional:true})]},
  ]},
- {id:'plates',name:'Plates & boxes',ar:'صحون وبوكسات',sub:"Every plate: your side (fries, rice, batata harra, hummus), your salad, hummus, bread",subAr:"كل صحن: طبق جانبي ع ذوقك (بطاطا، رز، بطاطا حرّة، حمص)، سلطة، حمص، خبز",items:[
-  {id:"kplate",name:"Kabab plate",ar:"صحن كباب",price:9,desc:"three skewers of your choice · lamb +$2",descAr:"٣ سياخ ع ذوقك · لحمة غنم +٢$",choices:[C('protein','Skewers','السياخ',[...PROT(2,.5),['Half and half',0]]),...PLATE]},
-  {id:"mixed",name:"BCC mixed grill",ar:"مشاوي BCC",price:12,desc:"kafta, lamb and taouk together",descAr:"كفتة ولحمة وطاووق سوا",choices:PLATE},
+ {id:'plates',name:'Plates & boxes',ar:'صحون وبوكسات',sub:"Every plate: 2 skewers, bread, biwaz or toum, and your choice of 2 sides (fries, rice, batata harra, hummus, coleslaw, fattoush, tabbouleh). Drinks separate.",subAr:"كل صحن: سيخين، خبز، بيواز أو توم، واختار طبقين جانبيين (بطاطا، رز، بطاطا حرّة، حمص، كول سلو، فتوش، تبولة). المشروبات لحال.",items:[
+  {id:"kaftaplate",name:"Kafta plate",ar:"صحن كفتة",price:9,desc:"2 kafta skewers, bread, biwaz, 2 sides",descAr:"سيخين كفتة، خبز، بيواز، طبقين",choices:PLATE},
+  {id:"shishtaoukplat",name:"Shish taouk plate",ar:"صحن شيش طاووق",price:9,desc:"2 taouk skewers, bread, toum, 2 sides",descAr:"سيخين طاووق، خبز، توم، طبقين",choices:PLATE},
+  {id:"djejmeshwiplat",name:"Djej meshwi plate",ar:"صحن دجاج مشوي",price:9,desc:"grilled chicken, bread, toum, 2 sides",descAr:"دجاج مشوي، خبز، توم، طبقين",choices:PLATE},
+  {id:"lahmehshi2afpl",name:"Lahmeh shi2af plate",ar:"صحن لحمة شقف",price:11,desc:"2 beef skewers, bread, biwaz, 2 sides",descAr:"سيخين لحمة بقر، خبز، بيواز، طبقين",choices:PLATE},
+  {id:"lambkababplate",name:"Lamb kabab plate",ar:"صحن كباب لحمة",price:11,desc:"2 lamb skewers, bread, biwaz, 2 sides",descAr:"سيخين غنم، خبز، بيواز، طبقين",choices:PLATE},
+  {id:"mixed",name:"BCC mixed grill",ar:"مشاوي BCC",price:12,desc:"kafta, lamb and taouk skewers, bread, biwaz & toum, 2 sides",descAr:"سيخ كفتة ولحمة وطاووق، خبز، بيواز وتوم، طبقين",choices:PLATE},
   {id:"farrouj",name:"Farrouj meshwi 3al fa7m",ar:"فروج مشوي ع الفحم",price:13.0,desc:"whole or half charcoal chicken with the sides",descAr:"فروج كامل أو نص ع الفحم مع الإضافات",choices:[C('size','Size','الحجم',[['Whole',0],['Half',-6]]),C('sauce','Sauces (pick up to two)','الصوص (لحد تنين)',SAUCES,{multi:true,max:2}),C('mods','Changes','تعديلات',[['Extra crispy',0],['Extra spicy',0],['No pickles',0],['Salad instead of fries',0]],{multi:true,optional:true})]},
   {id:"msahab",name:"Farrouj msa7ab",ar:"فروج مسحّب",price:15,desc:"boneless flattened chicken off the charcoal",descAr:"فروج مسحّب بلا عضم ع الفحم",choices:[C('sauce','Sauces (pick up to two)','الصوص (لحد تنين)',SAUCES,{multi:true,max:2}),C('salad','Salad','سلطة',SALADS),C('mods','Changes','تعديلات',[['Extra crispy',0],['Extra spicy',0],['No pickles',0],['Salad instead of fries',0]],{multi:true,optional:true})]},
   {id:"family",name:"Mashawi Family Box",ar:"بوكس مشاوي العيلة",price:26,tag:"fam",desc:"mixed mashawi for the whole family, with sides and drinks",descAr:"مشاوي مشكّلة للعيلة كلها مع الإضافات والمشروبات",choices:[C('mix','Skewers','السياخ',[['4 kafta + 4 taouk',0],['All kafta',0],['All taouk',0],['Mixed with lamb',4]]),C('side','Two large sides (pick two)','طبقين جانبيين (اختار تنين)',SIDES,{multi:true,max:2,min:2}),C('salad','Two salads (pick two)','سلطتين (اختار تنين)',SALADS,{multi:true,max:2,min:2}),C('drink','Four drinks (pick up to four)','٤ مشروبات (لحد أربعة)',DRINKS,{multi:true,max:4}),C('sauce','Sauces (pick up to three)','الصوص (لحد تلاتة)',SAUCES,{multi:true,max:3})]},
@@ -451,8 +455,8 @@ const MENU=[
   {id:"chocolatemouss",name:"Chocolate mousse cup",ar:"كاسة موس شوكولا",price:3,desc:"rich and chocolatey",descAr:"غنية بالشوكولا"},
  ]},
  {id:'drinks',name:'Drinks',ar:'مشروبات',items:[
-  {id:"soft",name:"Soft drink",ar:"مشروب غازي",price:1.5,desc:"Pepsi, 7Up, Mirinda, Diet Pepsi",descAr:"بيبسي، سفن أب، ميرندا، دايت بيبسي",choices:[C('kind','Which','أيا واحد',[['Pepsi',0],['7Up',0],['Mirinda',0],['Diet Pepsi',0]])]},
-  {id:"water",name:"Water",ar:"مي",price:1,desc:"bottled water",descAr:"مي معدنية"},
+  {id:"soft",name:"Soft drink",ar:"مشروب غازي",price:2,desc:"Pepsi, 7Up, Mirinda, Diet Pepsi",descAr:"بيبسي، سفن أب، ميرندا، دايت بيبسي",choices:[C('kind','Which','أيا واحد',[['Pepsi',0],['7Up',0],['Mirinda',0],['Diet Pepsi',0]])]},
+  {id:"water",name:"Water",ar:"مي",price:1.5,desc:"bottled water",descAr:"مي معدنية"},
   {id:"ayran",name:"Ayran",ar:"عيران",price:1.5,desc:"cold yogurt drink",descAr:"عيران بارد"},
  ]},
 ];
@@ -594,10 +598,13 @@ function renderCart(){
     lines.appendChild(d);});
   renderUpsell();
   const s=subtotal(),f=fee();
-  $('#totals').innerHTML=cart.length?`<div><span>${t('subtotal')}</span><span class="num">${money(s)}</span></div>`+(orderType==='delivery'?`<div><span>${t('deliveryFee')}</span><span class="num">${f?money(f):t('free')}</span></div>`:'')+`<div class="grand"><span>${t('total')}</span><span class="num">${money(s+f)}</span></div>`:'';
+  const d=discount(),tot=Math.max(0,s+f-d);
+  const pts=ptsKnown!=null&&cart.length?`<div class="upsell" style="padding:4px 0"><span style="opacity:.7">${t('pointsYou').replace('{n}',ptsKnown)}</span>${ptsKnown>=50?`<button type="button" class="u" id="redeemBtn">${redeem?t('ptsApplied'):t('usePts')}</button>`:''}</div>`:'';
+  $('#totals').innerHTML=cart.length?pts+`<div><span>${t('subtotal')}</span><span class="num">${money(s)}</span></div>`+(orderType==='delivery'?`<div><span>${t('deliveryFee')}</span><span class="num">${f?money(f):t('free')}</span></div>`:'')+(d?`<div><span>${t('rewardsLine')}</span><span class="num">−${money(d)}</span></div>`:'')+`<div class="grand"><span>${t('total')}</span><span class="num">${money(tot)}</span></div><div style="font-size:12px;opacity:.65">${t('earnLine').replace('{n}',Math.floor(tot))}</div>`:'';
+  const rb=$('#redeemBtn');if(rb)rb.onclick=()=>{redeem=!redeem;renderCart();};
   $('#sendBtn').disabled=!cart.length||!LIVE;
   const n=cart.reduce((a,l)=>a+l.qty,0);
-  $('#cartbar').hidden=!n;$('#cbCount').textContent=t('view')+' · '+t('items')(n);$('#cbTotal').textContent=money(s+f);
+  $('#cartbar').hidden=!n;$('#cbCount').textContent=t('view')+' · '+t('items')(n);$('#cbTotal').textContent=money(Math.max(0,s+f-discount()));
 }
 function seg(id,attr,cb){$(id).querySelectorAll('button').forEach(b=>b.onclick=()=>{$(id).querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true');cb(b.dataset[attr]);});}
 seg('#typeSeg','type',v=>{orderType=v;$('#deliveryFields').hidden=v!=='delivery';renderCart();if(v==='delivery'){initPinMap();setTimeout(()=>pinMap&&pinMap.invalidateSize(),350);}});
@@ -622,6 +629,7 @@ function initPinMap(){if(pinMap||typeof L==='undefined'||!$('#pinMap'))return;
 const sbRpc=(fn,body)=>fetch(SB_URL+'/rest/v1/rpc/'+fn,{method:'POST',headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':'application/json'},body:JSON.stringify(body),keepalive:true}).then(r=>r.ok?r.json():null).catch(()=>null);
 let lastLookup='';
 async function lookupCustomer(){const raw=$('#cPhone').value,d=raw.replace(/\D/g,'');if(d.length<7)return;const key=d.replace(/^00/,'').replace(/^961/,'').replace(/^0/,'');if(key===lastLookup)return;lastLookup=key;
+  const pr=await sbRpc('grill_points',{p_phone:raw});ptsKnown=pr&&pr.points!=null?pr.points:null;redeem=false;renderCart();
   const rows=await sbRpc('grill_lookup',{p_phone:raw});const c=rows&&rows[0];if(!c)return;
   if(c.name&&!$('#cName').value.trim())$('#cName').value=c.name;
   if(c.address&&!$('#cAddress').value.trim())$('#cAddress').value=c.address;
@@ -629,38 +637,44 @@ async function lookupCustomer(){const raw=$('#cPhone').value,d=raw.replace(/\D/g
   if(c.lat&&c.lng){initPinMap();setPin(c.lat,c.lng);pinMap&&pinMap.setView([c.lat,c.lng],17);}
   toast(t('welcomeBack').replace('{n}',c.name||''));}
 $('#cPhone').addEventListener('blur',lookupCustomer);$('#cPhone').addEventListener('change',lookupCustomer);
-function saveOrder(name,phone,addr,zone,s,f,notes){sbRpc('grill_save_order',{p:{name,phone,type:orderType,zone:orderType==='delivery'?zone:null,address:orderType==='delivery'?addr:null,
+function saveOrder(name,phone,addr,zone,s,f,notes){sbRpc('grill_place_order',{p:{redeem:!!discount(),name,phone,type:orderType,zone:orderType==='delivery'?zone:null,address:orderType==='delivery'?addr:null,
   lat:orderType==='delivery'&&pin?pin.lat:null,lng:orderType==='delivery'&&pin?pin.lng:null,pay,
   items:cart.map(l=>{const it=findItem(l.id);return{id:l.id,name:it.name,qty:l.qty,unit:l.unit,picks:l.picks,notes:l.notes||null};}),
-  subtotal:s,fee:f,total:s+f,notes:notes||null,source:'website'}});}
+  subtotal:s,fee:f,total:s+f,notes:notes||null,source:'website'}}).then(r=>{if(r&&r.points!=null){ptsKnown=r.points;redeem=false;}});}
 /* ===== customer account: phone + PIN, recent orders, order again ===== */
-let me=null;const TOK='bcc-grill-token';
+let me=null,ptsKnown=null,redeem=false;const TOK='bcc-grill-token';
+const discount=()=>redeem&&ptsKnown>=50?5:0;
 const getTok=()=>{try{return localStorage.getItem(TOK)}catch(e){return null}};const setTok=v=>{try{v?localStorage.setItem(TOK,v):localStorage.removeItem(TOK)}catch(e){}};
-function applyProfile(c){if(!c)return;if(c.name&&!$('#cName').value.trim())$('#cName').value=c.name;if(c.phone&&!$('#cPhone').value.trim())$('#cPhone').value=c.phone.length===7?'0'+c.phone:c.phone;
+function applyProfile(c){if(!c)return;if(c.points!=null){ptsKnown=c.points;}if(c.name&&!$('#cName').value.trim())$('#cName').value=c.name;if(c.phone&&!$('#cPhone').value.trim())$('#cPhone').value=c.phone.length===7?'0'+c.phone:c.phone;
   if(c.address&&!$('#cAddress').value.trim())$('#cAddress').value=c.address;if(c.zone){$('#cZone').value=c.zone;}
   if(c.lat&&c.lng){initPinMap();if(pinMap){setPin(c.lat,c.lng);pinMap.setView([c.lat,c.lng],17);}}
   $('#acctBtn').textContent=c.name?t('acctHi').replace('{n}',c.name.split(' ')[0]):t('acct');}
 async function loadMe(){const tok=getTok();if(!tok)return;const r=await sbRpc('grill_me',{p_token:tok});if(r&&r.phone){me=r;applyProfile(me);}else{setTok(null);me=null;}}
 const fmtDate=iso=>{const d=new Date(iso);return d.toLocaleDateString(lang==='ar'?'ar-LB':'en-GB',{day:'numeric',month:'short'})+' · '+d.toLocaleTimeString(lang==='ar'?'ar-LB':'en-GB',{hour:'2-digit',minute:'2-digit'});};
-function openAccount(){
+async function openAccount(){
+  if(getTok())await loadMe();
   const bg=document.createElement('div');bg.className='sheet-bg';const sh=document.createElement('div');sh.className='sheet';sh.setAttribute('role','dialog');bg.appendChild(sh);document.body.appendChild(bg);
   const close=()=>bg.remove();bg.onclick=e=>{if(e.target===bg)close();};
   const render=()=>{
     if(!me){sh.innerHTML=`<div class="head"><h3 class="disp">${t('acct')}</h3><button class="x" type="button">×</button></div>
-      <div class="form"><input id="aPhone" inputmode="tel" placeholder="${t('phone')}" value="${$('#cPhone').value||''}"><input id="aPin" inputmode="numeric" maxlength="6" type="password" placeholder="${t('pinLbl')}"><div class="hint" style="font-size:12px;color:var(--ink-3)">${t('pinHelp')}</div><div class="warn" id="aWarn" hidden></div>
-      <button class="primary" id="aGo" type="button">${t('signIn')}</button></div><div style="height:16px"></div>`;
+      <div class="form"><input id="aName" autocomplete="name" placeholder="${t('name')}" value="${$('#cName').value||''}"><input id="aPhone" inputmode="tel" placeholder="${t('phone')}" value="${$('#cPhone').value||''}"><input id="aPin" inputmode="numeric" maxlength="6" type="password" placeholder="${t('pinLbl')}"><div class="hint" style="font-size:12px;color:var(--ink-3)">${t('pinHelp')}</div><div class="warn" id="aWarn" hidden></div>
+      <button class="primary" id="aGo" type="button">${t('signIn')}</button><a id="aForgot" href="#" style="font-size:13px;text-align:center;display:block;opacity:.8">${t('forgotPin')}</a></div><div style="height:16px"></div>`;
       sh.querySelector('.x').onclick=close;
-      sh.querySelector('#aGo').onclick=async()=>{const ph=sh.querySelector('#aPhone').value,pin=sh.querySelector('#aPin').value,w=sh.querySelector('#aWarn');w.hidden=true;
-        const r=await sbRpc('grill_signin',{p_phone:ph,p_pin:pin});
+      sh.querySelector('#aForgot').onclick=e=>{e.preventDefault();const ph=sh.querySelector('#aPhone').value.trim();window.open('https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(t('forgotMsg').replace('{p}',ph||'…')),'_blank','noopener');};
+      sh.querySelector('#aGo').onclick=async()=>{const ph=sh.querySelector('#aPhone').value,pin=sh.querySelector('#aPin').value,nm=sh.querySelector('#aName').value.trim(),w=sh.querySelector('#aWarn');w.hidden=true;
+        const r=await sbRpc('grill_signin',{p_phone:ph,p_pin:pin,p_name:nm||null});
         if(!r||r.error){w.textContent=r&&r.error==='wrong_pin'?t('pinWrong'):(r&&r.error==='pin_format'?t('pinLbl'):t('needName'));w.hidden=false;return;}
         setTok(r.token);toast(r.new?t('welcomeNew'):t('welcomeBack').replace('{n}',r.name||''));await loadMe();if(!me)me={phone:r.phone,name:r.name,orders:[]};applyProfile(me);render();};
     }else{
       const list=(me.orders||[]).map(o=>{const items=(o.items||[]).map(i=>`${i.qty}× ${i.name}`).join(', ');
         return `<div class="order"><div class="o-head"><span>${fmtDate(o.at)}</span><span class="num">${money(+o.total||0)}</span></div><div class="o-items">${items}</div><div class="o-foot"><span style="font-size:12px;color:var(--ink-3)">${o.type==='delivery'?t('delivery'):t('pickup')} · ${o.status}</span><button type="button" data-re="${o.id}">${t('reorder')}</button></div></div>`;}).join('')||`<div class="hint" style="color:var(--ink-3)">${t('noOrders')}</div>`;
       sh.innerHTML=`<div class="head"><h3 class="disp">${t('recent')}</h3><button class="x" type="button">×</button></div>
-        <div class="acct-row"><span style="font-size:13px;color:var(--ink-3)">${t('acctWho')} <b>${me.name||''}</b> · <bdi dir="ltr">${me.phone.length===7?'0'+me.phone:me.phone}</bdi></span><button class="ghost" type="button" id="aOut">${t('signOut')}</button></div>
+        <div class="acct-row"><span style="font-size:13px;color:var(--ink-3)">${t('acctWho')} <bdi dir="ltr">${me.phone.length===7?'0'+me.phone:me.phone}</bdi></span><button class="ghost" type="button" id="aOut">${t('signOut')}</button></div>
+        <div class="two" style="display:grid;grid-template-columns:1fr auto;gap:8px"><input id="aName2" placeholder="${t('name')}" value="${me.name||''}"><button class="ghost" type="button" id="aSaveName">${t('saveName')}</button></div>
+        <div class="band" style="padding:10px 14px;border-radius:12px"><b class="disp" style="font-size:16px">${t('pointsYou').replace('{n}',me.points||0)}</b><div style="font-size:12px;opacity:.85">${t('rewardsHint')}</div></div>
         <div class="orders">${list}</div><div style="height:16px"></div>`;
       sh.querySelector('.x').onclick=close;
+      sh.querySelector('#aSaveName').onclick=async()=>{const n=sh.querySelector('#aName2').value.trim();await sbRpc('grill_set_name',{p_token:getTok(),p_name:n});me.name=n;applyProfile(me);toast(t('nameSaved'));};
       sh.querySelector('#aOut').onclick=async()=>{await sbRpc('grill_signout',{p_token:getTok()});setTok(null);me=null;$('#acctBtn').textContent=t('acct');toast(t('signedOut'));render();};
       sh.querySelectorAll('[data-re]').forEach(b=>b.onclick=()=>{const o=me.orders.find(x=>x.id===b.dataset.re);let n=0;(o.items||[]).forEach(i=>{const it=findItem(i.id);if(!it)return;cart.push({id:i.id,qty:i.qty||1,unit:it.price,picks:i.picks||[],notes:i.notes||''});n++;});
         renderCart();toast(t('reordered'));close();if(n)document.body.classList.add('cart-open');});
@@ -689,7 +703,7 @@ $('#sendBtn').onclick=()=>{
   L.push('');
   cart.forEach(l=>{const it=findItem(l.id);L.push(`${l.qty}× ${it.name} (${it.ar}) — ${money(l.unit*l.qty)}`);l.picks.forEach(p=>L.push(`   ${p.k}: ${p.v.join(', ')}`));if(l.notes)L.push('   Note: '+l.notes);});
   const s=subtotal(),f=fee();
-  L.push('','Subtotal: '+money(s));if(orderType==='delivery')L.push('Delivery: '+(f?money(f):'Free'));L.push('*Total: '+money(s+f)+'*');
+  const dd=discount();L.push('','Subtotal: '+money(s));if(orderType==='delivery')L.push('Delivery: '+(f?money(f):'Free'));if(dd)L.push('Rewards: −'+money(dd)+' (50 points)');L.push('*Total: '+money(Math.max(0,s+f-dd))+'*');
   const notes=$('#cNotes').value.trim();if(notes)L.push('','Kitchen notes: '+notes);
   saveOrder(name,phone,addr,zone,s,f,notes);
   window.open('https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(L.join('\n')),'_blank','noopener');

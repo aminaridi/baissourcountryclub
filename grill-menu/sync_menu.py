@@ -58,16 +58,14 @@ def website_menu(kilo_block):
         L.append(" ]},")
     c = sec('burgers'); L.append(f" {{id:'burgers',name:'Burgers',ar:'برغر',sub:{js(c['noteEn'])},subAr:{js(c['noteAr'])},items:[")
     for it in c['items']:
-        if it['en'] == 'BCC Burger meal': L.append(w_item('bmeal', it, "[...MEAL,VEG,BURGER_MODS]"))
-        else: L.append(w_item({'Kafta burger': 'kburger', 'Grilled chicken burger': 'gchicken', 'Veggie burger': 'veggie'}.get(it['en'], slug(it['en'])), it, "[MEALQ,VEG,BURGER_MODS,...MEAL_PICKS]"))
+        L.append(w_item({'Kafta burger': 'kburger', 'Grilled chicken burger': 'gchicken', 'Veggie burger': 'veggie'}.get(it['en'], slug(it['en'])), it, "[MEALQ,VEG,BURGER_MODS,...MEAL_PICKS]"))
     L.append(" ]},")
     c = sec('kids'); L.append(f" {{id:'kids',name:'Kids',ar:'الأولاد',sub:{js(c['noteEn'])},subAr:{js(c['noteAr'])},items:[")
     for it in c['items']: L.append(w_item(slug(it['en']), it, KIDS_W))
     L.append(" ]},")
     c = sec('plates'); L.append(f" {{id:'plates',name:'Plates & boxes',ar:'صحون وبوكسات',sub:{js(c['noteEn'])},subAr:{js(c['noteAr'])},items:[")
     for it in c['items']:
-        if it['en'] == 'Kabab plate': L.append(w_item('kplate', it, "[C('protein','Skewers','السياخ',[...PROT(2,.5),['Half and half',0]]),...PLATE]"))
-        elif it['en'] == 'BCC mixed grill': L.append(w_item('mixed', it, "PLATE"))
+        if it.get('plate'): L.append(w_item({'BCC mixed grill': 'mixed'}.get(it['en'], slug(it['en'])), it, "PLATE"))
         elif it['en'].startswith('Farrouj meshwi'): L.append(w_item('farrouj', it, "[C('size','Size','الحجم',[['Whole',0],['Half',-6]]),C('sauce','Sauces (pick up to two)','الصوص (لحد تنين)',SAUCES,{multi:true,max:2}),C('mods','Changes','تعديلات',[['Extra crispy',0],['Extra spicy',0],['No pickles',0],['Salad instead of fries',0]],{multi:true,optional:true})]"))
         elif it['en'] == 'Farrouj msa7ab': L.append(w_item('msahab', it, "[C('sauce','Sauces (pick up to two)','الصوص (لحد تنين)',SAUCES,{multi:true,max:2}),C('salad','Salad','سلطة',SALADS),C('mods','Changes','تعديلات',[['Extra crispy',0],['Extra spicy',0],['No pickles',0],['Salad instead of fries',0]],{multi:true,optional:true})]"))
         elif it['en'] == 'Mashawi Family Box': L.append(w_item('family', it, FAMILY_W, 'fam'))
@@ -93,8 +91,8 @@ def website_menu(kilo_block):
 
 
 # ---------------- app (English labels) ----------------
-MEALQ = "C('meal', 'Make it a meal', [['Burger only', 0], ['Meal: side + salad + drink', 3]])"
-MP = "C('side', 'Meal side', SIDES, { optional: true, when: 'meal' }), C('salad', 'Meal salad', SALADS, { optional: true, when: 'meal' }), C('drink', 'Meal drink', DRINKS, { optional: true, when: 'meal' })"
+MEALQ = "C('meal', 'Make it a combo', [['Item only', 0], ['Combo: side + drink', 3]])"
+MP = "C('side', 'Combo side', SIDES, { optional: true, when: 'meal' }), C('drink', 'Combo drink', DRINKS, { optional: true, when: 'meal' })"
 
 
 def a_item(id_, it, choices=None, tag=None):
@@ -122,16 +120,14 @@ def app_menu(kilo_block):
         L.append("  ]},")
     c = sec('burgers'); L.append(f"  {{ id: 'burgers', name: 'Burgers', ar: 'برغر', sub: {js(c['noteEn'])}, items: [")
     for it in c['items']:
-        if it['en'] == 'BCC Burger meal': L.append(a_item('bmeal', it, "[...MEAL, ...BURGER]"))
-        else: L.append(a_item({'Kafta burger': 'kburger', 'Grilled chicken burger': 'gchicken', 'Veggie burger': 'veggie'}.get(it['en'], slug(it['en'])), it, f"[{MEALQ}, ...BURGER, {MP}]"))
+        L.append(a_item({'Kafta burger': 'kburger', 'Grilled chicken burger': 'gchicken', 'Veggie burger': 'veggie'}.get(it['en'], slug(it['en'])), it, f"[{MEALQ}, ...BURGER, {MP}]"))
     L.append("  ]},")
     c = sec('kids'); L.append(f"  {{ id: 'kids', name: 'Kids', ar: 'الأولاد', sub: {js(c['noteEn'])}, items: [")
     for it in c['items']: L.append(a_item(slug(it['en']), it, KIDS_A))
     L.append("  ]},")
     c = sec('plates'); L.append(f"  {{ id: 'plates', name: 'Plates & boxes', ar: 'صحون وبوكسات', sub: {js(c['noteEn'])}, items: [")
     for it in c['items']:
-        if it['en'] == 'Kabab plate': L.append(a_item('kplate', it, "[C('protein', 'Skewers', [...PROT(2, 0.5), ['Half and half', 0]]), ...PLATE]"))
-        elif it['en'] == 'BCC mixed grill': L.append(a_item('mixed', it, "PLATE"))
+        if it.get('plate'): L.append(a_item({'BCC mixed grill': 'mixed'}.get(it['en'], slug(it['en'])), it, "PLATE"))
         elif it['en'].startswith('Farrouj meshwi'): L.append(a_item('farrouj', it, "[C('size', 'Size', [['Whole', 0], ['Half', -6]]), C('sauce', 'Sauces (pick up to two)', SAUCES, { multi: true, max: 2 }), C('mods', 'Changes', [['Extra crispy', 0], ['Extra spicy', 0], ['No pickles', 0], ['Salad instead of fries', 0]], { multi: true, optional: true })]"))
         elif it['en'] == 'Farrouj msa7ab': L.append(a_item('msahab', it, "[C('sauce', 'Sauces (pick up to two)', SAUCES, { multi: true, max: 2 }), C('salad', 'Salad', SALADS), C('mods', 'Changes', [['Extra crispy', 0], ['Extra spicy', 0], ['No pickles', 0], ['Salad instead of fries', 0]], { multi: true, optional: true })]"))
         elif it['en'] == 'Mashawi Family Box': L.append(a_item('family', it, FAMILY_A, 'Every day'))

@@ -67,8 +67,8 @@
    "id": "charcoal",
    "en": "Charcoal grilled sandwiches",
    "ar": "سندويشات مشوية على الفحم",
-   "noteEn": "Lebanese bread · pick 2 sauces",
-   "noteAr": "خبز عربي · اختار صوصين",
+   "noteEn": "Lebanese bread · biwaz with meats, toum with chicken · changes are free · combo +$3",
+   "noteAr": "خبز عربي · بيواز مع اللحمة، توم مع الدجاج · التعديلات ببلاش · كومبو +$3",
    "items": [
     {
      "en": "Kafta",
@@ -135,8 +135,8 @@
    "id": "snack",
    "en": "Snack sandwiches",
    "ar": "سندويشات سناك",
-   "noteEn": "Lebanese snack-shop classics",
-   "noteAr": "كلاسيكيات السناك اللبناني",
+   "noteEn": "Lebanese snack-shop classics · combo +$3",
+   "noteAr": "كلاسيكيات السناك اللبناني · كومبو +$3",
    "items": [
     {
      "en": "Basterma",
@@ -185,16 +185,9 @@
    "id": "burgers",
    "en": "Burgers",
    "ar": "برغر",
-   "noteEn": "Cooked through on the flat saj · make it a meal +$3",
-   "noteAr": "مستوي منيح ع الصاج · عملها وجبة <bdi dir=\"ltr\">+$3</bdi>",
+   "noteEn": "Cooked through on the flat saj · combo +$3 (side + drink)",
+   "noteAr": "مستوي منيح ع الصاج · كومبو +$3 (جانبي + مشروب)",
    "items": [
-    {
-     "en": "BCC Burger meal",
-     "ar": "وجبة برغر BCC",
-     "price": 9,
-     "subEn": "the BCC Burger with a side, a salad and a drink",
-     "subAr": "برغر BCC مع طبق جانبي وسلطة ومشروب"
-    },
     {
      "en": "Kafta burger",
      "ar": "برغر كفتة",
@@ -255,23 +248,56 @@
    "id": "plates",
    "en": "Plates & boxes",
    "ar": "صحون وبوكسات",
-   "noteEn": "Every plate: your side (fries, rice, batata harra, hummus), your salad, hummus, bread",
-   "noteAr": "كل صحن: طبق جانبي ع ذوقك (بطاطا، رز، بطاطا حرّة، حمص)، سلطة، حمص، خبز",
+   "noteEn": "Every plate: 2 skewers, bread, biwaz or toum, and your choice of 2 sides (fries, rice, batata harra, hummus, coleslaw, fattoush, tabbouleh). Drinks separate.",
+   "noteAr": "كل صحن: سيخين، خبز، بيواز أو توم، واختار طبقين جانبيين (بطاطا، رز، بطاطا حرّة، حمص، كول سلو، فتوش، تبولة). المشروبات لحال.",
    "items": [
     {
-     "en": "Kabab plate",
-     "ar": "صحن كباب",
+     "en": "Kafta plate",
+     "ar": "صحن كفتة",
      "price": 9,
-     "subEn": "three skewers of your choice · lamb +$2",
-     "subAr": "٣ سياخ ع ذوقك · لحمة غنم +٢$",
-     "pick": true
+     "subEn": "2 kafta skewers, bread, biwaz, 2 sides",
+     "subAr": "سيخين كفتة، خبز، بيواز، طبقين",
+     "plate": true
+    },
+    {
+     "en": "Shish taouk plate",
+     "ar": "صحن شيش طاووق",
+     "price": 9,
+     "subEn": "2 taouk skewers, bread, toum, 2 sides",
+     "subAr": "سيخين طاووق، خبز، توم، طبقين",
+     "plate": true
+    },
+    {
+     "en": "Djej meshwi plate",
+     "ar": "صحن دجاج مشوي",
+     "price": 9,
+     "subEn": "grilled chicken, bread, toum, 2 sides",
+     "subAr": "دجاج مشوي، خبز، توم، طبقين",
+     "plate": true
+    },
+    {
+     "en": "Lahmeh shi2af plate",
+     "ar": "صحن لحمة شقف",
+     "price": 11,
+     "subEn": "2 beef skewers, bread, biwaz, 2 sides",
+     "subAr": "سيخين لحمة بقر، خبز، بيواز، طبقين",
+     "plate": true
+    },
+    {
+     "en": "Lamb kabab plate",
+     "ar": "صحن كباب لحمة",
+     "price": 11,
+     "subEn": "2 lamb skewers, bread, biwaz, 2 sides",
+     "subAr": "سيخين غنم، خبز، بيواز، طبقين",
+     "plate": true
     },
     {
      "en": "BCC mixed grill",
      "ar": "مشاوي BCC",
      "price": 12,
-     "subEn": "kafta, lamb and taouk together",
-     "subAr": "كفتة ولحمة وطاووق سوا"
+     "subEn": "kafta, lamb and taouk skewers, bread, biwaz & toum, 2 sides",
+     "subAr": "سيخ كفتة ولحمة وطاووق، خبز، بيواز وتوم، طبقين",
+     "plate": true
     },
     {
      "en": "Farrouj meshwi 3al fa7m",
@@ -429,14 +455,14 @@
     {
      "en": "Soft drink",
      "ar": "مشروب غازي",
-     "price": 1.5,
+     "price": 2,
      "subEn": "Pepsi, 7Up, Mirinda, Diet Pepsi",
      "subAr": "بيبسي، سفن أب، ميرندا، دايت بيبسي"
     },
     {
      "en": "Water",
      "ar": "مي",
-     "price": 1,
+     "price": 1.5,
      "subEn": "bottled water",
      "subAr": "مي معدنية"
     },
@@ -482,23 +508,23 @@
   "sundayAr": "أحد الكيلو · كيلو مشكّل <bdi dir=\"ltr\">$33</bdi> مع كل شي"
  },
  "meal": {
-  "titleEn": "Make it a meal · +$3",
-  "titleAr": "عملها وجبة · +$3",
-  "textEn": "Any sandwich or burger + a side + a salad + a drink. Sides: fries, batata harra, rice, hummus, coleslaw. Salads: fattoush, tabbouleh, coleslaw, biwaz. Changes are free — no onion, sauce on the side, extra spicy.",
-  "textAr": "أي سندويش أو برغر + طبق جانبي + سلطة + مشروب. الجانبي: بطاطا، بطاطا حرّة، رز، حمص، كول سلو. السلطات: فتوش، تبولة، كول سلو، بيواز. التعديلات ببلاش — بلا بصل، الصوص ع جنب، حار زيادة."
+  "titleEn": "Make it a combo · +$3",
+  "titleAr": "عملها كومبو · +$3",
+  "textEn": "Any sandwich or burger + one side + one drink. Sides: fries, rice, batata harra, hummus, coleslaw, fattoush, tabbouleh. Extra sides at menu price. Changes are free — no onion, sauce on the side, extra spicy.",
+  "textAr": "أي سندويش أو برغر + طبق جانبي + مشروب. الجانبي: بطاطا، رز، بطاطا حرّة، حمص، كول سلو، فتوش، تبولة. أي طبق زيادة بسعر المنيو. التعديلات ببلاش — بلا بصل، الصوص ع جنب، حار زيادة."
  },
  "order": {
   "titleEn": "How to order",
   "titleAr": "كيف تطلب",
   "stepsEn": [
    "Scan the QR or WhatsApp 81 461 188 — or order at the counter",
-   "Pick your items; where you see ▸ choose your protein, bread and sauces",
+   "Pick your items; where you see ▸ choose your protein. Combos: pick a side and a drink",
    "We confirm your order and message you the time",
    "Take away, or delivery across the area — pin your door on the map"
   ],
   "stepsAr": [
    "امسح الـ QR أو واتساب 81 461 188 — أو اطلب ع الكاونتر",
-   "اختار أصنافك؛ وين ما شفت ▸ اختار البروتين والخبز والصوص",
+   "اختار أصنافك؛ وين ما شفت ▸ اختار البروتين. الكومبو: اختار جانبي ومشروب",
    "منأكّد طلبك ومنبعتلك الوقت",
    "تيك أواي، أو توصيل لكل المنطقة — حطّ الدبّوس ع بابك ع الخريطة"
   ]
@@ -506,14 +532,13 @@
  "proteins": {
   "titleEn": "Pick your protein",
   "titleAr": "اختار البروتين",
-  "introEn": "Anywhere you see ▸ you choose one of these. Sandwich / plate upcharge shown.",
-  "introAr": "وين ما شفت ▸ بتختار واحد من هول. الزيادة للسندويش / الصحن مكتوبة.",
+  "introEn": "Anywhere you see ▸ you choose one of these. Upcharge shown.",
+  "introAr": "وين ما شفت ▸ بتختار واحد من هول. الزيادة مكتوبة.",
   "items": [
    {
     "en": "Kafta",
     "ar": "كفتة",
     "up": [
-     0,
      0
     ]
    },
@@ -521,7 +546,6 @@
     "en": "Shish taouk",
     "ar": "شيش طاووق",
     "up": [
-     0,
      0
     ]
    },
@@ -529,7 +553,6 @@
     "en": "Djej meshwi",
     "ar": "دجاج مشوي",
     "up": [
-     0,
      0
     ]
    },
@@ -537,7 +560,6 @@
     "en": "Kabab orfali",
     "ar": "كباب أورفلي",
     "up": [
-     0.5,
      0.5
     ]
    },
@@ -545,16 +567,14 @@
     "en": "Lahmeh shi2af (beef)",
     "ar": "لحمة شقف",
     "up": [
-     1,
-     2
+     1
     ]
    },
    {
     "en": "Lamb kabab",
     "ar": "كباب لحمة",
     "up": [
-     1,
-     2
+     1
     ]
    }
   ]
