@@ -1,0 +1,68 @@
+<!doctype html><html lang="en" dir="ltr"><head><meta charset="utf-8"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Alexandria:wght@400;500;700;900&family=Rubik:wght@400;500;600;700&display=swap"><style>
+*{box-sizing:border-box} body{margin:0;background:#F4F3EE;color:#2E2E30;font-family:Rubik,'Helvetica Neue',Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.disp{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-.03em}
+.ar{font-family:Alexandria,Rubik,sans-serif;direction:rtl}
+[dir=rtl] .disp{font-family:Alexandria,sans-serif;font-weight:900;letter-spacing:0}
+[dir=rtl] body, [dir=rtl]{font-family:Alexandria,Rubik,sans-serif}
+.pill{display:inline-block;background:#8DC63F;color:#2E2E30;border-radius:999px;padding:.12em .55em;font-weight:800}
+.tag{display:inline-block;font-size:.62em;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:.15em .5em;vertical-align:middle;margin-inline-start:.4em}
+.tag.new{background:#8DC63F;color:#2E2E30}
+.pick{color:#3f7d1c;font-weight:900;margin-inline-end:.25em}
+.panel{background:#fff;border-radius:12px;padding:.7em .9em;border:1px solid rgba(46,46,48,.08)}
+.panel h4{margin:0 0 .35em;font-size:1.05em;display:flex;align-items:baseline;gap:.4em}
+.panel .intro{font-size:.72em;opacity:.7;margin:0 0 .4em;line-height:1.3}
+.prot{width:100%;border-collapse:collapse;font-size:.8em}
+.prot th{font-weight:600;text-align:end;font-size:.85em;opacity:.65;padding:0 0 .2em}
+.prot th:first-child{text-align:start}
+.prot td{padding:.18em 0;border-top:1px solid rgba(46,46,48,.08)}
+.prot td.u{text-align:end;font-weight:700;color:#3f7d1c;white-space:nowrap}
+.adds{columns:2;column-gap:1em;font-size:.8em}
+.adds div{display:flex;justify-content:space-between;gap:.5em;padding:.15em 0;break-inside:avoid;border-bottom:1px solid rgba(46,46,48,.08)}
+.adds div b{color:#3f7d1c;font-weight:700;white-space:nowrap}
+.steps{counter-reset:s;list-style:none;margin:0;padding:0;font-size:.8em;line-height:1.3}
+.steps li{display:flex;gap:.5em;padding:.2em 0}
+.steps li::before{counter-increment:s;content:counter(s);flex:none;width:1.5em;height:1.5em;border-radius:999px;background:#8DC63F;color:#2E2E30;font-weight:800;display:inline-flex;align-items:center;justify-content:center;font-size:.9em} .tag.vg{background:transparent;color:#3f7d1c;border:1.5px solid #3f7d1c}
+[dir=rtl] .tag{letter-spacing:0;text-transform:none}
+.sec h3{margin:0 0 .25em;font-size:1.25em;display:flex;justify-content:space-between;align-items:baseline;gap:.5em}
+.sec h3 .alt{font-size:.78em;font-weight:700;opacity:.8}
+.sec .note{font-size:.72em;opacity:.7;margin:0 0 .5em}
+.rule{height:4px;background:#8DC63F;border-radius:2px;margin:.2em 0 .55em}
+.item{display:flex;justify-content:space-between;align-items:baseline;gap:.6em;padding:.32em 0;border-bottom:1px solid rgba(46,46,48,.12)}
+.item:last-child{border-bottom:0}
+.item .n{font-weight:600;line-height:1.15}
+[dir=ltr] .alt.ar{text-align:left} .item .n .alt{display:block;font-size:.78em;font-weight:500;opacity:.75;margin-top:.1em}
+.item .n .sub{display:block;font-size:.74em;font-weight:400;opacity:.7;margin-top:.12em}
+.item .p{font-weight:800;color:#3f7d1c;white-space:nowrap;font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.02em}
+[dir=rtl] .item .p{font-family:Alexandria,sans-serif}
+.brand{display:flex;align-items:center;gap:.5em}
+.brand img{height:1.6em;width:auto;display:block}
+.brand .bcc{font-size:2.1em;line-height:1}
+.brand .grill{font-size:.78em;background:#8DC63F;color:#2E2E30;border-radius:999px;padding:.15em .55em}
+.hero{position:relative;border-radius:14px;overflow:hidden;background:#2E2E30}
+.hero img{width:100%;height:100%;object-fit:cover;display:block}
+.hero .cap{position:absolute;left:0;right:0;bottom:0;padding:.6em .7em .55em;background:linear-gradient(to top,rgba(46,46,48,.92),rgba(46,46,48,0));color:#F4F3EE}
+.hero .cap .t{font-size:1em;display:flex;justify-content:space-between;gap:.5em;align-items:baseline}
+.hero .cap .t .alt{font-size:.8em;opacity:.8}
+.hero .cap .d{font-size:.66em;opacity:.85;margin-top:.15em;line-height:1.3}
+.hero .pr{position:absolute;top:.6em;inset-inline-end:.6em;background:#8DC63F;color:#2E2E30;border-radius:999px;padding:.15em .6em;font-size:1em}
+.hero .nw{position:absolute;top:.6em;inset-inline-start:.6em;background:#F4F3EE;color:#2E2E30;border-radius:999px;padding:.15em .55em;font-size:.6em;font-weight:800;letter-spacing:.08em}
+.dark{background:#2E2E30;color:#F4F3EE} .dark .item{border-color:rgba(244,243,238,.14)} .dark .item .p{color:#8DC63F} .dark .sec .note{opacity:.65}
+.band{background:#8DC63F;color:#2E2E30;border-radius:14px;padding:.8em 1em}
+.box{background:#fff;border-radius:14px;padding:.8em 1em;border:1px solid rgba(46,46,48,.08)}
+
+body{width:1920px;height:1080px;overflow:hidden;background:#2E2E30;color:#F4F3EE}
+.board{width:1920px;height:1080px;padding:40px 60px 34px;display:flex;flex-direction:column;gap:18px}
+.head{display:flex;justify-content:space-between;align-items:center}
+.dark .item{border-color:rgba(244,243,238,.14)} .dark .item .p{color:#8DC63F}
+
+  .slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s;}
+  .slide.on{opacity:1}
+  .slide img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.04);transition:transform 9s linear}
+  .slide.on img{transform:scale(1.12)}
+  .slide .cap{position:absolute;left:0;right:0;bottom:0;padding:140px 70px 60px;background:linear-gradient(to top,rgba(46,46,48,.96),rgba(46,46,48,0));display:flex;justify-content:space-between;align-items:flex-end;gap:40px}
+  .slide .cap .n{font-size:74px;line-height:1}
+  .slide .cap .alt{font-size:36px;opacity:.8;margin-top:8px}
+  .slide .cap .d{font-size:28px;opacity:.9;margin-top:14px;max-width:1100px}
+  .slide .cap .pr{background:#8DC63F;color:#2E2E30;border-radius:999px;padding:14px 40px;font-size:56px;flex:none}
+  .top{position:absolute;top:36px;left:60px;right:60px;display:flex;justify-content:space-between;align-items:center;z-index:2}
+  .dots{position:absolute;bottom:26px;left:70px;display:flex;gap:10px;z-index:2}.dots i{width:14px;height:14px;border-radius:50%;background:rgba(244,243,238,.35)}.dots i.on{background:#8DC63F}</style></head><body><div class="top"><div class="brand"><img src="img/logo-mark-cream.png" alt=""><span class="disp bcc" style="font-family:'Bricolage Grotesque'">bcc</span><span class="disp grill" style="font-family:'Bricolage Grotesque'">grill</span></div><div class="disp" style="font-size:34px">WhatsApp · <bdi dir="ltr">81 461 188</bdi></div></div><div class="slide on"><img src="img/bcc_burger.jpg" alt=""><div class="cap"><div><div class="disp n">The BCC Burger</div><div class="alt ar">برغر BCC</div><div class="d">Our classic smash burger with cheddar and the works, on a toasted brioche bun.</div></div><div class="disp pr"><bdi dir="ltr">$6</bdi></div></div></div><div class="slide"><img src="img/leb_burger.jpg" alt=""><div class="cap"><div><div class="disp n">Lebanese Burger</div><div class="alt ar">برغر لبناني</div><div class="d">The Lebanese snack-shop burger — beef patty, coleslaw, pickles and fries in the bun.</div></div><div class="disp pr"><bdi dir="ltr">$7</bdi></div></div></div><div class="slide"><img src="img/smash.jpg" alt=""><div class="cap"><div><div class="disp n">BCC Kafta Smash</div><div class="alt ar">كفتة سماش</div><div class="d">Our kafta, smashed crispy on the saj with the classic fixings.</div></div><div class="disp pr"><bdi dir="ltr">$6</bdi></div></div></div><div class="slide"><img src="img/kabab_fries.jpg" alt=""><div class="cap"><div><div class="disp n">Kafta Fries</div><div class="alt ar">بطاطا كفتة</div><div class="d">Loaded fries with charcoal grilled kafta, cheese sauce and toum — or make it taouk. Large +$3.</div></div><div class="disp pr"><bdi dir="ltr">$5</bdi></div></div></div><div class="slide"><img src="img/desserts.jpg" alt=""><div class="cap"><div><div class="disp n">Dessert cups</div><div class="alt ar">كاسات حلو</div><div class="d">Made fresh every morning · ready to go</div></div><div class="disp pr">from $2.5</div></div></div><div class="slide"><img src="img/kilo.jpg" alt=""><div class="cap"><div><div class="disp n">Mashawi by the kilo</div><div class="alt ar">مشاوي بالكيلو</div><div class="d">Grilled now, or raw to grill at home · order by 6 pm</div></div><div class="disp pr">from $19</div></div></div><div class="dots"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div><script>const s=[...document.querySelectorAll('.slide')],d=[...document.querySelectorAll('.dots i')];let i=0;setInterval(()=>{s[i].classList.remove('on');d[i].classList.remove('on');i=(i+1)%s.length;s[i].classList.add('on');d[i].classList.add('on');},8000);</script></body></html>

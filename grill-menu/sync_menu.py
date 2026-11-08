@@ -187,5 +187,11 @@ if '--no-render' not in sys.argv:
                  ('tv_bi.png', 'BCC-Grill-TV-Board.png'), ('tv_en.png', 'BCC-Grill-TV-Board-EN.png'), ('tv_ar.png', 'BCC-Grill-TV-Board-AR.png'),
                  ('phone_bi.png', 'BCC-Grill-Menu-Phone.png'), ('phone_ar.png', 'BCC-Grill-Menu-Phone-AR.png')]:
         shutil.copy(out / a, dst / b)
-    print('rendered → docs/grill/menu/')
+    # TV screens: live pages + stills
+    sc = REPO / 'docs/grill/screens'; (sc / 'img').mkdir(parents=True, exist_ok=True)
+    for f in (ROOT / 'img').glob('*.*'): shutil.copy(f, sc / 'img' / f.name)
+    for n, dst_name in [('screen1_menu_en', '1'), ('screen2_food_en', '2'), ('screen3_how_en', '3'), ('screen1_menu_ar', '1-ar'), ('screen2_food_ar', '2-ar'), ('screen3_how_ar', '3-ar')]:
+        shutil.copy(out / f'{n}.html', sc / f'{dst_name}.html'); shutil.copy(out / f'{n}.png', dst / f'BCC-Grill-Screen-{dst_name}.png')
+    (sc / 'index.html').write_text('<!doctype html><meta charset="utf-8"><title>BCC Grill screens</title><body style="font-family:sans-serif;background:#2E2E30;color:#F4F3EE;padding:40px"><h1>BCC Grill — TV screens</h1><p>Open one per screen, full-screen (F11 / kiosk mode). They update automatically with every menu change.</p><ul style="font-size:22px;line-height:2"><li><a style="color:#8DC63F" href="1.html">Screen 1 · Menu</a> · <a style="color:#8DC63F" href="1-ar.html">عربي</a></li><li><a style="color:#8DC63F" href="2.html">Screen 2 · Food slideshow</a> · <a style="color:#8DC63F" href="2-ar.html">عربي</a></li><li><a style="color:#8DC63F" href="3.html">Screen 3 · How to order</a> · <a style="color:#8DC63F" href="3-ar.html">عربي</a></li><li><a style="color:#8DC63F" href="../menu/BCC-Grill-TV-Board.png">Single-screen board (PNG)</a></li></ul></body>', encoding='utf-8')
+    print('rendered → docs/grill/menu/ and docs/grill/screens/')
 print('done — commit & push, then publish grill-menu/app-orders.html to the ordering-app artifact')

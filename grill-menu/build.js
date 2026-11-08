@@ -238,6 +238,96 @@ function bagCard(lang) {
 }
 W('card_en.html', bagCard('en')); W('card_ar.html', bagCard('ar'));
 
+
+/* ---------- 3-SCREEN SET (1920x1080 each): menu / food slideshow / how to order ---------- */
+const sec = id => M.sections.find(x => x.id === id);
+const TVCSS = BASE_CSS + `
+body{width:1920px;height:1080px;overflow:hidden;background:${CH};color:${CREAM}}
+.board{width:1920px;height:1080px;padding:40px 60px 34px;display:flex;flex-direction:column;gap:18px}
+.head{display:flex;justify-content:space-between;align-items:center}
+.dark .item{border-color:rgba(244,243,238,.14)} .dark .item .p{color:${LIME}}
+`;
+function tvHead(lang, right) {
+  const B = M.brand;
+  return `<div class="head"><div>${brandMark(lang, true)}<div class="${lang === 'ar' ? '' : 'ar'}" style="font-size:16px;font-weight:700;margin-top:6px;opacity:.85">${B.arLine} · ${B.takeawayAr}</div></div><div style="text-align:end">${right}</div></div>`;
+}
+/* Screen 1 — menu only, big type, highlight sweep */
+function tvMenu(lang, bilingual) {
+  const dir = lang === 'ar' ? 'rtl' : 'ltr'; const B = M.brand;
+  const css = TVCSS + `
+  .board{font-size:20px;gap:14px}
+  .cols{display:grid;grid-template-columns:repeat(6,1fr);gap:22px;flex:1}
+  .sec{border-radius:16px;padding:10px 12px;margin:-10px -12px 10px;transition:background .8s}
+  .sec.hl{background:rgba(141,198,63,.12)}
+  .sec h3{font-size:25px} .sec .note{font-size:14px} .item{padding:4px 0} .item .n .sub{display:none} .item .n .alt{font-size:.72em}
+  .rule{margin:3px 0 6px}
+  .heroes{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .heroes .hero{height:130px;font-size:21px} .hero .cap .d{display:none}
+  .band{font-size:20px;padding:12px 22px;border-radius:16px}`;
+  const cols = [
+    section(sec('charcoal'), lang, bilingual),
+    section(sec('snack'), lang, bilingual) + section(sec('kids'), lang, bilingual),
+    section(sec('burgers'), lang, bilingual) + section(sec('lean'), lang, bilingual),
+    section(sec('plates'), lang, bilingual, { noSub: true }),
+    section(sec('sides'), lang, bilingual),
+    section(sec('desserts'), lang, bilingual) + section(sec('drinks'), lang, bilingual),
+  ];
+  const js = `<script>const secs=[...document.querySelectorAll('.sec')];let i=0;setInterval(()=>{secs.forEach(s=>s.classList.remove('hl'));secs[i%secs.length].classList.add('hl');i++;},6000);</script>`;
+  return `<!doctype html><html lang="${lang}" dir="${dir}"><head><meta charset="utf-8">${FONTS}<style>${css}</style></head><body class="dark"><div class="board dark">${tvHead(lang, `<div class="disp" style="font-size:40px">WhatsApp · <bdi dir="ltr">${B.phone}</bdi></div><div style="font-size:16px;opacity:.7;margin-top:4px">${t(B, 'prices', lang)} · ${lang === 'ar' ? 'شاشة ١ من ٣ · المنيو' : 'Screen 1 of 3 · Menu'}</div>`)}<div class="heroes">${M.signatures.map(s => hero(s, lang, bilingual)).join('')}</div><div class="cols">${cols.map(c => `<div>${c}</div>`).join('')}</div>${kiloBand(lang, bilingual, true)}</div>${js}</body></html>`;
+}
+/* Screen 2 — food slideshow */
+function tvFood(lang, bilingual) {
+  const dir = lang === 'ar' ? 'rtl' : 'ltr'; const B = M.brand;
+  const slides = [...M.signatures.map(s => ({ img: 'img/' + s.photo, en: s.en, ar: s.ar, dEn: s.descEn, dAr: s.descAr, price: price(s.price) })),
+    { img: 'img/desserts.jpg', en: sec('desserts').en, ar: sec('desserts').ar, dEn: 'Made fresh every morning · ready to go', dAr: 'بتنعمل كل صباح · جاهزة', price: lang === 'ar' ? 'من $2.5' : 'from $2.5' },
+    { img: 'img/kilo.jpg', en: M.kilo.en, ar: M.kilo.ar, dEn: 'Grilled now, or raw to grill at home · order by 6 pm', dAr: 'مشوية هلق أو نيّة لتشويها بالبيت · اطلب قبل الـ٦', price: lang === 'ar' ? 'من $19' : 'from $19' }];
+  const css = TVCSS + `
+  .slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s;}
+  .slide.on{opacity:1}
+  .slide img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.04);transition:transform 9s linear}
+  .slide.on img{transform:scale(1.12)}
+  .slide .cap{position:absolute;left:0;right:0;bottom:0;padding:140px 70px 60px;background:linear-gradient(to top,rgba(46,46,48,.96),rgba(46,46,48,0));display:flex;justify-content:space-between;align-items:flex-end;gap:40px}
+  .slide .cap .n{font-size:74px;line-height:1}
+  .slide .cap .alt{font-size:36px;opacity:.8;margin-top:8px}
+  .slide .cap .d{font-size:28px;opacity:.9;margin-top:14px;max-width:1100px}
+  .slide .cap .pr{background:${LIME};color:${CH};border-radius:999px;padding:14px 40px;font-size:56px;flex:none}
+  .top{position:absolute;top:36px;left:60px;right:60px;display:flex;justify-content:space-between;align-items:center;z-index:2}
+  .dots{position:absolute;bottom:26px;left:70px;display:flex;gap:10px;z-index:2}.dots i{width:14px;height:14px;border-radius:50%;background:rgba(244,243,238,.35)}.dots i.on{background:${LIME}}`;
+  const html = slides.map((x, k) => `<div class="slide${k === 0 ? ' on' : ''}"><img src="${x.img}" alt=""><div class="cap"><div><div class="disp n">${lang === 'ar' ? x.ar : x.en}</div>${bilingual ? `<div class="alt ${lang === 'ar' ? '' : 'ar'}">${lang === 'ar' ? x.en : x.ar}</div>` : ''}<div class="d">${(lang === 'ar' ? x.dAr : x.dEn) || ''}</div></div><div class="disp pr">${x.price}</div></div></div>`).join('');
+  const js = `<script>const s=[...document.querySelectorAll('.slide')],d=[...document.querySelectorAll('.dots i')];let i=0;setInterval(()=>{s[i].classList.remove('on');d[i].classList.remove('on');i=(i+1)%s.length;s[i].classList.add('on');d[i].classList.add('on');},8000);</script>`;
+  return `<!doctype html><html lang="${lang}" dir="${dir}"><head><meta charset="utf-8">${FONTS}<style>${css}</style></head><body><div class="top">${brandMark(lang, true)}<div class="disp" style="font-size:34px">WhatsApp · <bdi dir="ltr">${B.phone}</bdi></div></div>${html}<div class="dots">${slides.map((_, k) => `<i class="${k === 0 ? 'on' : ''}"></i>`).join('')}</div>${js}</body></html>`;
+}
+/* Screen 3 — how to order */
+function tvHow(lang, bilingual) {
+  const dir = lang === 'ar' ? 'rtl' : 'ltr'; const B = M.brand, P = M.proteins, A = M.addons, O = M.order, R = M.rewards;
+  const up = v => v ? `<bdi dir="ltr">+$${v}</bdi>` : '—';
+  const css = TVCSS + `
+  .board{font-size:24px}
+  .grid{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:24px;flex:1}
+  .panel{background:rgba(244,243,238,.06);border:1px solid rgba(244,243,238,.14);border-radius:20px;padding:22px 26px}
+  .panel h4{margin:0 0 10px;font-size:34px;display:flex;align-items:center;gap:12px}
+  .panel .intro{font-size:19px;opacity:.75;margin:0 0 14px;line-height:1.3}
+  .prot{width:100%;border-collapse:collapse;font-size:24px}.prot td{padding:9px 0;border-top:1px solid rgba(244,243,238,.12)}.prot td.u{text-align:end;font-weight:800;color:${LIME}}
+  .adds{columns:2;column-gap:26px;font-size:22px}.adds div{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid rgba(244,243,238,.12);break-inside:avoid}.adds b{color:${LIME}}
+  .steps{list-style:none;margin:0;padding:0;counter-reset:s;font-size:24px;line-height:1.3}.steps li{display:flex;gap:14px;padding:10px 0}.steps li::before{counter-increment:s;content:counter(s);flex:none;width:1.5em;height:1.5em;border-radius:999px;background:${LIME};color:${CH};font-weight:800;display:inline-flex;align-items:center;justify-content:center}
+  .pick{color:${LIME};font-weight:900}
+  .qr{display:flex;gap:22px;align-items:center;margin-top:16px}.qr img{width:170px;height:170px;background:#fff;border-radius:16px;padding:10px}
+  .big{font-size:21px;line-height:1.35;opacity:.9}`;
+  const L = lang;
+  const protPanel = `<div class="panel"><h4 class="disp"><span class="pick">▸</span>${t(P, 'title', L)}</h4><p class="intro">${L === 'ar' ? 'للـ Kafta Fries، سلطة مع بروتين، لفّة الخس. الزيادة مكتوبة.' : 'For Kafta Fries, Salad & protein and the Lettuce wrap. Upcharge shown.'}</p><table class="prot">${P.items.map(x => `<tr><td>${L === 'ar' ? x.ar : x.en}</td><td class="u">${up(x.up[0])}</td></tr>`).join('')}</table>
+    <h4 class="disp" style="margin-top:22px">${t(M.meal, 'title', L)}</h4><div class="big">${t(M.meal, 'text', L)}</div></div>`;
+  const platesPanel = `<div class="panel"><h4 class="disp">${L === 'ar' ? 'الصحون' : 'Plates'}</h4><div class="big">${t(sec('plates'), 'note', L)}</div>
+    <h4 class="disp" style="margin-top:22px">${t(A, 'title', L)}</h4><div class="adds">${A.items.map(x => `<div><span>${L === 'ar' ? x.ar : x.en}</span><b><bdi dir="ltr">+$${x.price}</bdi></b></div>`).join('')}</div></div>`;
+  const steps = L === 'ar' ? O.stepsAr : O.stepsEn;
+  const orderPanel = `<div class="panel"><h4 class="disp">${t(O, 'title', L)}</h4><ol class="steps">${steps.map(x => `<li><span>${x}</span></li>`).join('')}</ol>
+    <h4 class="disp" style="margin-top:18px">${t(R, 'title', L)}</h4><div class="big">${t(R, 'text', L)}</div>
+    <div class="qr"><img src="img/qr.png" alt="QR"><div><div class="disp" style="font-size:34px">${L === 'ar' ? 'امسح واطلب' : 'Scan to order'}</div><div class="big">${B.web}<br>WhatsApp <bdi dir="ltr">${B.phone}</bdi> · Instagram ${B.instagram}</div></div></div></div>`;
+  return `<!doctype html><html lang="${L}" dir="${dir}"><head><meta charset="utf-8">${FONTS}<style>${css}</style></head><body class="dark"><div class="board dark">${tvHead(L, `<div class="disp" style="font-size:40px">${L === 'ar' ? 'كيف تطلب' : 'How to order'}</div><div style="font-size:16px;opacity:.7;margin-top:4px">${L === 'ar' ? 'شاشة ٣ من ٣' : 'Screen 3 of 3'}</div>`)}<div class="grid">${protPanel}${platesPanel}${orderPanel}</div></div></body></html>`;
+}
+for (const [l, bi] of [['en', true], ['ar', false]]) {
+  W(`screen1_menu_${l}.html`, tvMenu(l, bi)); W(`screen2_food_${l}.html`, tvFood(l, bi)); W(`screen3_how_${l}.html`, tvHow(l, bi));
+}
+
 // img symlink for out/
 try { fs.symlinkSync(path.join(__dirname, 'img'), path.join(OUT, 'img')); } catch (e) {}
 console.log('built');

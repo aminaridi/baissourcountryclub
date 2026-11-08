@@ -20,6 +20,11 @@ const { chromium } = require('playwright'); const path=require('path');
     await p.goto(f(n+'.html'),{waitUntil:'networkidle'}); await p.waitForTimeout(1500);
     await p.screenshot({path:`out/${n}.png`}); await p.close();
   }
+  for (const n of ['screen1_menu_en','screen1_menu_ar','screen2_food_en','screen2_food_ar','screen3_how_en','screen3_how_ar']) {
+    const p=await b.newPage({viewport:{width:1920,height:1080},deviceScaleFactor:1});
+    await p.goto(f(n+'.html'),{waitUntil:'networkidle'}); await p.waitForTimeout(1500);
+    await p.screenshot({path:`out/${n}.png`}); await p.close();
+  }
   for (const n of ['phone_bi','phone_ar']) {
     const p=await b.newPage({viewport:{width:1080,height:1920},deviceScaleFactor:1});
     await p.goto(f(n+'.html'),{waitUntil:'networkidle'}); await p.waitForTimeout(1500);
